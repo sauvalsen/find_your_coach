@@ -6,7 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SportRepository")
- * @ORM\HasLifecycleCallbacks
  */
 class Sport
 {
@@ -27,20 +26,10 @@ class Sport
      */
     private $created_at;
 
-    public function __construct(){
-        $this->created_at = new \DateTime;
-    }
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $modified_at;
-
-    /**
-     * @ORM\PreUpdate
-     */
-    public function preUpdate(){
-        $this->modified_at = new \DateTime;
-    }
 
     public function getId(): ?int
     {
