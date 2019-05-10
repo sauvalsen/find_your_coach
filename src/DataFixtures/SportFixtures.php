@@ -40,6 +40,10 @@ class SportFixtures extends Fixture
         $sport7->setSport('Karaté');
         $manager->persist($sport7);
 
+        $sport8 = new Sport();
+        $sport8->setSport('Karaté2');
+        $manager->persist($sport8);
+
         $manager->flush();
     }
 }
