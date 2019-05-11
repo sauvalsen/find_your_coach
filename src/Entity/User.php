@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class User implements UserInterface
+class User implements UserInterface,\Serializable
 {
     /**
      * @ORM\Id()
@@ -230,8 +230,8 @@ class User implements UserInterface
      * @see UserInterface
      */
     public function getSalt()
-    {
-        // not needed when using the "bcrypt" algorithm in security.yaml
+    {   
+        return null;
     }
 
     /**
@@ -239,8 +239,26 @@ class User implements UserInterface
      */
     public function eraseCredentials()
     {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+    }
+
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->email,
+            $this->password,
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->email,
+            $this->password,
+            ) = unserialize($serialized, ['allowed_classes' => false]);
     }
 
     public function getToken(): ?string

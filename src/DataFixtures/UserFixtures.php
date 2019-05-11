@@ -5,15 +5,29 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\User;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserFixtures extends Fixture
 {
+     private $passwordEncoder;
+
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $this->passwordEncoder = $passwordEncoder;
+    }
+
     public function load(ObjectManager $manager)
     {
+        $dev = new User();
+        $dev->setEmail('dev@mail.fr');
+        $dev->setRoles(array('ROLE_SUPER_ADMIN'));
+        $dev->setPassword($this->passwordEncoder->encodePassword($dev, 'dev'));
+        $manager->persist($dev);
+
         $user1 = new User();
         $user1->setEmail('user1@mail.fr');
         $user1->setRoles(array('ROLE_USER'));
-        $user1->setPassword('password');
+        $user1->setPassword($this->passwordEncoder->encodePassword($user1, 'password'));
         $user1->setNom('Pierre');
         $user1->setPrenom('Pierrot');
         $user1->setAdresse('11 rue Du General');
@@ -30,7 +44,7 @@ class UserFixtures extends Fixture
         $user2 = new User();
         $user2->setEmail('user2@mail.fr');
         $user2->setRoles(array('ROLE_USER'));
-        $user2->setPassword('password');
+        $user2->setPassword($this->passwordEncoder->encodePassword($user2, 'password'));
         $user2->setNom('PetitPont');
         $user2->setPrenom('Roger');
         $user2->setAdresse('11 rue Pichon');
@@ -47,7 +61,7 @@ class UserFixtures extends Fixture
         $user3 = new User();
         $user3->setEmail('user3@mail.fr');
         $user3->setRoles(array('ROLE_USER'));
-        $user3->setPassword('password');
+        $user3->setPassword($this->passwordEncoder->encodePassword($user3, 'password'));
         $user3->setNom('Clement');
         $user3->setPrenom('Maxime');
         $user3->setAdresse('32 avenue Raton');
@@ -64,7 +78,7 @@ class UserFixtures extends Fixture
         $user4 = new User();
         $user4->setEmail('user4@mail.fr');
         $user4->setRoles(array('ROLE_USER'));
-        $user4->setPassword('password');
+        $user4->setPassword($this->passwordEncoder->encodePassword($user4, 'password'));
         $user4->setNom('Lefevre');
         $user4->setPrenom('Anne');
         $user4->setAdresse('32 avenue Raton');
@@ -81,7 +95,7 @@ class UserFixtures extends Fixture
         $user5 = new User();
         $user5->setEmail('user5@mail.fr');
         $user5->setRoles(array('ROLE_USER'));
-        $user5->setPassword('password');
+        $user5->setPassword($this->passwordEncoder->encodePassword($user5, 'password'));
         $user5->setNom('Frite');
         $user5->setPrenom('Stephane');
         $user5->setAdresse('32 avenue de la Frite');
@@ -99,7 +113,7 @@ class UserFixtures extends Fixture
         $coach= new User();
         $coach->setEmail('coach@mail.fr');
         $coach->setRoles(array('ROLE_ADMIN','ROLE_USER'));
-        $coach->setPassword('password');
+        $coach->setPassword($this->passwordEncoder->encodePassword($coach, 'password'));
         $coach->setNom('Legrand');
         $coach->setPrenom('Pierre');
         $coach->setAdresse('32 avenue du havre');
@@ -115,7 +129,7 @@ class UserFixtures extends Fixture
         $coach2= new User();
         $coach2->setEmail('coach2@mail.fr');
         $coach2->setRoles(array('ROLE_ADMIN','ROLE_USER'));
-        $coach2->setPassword('password');
+        $coach2->setPassword($this->passwordEncoder->encodePassword($coach2, 'password'));
         $coach2->setNom('Gras');
         $coach2->setPrenom('Louis');
         $coach2->setAdresse('32 avenue souris');
@@ -131,7 +145,7 @@ class UserFixtures extends Fixture
         $coach3= new User();
         $coach3->setEmail('coach3@mail.fr');
         $coach3->setRoles(array('ROLE_ADMIN','ROLE_USER'));
-        $coach3->setPassword('password');
+        $coach3->setPassword($this->passwordEncoder->encodePassword($coach3, 'password'));
         $coach3->setNom('Martin');
         $coach3->setPrenom('Claire');
         $coach3->setAdresse('32 rue des marins');
@@ -147,7 +161,7 @@ class UserFixtures extends Fixture
         $coach4= new User();
         $coach4->setEmail('coach4@mail.fr');
         $coach4->setRoles(array('ROLE_ADMIN','ROLE_USER'));
-        $coach4->setPassword('password');
+        $coach4->setPassword($this->passwordEncoder->encodePassword($coach4, 'password'));
         $coach4->setNom('Quidel');
         $coach4->setPrenom('Antoine');
         $coach4->setAdresse('32 rue des iris');
@@ -163,7 +177,7 @@ class UserFixtures extends Fixture
         $coach5= new User();
         $coach5->setEmail('coach5@mail.fr');
         $coach5->setRoles(array('ROLE_ADMIN','ROLE_USER'));
-        $coach5->setPassword('password');
+        $coach5->setPassword($this->passwordEncoder->encodePassword($coach5, 'password'));
         $coach5->setNom('Grandjacques');
         $coach5->setPrenom('Elise');
         $coach5->setAdresse('322 route des moulins');

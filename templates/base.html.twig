@@ -11,9 +11,15 @@
         <header>
             <nav>
                 <ul>
-                    <li><a href="{{ path('homepage') }}">Home page</a></li>
-                    <li><a href="{{ path('admin') }}">Back-office</a></li>
-
+                    <li><a href="{{ path('app_homepage') }}">Page d'accueil</a></li>
+                    {% if is_granted('ROLE_SUPER_ADMIN') %}
+                        <li><a href="{{ path('app_admin') }}">Back-office</a></li>
+                    {% endif %}
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li><a href="{{ path('app_logout') }}">Deconnexion</a></li>
+                    {% else %}
+                        <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </header>
