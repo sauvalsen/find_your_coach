@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -20,6 +21,8 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank
+     * @Assert\Email(message = "Votre email : '{{ value }}' n'est pas une adresse valide.")
      */
     private $email;
 
@@ -31,6 +34,13 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 180,
+     *      minMessage = "Un minimum de {{ limit }} caractères est requis.",
+     *      maxMessage = "Un maximum de {{ limit }} caractères est requis."
+     * )
      */
     private $password;
 
@@ -41,41 +51,79 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 180,
+     *      minMessage = "Un minimum de {{ limit }} caractères est requis.",
+     *      maxMessage = "Un maximum de {{ limit }} caractères est requis."
+     * )
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 180,
+     *      minMessage = "Un minimum de {{ limit }} caractères est requis.",
+     *      maxMessage = "Un maximum de {{ limit }} caractères est requis."
+     * )
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(
+     *      min = 5,
+     *      max = 180,
+     *      minMessage = "Un minimum de {{ limit }} caractères est requis.",
+     *      maxMessage = "Un maximum de {{ limit }} caractères est requis."
+     * )
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\Regex("/^[0-9]{5}$/")
      */
     private $code_postal;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 180,
+     *      minMessage = "Un minimum de {{ limit }} caractères est requis.",
+     *      maxMessage = "Un maximum de {{ limit }} caractères est requis."
+     * )
      */
     private $ville;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Regex("/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}/")
      */
     private $tel;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 180,
+     *      minMessage = "Un minimum de {{ limit }} caractères est requis.",
+     *      maxMessage = "Un maximum de {{ limit }} caractères est requis."
+     * )
      */
     private $diplome;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 180,
+     *      minMessage = "Un minimum de {{ limit }} caractères est requis.",
+     *      maxMessage = "Un maximum de {{ limit }} caractères est requis."
+     * )
      */
     private $description;
 
@@ -86,11 +134,13 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Choice({"homme", "femme"})
      */
     private $sexe;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Choice({"debutant", "intermediaire", "confirme"})
      */
     private $niveau;
 
