@@ -6,6 +6,7 @@ use App\Entity\Calendrier;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class CalendrierType extends AbstractType
 {
@@ -17,7 +18,7 @@ class CalendrierType extends AbstractType
             ->add('id_coach')
             ->add('id_sportif')
             ->add('titre')
-       
+            ->add('submit', SubmitType::class)
         ;
     }
 
