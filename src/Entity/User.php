@@ -3,12 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ORM\HasLifecycleCallbacks
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
 class User implements UserInterface,\Serializable
 {
@@ -34,13 +36,6 @@ class User implements UserInterface,\Serializable
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
-     * @Assert\NotBlank
-     * @Assert\Length(
-     *      min = 2,
-     *      max = 180,
-     *      minMessage = "Un minimum de {{ limit }} caractères est requis.",
-     *      maxMessage = "Un maximum de {{ limit }} caractères est requis."
-     * )
      */
     private $password;
 
@@ -248,6 +243,7 @@ class User implements UserInterface,\Serializable
             $this->id,
             $this->email,
             $this->password,
+            $this->roles,
         ));
     }
 
@@ -258,6 +254,7 @@ class User implements UserInterface,\Serializable
             $this->id,
             $this->email,
             $this->password,
+            $this->roles,
             ) = unserialize($serialized, ['allowed_classes' => false]);
     }
 
