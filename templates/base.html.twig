@@ -9,15 +9,23 @@
     </head>
     <body>
         <header>
+            <li><a href="{{ path('app_homepage') }}">LOGO</a></li>
             <nav>
                 <ul>
                     <li><a href="{{ path('app_homepage') }}">Page d'accueil</a></li>
-                    {% if is_granted('ROLE_SUPER_ADMIN') %}
-                        <li><a href="{{ path('app_admin') }}">Back-office</a></li>
-                    {% endif %}
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <li><a href="{{ path('app_logout') }}">Deconnexion</a></li>
+                        {% if is_granted('ROLE_SUPER_ADMIN') %}
+                            <li><a href="{{ path('app_admin') }}">Back-office</a></li>
+                        {% endif %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li><a href="#">Gérer les réservation</a></li>
+                        {% endif %}
+                        {% if is_granted('ROLE_USER') %}
+                            <li><a href="#">Mon compte</a></li>
+                            <li><a href="{{ path('app_logout') }}">Deconnexion</a></li>
+                        {% endif %}
                     {% else %}
+                        <li><a href="{{ path('app_homepage') }}">Inscription</a></li>
                         <li><a href="{{ path('app_login') }}">Connexion</a></li>
                     {% endif %}
                 </ul>
