@@ -1,9 +1,10 @@
 {% extends 'back.html.twig' %}
 
-{% block title %}Acceuil back{% endblock %}
+{% block title %}Accueil back{% endblock %}
 
 {% block body %}
-    <h1>Acceuil back</h1>
-
-    <a href="{{ path('user_index') }}">Crud user</a>
+    <h1>Accueil back</h1>
+{% endblock %}
+{% block javascript %}
+<script src="{{ asset('asset_back/js/main.js') }}"></script>
 {% endblock %}
