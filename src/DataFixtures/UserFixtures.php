@@ -42,8 +42,8 @@ class UserFixtures extends Fixture
 
         $userweb = new User();
         $userweb->setEmail('quidelantoine@gmail.com');
-        $userweb->setName('antoine');
-        $userweb->setFirstname('quidel');
+        $userweb->setNom('antoine');
+        $userweb->setPrenom('quidel');
         $userweb->setRoles(array('ROLE_ADMIN','ROLE_USER'));
         $userweb->setPassword($this->passwordEncoder->encodePassword(
             $userweb,
