@@ -66,7 +66,7 @@ table {
     width:100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding-top:20px;
+  
 }
 
 /*header*/
@@ -76,11 +76,17 @@ header.page-header {
     background-color: var(--Couleur-principale);
 }
 .header-logo{
+    
     float:left;
     margin-left:2%;
 }
+.header-logo img{
+height:80px;
+padding-top:10px;
+}
 ul.nav.navbar {
     float:right;
+    padding-top: 40px;
 }
 .nav.navbar li a{
     float:left;
@@ -88,11 +94,12 @@ ul.nav.navbar {
     border: solid 1px darkgrey ;
     border-radius: 15px;
     margin-left: 10px;
+    padding: 5px;
 }
 
 /*section*/
 section{
-    height:300px;
+    height:10px;
     background-color: antiquewhite
 }
 
@@ -101,13 +108,10 @@ section{
 footer{
     background-color: var(--Couleur-principale);
 }
-.colone hr{
-    width:30%;
-    background-color:black;
-    height:10px;
-    
-    
+.reseaux i{
+    padding-right: 30px;
 }
+
 .colones{
     margin-left:-2%;
     height:auto;
@@ -118,10 +122,35 @@ footer{
     margin-left: 2%;
 }
 
-.copyright {
-    margin-top:20px;
-    padding-top:15px;
-    text-align: center;
-    height:50px;
+
+.logo-bas{
+    float:right;
+    padding-right: 15px;
+}
+.liens-footer li a{
+    color:black;   
+}
+
+/*bottom bar*/
+.bottom-bar {
+    width:100%;
     background-color: beige;
+    text-align: center;
+}
+.bottom-bar p{
+    padding-top: 5px;
+}
+
+.bottom-bar p span{
+    color:red;
+}
+
+ul.nav-footer{
+    padding-top: 5px;
+}
+.nav-footer li {
+    display: inline-block;
+}
+.nav-footer li a {
+    color:black;
 }

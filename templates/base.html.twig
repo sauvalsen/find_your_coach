@@ -5,6 +5,7 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="{{ asset('asset_front/css/style.css') }}" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
@@ -12,7 +13,7 @@
                                                         <!--header-->
             <header class="page-header">
                 <div class="wrap">
-                    <div class="header-logo"><a href="{{ path('app_homepage') }}">LOGO</a></li>
+                    <div class="header-logo"><a href="{{ path('app_homepage') }}"><img src="{{ asset('asset_front/img/logo_long.png') }}"></a></li>
                     </div>
                     <nav>
                         <ul class="nav navbar">   
@@ -34,9 +35,10 @@
                             {% endif %}
                         </ul>
                     </nav>
-                <div>   
+                    <div class="clear"></div>
+                </div>   
             </header>
-        {# </div> #}
+       
             <!--end wrap-->
             <section>
 
@@ -45,49 +47,34 @@
 
             <footer class="page-footer">
                 <div class="wrap">
-            <!--3 colones-->
+                    <!--3 colones-->
                     <div class="colones">
                         <div class="colone">
-                                <h3 class="titre-colone">Liens utiles</h3>
-                            <nav>
-                                <ul class="liens-footer">   
-                                    <li class="accueil"><a href="{{ path('app_homepage') }}">Page d'accueil</a></li>
-                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                        {% if is_granted('ROLE_SUPER_ADMIN') %}
-                                    <li class="back"><a href="{{ path('app_admin') }}">Back-office</a></li>
-                                        {% endif %}
-                                        {% if is_granted('ROLE_ADMIN') %}
-                                    <li class="resa"><a href="#">Gérer les réservation</a></li>
-                                        {% endif %}
-                                        {% if is_granted('ROLE_USER') %}
-                                    <li class="mon_compte"><a href="#">Mon compte</a></li>
-                                    <li><a href="{{ path('app_logout') }}">Deconnexion</a></li>
-                                        {% endif %}
-                                    {% else %}
-                                    <li class="inscription"><a href="{{ path('app_homepage') }}">Inscription</a></li>
-                                    <li class="connexion"><a href="{{ path('app_login') }}">Connexion</a></li>
-                                    {% endif %}
-                                </ul>
-                            </nav>
+                            <div class="reseaux">
+                                <i class="fab fa-instagram fa-3x"></i>
+                                <i class="fab fa-facebook-square fa-3x"></i>
+                            </div>
                         </div>
                         <div class="colone">
-                        <hr></hr>
-                                <h3 class="Apropos-colone">A propos de nous</h3>
-                                <p>e Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique</p>
-                               
+                            <h3 class="propos-colone">A propos de nous</h3>
+                            <p>e Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique</p>  
                         </div>
                         <div class="colone">
-                                <h3 class="reseaux-colone">Reseaux Sociaux</h3>
-                                <p>FB</p>
-                                <p>TWITTER</p>
-                                 <p>LOGO<p>
+                            <div class="logo-bas"><img src="{{ asset('asset_front/img/logo_court.png') }}"></div>
                         </div>
-                    </div>
                     <div class="clear"> </div>
-                 </div>   
-                    <div class="copyright">
-                        <p>© 2019 Find Your Coach.Réalisé par <span>La Frite Team</span></p>
-                    </div>    
+                </div>
+                <div class="bottom-bar">
+                    <p class="copyright">© 2019 Find Your Coach.&nbsp;Réalisé par<span> La Frite Team</span></p>
+                    <ul class="nav-footer">
+                        <li><a href="#">Mentions légales&nbsp;</a></li>
+                        <li><a href="#">Nous contacter</a></li>
+                    </ul> 
+                </div> 
+            </footer> 
+                     
+                  
+                   
                     
                 
             {% block body %}{% endblock %}
