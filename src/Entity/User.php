@@ -33,7 +33,7 @@ class User implements UserInterface,\Serializable
      */
     private $roles = [];
 
-    public $roles2;
+    private $roles2;
 
     /**
      * @var string The hashed password
