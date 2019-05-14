@@ -4,6 +4,10 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
+// MANY TO ONE pour créer un lien avec les id
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CalendrierRepository")
  * @ORM\HasLifecycleCallbacks
@@ -14,6 +18,7 @@ class Calendrier
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="find_your_coach\src\Entity\User")
      */
     private $id;
 
@@ -29,6 +34,7 @@ class Calendrier
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $id_coach;
 
@@ -39,11 +45,19 @@ class Calendrier
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank
+    * @Assert\Length(
+     * min = 2,
+     * max = 100,
+     * minMessage = "Le titre doit contenir un minimum de {{ limit }} caractères",
+     * maxMessage = "Le titre ne doit pas dépasser {{ limit }} caractères"
+     * )
      */
     private $titre;
 
     /**
      * @ORM\Column(type="datetime")
+     
      */
     private $created_at;
 
