@@ -43,7 +43,7 @@
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="{{ path('app_admin') }}">
-                            <img src="{{ asset('asset_back/img/140x100.png') }}" alt="Find Your Coach"" />
+                            <img src="{{ asset('asset_back/img/logo_long.svg') }}" alt="Find Your Coach"" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -64,6 +64,14 @@
                             <a href="{{ path('user_index') }}">
                                 Utilisateurs</a>
                         </li>
+                        <li>
+                            <a href="{{ path('calendrier_index') }}">
+                                Calendrier</a>
+                        </li>
+                        <li>
+                            <a id="retour" href="{{ path('app_homepage') }}">
+                                Retour au site</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -74,7 +82,7 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="{{ path('app_admin') }}">
-                    <img src="{{ asset('asset_back/img/140x100.png') }}" alt="Find Your Coach" />
+                    <img src="{{ asset('asset_back/img/logo_long.png') }}" alt="Find Your Coach" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
