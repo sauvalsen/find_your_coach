@@ -34,13 +34,13 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('roles', ChoiceType::class, [
+            ->add('roles2', ChoiceType::class, [
                 'choices'  => [
                     'coach' => 'ROLE_ADMIN',
                     'sportif' => 'ROLE_USER',
                 ],
                 'expanded' => true,
-                'multiple' => true,
+                'multiple' => false
             ])
             ->add('submit', SubmitType::class)
         ;

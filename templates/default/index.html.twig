@@ -5,11 +5,7 @@
 {% block body %}
     <div class="fond">
         <div class="formulaire-inscription">
-            {{ form_start(registrationForm) }}
-                {{ form_row(registrationForm.email) }}
-                {{ form_row(registrationForm.plainPassword) }}
-                {{ form_row(registrationForm.roles) }}
-            {{ form_end(registrationForm) }}
+{#            {% include 'registration/register.html.twig' %}#}
         </div>
     </div>
 {% endblock %}
