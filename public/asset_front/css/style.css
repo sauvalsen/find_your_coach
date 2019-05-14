@@ -99,11 +99,6 @@ ul.nav.navbar {
     padding: 5px;
 }
 
-/*section*/
-section{
-    height:10px;
-    background-color: antiquewhite;
-}
 /*Inscription*/
 .fond {
     background: url("../img/coureur.jpg");

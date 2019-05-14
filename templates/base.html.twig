@@ -12,7 +12,8 @@
                                                         <!--header-->
             <header class="page-header">
                 <div class="wrap">
-                    <div class="header-logo"><a href="{{ path('app_homepage') }}"><img src="{{ asset('asset_front/img/logo_long.png') }}"></a></li>
+                    <div class="header-logo">
+                        <a href="{{ path('app_homepage') }}"><img src="{{ asset('asset_front/img/logo_long.png') }}"></a>
                     </div>
                     <nav>
                         <ul class="nav navbar">   
@@ -39,8 +40,10 @@
             </header>
        
             <!--end wrap-->
+            
         {% block body %}{% endblock %}
-                                                                <!--footer-->
+
+            <!--footer-->
 
             <footer class="page-footer">
                 <div class="wrap">
@@ -59,7 +62,8 @@
                         <div class="colone">
                             <div class="logo-bas"><img src="{{ asset('asset_front/img/logo_court.png') }}"></div>
                         </div>
-                    <div class="clear"> </div>
+                    </div>
+                    <div class="clear"></div>
                 </div>
                 <div class="bottom-bar">
                     <p class="copyright">© 2019 Find Your Coach.&nbsp;Réalisé par<span> La Frite Team</span></p>
