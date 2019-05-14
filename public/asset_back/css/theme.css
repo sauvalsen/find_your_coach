@@ -251,7 +251,7 @@ section {
 }
 
 .section__content--p30 {
-    padding: 0 30px;
+    padding: 0 5px;
 }
 
 @media (max-width: 991px) {
@@ -279,7 +279,7 @@ section {
 
 .page-container {
     background: #e5e5e5;
-    padding-left: 300px;
+    padding-left: 140px;
 }
 
 @media (max-width: 991px) {
@@ -484,7 +484,6 @@ section {
 .au-btn--green:hover {
     background: #59bd60;
 }
-
 .au-btn-plus {
     position: absolute;
     height: 45px;
@@ -1179,7 +1178,7 @@ section {
     position: fixed;
     top: 0;
     right: 0;
-    left: 300px;
+    left: 150px;
     height: 75px;
     z-index: 3;
 }
@@ -1435,7 +1434,7 @@ section {
 }
 
 .account-dropdown {
-    min-width: 305px;
+    min-width: 230px;
     position: absolute;
     top: 58px;
     right: 0;
@@ -1516,7 +1515,7 @@ section {
     border-left: 9px solid transparent;
     border-right: 9px solid transparent;
     position: absolute;
-    top: -18px;
+    top: -108px;
     right: 33px;
 }
 
@@ -1567,7 +1566,7 @@ section {
 }
 
 .menu-sidebar {
-    width: 300px;
+    width: 150px;
     position: fixed;
     left: 0;
     top: 0;
@@ -1605,6 +1604,9 @@ section {
 
 .menu-sidebar .navbar__list .navbar__sub-list li a {
     padding: 11.5px 0;
+}
+#retour{
+    font-size: 10px;
 }
 
 .menu-sidebar__content {
@@ -4234,7 +4236,7 @@ section {
     font-weight: 400;
     text-transform: capitalize;
     line-height: 1;
-    padding: 22px 40px;
+    padding: 22px 10px;
     white-space: nowrap;
 }
 
@@ -4245,7 +4247,7 @@ section {
 
 .table-earning tbody td {
     color: #808080;
-    padding: 12px 40px;
+    padding: 12px 10px;
     white-space: nowrap;
 }
 
