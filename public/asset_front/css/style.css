@@ -99,12 +99,10 @@ ul.nav.navbar {
     padding: 5px;
 }
 
-<<<<<<< HEAD
 /*section*/
 section{
     height:10px;
-    background-color: antiquewhite
-=======
+    background-color: antiquewhite;
 /*Inscription*/
 .fond {
     background: url("../img/coureur.jpg");
@@ -134,22 +132,18 @@ section{
     background-color: var(--Couleur-principale);
     border: none;
     width: 100%;
->>>>>>> e908ce59e352a46827643b8eb20850ed1896d418
 }
 /*footer*/
 
 footer{
     background-color: var(--Couleur-principale);
 }
-<<<<<<< HEAD
 .reseaux i{
     padding-right: 30px;
-=======
 .colone hr{
     width:30%;
     background-color:black;
     height:10px;
->>>>>>> e908ce59e352a46827643b8eb20850ed1896d418
 }
 
 .colones{
