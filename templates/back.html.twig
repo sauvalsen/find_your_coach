@@ -43,7 +43,7 @@
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="{{ path('app_admin') }}">
-                            <img src="{{ asset('asset_back/img/logo_long.svg') }}" alt="Find Your Coach"" />
+                            <img src="{{ asset('asset_back/img/logo_long.png') }}" alt="Find Your Coach"" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -120,10 +120,11 @@
 
                             <div class="header-button">
 
-                                <div class="account-wrap posacout">
+                                <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
+
                                         <div class="image">
-                                            <img src="{{ asset('asset_back/img/avatar-03.jpg') }}" alt="John Doe" />
+                                            <img src="{{ asset('asset_back/img/avatar-03.jpg') }}" alt="Avatar de {{ app.user.nom }}" />
                                         </div>
                                         <div class="content">
                                             {{ app.user.nom }}
@@ -131,13 +132,13 @@
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
-                                                    <a href="/symfony/find_your_coach_Copie/public/admin/user/{{ app.user.id }}">
-                                                        <img src="{{ asset('asset_back/img/avatar-03.jpg') }}" alt="John Doe" />
+                                                    <a href="{{ path('user_show', {'id': app.user.id}) }}">
+                                                        <img src="{{ asset('asset_back/img/avatar-03.jpg') }}" alt="Avatar de {{ app.user.nom }}" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="/symfony/find_your_coach_Copie/public/admin/user/{{ app.user.id }}">{{ app.user.nom }}</a>
+                                                        <a href="{{ path('user_show', {'id': app.user.id}) }}">{{ app.user.nom }}</a>
                                                     </h5>
                                                     <span class="email">{{ app.user.email }}</span>
                                                 </div>
@@ -145,15 +146,15 @@
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
-                                                        <i class="zmdi zmdi-account">f</i>Account</a>
+                                                        <i class="zmdi zmdi-account">f</i>Compte</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Setting</a>
+                                                        <i class="zmdi zmdi-settings"></i>Paramètres</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
-                                                        <i class="zmdi zmdi-money-box"></i>Billing</a>
+                                                        <i class="zmdi zmdi-money-box"></i>Achats</a>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">

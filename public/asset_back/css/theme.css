@@ -285,7 +285,7 @@ section {
 @media (max-width: 991px) {
     .page-container {
         position: relative;
-        top: 88px;
+        top: 162px;
         padding-left: 0;
     }
 }
@@ -1172,9 +1172,9 @@ section {
 /* ----- Header ----- */
 .header-desktop {
     background: #f5f5f5;
-    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+    /*-webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);*/
+    /*-moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);*/
+    /*box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);*/
     position: fixed;
     top: 0;
     right: 0;
@@ -1199,9 +1199,10 @@ section {
 @media (max-width: 991px) {
     .header-desktop {
         position: relative;
-        top: 0;
+        top: -90px;
         left: 0;
-        height: 170px;
+        height: 80px;
+        background-color: transparent;
     }
 }
 
@@ -1239,11 +1240,12 @@ section {
     -moz-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    float:right;
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
     .header-wrap .account-item > .content {
-        display: none;
+
     }
 }
 
@@ -1388,6 +1390,7 @@ section {
 
 .account-wrap {
     position: relative;
+    float:right;
 }
 
 .account-item {
@@ -1437,7 +1440,7 @@ section {
     min-width: 230px;
     position: absolute;
     top: 58px;
-    right: 0;
+    right: 0px;
     background: #fff;
     -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
@@ -1447,16 +1450,13 @@ section {
     -ms-transform: scale(0);
     -o-transform: scale(0);
     transform: scale(0);
-    -webkit-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-    -webkit-transform-origin: right top;
-    -moz-transform-origin: right top;
-    -ms-transform-origin: right top;
-    -o-transform-origin: right top;
-    transform-origin: right top;
+    -webkit-transform-origin: top;
+    -moz-transform-origin: top;
+    -ms-transform-origin: top;
+    -o-transform-origin: top;
+    transform-origin: top;
     z-index: 3;
+    float:right;
 }
 
 .account-dropdown .info {
@@ -1578,7 +1578,7 @@ section {
 .menu-sidebar .logo {
     background: #f5f5f5;
     height: 75px;
-    padding: 0 35px;
+    padding-right:13px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -1649,10 +1649,11 @@ section {
     top: 0;
     left: 0;
     right: 0;
+    height:162px;
 }
 
 .header-mobile .header-mobile__bar {
-    padding: 15px 0;
+    padding: 1px 0;
 }
 
 .header-mobile .header-mobile-inner {
