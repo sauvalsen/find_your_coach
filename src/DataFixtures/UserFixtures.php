@@ -40,6 +40,17 @@ class UserFixtures extends Fixture
         $user1->setNiveau('Confirmé');
         $manager->persist($user1);
 
+        $userweb = new User();
+        $userweb->setEmail('quidelantoine@gmail.com');
+        $userweb->setName('antoine');
+        $userweb->setFirstname('quidel');
+        $userweb->setRoles(array('ROLE_ADMIN','ROLE_USER'));
+        $userweb->setPassword($this->passwordEncoder->encodePassword(
+            $userweb,
+            'michel'
+        ));
+        $manager->persist($userweb);
+
 
         $user2 = new User();
         $user2->setEmail('user2@mail.fr');
