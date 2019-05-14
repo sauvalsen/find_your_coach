@@ -33,6 +33,8 @@ class User implements UserInterface,\Serializable
      */
     private $roles = [];
 
+    private $roles2;
+
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
@@ -278,6 +280,18 @@ class User implements UserInterface,\Serializable
     public function setNom(?string $nom): self
     {
         $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getRoles2(): ?string
+    {
+        return $this->roles2;
+    }
+
+    public function setRoles2(?string $role): self
+    {
+        $this->roles2 = $role;
 
         return $this;
     }

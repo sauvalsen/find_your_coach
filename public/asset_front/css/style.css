@@ -41,6 +41,7 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
 /* clear */
 .clear:before,.clear:after { content:' '; display:table; }
 .clear:after { clear:both; }
@@ -58,6 +59,7 @@ table {
 
 :root {
     --Couleur-principale: coral;
+    --h2-size: 30px;
   }
 
 /***************** Style CSS ***********************/
@@ -97,19 +99,57 @@ ul.nav.navbar {
     padding: 5px;
 }
 
+<<<<<<< HEAD
 /*section*/
 section{
     height:10px;
     background-color: antiquewhite
+=======
+/*Inscription*/
+.fond {
+    background: url("../img/coureur.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
 }
-
+.wrap {
+    max-width: 1200px;
+}
+.formulaire-inscription {
+    margin: 200px 5%;
+    float: right;
+    width: 40%;
+    padding: 0 35px;
+    background-color: ghostwhite;
+    opacity: 0.95;
+    border-radius:5px;
+    box-shadow: -5px 5px 10px 2px rgba(0,0,0,0.75);
+}
+.titre-inscription{
+    font-size: var(--h2-size);
+    padding: 20px 0 20px 10px;
+}
+#registration_form_submit {
+    background-color: var(--Couleur-principale);
+    border: none;
+    width: 100%;
+>>>>>>> e908ce59e352a46827643b8eb20850ed1896d418
+}
 /*footer*/
 
 footer{
     background-color: var(--Couleur-principale);
 }
+<<<<<<< HEAD
 .reseaux i{
     padding-right: 30px;
+=======
+.colone hr{
+    width:30%;
+    background-color:black;
+    height:10px;
+>>>>>>> e908ce59e352a46827643b8eb20850ed1896d418
 }
 
 .colones{
