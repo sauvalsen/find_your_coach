@@ -100,6 +100,7 @@ ul.nav.navbar {
 }
 
 /*Inscription*/
+
 .fond {
     background: url("../img/coureur.jpg");
     background-position: top;
@@ -129,6 +130,7 @@ ul.nav.navbar {
     border: none;
     width: 100%;
 }
+
 /*footer*/
 
 footer{

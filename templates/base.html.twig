@@ -30,7 +30,7 @@
                             <li><a href="{{ path('app_logout') }}">Deconnexion</a></li>
                                 {% endif %}
                             {% else %}
-                            <li class="inscription"><a href="{{ path('app_homepage') }}">Inscription</a></li>
+                            <li class="inscription"><a href="{{ path('app_register') }}">Inscription</a></li>
                             <li class="connexion"><a href="{{ path('app_login') }}">Connexion</a></li>
                             {% endif %}
                         </ul>
@@ -38,16 +38,12 @@
                     <div class="clear"></div>
                 </div>   
             </header>
-       
-            <!--end wrap-->
             
-        {% block body %}{% endblock %}
-
-            <!--footer-->
+        {% block body %} {% endblock %}
+                                                        <!--footer-->
 
             <footer class="page-footer">
                 <div class="wrap">
-                    <!--3 colones-->
                     <div class="colones">
                         <div class="colone">
                             <div class="reseaux">
