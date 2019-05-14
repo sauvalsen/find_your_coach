@@ -80,7 +80,7 @@ header.page-header {
 .header-logo{
     
     float:left;
-    margin-left:2%;
+  
 }
 .header-logo img{
 height:80px;
@@ -134,15 +134,13 @@ ul.nav.navbar {
 footer{
     background-color: var(--Couleur-principale);
 }
+.reseaux{
+    padding-left: 8%;
+}
 .reseaux i{
+    padding-top:20px;
     padding-right: 30px;
 }
-.colone hr{
-    width:30%;
-    background-color:black;
-    height:10px;
-}
-
 .colones{
     margin-left:-2%;
     height:auto;
@@ -152,8 +150,6 @@ footer{
     width:31.3333333333333%;
     margin-left: 2%;
 }
-
-
 .logo-bas{
     float:right;
     padding-right: 15px;
