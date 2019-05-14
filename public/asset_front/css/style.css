@@ -60,7 +60,7 @@ table {
 :root {
     --Couleur-principale: coral;
     --h2-size: 30px;
-  }
+}
 
 /***************** Style CSS ***********************/
 
@@ -103,6 +103,7 @@ ul.nav.navbar {
 section{
     height:10px;
     background-color: antiquewhite;
+}
 /*Inscription*/
 .fond {
     background: url("../img/coureur.jpg");
@@ -140,6 +141,7 @@ footer{
 }
 .reseaux i{
     padding-right: 30px;
+}
 .colone hr{
     width:30%;
     background-color:black;
