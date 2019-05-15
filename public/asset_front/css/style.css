@@ -86,11 +86,15 @@ header.page-header {
 height:80px;
 padding-top:10px;
 }
-ul.nav.navbar {
+/*menu classique*/
+ ul#menu {
     float:right;
     padding-top: 40px;
 }
-.nav.navbar li a{
+#menu li{
+    display: inline-block;  
+}
+#menu li a{
     float:left;
     color:black;
     border: solid 1px darkgrey ;
@@ -98,7 +102,21 @@ ul.nav.navbar {
     margin-left: 10px;
     padding: 5px;
 }
+/*slicknav*/
+.slicknav_menu {
+	display:none;
+}
 
+@media screen and (max-width: 860px) {
+	/* #menu is the original menu */
+	 #menu {
+		display:none;
+	}
+	
+	 .slicknav_menu {
+		display:block;
+	}
+}
 /*Inscription*/
 
 .fond {
