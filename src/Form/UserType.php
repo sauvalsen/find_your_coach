@@ -23,24 +23,25 @@ class UserType extends AbstractType
         $builder
             ->add('email', EmailType::class)
             ->add('password', PasswordType::class)
-            ->add('roles', ChoiceType::class, [
+            ->add('roles2', ChoiceType::class, [
+                'label' => 'Vous êtes:',
                 'choices'  => [
                     'coach' => 'ROLE_ADMIN',
                     'sportif' => 'ROLE_USER',
                 ],
                 'expanded' => true,
-                'multiple' => true,
+                'multiple' => false
             ])
             ->add('token', HiddenType::class)
-            ->add('nom', TextType::class)
-            ->add('prenom', TextType::class)
-            ->add('adresse', TextType::class)
-            ->add('code_postal', IntegerType::class)
-            ->add('ville', TextType::class)
-            ->add('tel', TelType::class)
-            ->add('diplome', TextType::class)
-            ->add('description', TextareaType::class)
-            ->add('avatar', TextType::class)
+            ->add('nom', TextType::class, ['required'   => false])
+            ->add('prenom', TextType::class, ['required'   => false])
+            ->add('adresse', TextType::class, ['required'   => false])
+            ->add('code_postal', IntegerType::class, ['required'   => false])
+            ->add('ville', TextType::class, ['required'   => false])
+            ->add('tel', TelType::class, ['required'   => false])
+            ->add('diplome', TextType::class, ['required'   => false])
+            ->add('description', TextareaType::class, ['required'   => false])
+            ->add('avatar', TextType::class, ['required'   => false])
             ->add('sexe', ChoiceType::class, [
                 'choices'  => [
                     'Femme' => 'femme',
@@ -48,6 +49,7 @@ class UserType extends AbstractType
                 ],
                 'expanded' => true,
                 'multiple' => false,
+                'required'   => false
             ])
             ->add('niveau', ChoiceType::class, [
                 'choices'  => [

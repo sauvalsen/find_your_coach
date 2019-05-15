@@ -149,6 +149,10 @@ ul.nav.navbar {
     float: right;
     margin-bottom: 30px;
 }
+.alert-danger{
+    margin-top: 30px;
+    margin-bottom: 0;
+}
 
 /*footer*/
 
