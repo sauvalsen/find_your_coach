@@ -1,6 +1,6 @@
 {% extends 'back.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block title %}Index utilisateur{% endblock %}
 
 {% block body %}
     <h1>Gérer les utilisateurs</h1>
@@ -13,8 +13,6 @@
                     <th>Id</th>
                     <th>Email</th>
                     <th>Role</th>
-{#                    <th>Password</th>#}
-{#                    <th>Token</th>#}
                     <th>Nom</th>
                     <th>Prenom</th>
                     <th>Adresse</th>
@@ -22,14 +20,10 @@
                     <th>Ville</th>
                     <th>Tel</th>
                     <th>Diplome</th>
-{#                    <th>Description</th>#}
-{#                    <th>Avatar</th>#}
                     <th>Sexe</th>
                     <th>Niveau</th>
                     <th>Created_at</th>
                     <th>Modified_at</th>
-{#                    <th>Profil</th>#}
-{#                    <th>Editer</th>#}
                 </tr>
                 </thead>
                 <tbody>
@@ -40,8 +34,6 @@
                         <td><a href="{{ path('user_show', {'id': user.id}) }}">{{ user.id }}</a></td>
                         <td>{{ user.email }}</td>
                         <td></td>
-{#                        <td>{{ user.password }}</td>#}
-{#                        <td>{{ user.token }}</td>#}
                         <td>{{ user.nom }}</td>
                         <td>{{ user.prenom }}</td>
                         <td>{{ user.adresse }}</td>
@@ -49,15 +41,11 @@
                         <td>{{ user.ville }}</td>
                         <td>{{ user.tel }}</td>
                         <td>{{ user.diplome }}</td>
-{#                        <td>{{ user.description }}</td>#}
-{#                        <td>{{ user.avatar }}</td>#}
                         <td>{{ user.sexe }}</td>
                         <td>{{ user.niveau }}</td>
-                        <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                        <td>{{ user.modifiedAt ? user.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
-{#                        <td><a href="{{ path('user_show', {'id': user.id}) }}">Voir</a></td>#}
-
-                            </tr>
+                        <td>{{ user.createdAt ? user.createdAt|date('d-m-Y / H:i') : '' }}</td>
+                        <td>{{ user.modifiedAt ? user.modifiedAt|date('d-m-Y / H:i') : '' }}</td>
+                    </tr>
                 {% else %}
                     <tr>
                         <td colspan="18">Aucune donnée disponible.</td>
