@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-
+use App\Entity\User;
 use App\Entity\Calendrier;
 use App\Form\CalendrierType;
 use App\Repository\CalendrierRepository;
@@ -31,15 +31,18 @@ class CalendrierController extends AbstractController
     public function new(Request $request): Response
     {  
         
+      
         $calendrier = new Calendrier();
         $form = $this->createForm(CalendrierType::class, $calendrier);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
+     
+     
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($calendrier);
             $entityManager->flush();
-
+            
             return $this->redirectToRoute('calendrier_index');
         }
 ///////////Calcul temps de Cours//////////////////////////

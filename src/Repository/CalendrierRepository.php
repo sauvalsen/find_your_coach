@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Calendrier;
+
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -19,6 +20,19 @@ class CalendrierRepository extends ServiceEntityRepository
         parent::__construct($registry, Calendrier::class);
     }
 
+
+    public function findByRole($roles)
+    {
+        $qb = $this->createQueryBuilder('u')
+         
+            ->andWhere('u.roles LIKE :roles')
+            ->setParameter('roles', '%"'.$roles.'"%');
+    
+        return $qb->getQuery()->getResult();
+    }
+
+
+    
     // /**
     //  * @return Calendrier[] Returns an array of Calendrier objects
     //  */

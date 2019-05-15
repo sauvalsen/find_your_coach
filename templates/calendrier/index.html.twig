@@ -22,11 +22,18 @@
         <tbody>
         {% for calendrier in calendriers %}
             <tr>
-                <td>{{ calendrier.id }}</td>
+                <td>{{ calendrier.id }}</td> 
                 <td>{{ calendrier.startDate ? calendrier.startDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ calendrier.endDate ? calendrier.endDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ calendrier.idCoach }}</td>
-                <td>{{ calendrier.idSportif }}</td>
+                
+                
+                <td>
+                {% if calendrier.coach is not empty %}
+                    {{ calendrier.coach.nom }}
+                {% endif %}
+                </td>
+                <td>{{ calendrier.sportif.nom }}</td>
+             
                 <td>{{ calendrier.titre }}</td>
                 <td>{{ calendrier.createdAt ? calendrier.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ calendrier.modifiedAt ? calendrier.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>

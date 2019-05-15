@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-// MANY TO ONE pour créer un lien avec les id
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CalendrierRepository")
@@ -32,17 +33,7 @@ class Calendrier
      */
     private $end_date;
 
-    /**
-     * @ORM\Column(type="integer")
-     * @Assert\NotBlank
-     */
-    private $id_coach;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $id_sportif;
-
+  
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\NotBlank
@@ -63,12 +54,26 @@ class Calendrier
 
     public function __construct(){
         $this->created_at = new \DateTime;
+        $this->users = new ArrayCollection();
     }
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $modified_at;
+/////Permet de récuper l'ID des sportif en faisant un many to one
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="calendriers")
+     */
+    private $sportif;
+/////Permet de récuper l'ID des coach en faisant un many to one
+    /**
+     * @Assert\NotBlank
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     */
+    private $coach;
+
+ 
 
     /**
      * @ORM\PreUpdate
@@ -106,29 +111,7 @@ class Calendrier
         return $this;
     }
 
-    public function getIdCoach(): ?string
-    {
-        return $this->id_coach;
-    }
 
-    public function setIdCoach(string $id_coach): self
-    {
-        $this->id_coach = $id_coach;
-
-        return $this;
-    }
-
-    public function getIdSportif(): ?int
-    {
-        return $this->id_sportif;
-    }
-
-    public function setIdSportif(?int $id_sportif): self
-    {
-        $this->id_sportif = $id_sportif;
-
-        return $this;
-    }
 
     public function getTitre(): ?string
     {
@@ -165,4 +148,30 @@ class Calendrier
 
         return $this;
     }
+//////////Permet de récupérer l'ID Sportif\\\\\\\\\\\\\
+    public function getSportif(): ?User
+    {
+        return $this->sportif;
+    }
+
+    public function setSportif(?User $sportif): self
+    {
+        $this->sportif = $sportif;
+
+        return $this;
+    }
+//////////Permet de récupérer l'ID Coach\\\\\\\\\\\\\\\\\\
+    public function getCoach(): ?User
+    {
+        return $this->coach;
+    }
+
+    public function setCoach(?User $coach): self
+    {
+        $this->coach = $coach;
+
+        return $this;
+    }
+
+    
 }

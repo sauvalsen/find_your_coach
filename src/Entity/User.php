@@ -2,15 +2,16 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class User implements UserInterface,\Serializable
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -21,8 +22,6 @@ class User implements UserInterface,\Serializable
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Assert\NotBlank
-     * @Assert\Email(message = "Votre email : '{{ value }}' n'est pas une adresse valide.")
      */
     private $email;
 
@@ -34,13 +33,6 @@ class User implements UserInterface,\Serializable
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
-     * @Assert\NotBlank
-     * @Assert\Length(
-     *      min = 2,
-     *      max = 180,
-     *      minMessage = "Un minimum de {{ limit }} caractères est requis.",
-     *      maxMessage = "Un maximum de {{ limit }} caractères est requis."
-     * )
      */
     private $password;
 
@@ -51,79 +43,41 @@ class User implements UserInterface,\Serializable
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Length(
-     *      min = 2,
-     *      max = 180,
-     *      minMessage = "Un minimum de {{ limit }} caractères est requis.",
-     *      maxMessage = "Un maximum de {{ limit }} caractères est requis."
-     * )
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Length(
-     *      min = 2,
-     *      max = 180,
-     *      minMessage = "Un minimum de {{ limit }} caractères est requis.",
-     *      maxMessage = "Un maximum de {{ limit }} caractères est requis."
-     * )
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Length(
-     *      min = 5,
-     *      max = 180,
-     *      minMessage = "Un minimum de {{ limit }} caractères est requis.",
-     *      maxMessage = "Un maximum de {{ limit }} caractères est requis."
-     * )
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
-     * @Assert\Regex("/^[0-9]{5}$/")
      */
     private $code_postal;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Length(
-     *      min = 2,
-     *      max = 180,
-     *      minMessage = "Un minimum de {{ limit }} caractères est requis.",
-     *      maxMessage = "Un maximum de {{ limit }} caractères est requis."
-     * )
      */
     private $ville;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Regex("/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}/")
      */
     private $tel;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Length(
-     *      min = 2,
-     *      max = 180,
-     *      minMessage = "Un minimum de {{ limit }} caractères est requis.",
-     *      maxMessage = "Un maximum de {{ limit }} caractères est requis."
-     * )
      */
     private $diplome;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Assert\Length(
-     *      min = 2,
-     *      max = 180,
-     *      minMessage = "Un minimum de {{ limit }} caractères est requis.",
-     *      maxMessage = "Un maximum de {{ limit }} caractères est requis."
-     * )
      */
     private $description;
 
@@ -134,13 +88,11 @@ class User implements UserInterface,\Serializable
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Choice({"homme", "femme"})
      */
     private $sexe;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Choice({"debutant", "intermediaire", "confirme"})
      */
     private $niveau;
 
@@ -151,12 +103,18 @@ class User implements UserInterface,\Serializable
 
     public function __construct(){
         $this->created_at = new \DateTime;
+        $this->calendriers = new ArrayCollection();
     }
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $modified_at;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Calendrier", mappedBy="sportif")
+     */
+    private $calendriers;
 
     /**
      * @ORM\PreUpdate
@@ -230,8 +188,8 @@ class User implements UserInterface,\Serializable
      * @see UserInterface
      */
     public function getSalt()
-    {   
-        return null;
+    {
+        // not needed when using the "bcrypt" algorithm in security.yaml
     }
 
     /**
@@ -239,26 +197,8 @@ class User implements UserInterface,\Serializable
      */
     public function eraseCredentials()
     {
-    }
-
-    /** @see \Serializable::serialize() */
-    public function serialize()
-    {
-        return serialize(array(
-            $this->id,
-            $this->email,
-            $this->password,
-        ));
-    }
-
-    /** @see \Serializable::unserialize() */
-    public function unserialize($serialized)
-    {
-        list (
-            $this->id,
-            $this->email,
-            $this->password,
-            ) = unserialize($serialized, ['allowed_classes' => false]);
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 
     public function getToken(): ?string
@@ -425,6 +365,37 @@ class User implements UserInterface,\Serializable
     public function setModifiedAt(?\DateTimeInterface $modified_at): self
     {
         $this->modified_at = $modified_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Calendrier[]
+     */
+    public function getCalendriers(): Collection
+    {
+        return $this->calendriers;
+    }
+
+    public function addCalendrier(Calendrier $calendrier): self
+    {
+        if (!$this->calendriers->contains($calendrier)) {
+            $this->calendriers[] = $calendrier;
+            $calendrier->setSportif($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCalendrier(Calendrier $calendrier): self
+    {
+        if ($this->calendriers->contains($calendrier)) {
+            $this->calendriers->removeElement($calendrier);
+            // set the owning side to null (unless already changed)
+            if ($calendrier->getSportif() === $this) {
+                $calendrier->setSportif(null);
+            }
+        }
 
         return $this;
     }
