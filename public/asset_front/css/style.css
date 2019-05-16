@@ -107,16 +107,7 @@ padding-top:10px;
 	display:none;
 }
 
-@media screen and (max-width: 860px) {
-	/* #menu is the original menu */
-	 #menu {
-		display:none;
-	}
-	
-	 .slicknav_menu {
-		display:block;
-	}
-}
+
 /*Inscription*/
 
 .fond {
@@ -200,4 +191,20 @@ ul.nav-footer{
 }
 .nav-footer li a {
     color:black;
+}
+/*responsive*/
+
+@media screen and (max-width: 860px) {
+	/* #menu is the original menu */
+	 #menu {
+		display:none;
+	}
+	
+	 .slicknav_menu {
+		display:block;
+    }
+    
+    .header-logo{
+        width:80%;
+    }
 }
