@@ -1,0 +1,31 @@
+.intro-form {
+    background-color: #00AFCF;
+    margin-top: -100px;
+    padding: 320px 0 80px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    height:600px;
+    color: #fff;
+}
+#bloc1{
+    height: 400px;
+    background-color:black;
+}
+#bloc2{
+    height: 400px;
+    background-color:white;
+}
+#bloc3{
+    height: 400px;
+    background-color:black;
+}
+#bloc4{
+    height: 400px;
+    background-color:gray;
+}
+.po{
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px;
+}

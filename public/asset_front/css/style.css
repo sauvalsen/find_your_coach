@@ -1,8 +1,3 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -47,6 +42,206 @@ table {
     border-spacing: 0;
 }
 
-h1 {
-    color:green
+/* clear */
+.clear:before,.clear:after { content:' '; display:table; }
+.clear:after { clear:both; }
+.clear { *zoom:1;}
+
+*,
+*:after,
+*:before {
+ -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+         box-sizing: border-box; /* Opera/IE 8+ */
+}
+
+/***************** Variable ************************/
+
+:root {
+    --Couleur-principale: coral;
+}
+
+/***************** Style CSS ***********************/
+
+.wrap {
+    width:100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  
+}
+
+/*header*/
+
+header.page-header {
+    height: 100px;
+    -webkit-transition: all .3s ease-out;
+   transition: all .3s cubic-bezier(1, 0.18, 0, 1.27);
+   
+}
+.header-logo{ 
+    float:left; 
+}
+.header-logo img{
+height:80px;
+padding-top:10px;
+}
+
+/*menu classique*/
+ ul#menu {
+    float:right;
+    padding-top: 40px;
+}
+#menu li{
+    display: inline-block;  
+}
+#menu li a{
+    float:left;
+    color:black;
+    border: solid 1px darkgrey ;
+    border-radius: 15px;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+/*slicknav*/
+.slicknav_menu {
+    display:none;
+    
+}
+
+/*sticky navbar*/
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  .sticky + .content {
+    padding-top: 60px;
+  } 
+
+  .backwhite {
+      background-color: coral;
+  }
+
+/*Inscription - connexion*/
+
+.fond-inscription {
+    background: url("../img/coureur.jpg");
+    background-position: top;
+}
+.fond-connexion {
+    background: url("../img/salle_fitness.jpg");
+    background-position: bottom;
+}
+.fond{
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+}
+.wrap {
+    max-width: 1200px;
+}
+.formulaire {
+    margin: 200px 5%;
+    float: right;
+    width: 40%;
+    padding: 0 35px;
+    background-color: ghostwhite;
+    border-radius:5px;
+    box-shadow: -5px 5px 10px 2px rgba(0,0,0,0.75);
+}
+.formulaire-inscription{
+    opacity: 0.95;
+}
+.formulaire-connexion{
+    opacity: 0.80;
+}
+.titre-inscription{
+    padding: 20px 0 10px 20px;
+}
+#inputEmail {
+    margin-bottom: 25px;
+}
+#inputPassword {
+    margin-bottom: 40px;
+}
+#registration_form_submit, .bouton-connexion {
+    background-color: var(--Couleur-principale);
+    border: none;
+    width: 100%;
+}
+.mdp-oublié{
+    float: right;
+    margin-bottom: 30px;
+}
+.alert-danger{
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+/*footer*/
+
+footer{
+    background-color: var(--Couleur-principale);
+}
+.reseaux{
+    padding-left: 8%;
+}
+.reseaux i{
+    padding-top:20px;
+    padding-right: 30px;
+}
+.colones{
+    margin-left:-2%;
+    height:auto;
+}
+.colone{
+    float:left;
+    width:31.3333333333333%;
+    margin-left: 2%;
+}
+.logo-bas{
+    float:right;
+    padding-right: 15px;
+}
+.liens-footer li a{
+    color:black;   
+}
+
+/*bottom bar*/
+.bottom-bar {
+    width:100%;
+    background-color: beige;
+    text-align: center;
+}
+.bottom-bar p{
+    padding-top: 5px;
+}
+
+.bottom-bar p span{
+    color:red;
+}
+
+ul.nav-footer{
+    padding-top: 5px;
+}
+.nav-footer li {
+    display: inline-block;
+}
+.nav-footer li a {
+    color:black;
+}
+/*responsive*/
+
+@media screen and (max-width: 860px) {
+	/* #menu is the original menu */
+	 #menu {
+		display:none;
+	}
+	 .slicknav_menu {
+		display:block;
+    }
+    .header-logo{
+        width:80%;
+    }
 }

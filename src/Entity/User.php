@@ -5,11 +5,13 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ORM\HasLifecycleCallbacks
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
 class User implements UserInterface
 {
@@ -29,6 +31,8 @@ class User implements UserInterface
      * @ORM\Column(type="json")
      */
     private $roles = [];
+
+    private $roles2;
 
     /**
      * @var string The hashed password
@@ -83,6 +87,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
      */
     private $avatar;
 
@@ -201,6 +206,28 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->email,
+            $this->password,
+            $this->roles,
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->email,
+            $this->password,
+            $this->roles,
+            ) = unserialize($serialized, ['allowed_classes' => false]);
+    }
+
     public function getToken(): ?string
     {
         return $this->token;
@@ -221,6 +248,18 @@ class User implements UserInterface
     public function setNom(?string $nom): self
     {
         $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getRoles2(): ?string
+    {
+        return $this->roles2;
+    }
+
+    public function setRoles2(?string $role): self
+    {
+        $this->roles2 = $role;
 
         return $this;
     }

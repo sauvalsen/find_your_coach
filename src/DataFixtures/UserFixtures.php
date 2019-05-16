@@ -43,6 +43,17 @@ class UserFixtures extends Fixture
         $manager->persist($user1);
         $this->addReference("user1",$user1);
 
+        $userweb = new User();
+        $userweb->setEmail('quidelantoine@gmail.com');
+        $userweb->setNom('antoine');
+        $userweb->setPrenom('quidel');
+        $userweb->setRoles(array('ROLE_ADMIN','ROLE_USER'));
+        $userweb->setPassword($this->passwordEncoder->encodePassword(
+            $userweb,
+            'michel'
+        ));
+        $manager->persist($userweb);
+
 
         $user2 = new User();
         $user2->setEmail('user2@mail.fr');
