@@ -1,0 +1,65 @@
+body{
+    background: no-repeat url("../img/fitness_large.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+header{
+    margin-bottom: 50px;
+}
+#article {
+    background-color: whitesmoke;
+    max-width: 1000px;
+    margin: auto;
+    padding: 100px;
+    border-radius:20px;
+    opacity: 0.75;
+    text-justify: auto;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+h2 {
+    color: var(--Couleur-principale);
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom:10px;
+}
+
+h3, h4{
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom:10px;
+}
+
+#article ul{
+    margin:0 0 30px 50px;
+}
+
+#article ul li{
+    line-height: 2;
+    list-style-position: outside;
+    list-style: square;
+}
+
+strong{
+    font-weight: bold;
+}
+
+p{
+    margin-bottom: 30px;
+    text-indent: 5%;
+}
+
+.no-indent{
+    text-indent: 0;
+}
+
+footer{
+    margin-top: 50px;
+}

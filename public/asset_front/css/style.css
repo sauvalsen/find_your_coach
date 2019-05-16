@@ -59,7 +59,6 @@ table {
 
 :root {
     --Couleur-principale: coral;
-    --h2-size: 30px;
 }
 
 /***************** Style CSS ***********************/
@@ -80,17 +79,21 @@ header.page-header {
 .header-logo{
     
     float:left;
-    margin-left:2%;
+  
 }
 .header-logo img{
 height:80px;
 padding-top:10px;
 }
-ul.nav.navbar {
+/*menu classique*/
+ ul#menu {
     float:right;
     padding-top: 40px;
 }
-.nav.navbar li a{
+#menu li{
+    display: inline-block;  
+}
+#menu li a{
     float:left;
     color:black;
     border: solid 1px darkgrey ;
@@ -98,12 +101,23 @@ ul.nav.navbar {
     margin-left: 10px;
     padding: 5px;
 }
+/*slicknav*/
+.slicknav_menu {
+	display:none;
+}
 
-/*Inscription*/
 
-.fond {
+/*Inscription - connexion*/
+
+.fond-inscription {
     background: url("../img/coureur.jpg");
     background-position: top;
+}
+.fond-connexion {
+    background: url("../img/salle_fitness.jpg");
+    background-position: bottom;
+}
+.fond{
     background-repeat: no-repeat;
     background-size: cover;
     height: 800px;
@@ -111,24 +125,42 @@ ul.nav.navbar {
 .wrap {
     max-width: 1200px;
 }
-.formulaire-inscription {
+.formulaire {
     margin: 200px 5%;
     float: right;
     width: 40%;
     padding: 0 35px;
     background-color: ghostwhite;
-    opacity: 0.95;
     border-radius:5px;
     box-shadow: -5px 5px 10px 2px rgba(0,0,0,0.75);
 }
-.titre-inscription{
-    font-size: var(--h2-size);
-    padding: 20px 0 20px 10px;
+.formulaire-inscription{
+    opacity: 0.95;
 }
-#registration_form_submit {
+.formulaire-connexion{
+    opacity: 0.80;
+}
+.titre-inscription{
+    padding: 20px 0 10px 20px;
+}
+#inputEmail {
+    margin-bottom: 25px;
+}
+#inputPassword {
+    margin-bottom: 40px;
+}
+#registration_form_submit, .bouton-connexion {
     background-color: var(--Couleur-principale);
     border: none;
     width: 100%;
+}
+.mdp-oublié{
+    float: right;
+    margin-bottom: 30px;
+}
+.alert-danger{
+    margin-top: 30px;
+    margin-bottom: 0;
 }
 
 /*footer*/
@@ -136,15 +168,13 @@ ul.nav.navbar {
 footer{
     background-color: var(--Couleur-principale);
 }
+.reseaux{
+    padding-left: 8%;
+}
 .reseaux i{
+    padding-top:20px;
     padding-right: 30px;
 }
-.colone hr{
-    width:30%;
-    background-color:black;
-    height:10px;
-}
-
 .colones{
     margin-left:-2%;
     height:auto;
@@ -154,8 +184,6 @@ footer{
     width:31.3333333333333%;
     margin-left: 2%;
 }
-
-
 .logo-bas{
     float:right;
     padding-right: 15px;
@@ -187,4 +215,19 @@ ul.nav-footer{
 .nav-footer li a {
     color:black;
 }
+/*responsive*/
 
+@media screen and (max-width: 860px) {
+	/* #menu is the original menu */
+	 #menu {
+		display:none;
+	}
+	
+	 .slicknav_menu {
+		display:block;
+    }
+    
+    .header-logo{
+        width:80%;
+    }
+}

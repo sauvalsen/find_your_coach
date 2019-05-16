@@ -2,47 +2,29 @@
 
 {% block title %}Accueil{% endblock %}
 
+{% block stylesheets %}
+    <link href="{{ asset('asset_front/css/home.css') }}" rel="stylesheet"/>
+{% endblock %}
+
 {% block body %}
     <div class="intro-form" style="background-image: url('{{ asset('asset_front/img/coureur.jpg') }}')">
         <div class="container">
-            <div class="col-md-12">
-                <h2 translate="HP_INTRO" class="ng-scope">Réserve ton coach sportif<br><small>Plus de 100 sports et 2000 coachs dans toute la France</small></h2>
-                <h3></h3>
-            </div>
-            <div class="col-md-8 col-md-offset-2">
-                <div class="row gutter-10" ng-show="!searchByName">
-                    <form ng-submit="onSearch()" class="search-container ng-pristine ng-valid ng-isolate-scope" submit="onSearch(search)">
-                        <div class="col-sm-9">
-                            <div class="col-xs-6 mb-xs-16 input-container">
-                                <div class="sport-select ng-isolate-scope" ng-mouseenter="isOverSportsList = true" ng-mouseleave="isOverSportsList = false" search="search">
-                                    <input type="text" ng-model="search.sport" translate-once-placeholder="GLOBAL_SPORT" class="sport typeahead ng-pristine ng-untouched ng-valid ng-not-empty" ng-focus="sportAutocomplete()" ng-blur="hideSportAutocomplete()" ng-change="sportAutocomplete()" ng-enter="selectFirstSport()" placeholder="Sport">
-                                    <ul ng-show="filteredSportList.length > 0" class="dropdown-search ng-hide">
-                                        <!-- ngIf: userFavoritesSports.length > 0 -->
-                                        <!-- ngRepeat: sport in userFavoritesSports -->
-                                        <!-- ngIf: userFavoritesSports.length > 0 -->
-                                        <!-- ngRepeat: sport in filteredSportList -->
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-xs-6 mb-xs-16 input-container" ng-mouseenter="isOverCityList = true" ng-mouseleave="isOverCityList = false">
-                                <input type="text" ng-model="search.city" ng-model-options="{ debounce: 500 }" translate-once-placeholder="GLOBAL_CITY" class="col-xs-6 lieu ng-pristine ng-untouched ng-valid ng-not-empty" ng-change="cityAutocomplete()" ng-enter="selectFirstCity()" ng-focus="showCityDropdown()" ng-blur="hideCityAutocomplete()" placeholder="Ville">
-                                <ul ng-show="showCityList" class="dropdown-search ng-hide">
-                                    <li ng-show="search.city.length < 3" class="heading geoloc ng-scope ng-hide" ng-click="askGeolocation()" translate="SEARCH_YOURPOSITION">VOTRE POSITION</li>
-                                    <li ng-show="search.city.length < 3" ng-click="askGeolocation()" class="geoloc-btn ng-hide"><strong translate="SEARCH_AROUND" class="ng-scope">Chercher dans les alentours</strong></li>
-                                    <!-- ngIf: filteredCityList.length > 0 -->
-                                    <!-- ngRepeat: city in filteredCityList -->
-                                </ul>
-                                <!-- ngIf: geolocSearching -->
-                            </div>
-                        </div>
-                        <div class="col-sm-3 col-xs-12 search-button-container">
-                            <input type="submit" class="bgy full" translate-once-value="GLOBAL_SEARCH_VERB" ng-disabled="!isValidSearch()" value="Rechercher">
-                        </div>
-                    </form>
-                </div>
-            </div>
+
         </div>
     </div>
+    <div id="bloc1"></div>
+    <div id="bloc2"><h1 class="po">Maitre coach</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis quam imperdiet, aliquet sem vitae, fermentum dui. Nam sagittis iaculis faucibus. Donec ornare quam est, facilisis pellentesque quam maximus vitae. Fusce tincidunt eleifend mi, et congue orci elementum vitae. Nunc sed lorem finibus, eleifend magna sed, fringilla leo. Donec sapien dui, eleifend nec vehicula ac, mattis et felis. Suspendisse aliquam odio egestas auctor tempor. Maecenas euismod placerat nunc mollis feugiat. Ut vel felis vel orci gravida bibendum a ac libero. Etiam commodo massa libero, vel egestas ligula molestie sit amet. Quisque ac mollis mauris. Sed ultricies nec magna sit amet sodales. Curabitur mi lorem, dignissim non iaculis eu, pulvinar quis nisi.
+
+            Fusce quis nibh feugiat, eleifend massa ac, tristique arcu. Pellentesque tincidunt enim a nunc ullamcorper aliquam. Suspendisse tempor quam eu pretium efficitur. Donec dapibus tempus lorem sed aliquet. In hac habitasse platea dictumst. Morbi id lorem vitae urna pellentesque viverra nec nec ex. Quisque tellus lorem, lobortis mattis augue non, imperdiet eleifend urna. Aliquam erat volutpat.
+
+            Phasellus hendrerit eget ante nec viverra. Aliquam dapibus felis ut enim molestie, eu ornare magna finibus. Nunc vitae nisi ut sapien dapibus sodales nec non lacus. Phasellus sodales libero lectus, a commodo massa dictum ut. Integer pulvinar massa id semper bibendum. Praesent ut finibus neque. Nam nulla quam, eleifend vel viverra vel, tincidunt in libero. Nulla lacinia varius turpis, sit amet convallis elit sodales non. In id enim sodales, molestie turpis eget, finibus metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque ac eros ac nibh tristique sollicitudin ut nec urna. Etiam eget ipsum nunc. Morbi aliquet elit a mollis gravida.
+
+            Nulla at quam nibh. Fusce ornare sem nec mi dignissim, sit amet sollicitudin diam scelerisque. Donec congue iaculis eros, at iaculis urna vulputate sed. Suspendisse semper, mauris a tempor sagittis, lacus velit facilisis lectus, a volutpat ipsum enim vel purus. Quisque tincidunt lobortis purus, quis lobortis urna tincidunt ac. Aenean quis posuere ex. Sed venenatis gravida turpis et semper.
+
+            Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer eu lacus gravida, egestas sem quis, pretium orci. Nulla leo est, tincidunt sit amet augue at, venenatis consequat felis. Duis mattis ornare pharetra. Pellentesque libero mauris, ullamcorper vitae malesuada vitae, vehicula sit amet mauris. Maecenas tristique arcu nibh, nec mollis justo commodo et. Quisque a volutpat ex. Suspendisse id est eget mauris scelerisque elementum id quis enim.</p>
+    </div>
+    <div id="bloc3"></div>
+    <div id="bloc4"></div>
     <div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis quam imperdiet, aliquet sem vitae, fermentum dui. Nam sagittis iaculis faucibus. Donec ornare quam est, facilisis pellentesque quam maximus vitae. Fusce tincidunt eleifend mi, et congue orci elementum vitae. Nunc sed lorem finibus, eleifend magna sed, fringilla leo. Donec sapien dui, eleifend nec vehicula ac, mattis et felis. Suspendisse aliquam odio egestas auctor tempor. Maecenas euismod placerat nunc mollis feugiat. Ut vel felis vel orci gravida bibendum a ac libero. Etiam commodo massa libero, vel egestas ligula molestie sit amet. Quisque ac mollis mauris. Sed ultricies nec magna sit amet sodales. Curabitur mi lorem, dignissim non iaculis eu, pulvinar quis nisi.
 

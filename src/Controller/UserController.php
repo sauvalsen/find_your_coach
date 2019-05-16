@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\EditUserType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,7 +11,6 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**
@@ -39,8 +39,6 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-
-
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
             $file = $form->get('avatar')->getData();
             $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
@@ -56,7 +54,7 @@ class UserController extends AbstractController
                 }
                 $user->setAvatar($fileName);
 
-
+            $user->setRoles(array($form->get('roles2')->getData()));
             $entityManager->persist($user);
             $entityManager->flush();
 
@@ -91,14 +89,17 @@ class UserController extends AbstractController
      */
     public function edit(Request $request, User $user): Response
     {
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(EditUserType::class, $user);
         $form->handleRequest($request);
 
 
         $user->setAvatar(
             new File($this->getParameter('avatars_directory').'/'.$user->getAvatar())
         );
+
         if ($form->isSubmitted() && $form->isValid()) {
+
+
 
             $file = $user->getAvatar();
             $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
@@ -110,6 +111,8 @@ class UserController extends AbstractController
             } catch (FileException $e) {
                 // ... handle exception if something happens during file upload
             }
+
+            $user->setRoles(array($form->get('roles2')->getData()));
             $user->setAvatar($fileName);
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('user_index', [
