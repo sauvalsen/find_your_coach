@@ -1,6 +1,6 @@
 {% extends 'back.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block title %}Utilisateur{% endblock %}
 
 {% block body %}
     <h1>Utilisateur</h1>
@@ -15,14 +15,6 @@
                 <th>Email</th>
                 <td>{{ user.email }}</td>
             </tr>
-{#            <tr>#}
-{#                <th>Password</th>#}
-{#                <td>{{ user.password }}</td>#}
-{#            </tr>#}
-{#            <tr>#}
-{#                <th>Token</th>#}
-{#                <td>{{ user.token }}</td>#}
-{#            </tr>#}
             <tr>
                 <th>Nom</th>
                 <td>{{ user.nom }}</td>
@@ -57,7 +49,7 @@
             </tr>
             <tr>
                 <th>Avatar</th>
-                <td>{{ user.avatar }}</td>
+                <td><img src="{{ asset('uploads/avatars/' ~ user.avatar) }}"></td>
             </tr>
             <tr>
                 <th>Sexe</th>
