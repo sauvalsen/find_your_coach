@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -42,7 +43,7 @@ class UserType extends AbstractType
             ->add('tel', TelType::class, ['required'   => false])
             ->add('diplome', TextType::class, ['required'   => false])
             ->add('description', TextareaType::class, ['required'   => false])
-            ->add('avatar', TextType::class, ['required'   => false])
+            ->add('avatar', FileType::class, ['label' => 'Avatar (PNG,JPG)'], ['data_class' => null, 'required' => false])
             ->add('sexe', ChoiceType::class, [
                 'choices'  => [
                     'Femme' => 'femme',
