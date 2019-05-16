@@ -11,7 +11,7 @@
     </head>
     <body>
                                                         <!--header-->
-            <header class="page-header">
+            <div id="page-header">
                 <div class="wrap">
                     <div class="header-logo">
                         <a href="{{ path('app_homepage') }}"><img src="{{ asset('asset_front/img/logo_long.png') }}"></a>
@@ -20,7 +20,7 @@
                       
                
                                                         <!--menu classique-->
-                    <nav>
+                    <div id="navbar">
                         <ul id="menu">   
                             <li class="accueil"><a href="{{ path('app_homepage') }}">Page d'accueil</a></li>
                                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
@@ -39,11 +39,12 @@
                             <li class="connexion"><a href="{{ path('app_login') }}">Connexion</a></li>
                             {% endif %}
                         </ul>
-                    </nav>
+                    </div>
                     <div class="clear"></div>
                 </div>   
-            </header>
-            
+            </div>
+       
+               
         {% block body %} {% endblock %}
                                                         <!--footer-->
 
