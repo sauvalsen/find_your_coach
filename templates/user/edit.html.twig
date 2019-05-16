@@ -1,56 +1,13 @@
 {% extends 'back.html.twig' %}
 
-{% block title %}Editer un utilisateur{% endblock %}
+{% block title %}Edit User{% endblock %}
 
 {% block body %}
-
     <h1>Editer l'utilisateur</h1>
 
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ user.email }}" name="email" id="inputEmail" class="form-control" required autofocus>
-
-    <label for="inputRole">Vous êtes:</label>
-    <input type="radio" name="roles2" id="inputRole" class="form-control" required>
-
-    <label for="inputNom">Nom</label>
-    <input type="text" value="{{ user.nom }}" name="nom" id="inputNom" class="form-control">
-
-    <label for="inputPrénom">Prénom</label>
-    <input type="text" value="{{ user.prenom }}" name="prénom" id="inputPrénom" class="form-control">
-
-    <label for="inputAdresse">Adresse</label>
-    <input type="text" value="{{ user.adresse }}" name="adresse" id="inputAdresse" class="form-control">
-
-    <label for="inputCodePostal">Code postal</label>
-    <input type="text" value="{{ user.codePostal }}" name="code_postal" id="inputCodePostal" class="form-control">
-
-    <label for="inputVille">Ville</label>
-    <input type="text" value="{{ user.ville }}" name="ville" id="inputVille" class="form-control">
-
-    <label for="inputTéléphone">Téléphone</label>
-    <input type="text" value="{{ user.tel }}" name="téléphone" id="inputTéléphone" class="form-control">
-
-    <label for="inputDiplome">Diplôme</label>
-    <input type="text" value="{{ user.diplome }}" name="diplôme" id="inputDiplome" class="form-control">
-
-    <label for="inputDescription">Description</label>
-    <input type="text" value="{{ user.description }}" name="description" id="inputDescription" class="form-control">
-
-    <label for="inputSexe">Sexe</label>
-    <input type="radio" value="{{ user.sexe }}" name="sexe" id="inputSexe" class="form-control">
-
-    <label for="inputNiveau">Niveau</label>
-    <input type="" value="{{ user.niveau }}" name="niveau" id="inputNiveau" class="form-control">
-
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}">
-
-    <button class="bouton-connexion btn btn-lg btn-primary" type="submit">
-        Envoyer
-    </button>
+    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('user_index') }}">Retour a la liste</a>
 
     {{ include('user/_delete_form.html.twig') }}
-
 {% endblock %}

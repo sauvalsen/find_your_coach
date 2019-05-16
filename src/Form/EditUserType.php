@@ -8,7 +8,6 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -25,12 +24,12 @@ class EditUserType extends AbstractType
             ->add('roles2', ChoiceType::class, [
                 'label' => 'Vous êtes:',
                 'choices'  => [
-                    'coach' => 'ROLE_ADMIN',
+                    'admin' => 'ROLE_ADMIN',
+                    'coach' => 'ROLE_COACH',
                     'sportif' => 'ROLE_USER',
                 ],
                 'expanded' => true,
                 'multiple' => false,
-                'required'   => false
             ])
             ->add('token', HiddenType::class)
             ->add('nom', TextType::class, ['required'   => false])

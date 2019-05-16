@@ -26,12 +26,12 @@ class UserType extends AbstractType
             ->add('roles2', ChoiceType::class, [
                 'label' => 'Vous êtes:',
                 'choices'  => [
-                    'coach' => 'ROLE_ADMIN',
+                    'admin' => 'ROLE_ADMIN',
+                    'coach' => 'ROLE_COACH',
                     'sportif' => 'ROLE_USER',
                 ],
                 'expanded' => true,
                 'multiple' => false,
-                'required'   => false
             ])
             ->add('token', HiddenType::class)
             ->add('nom', TextType::class, ['required'   => false])
