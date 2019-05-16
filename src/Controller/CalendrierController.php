@@ -45,12 +45,7 @@ class CalendrierController extends AbstractController
             
             return $this->redirectToRoute('calendrier_index');
         }
-///////////Calcul temps de Cours//////////////////////////
-        // $Start_date = strtotime($start_date);
-        // $End_date = strtotime($end_date);
-        // $Start = date("H:i:s", $End_date-$Start_date);
-        // echo $Start;
-/////////////////////////////////////////////////////////////        
+ 
 
 
         return $this->render('calendrier/new.html.twig', [

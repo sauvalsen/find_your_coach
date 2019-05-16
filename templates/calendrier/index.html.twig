@@ -1,4 +1,15 @@
 {% extends 'base.html.twig' %}
+{% block javascripts %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+       $(document).ready(function() {
+        // you may need to change this code if you are not using Bootstrap Datepicker
+        $('.js-datepicker').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+    });
+    </script>
+{% endblock %}
 
 {% block title %}Calendrier index{% endblock %}
 
@@ -23,8 +34,9 @@
         {% for calendrier in calendriers %}
             <tr>
                 <td>{{ calendrier.id }}</td> 
-                <td>{{ calendrier.startDate ? calendrier.startDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ calendrier.endDate ? calendrier.endDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ calendrier.startDate ? calendrier.startDate|date('d-m-Y H:i:s') : '' }}</td>
+                <td>{{ calendrier.endDate ? calendrier.endDate|date('d-m-Y H:i:s') : '' }}</td>
+                
                 
                 
                 <td>
@@ -32,11 +44,13 @@
                     {{ calendrier.coach.nom }}
                 {% endif %}
                 </td>
-                <td>{{ calendrier.sportif.nom }}</td>
-             
+                 <td>{% if calendrier.sportif is not empty %}
+                {{ calendrier.sportif.nom }}
+                 {% endif %}
+              </td>
                 <td>{{ calendrier.titre }}</td>
-                <td>{{ calendrier.createdAt ? calendrier.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ calendrier.modifiedAt ? calendrier.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ calendrier.createdAt ? calendrier.createdAt|date('d-m-Y H:i:s') : '' }}</td>
+                <td>{{ calendrier.modifiedAt ? calendrier.modifiedAt|date('d-m-Y H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('calendrier_show', {'id': calendrier.id}) }}">show</a>
                     <a href="{{ path('calendrier_edit', {'id': calendrier.id}) }}">edit</a>

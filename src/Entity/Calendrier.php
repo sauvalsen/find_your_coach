@@ -25,11 +25,17 @@ class Calendrier
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank
+     * @Assert\DateTime
+     * @var string A "d/m/Y H:i'" formatted value
      */
     private $start_date;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank
+     * @Assert\DateTime
+     * @var string A "d/m/Y H:i'" formatted value
      */
     private $end_date;
 
@@ -173,5 +179,6 @@ class Calendrier
         return $this;
     }
 
+  
     
 }

@@ -4,6 +4,7 @@ namespace App\Form;
 use App\Entity\User;
 use App\Entity\Calendrier;
 use App\Form\CalendrierType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,8 +20,26 @@ class CalendrierType extends AbstractType
         $builder
         ->add('titre')
             ///Formulaire de calendrier
-            ->add('start_date')
-            ->add('end_date')
+            ->add('start_date',DateTimeType::class, [
+                'widget' => 'single_text',
+                // prevents rendering it as type="date", to avoid HTML5 date pickers
+                'html5' => false,
+                'format' => 'd/m/Y H:i'
+                
+            ])
+
+
+            ->add('end_date',DateTimeType::class, [
+                'widget' => 'single_text',
+                // prevents rendering it as type="date", to avoid HTML5 date pickers
+                'html5' => false,
+                'format' => 'd/m/Y H:i'
+                
+            ])
+         
+           
+       
+
             ////SELECT POUR LA CATEGORIE COACH OBLIGATOIRE
             ->add('coach', EntityType::class, [
                 'class' => User::class,
@@ -35,6 +54,9 @@ class CalendrierType extends AbstractType
                 "required" =>false,
                 "placeholder" => 'Choississez un Coach'
             ])
+
+
+
              ////SELECT POUR LA CATEGORIE COACH NON-OBLIGATOIRE
             ->add('sportif', EntityType::class, [
 
@@ -47,6 +69,7 @@ class CalendrierType extends AbstractType
             ->add('submit', SubmitType::class)
         ;
     }
+ 
 
     public function configureOptions(OptionsResolver $resolver)
     {
