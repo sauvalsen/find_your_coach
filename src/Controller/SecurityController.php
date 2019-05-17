@@ -51,7 +51,7 @@ class SecurityController extends AbstractController
 
             if($user === null){
                 $this->addFlash('danger', 'Email inconnu');
-                return $this->redirectToRoute('homepage');
+                return $this->redirectToRoute('app_homepage');
             }
 
             $token = $tokenGenerator->generateToken();

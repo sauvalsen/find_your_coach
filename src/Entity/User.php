@@ -158,6 +158,11 @@ class User implements UserInterface,\Serializable
     private $modified_at;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $status;
+
+    /**
      * @ORM\PreUpdate
      */
     public function preUpdate(){
@@ -450,6 +455,18 @@ class User implements UserInterface,\Serializable
     public function setModifiedAt(?\DateTimeInterface $modified_at): self
     {
         $this->modified_at = $modified_at;
+
+        return $this;
+    }
+
+    public function getStatus(): ?bool
+    {
+        return $this->status;
+    }
+
+    public function setStatus(bool $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }

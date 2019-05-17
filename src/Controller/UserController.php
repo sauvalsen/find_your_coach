@@ -63,7 +63,7 @@ class UserController extends AbstractController
                 $user->setAvatar($fileName);
             } else {
 
-                $user->setAvatar($user->getAvatar());
+                $user->setAvatar('default-avatar.png');
             }
 
             $password = $request->request->get('password');
