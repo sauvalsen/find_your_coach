@@ -49,7 +49,6 @@ class UserController extends AbstractController
 
             if (!empty($files2))
             {
-                //$file = $user->getAvatar2();
                 $file = $form->get('avatar2')->getData();
                 $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
                 try {
