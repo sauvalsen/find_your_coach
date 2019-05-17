@@ -24,7 +24,7 @@ class CalendrierType extends AbstractType
                 'widget' => 'single_text',
                 // prevents rendering it as type="date", to avoid HTML5 date pickers
                 'html5' => false,
-                'format' => 'd/m/Y H:i'
+                'format' => 'd/m/Y H:i:s'
                 
             ])
 
@@ -33,7 +33,7 @@ class CalendrierType extends AbstractType
                 'widget' => 'single_text',
                 // prevents rendering it as type="date", to avoid HTML5 date pickers
                 'html5' => false,
-                'format' => 'd/m/Y H:i'
+                'format' => 'd/m/Y H:i:s'
                 
             ])
          
