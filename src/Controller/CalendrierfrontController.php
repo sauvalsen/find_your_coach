@@ -19,10 +19,10 @@ class CalendrierfrontController extends AbstractController
     /**
      * @Route("/", name="calendrier_index", methods={"GET"})
      */
-     public function index(CalendrierRepository $calendrierRepository): Response
-     {
-         return $this->render('calendrier/index.html.twig', [
+    public function index(CalendrierRepository $calendrierRepository): Response
+    {
+        return $this->render('calendrier/index.html.twig', [
             'calendriers' => $calendrierRepository->findAll(),
-         ]);
-     }
+        ]);
+    }
 }
