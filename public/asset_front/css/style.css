@@ -74,22 +74,27 @@ table {
 
 header.page-header {
     height: 100px;
-    background-color: var(--Couleur-principale);
+    -webkit-transition: all .3s ease-out;
+   transition: all .3s cubic-bezier(1, 0.18, 0, 1.27);
+   
 }
-.header-logo{
-    
-    float:left;
-    margin-left:2%;
+.header-logo{ 
+    float:left; 
 }
 .header-logo img{
 height:80px;
 padding-top:10px;
 }
-ul.nav.navbar {
+
+/*menu classique*/
+ ul#menu {
     float:right;
     padding-top: 40px;
 }
-.nav.navbar li a{
+#menu li{
+    display: inline-block;  
+}
+#menu li a{
     float:left;
     color:black;
     border: solid 1px darkgrey ;
@@ -97,6 +102,26 @@ ul.nav.navbar {
     margin-left: 10px;
     padding: 5px;
 }
+
+/*slicknav*/
+.slicknav_menu {
+    display:none;
+    
+}
+
+/*sticky navbar*/
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  .sticky + .content {
+    padding-top: 60px;
+  } 
+
+  .backwhite {
+      background-color: coral;
+  }
 
 /*Inscription - connexion*/
 
@@ -224,15 +249,13 @@ ul.nav.navbar {
 footer{
     background-color: var(--Couleur-principale);
 }
+.reseaux{
+    padding-left: 8%;
+}
 .reseaux i{
+    padding-top:20px;
     padding-right: 30px;
 }
-.colone hr{
-    width:30%;
-    background-color:black;
-    height:10px;
-}
-
 .colones{
     margin-left:-2%;
     height:auto;
@@ -242,8 +265,6 @@ footer{
     width:31.3333333333333%;
     margin-left: 2%;
 }
-
-
 .logo-bas{
     float:right;
     padding-right: 15px;
@@ -274,4 +295,18 @@ ul.nav-footer{
 }
 .nav-footer li a {
     color:black;
+}
+/*responsive*/
+
+@media screen and (max-width: 860px) {
+	/* #menu is the original menu */
+	 #menu {
+		display:none;
+	}
+	 .slicknav_menu {
+		display:block;
+    }
+    .header-logo{
+        width:80%;
+    }
 }
