@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @Route("/admin/user")
@@ -24,28 +24,34 @@ class UserController extends AbstractController
     public function index(UserRepository $userRepository): Response
     {
 
-
         return $this->render('user/index.html.twig', [
             'users' => $userRepository->findAll(),
+
         ]);
     }
 
     /**
      * @Route("/new", name="user_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
 
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-            $file = $form->get('avatar')->getData();
-            $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+
+            $files2 = $form['avatar2']->getData();
             $entityManager = $this->getDoctrine()->getManager();
 
+            if (!empty($files2))
+            {
+                //$file = $user->getAvatar2();
+                $file = $form->get('avatar2')->getData();
+                $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
                 try {
                     $file->move(
                         $this->getParameter('avatars_directory'),
@@ -55,8 +61,14 @@ class UserController extends AbstractController
                     // ... handle exception if something happens during file upload
                 }
 
-            $user->setAvatar($fileName);
+                $user->setAvatar($fileName);
+            } else {
 
+                $user->setAvatar($user->getAvatar());
+            }
+
+            $password = $request->request->get('password');
+            $user->setPassword($passwordEncoder->encodePassword($user,$password));
             $user->setRoles(array($form->get('roles2')->getData()));
             $entityManager->persist($user);
             $entityManager->flush();
@@ -95,10 +107,8 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid())
         {
-
-            //dd($form2);
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-            //$files2 = $request->files->all()['edit_user']['avatar2'];
+
             $files2 = $form['avatar2']->getData();
 
             if (!empty($files2))
@@ -120,6 +130,7 @@ class UserController extends AbstractController
 
                 $user->setAvatar($user->getAvatar());
             }
+
 
             $this->getDoctrine()->getManager()->flush();
 
