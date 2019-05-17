@@ -10,19 +10,35 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 /**
- * @Route("/fontcalendrier")
+ * @Route("/calendrier")
  */
-class CalendrierfrontController extends AbstractController
+class CalendrierFrontController extends AbstractController
 {
-    /**
-     * @Route("/", name="calendrier_index", methods={"GET"})
+     /**
+     * @Route("/new", name="front_calendrier_index", methods={"GET","POST"})
      */
-    public function index(CalendrierRepository $calendrierRepository): Response
-    {
-        return $this->render('calendrier/index.html.twig', [
-            'calendriers' => $calendrierRepository->findAll(),
+    public function new(Request $request): Response
+    {  
+        
+      
+        $calendrier = new Calendrier();
+        $form = $this->createForm(CalendrierType::class, $calendrier);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+     
+     
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($calendrier);
+            $entityManager->flush();
+        }
+ 
+
+
+        return $this->render('calendrier_front/index.html.twig', [
+            'calendrier' => $calendrier,
+            'form' => $form->createView(),
         ]);
     }
-}
+}    
