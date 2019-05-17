@@ -13,43 +13,43 @@
     <body>
                     <!--header-->
         <header> 
-        <div class="wrap">     
-            <a href="{{ path('app_homepage') }}"id="logo"><img src="{{ asset('asset_front/img/logo_long.png') }}"></a>         
-            <div id="hamburger">
-                    <!--menu classique-->
-                <div id="hamburger-content">
-                    <nav>
-                        <ul>   
-                            <li class="accueil"><a href="{{ path('app_homepage') }}">Page d'accueil</a></li>
-                                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                {% if is_granted('ROLE_SUPER_ADMIN') %}
-                            <li class="back"><a href="{{ path('app_admin') }}">Back-office</a></li>
-                                {% endif %}
-                                {% if is_granted('ROLE_ADMIN') %}
-                            <li class="resa"><a href="#">Gérer les réservation</a></li>
-                                {% endif %}
-                                {% if is_granted('ROLE_USER') %}
-                            <li class="mon_compte"><a href="#">Mon compte</a></li>
-                            <li><a href="{{ path('app_logout') }}">Deconnexion</a></li>
-        
+            <div class="wrap">     
+                <a href="{{ path('app_homepage') }}"id="logo"><img src="{{ asset('asset_front/img/logo_long.png') }}"></a>         
+                <div id="hamburger">
+                        <!--menu classique-->
+                    <div id="hamburger-content">
+                        <nav>
+                            <ul>   
+                                <li class="accueil"><a href="{{ path('app_homepage') }}">Page d'accueil</a></li>
+                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                    {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                <li class="back"><a href="{{ path('app_admin') }}">Back-office</a></li>
+                                    {% endif %}
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                <li class="resa"><a href="#">Gérer les réservation</a></li>
+                                    {% endif %}
+                                    {% if is_granted('ROLE_USER') %}
+                                <li class="mon_compte"><a href="#">Mon compte</a></li>
+                                <li><a href="{{ path('app_logout') }}">Deconnexion</a></li>
+            
 
+                                    {% endif %}
+                                {% else %}
+                                <li class="inscription"><a href="{{ path('app_register') }}">Inscription</a></li>
+                                <li class="connexion"><a href="{{ path('app_login') }}">Connexion</a></li>
                                 {% endif %}
-                            {% else %}
-                            <li class="inscription"><a href="{{ path('app_register') }}">Inscription</a></li>
-                            <li class="connexion"><a href="{{ path('app_login') }}">Connexion</a></li>
-                            {% endif %}
-                        </ul>
-                    </nav>
-                </div>   
-                    <button id="hamburger-button">&#9776;</button>
-                    <!--menu burger-->
-                <div id="hamburger-sidebar">
-                    <div id="hamburger-sidebar-header" ><img src="{{ asset('asset_front/img/logo_long.png') }}"></div>
-                    <div id="hamburger-sidebar-body"></div>
+                            </ul>
+                        </nav>
+                    </div>   
+                        <button id="hamburger-button">&#9776;</button>
+                        <!--menu burger-->
+                    <div id="hamburger-sidebar">
+                        <div id="hamburger-sidebar-header" ><img src="{{ asset('asset_front/img/logo_long.png') }}"></div>
+                        <div id="hamburger-sidebar-body"></div>
+                    </div>
+                    <div id="hamburger-overlay"></div>
                 </div>
-                <div id="hamburger-overlay"></div>
-            </div>
-        </div>    
+            </div>    
         </header>
         
         {% block body %} {% endblock %}
@@ -82,7 +82,7 @@
             <div class="bottom-bar">
                     <p class="copyright">©2019 FindYourCoach.fr &nbsp;Réalisé par<span> La Frite Team</span></p>
                     <ul class="nav-footer">
-                        <li><a href="mentions_legales">Mentions légales&nbsp;</a></li>
+                        <li><a href="mentions_legales">Mentions légales&nbsp;</a>|</li>
                         <li><a href="#">Nous contacter</a></li>
                     </ul> 
                 </div> 

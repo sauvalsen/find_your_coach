@@ -228,7 +228,7 @@ li a, .button {
     border: none;
     width: 100%;
 }
-.mdp-oublié{
+.mdp-oublie{
     float: right;
     margin-bottom: 30px;
 }
@@ -376,5 +376,13 @@ ul.nav-footer{
     .colone{
         text-align: center;
 
+    }
+}
+
+@media screen and (max-width: 820px){
+    .formulaire {
+        float: none;
+        margin: 100px auto;
+        width: 70%;
     }
 }
