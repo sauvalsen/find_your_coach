@@ -126,9 +126,10 @@ class User implements UserInterface,\Serializable
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
      */
     private $avatar;
+
+    private $avatar2;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -389,6 +390,18 @@ class User implements UserInterface,\Serializable
     public function setAvatar(?string $avatar): self
     {
         $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    public function getAvatar2(): ?string
+    {
+        return $this->avatar2;
+    }
+
+    public function setAvatar2(?string $avatar2): self
+    {
+        $this->avatar2 = $avatar2;
 
         return $this;
     }

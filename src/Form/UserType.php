@@ -43,7 +43,10 @@ class UserType extends AbstractType
             ->add('tel', TelType::class, ['required'   => false])
             ->add('diplome', TextType::class, ['required'   => false])
             ->add('description', TextareaType::class, ['required'   => false])
-            ->add('avatar', FileType::class, ['label' => 'Avatar (PNG,JPG)'], ['data_class' => null, 'required' => false])
+            ->add('avatar', FileType::class, [
+                'label' => 'Avatar (PNG,JPG)',
+                'required' => false,
+            ])
             ->add('sexe', ChoiceType::class, [
                 'choices'  => [
                     'Femme' => 'femme',
