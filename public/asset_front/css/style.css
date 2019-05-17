@@ -67,62 +67,120 @@ table {
     width:100%;
     max-width: 1200px;
     margin: 0 auto;
-  
 }
 
 /*header*/
 
-header.page-header {
-    height: 100px;
-    -webkit-transition: all .3s ease-out;
-   transition: all .3s cubic-bezier(1, 0.18, 0, 1.27);
-   
+header {
+    background-color: var(--Couleur-principale);
+    opacity: 0.96;
+    height:100px;
+    position: sticky;
+    top: 0; 
+    z-index: 100;   
 }
-.header-logo{ 
+#logo{ 
     float:left; 
+    padding-top:10px;
 }
-.header-logo img{
-height:80px;
-padding-top:10px;
+#logo img{
+    height:80px;
 }
 
 /*menu classique*/
- ul#menu {
-    float:right;
-    padding-top: 40px;
+
+#logo, nav, li {
+    display: inline-block;
+    line-height: 48px;
+    vertical-align: top;
 }
-#menu li{
-    display: inline-block;  
+nav {
+    display: inline-block;
+    line-height: 48px;
+    vertical-align: top;
+    margin-right: 30px;
 }
-#menu li a{
-    float:left;
+li a, .button {
+    text-decoration: none; 
     color:black;
-    border: solid 1px darkgrey ;
+    border: solid 1px black ;
     border-radius: 15px;
     margin-left: 10px;
     padding: 5px;
 }
-
-/*slicknav*/
-.slicknav_menu {
-    display:none;
-    
+.button {
+    text-transform: uppercase;
+    float: right;
+    margin-top: -16px;
+    line-height: 84px;
+    height: 84px;
+    text-decoration: none;
+    padding: 0 16px;
 }
-
-/*sticky navbar*/
-.sticky {
+#hamburger, #hamburger-content {
+    display: inline;
+}
+#hamburger-content{
+    float:right;
+    margin-top:27px;
+}
+#hamburger-button {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 30px;
+    line-height: 47px;
+    float: right;
+    margin-right: 32px;
+    margin-top:19px;
+}
+#hamburger-overlay {
+    display: none;
     position: fixed;
+    z-index: 10;
     top: 0;
+    left: 0;
     width: 100%;
-  }
-  .sticky + .content {
-    padding-top: 60px;
-  } 
-
-  .backwhite {
-      background-color: coral;
-  }
-
+    height: 100%;
+    background-color: rgba(0, 0, 0, .4);
+}
+#hamburger-sidebar {
+    display: none;
+    position: fixed;
+    width: 84%;
+    z-index: 20;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #FFF;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform .5s ease-in;
+}
+#hamburger-sidebar li {
+    display: block;  
+}
+#hamburger-sidebar-header {
+    background-size: cover;
+    height: 100px;
+    text-align:center;
+    background-color: white;
+}
+#hamburger-sidebar-header img{
+    height:100%; 
+}
+#hamburger-sidebar-body {
+    padding: 16px 8px;
+    background-color: rgba(122, 117, 117, 0.2);
+    text-align: center;
+}
+#hamburger-sidebar-body li a{
+    border:0px;
+}
+.content{
+    height:500px;
+}
 /*Inscription - connexion*/
 
 .fond-inscription {
@@ -138,9 +196,7 @@ padding-top:10px;
     background-size: cover;
     height: 800px;
 }
-.wrap {
-    max-width: 1200px;
-}
+
 .formulaire {
     margin: 200px 5%;
     float: right;
@@ -185,27 +241,27 @@ footer{
     background-color: var(--Couleur-principale);
 }
 .reseaux{
-    padding-left: 8%;
+    
 }
 .reseaux i{
     padding-top:20px;
     padding-right: 30px;
 }
-.colones{
+#colones{
     margin-left:-2%;
     height:auto;
+    text-align: center;
 }
 .colone{
     float:left;
     width:31.3333333333333%;
     margin-left: 2%;
+    background-color: tomato;
+    vertical-align:middle;
+    
 }
-.logo-bas{
-    float:right;
+.logo-bas{  
     padding-right: 15px;
-}
-.liens-footer li a{
-    color:black;   
 }
 
 /*bottom bar*/
@@ -215,33 +271,45 @@ footer{
     text-align: center;
 }
 .bottom-bar p{
-    padding-top: 5px;
+    padding-top: 10px;
 }
-
 .bottom-bar p span{
     color:red;
 }
-
-ul.nav-footer{
-    padding-top: 5px;
+ul.nav-footer{  
+    border:0;
 }
 .nav-footer li {
     display: inline-block;
 }
 .nav-footer li a {
-    color:black;
+    border:0px;
 }
 /*responsive*/
 
 @media screen and (max-width: 860px) {
-	/* #menu is the original menu */
-	 #menu {
-		display:none;
-	}
-	 .slicknav_menu {
-		display:block;
+    /* #menu est le menu général */
+    #menu {
+        display:none;
     }
     .header-logo{
-        width:80%;
+        padding-left: 35%;
+    }
+    .colone{
+        width:100%;
+    }  
+    #hamburger-content {
+        display: none;
+    }
+    #hamburger-button, #hamburger-sidebar,
+    .hamburger-activated #hamburger-overlay {
+        display: block;
+    }
+    .hamburger-activated #hamburger-sidebar {
+        transform: translateX(0);
+    }
+    .colone{
+        text-align: center;
+
     }
 }
