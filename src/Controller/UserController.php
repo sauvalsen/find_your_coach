@@ -49,7 +49,6 @@ class UserController extends AbstractController
 
             if (!empty($files2))
             {
-                //$file = $user->getAvatar2();
                 $file = $form->get('avatar2')->getData();
                 $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
                 try {
@@ -64,7 +63,7 @@ class UserController extends AbstractController
                 $user->setAvatar($fileName);
             } else {
 
-                $user->setAvatar($user->getAvatar());
+                $user->setAvatar('default-avatar.png');
             }
 
             $password = $request->request->get('password');
