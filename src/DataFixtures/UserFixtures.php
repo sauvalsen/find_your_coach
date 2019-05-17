@@ -9,6 +9,8 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserFixtures extends Fixture
 {
+
+    
      private $passwordEncoder;
 
     public function __construct(UserPasswordEncoderInterface $passwordEncoder)
@@ -39,6 +41,7 @@ class UserFixtures extends Fixture
         $user1->setSexe('Homme');
         $user1->setNiveau('Confirmé');
         $manager->persist($user1);
+        $this->addReference("user1",$user1);
 
         $userweb = new User();
         $userweb->setEmail('quidelantoine@gmail.com');
@@ -68,6 +71,7 @@ class UserFixtures extends Fixture
         $user2->setNiveau('Débutant');
         $manager->persist($user2);
 
+        $this->addReference("user2",$user2);
 
         $user3 = new User();
         $user3->setEmail('user3@mail.fr');
@@ -84,6 +88,7 @@ class UserFixtures extends Fixture
         $user3->setSexe('Homme');
         $user3->setNiveau('Intermediaire');
         $manager->persist($user3);
+        $this->addReference("user3",$user3);
 
 
         $user4 = new User();
@@ -101,7 +106,7 @@ class UserFixtures extends Fixture
         $user4->setSexe('Femme');
         $user4->setNiveau('Confirmé');
         $manager->persist($user4);
-
+        $this->addReference("user4",$user4);
 
         $user5 = new User();
         $user5->setEmail('user5@mail.fr');
@@ -118,6 +123,8 @@ class UserFixtures extends Fixture
         $user5->setSexe('Femme');
         $user5->setNiveau('Confirmé');
         $manager->persist($user5);
+        $this->addReference("user5",$user5);
+
 
         ////////////////////////////////////////COACH////////////////////////////////////////////
 
@@ -135,6 +142,8 @@ class UserFixtures extends Fixture
         $coach->setAvatar('img');
         $coach->setSexe('Homme');
         $manager->persist($coach);
+        $this->addReference("coach",$coach);
+
 
 
         $coach2= new User();
@@ -151,6 +160,7 @@ class UserFixtures extends Fixture
         $coach2->setAvatar('img');
         $coach2->setSexe('Homme');
         $manager->persist($coach2);
+        $this->addReference("coach2",$coach2);
 
 
         $coach3= new User();
@@ -167,6 +177,7 @@ class UserFixtures extends Fixture
         $coach3->setAvatar('img');
         $coach3->setSexe('femme');
         $manager->persist($coach3);
+        $this->addReference("coach3",$coach3);
 
 
         $coach4= new User();
@@ -183,6 +194,7 @@ class UserFixtures extends Fixture
         $coach4->setAvatar('img');
         $coach4->setSexe('homme');
         $manager->persist($coach4);
+        $this->addReference("coach4",$coach4);
 
 
         $coach5= new User();
@@ -199,6 +211,7 @@ class UserFixtures extends Fixture
         $coach5->setAvatar('img');
         $coach5->setSexe('femme');
         $manager->persist($coach5);
+        $this->addReference("coach5",$coach5);
 
         $manager->flush();
     }

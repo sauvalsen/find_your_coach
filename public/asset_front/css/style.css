@@ -210,9 +210,11 @@ li a, .button {
     opacity: 0.95;
 }
 .formulaire-connexion{
+    font-weight: bold;
     opacity: 0.80;
 }
 .titre-inscription{
+    font-weight: bold;
     padding: 20px 0 10px 20px;
 }
 #inputEmail {
@@ -234,6 +236,69 @@ li a, .button {
     margin-top: 30px;
     margin-bottom: 0;
 }
+
+/************ Mentions legales *******************/
+
+.fond-mentions-legales{
+    background: no-repeat url("../img/fitness_large.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.mentions-legales {
+    background-color: whitesmoke;
+    max-width: 1000px;
+    margin: auto;
+    padding: 100px;
+    border-radius:20px;
+    opacity: 0.75;
+    text-justify: auto;
+}
+
+.mentions-legales h1 {
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.mentions-legales h2 {
+    color: var(--Couleur-principale);
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom:10px;
+}
+
+.mentions-legales h3, h4{
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom:10px;
+}
+
+.mentions-legales #article ul{
+    margin:0 0 30px 50px;
+}
+
+.mentions-legales #article ul li{
+    line-height: 2;
+    list-style-position: outside;
+    list-style: square;
+}
+
+.mentions-legales strong{
+    font-weight: bold;
+}
+
+.mentions-legales p{
+    margin-bottom: 30px;
+    text-indent: 5%;
+}
+
+.mentions-legales .no-indent{
+    text-indent: 0;
+}
+
 
 /*footer*/
 

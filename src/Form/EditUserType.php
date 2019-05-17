@@ -4,8 +4,10 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
@@ -21,7 +23,7 @@ class EditUserType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class)
-            ->add('roles2', ChoiceType::class, [
+            ->add('roles', ChoiceType::class, [
                 'label' => 'Vous êtes:',
                 'choices'  => [
                     'admin' => 'ROLE_ADMIN',
@@ -29,7 +31,7 @@ class EditUserType extends AbstractType
                     'sportif' => 'ROLE_USER',
                 ],
                 'expanded' => true,
-                'multiple' => false,
+                'multiple' => true,
             ])
             ->add('token', HiddenType::class)
             ->add('nom', TextType::class, ['required'   => false])
@@ -40,7 +42,11 @@ class EditUserType extends AbstractType
             ->add('tel', TelType::class, ['required'   => false])
             ->add('diplome', TextType::class, ['required'   => false])
             ->add('description', TextareaType::class, ['required'   => false])
-            ->add('avatar', TextType::class, ['required'   => false])
+            ->add('avatar2', FileType::class, [
+                'label' => 'Avatar (PNG,JPG)',
+                'data_class' => null,
+                'required' => false
+            ])
             ->add('sexe', ChoiceType::class, [
                 'choices'  => [
                     'Femme' => 'femme',

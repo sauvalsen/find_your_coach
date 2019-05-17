@@ -1,4 +1,63 @@
 {#{{ form_start(form) }}#}
 {{ form_start(form, {'attr': {'novalidate':'novalidate'}}) }}
-    {{ form_widget(form) }}
+
+{{ form_row(form.titre) }}
+
+ <div class="form-group">
+        <p>Heure du Début</p>
+                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                    {# <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/> #}
+
+                     {{ form_widget(form.start_date) }}
+                     
+                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+
+                    
+                    <div class="form-error">
+                    
+                        {{ form_errors(form.start_date) }}
+                    </div>
+                </div>
+            </div>
+
+
+<div class="form-group">
+        <p>Heure de fin</p>
+                <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                    {# <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/> #}
+
+                     {{ form_widget(form.end_date) }}
+                     
+                    <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+
+                    
+                    <div class="form-error">
+                    
+                        {{ form_errors(form.end_date) }}
+                    </div>
+                </div>
+            </div>
+
+            
+
+
+{# <div class="form-group">
+    <div class='input-group date' id='datetimepicker1'>
+         <input type='text' class="form-control" /> 
+        
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+    </div>
+</div> #}
+
+
+    {{ form_rest(form) }}
+    
 {{ form_end(form) }}
+
+
