@@ -49,7 +49,7 @@
             </tr>
             <tr>
                 <th>Avatar</th>
-                <td><img src="{{ asset('uploads/avatars/' ~ user.avatar) }}"></td>
+                <td><img src="{{ asset('uploads/avatars/' ~ user.avatar) | imagine_filter('my_thumb') }}"></td>
             </tr>
             <tr>
                 <th>Sexe</th>

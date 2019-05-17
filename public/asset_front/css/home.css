@@ -1,7 +1,11 @@
+*{
+    padding:0;
+    margin:0;
+}
 .intro-form {
     background-color: #00AFCF;
     margin-top: -100px;
-    padding: 320px 0 80px;
+    /*padding: 320px 0 80px;*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -10,11 +14,11 @@
 }
 #bloc1{
     height: 400px;
-    background-color:black;
+    background-color:white;
 }
 #bloc2{
     height: 400px;
-    background-color:white;
+    background-color:grey;
 }
 #bloc3{
     height: 400px;
@@ -27,5 +31,74 @@
 .po{
     text-align: center;
     font-weight: bold;
-    font-size: 50px;
+    font-size: 30px;
 }
+#sma{
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+/*Recherche*/
+
+#recherche{
+    width: 480px;
+    margin: auto;
+}
+.inputsport{
+    border-radius: 4px 0 0 4px;
+    display: inline-block;
+    border-color: transparent;
+    height: 40px;
+    margin-right:-3px;
+}
+.inputville{
+    display: inline-block;
+    border-radius: 0 4px 4px 0;
+    border-color: transparent;
+    height: 40px;
+
+}
+.btrecherche{
+    border-radius: 3px;
+    border-color: transparent;
+    height: 40px;
+    background-color: olivedrab;
+}
+
+.container{
+    padding: 320px 300px 0;
+}
+
+
+
+
+
+@media screen and (max-width: 900px){
+    #recherche{
+        margin:auto;
+    }
+    .inputville{
+        border-radius: 3px;
+        height: 40px;
+        width: 45%;
+    }
+    .inputsport{
+        border-radius: 3px;
+        height: 40px;
+        width: 45%;
+    }
+    .btrecherche{
+        border-radius: 3px;
+        border-color: transparent;
+        height: 30px;
+        width: 100%;
+        background-color: olivedrab;
+    }
+    .container{
+        padding: 320px 50px 0;
+    }
+}
+
