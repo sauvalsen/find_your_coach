@@ -69,20 +69,28 @@ table {
     margin: 0 auto;
 }
 
+.fond{
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+}
+
 /*header*/
 
 header {
     background-color: var(--Couleur-principale);
     opacity: 0.96;
     height:100px;
-    position: sticky;
-    top: 0; 
+    position: fixed;
+    width: 100%;
     z-index: 100;   
 }
+
 #logo{ 
     float:left; 
-    padding-top:10px;
+    margin-top:10px;
 }
+
 #logo img{
     height:80px;
 }
@@ -94,12 +102,11 @@ header {
     line-height: 48px;
     vertical-align: top;
 }
+
 nav {
-    display: inline-block;
-    line-height: 48px;
-    vertical-align: top;
     margin-right: 30px;
 }
+
 li a, .button {
     text-decoration: none; 
     color:black;
@@ -108,22 +115,16 @@ li a, .button {
     margin-left: 10px;
     padding: 5px;
 }
-.button {
-    text-transform: uppercase;
-    float: right;
-    margin-top: -16px;
-    line-height: 84px;
-    height: 84px;
-    text-decoration: none;
-    padding: 0 16px;
-}
+
 #hamburger, #hamburger-content {
     display: inline;
 }
+
 #hamburger-content{
     float:right;
     margin-top:27px;
 }
+
 #hamburger-button {
     display: none;
     cursor: pointer;
@@ -135,6 +136,7 @@ li a, .button {
     margin-right: 32px;
     margin-top:19px;
 }
+
 #hamburger-overlay {
     display: none;
     position: fixed;
@@ -145,6 +147,7 @@ li a, .button {
     height: 100%;
     background-color: rgba(0, 0, 0, .4);
 }
+
 #hamburger-sidebar {
     display: none;
     position: fixed;
@@ -158,6 +161,7 @@ li a, .button {
     transform: translateX(-100%);
     transition: transform .5s ease-in;
 }
+
 #hamburger-sidebar li {
     display: block;  
 }
@@ -170,60 +174,62 @@ li a, .button {
 #hamburger-sidebar-header img{
     height:100%; 
 }
+
 #hamburger-sidebar-body {
     padding: 16px 8px;
     background-color: rgba(122, 117, 117, 0.2);
     text-align: center;
 }
+
 #hamburger-sidebar-body li a{
     border:0px;
 }
-.content{
-    height:500px;
-}
+
 /*Inscription - connexion*/
 
 .fond-inscription {
     background: url("../img/coureur.jpg");
     background-position: top;
 }
+
 .fond-connexion {
     background: url("../img/salle_fitness.jpg");
     background-position: bottom;
 }
-.fond{
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 800px;
-}
 
 .formulaire {
-    margin: 200px 5%;
-    float: right;
-    width: 40%;
+    float: left;
+    margin: 250px 10%;
+    width: 80%;
     padding: 0 35px;
     background-color: ghostwhite;
     border-radius:5px;
     box-shadow: -5px 5px 10px 2px rgba(0,0,0,0.75);
 }
+
 .formulaire-inscription{
     opacity: 0.95;
 }
+
 .formulaire-connexion{
     font-weight: bold;
     opacity: 0.80;
 }
+
 .titre-inscription{
     font-weight: bold;
     padding: 20px 0 10px 20px;
 }
+
 #inputEmail {
     margin-bottom: 25px;
 }
+
 #inputPassword {
     margin-bottom: 40px;
 }
-#registration_form_submit, .bouton-connexion {
+
+#registration_form_Envoyer, .bouton-connexion {
     background-color: var(--Couleur-principale);
     border: none;
     width: 100%;
@@ -242,14 +248,12 @@ li a, .button {
 .fond-mentions-legales{
     background: no-repeat url("../img/fitness_large.jpg");
     background-position: center;
-    background-size: cover;
     background-attachment: fixed;
 }
 
 .mentions-legales {
     background-color: whitesmoke;
     max-width: 1000px;
-    margin: auto;
     padding: 100px;
     border-radius:20px;
     opacity: 0.75;
@@ -305,18 +309,18 @@ li a, .button {
 footer{
     background-color: var(--Couleur-principale);
 }
-.reseaux{
-    
-}
+
 .reseaux i{
     padding-top:20px;
     padding-right: 30px;
 }
+
 #colones{
     margin-left:-2%;
     height:auto;
     text-align: center;
 }
+
 .colone{
     float:left;
     width:31.3333333333333%;
@@ -325,6 +329,7 @@ footer{
     vertical-align:middle;
     
 }
+
 .logo-bas{  
     padding-right: 15px;
 }
@@ -335,21 +340,28 @@ footer{
     background-color: beige;
     text-align: center;
 }
+
 .bottom-bar p{
     padding-top: 10px;
 }
+
 .bottom-bar p span{
     color:red;
 }
+
 ul.nav-footer{  
     border:0;
 }
+
 .nav-footer li {
     display: inline-block;
 }
+
 .nav-footer li a {
     border:0px;
 }
+
+
 /*responsive*/
 
 @media screen and (max-width: 860px) {
@@ -379,10 +391,10 @@ ul.nav-footer{
     }
 }
 
-@media screen and (max-width: 820px){
+@media screen and (min-width: 860px){
     .formulaire {
-        float: none;
-        margin: 100px auto;
-        width: 70%;
+        float: right;
+        margin: 250px 5%;
+        width: 40%;
     }
 }

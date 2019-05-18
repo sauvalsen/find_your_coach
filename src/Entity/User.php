@@ -119,7 +119,7 @@ class User implements UserInterface
     private $modified_at;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $status;
 

@@ -57,6 +57,10 @@
         </div>
     </div>
 
+    <div class="pagination">
+        {{ knp_pagination_render(users) }}
+    </div>
+
 
     <a href="{{ path('user_new') }}">Créer un utilisateur</a>
 {% endblock %}
