@@ -47,7 +47,6 @@ class RegistrationFormType extends AbstractType
                 'expanded' => true,
                 'multiple' => false
             ])
-            ->add('Envoyer', SubmitType::class)
         ;
     }
 

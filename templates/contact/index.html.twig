@@ -3,21 +3,30 @@
 {% block title %}Formulaire de contact{% endblock %}
 
 {% block body %}
-    <style>#contactForm {padding-top: 200px;}</style>
-    <div id="contactForm" class="mt-4">
-        {{ form_start(form) }}
-            <div class="row">
-                <div class="col">{{ form_row(form.firstname) }}</div>
-                <div class="col">{{ form_row(form.lastname) }}</div>
+    <main>
+        <div class="fond fond-contact">
+            <div id="contactForm" class="formulaire formulaire-contact">
+                {% if not form.vars.valid %}
+                    <div class="alert alert-danger">
+                        Erreur dans l'envoie de l'email.
+                    </div>
+                {% endif %}
+                {{ form_start(form) }}
+                    <h1 class="titre-formulaire h3 mb-3 font-weight-bold">Contactez nous:</h1>
+                    <div class="row">
+                        <div class="col">{{ form_row(form.firstname) }}</div>
+                        <div class="col">{{ form_row(form.lastname) }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col">{{ form_row(form.phone) }}</div>
+                        <div class="col">{{ form_row(form.email) }}</div>
+                    </div>
+                    {{ form_rest(form) }}
+                    <div class="form-group">
+                        <button class="bouton-connexion btn">Envoyer</button>
+                    </div>
+                {{ form_end(form) }}
             </div>
-            <div class="row">
-                <div class="col">{{ form_row(form.phone) }}</div>
-                <div class="col">{{ form_row(form.email) }}</div>
-            </div>
-        {{ form_rest(form) }}
-        <div class="form-group">
-            <button class="btn">Envoyer</button>
         </div>
-        {{ form_end(form) }}
-    </div>
+    </main>
 {% endblock %}
