@@ -39,6 +39,7 @@ class UserFixtures extends Fixture
         $user1->setDescription('Coucou, je suis Pierre Pierrot');
         $user1->setAvatar('img');
         $user1->setSexe('Homme');
+        $user1->setStatus(1);
         $user1->setNiveau('Confirmé');
         $manager->persist($user1);
         $this->addReference("user1",$user1);
@@ -69,6 +70,7 @@ class UserFixtures extends Fixture
         $user2->setAvatar('img');
         $user2->setSexe('Homme');
         $user2->setNiveau('Débutant');
+        $user2->setStatus(1);
         $manager->persist($user2);
 
         $this->addReference("user2",$user2);
@@ -86,6 +88,7 @@ class UserFixtures extends Fixture
         $user3->setDescription('Coucou, je suis Martin ! :)');
         $user3->setAvatar('img');
         $user3->setSexe('Homme');
+        $user3->setStatus(1);
         $user3->setNiveau('Intermediaire');
         $manager->persist($user3);
         $this->addReference("user3",$user3);
@@ -104,6 +107,7 @@ class UserFixtures extends Fixture
         $user4->setDescription('Coucou, je suis Anne Lefevre ! :)');
         $user4->setAvatar('img');
         $user4->setSexe('Femme');
+        $user4->setStatus(1);
         $user4->setNiveau('Confirmé');
         $manager->persist($user4);
         $this->addReference("user4",$user4);
@@ -122,6 +126,7 @@ class UserFixtures extends Fixture
         $user5->setAvatar('img');
         $user5->setSexe('Femme');
         $user5->setNiveau('Confirmé');
+        $user5->setStatus(1);
         $manager->persist($user5);
         $this->addReference("user5",$user5);
 
@@ -141,6 +146,7 @@ class UserFixtures extends Fixture
         $coach->setDescription('Coucou, je suis pierre legrand coach à domicile ! :)');
         $coach->setAvatar('img');
         $coach->setSexe('Homme');
+        $coach->setStatus(1);
         $manager->persist($coach);
         $this->addReference("coach",$coach);
 
@@ -159,6 +165,7 @@ class UserFixtures extends Fixture
         $coach2->setDescription('Coucou, je suis Louis Gras coach à domicile ! :)');
         $coach2->setAvatar('img');
         $coach2->setSexe('Homme');
+        $coach2->setStatus(1);
         $manager->persist($coach2);
         $this->addReference("coach2",$coach2);
 
@@ -176,6 +183,7 @@ class UserFixtures extends Fixture
         $coach3->setDescription('Coucou, je suis Claire Martin coach à domicile ! :)');
         $coach3->setAvatar('img');
         $coach3->setSexe('femme');
+        $coach3->setStatus(1);
         $manager->persist($coach3);
         $this->addReference("coach3",$coach3);
 
@@ -193,6 +201,7 @@ class UserFixtures extends Fixture
         $coach4->setDescription('Coucou, je suis Antoine Quidel coach à domicile ! :)');
         $coach4->setAvatar('img');
         $coach4->setSexe('homme');
+        $coach4->setStatus(1);
         $manager->persist($coach4);
         $this->addReference("coach4",$coach4);
 
@@ -210,6 +219,7 @@ class UserFixtures extends Fixture
         $coach5->setDescription('Coucou, je suis Elise Grandjacques coach à domicile ! :)');
         $coach5->setAvatar('img');
         $coach5->setSexe('femme');
+        $coach5->setStatus(1);
         $manager->persist($coach5);
         $this->addReference("coach5",$coach5);
 

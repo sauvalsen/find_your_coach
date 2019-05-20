@@ -65,7 +65,7 @@ class UserType extends AbstractType
                 'expanded' => false,
                 'multiple' => false,
             ])
-            ->add('submit', SubmitType::class)
+            ->add('Envoyer', SubmitType::class)
         ;
     }
 

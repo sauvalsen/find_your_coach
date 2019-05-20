@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Form\EditUserType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,12 +22,15 @@ class UserController extends AbstractController
     /**
      * @Route("/", name="user_index", methods={"GET"})
      */
-    public function index(UserRepository $userRepository): Response
+    public function index(UserRepository $userRepository, Request $request, PaginatorInterface $paginator): Response
     {
-
+            $users = $paginator->paginate(
+                $userRepository->findAll(),
+                $request->query->getInt('page', 1),
+                10
+            );
         return $this->render('user/index.html.twig', [
-            'users' => $userRepository->findAll(),
-
+            'users' => $users
         ]);
     }
 
@@ -49,7 +53,6 @@ class UserController extends AbstractController
 
             if (!empty($files2))
             {
-                //$file = $user->getAvatar2();
                 $file = $form->get('avatar2')->getData();
                 $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
                 try {
@@ -64,7 +67,7 @@ class UserController extends AbstractController
                 $user->setAvatar($fileName);
             } else {
 
-                $user->setAvatar($user->getAvatar());
+                $user->setAvatar('default-avatar.png');
             }
 
             $password = $request->request->get('password');
