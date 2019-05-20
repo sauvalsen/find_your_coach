@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190520101823 extends AbstractMigration
+final class Version20190520120837 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,8 +22,9 @@ final class Version20190520101823 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE TABLE search (id INT AUTO_INCREMENT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
-        $this->addSql('ALTER TABLE user ADD sport INT DEFAULT NULL');
+        $this->addSql('CREATE TABLE sport_user (sport_id INT NOT NULL, user_id INT NOT NULL, INDEX IDX_FA4CF8B5AC78BCF8 (sport_id), INDEX IDX_FA4CF8B5A76ED395 (user_id), PRIMARY KEY(sport_id, user_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE sport_user ADD CONSTRAINT FK_FA4CF8B5AC78BCF8 FOREIGN KEY (sport_id) REFERENCES sport (id) ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE sport_user ADD CONSTRAINT FK_FA4CF8B5A76ED395 FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE');
     }
 
     public function down(Schema $schema) : void
@@ -31,7 +32,6 @@ final class Version20190520101823 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('DROP TABLE search');
-        $this->addSql('ALTER TABLE user DROP sport');
+        $this->addSql('DROP TABLE sport_user');
     }
 }

@@ -31,6 +31,15 @@ class SearchSportType extends AbstractType
                 'required' => false,
                 'multiple' => false,
             ])
+           ->add('ville', EntityType::class, [
+               // looks for choices from this entity
+               'class' => User::class,
+               // uses the User.username property as the visible option string
+               'choice_label' => 'ville',
+               'translation_domain' => 'Default',
+               'required' => false,
+               'multiple' => false,
+           ])
 
            ->add('Envoyer', SubmitType::class)
         ;

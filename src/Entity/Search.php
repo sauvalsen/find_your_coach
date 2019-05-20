@@ -24,6 +24,8 @@ class Search
 
     private $sport;
 
+    private $ville;
+
 
     public function getSport(): ?string
     {
@@ -33,6 +35,18 @@ class Search
     public function setSport(string $sport): self
     {
         $this->sport = $sport;
+
+        return $this;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(string $ville): self
+    {
+        $this->ville = $ville;
 
         return $this;
     }
