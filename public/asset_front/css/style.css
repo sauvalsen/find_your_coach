@@ -310,3 +310,13 @@ ul.nav-footer{
         width:80%;
     }
 }
+
+/********** Calendrier*\\\\\\\*/
+#calendrier_sportif{
+    visibility: hidden;
+    display:inline;
+}
+
+label.calendrier_sportif{
+    display:none;
+}
