@@ -10,8 +10,8 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class UserFixtures extends Fixture
 {
 
-    
-     private $passwordEncoder;
+
+    private $passwordEncoder;
 
     public function __construct(UserPasswordEncoderInterface $passwordEncoder)
     {
@@ -24,6 +24,7 @@ class UserFixtures extends Fixture
         $dev->setEmail('dev@mail.fr');
         $dev->setRoles(array('ROLE_SUPER_ADMIN'));
         $dev->setPassword($this->passwordEncoder->encodePassword($dev, 'dev'));
+        $dev->setStatus(1);
         $manager->persist($dev);
 
         $user1 = new User();
@@ -41,6 +42,7 @@ class UserFixtures extends Fixture
         $user1->setSexe('Homme');
         $user1->setStatus(1);
         $user1->setNiveau('Confirmé');
+        $user1->setSport(1);
         $manager->persist($user1);
         $this->addReference("user1",$user1);
 
@@ -63,7 +65,7 @@ class UserFixtures extends Fixture
         $user2->setNom('PetitPont');
         $user2->setPrenom('Roger');
         $user2->setAdresse('11 rue Pichon');
-        $user2->setCodePostal('7600');
+        $user2->setCodePostal('76000');
         $user2->setVille('Rouen');
         $user2->setTel('06 30 45 65 85');
         $user2->setDescription('Coucou, je suis Roger PetitPont');
@@ -71,6 +73,7 @@ class UserFixtures extends Fixture
         $user2->setSexe('Homme');
         $user2->setNiveau('Débutant');
         $user2->setStatus(1);
+        $user2->setSport(1);
         $manager->persist($user2);
 
         $this->addReference("user2",$user2);

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -29,12 +31,18 @@ class Sport
 
     public function __construct(){
         $this->created_at = new \DateTime;
+        $this->search = new ArrayCollection();
     }
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $modified_at;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="sports")
+     */
+    private $search;
 
     /**
      * @ORM\PreUpdate
@@ -80,6 +88,32 @@ class Sport
     public function setModifiedAt(?\DateTimeInterface $modified_at): self
     {
         $this->modified_at = $modified_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getSearch(): Collection
+    {
+        return $this->search;
+    }
+
+    public function addSearch(User $search): self
+    {
+        if (!$this->search->contains($search)) {
+            $this->search[] = $search;
+        }
+
+        return $this;
+    }
+
+    public function removeSearch(User $search): self
+    {
+        if ($this->search->contains($search)) {
+            $this->search->removeElement($search);
+        }
 
         return $this;
     }
