@@ -130,6 +130,7 @@ class User implements UserInterface
     private $calendriers;
 
     /**
+     *
      * @ORM\Column(type="integer", nullable=true)
      */
     private $sport;
@@ -138,6 +139,16 @@ class User implements UserInterface
      * @ORM\ManyToMany(targetEntity="App\Entity\Sport", mappedBy="search")
      */
     private $sports;
+
+    /**
+     * @ORM\Column(type="float", scale=4, precision=6, nullable=true)
+     */
+    private $lat;
+
+    /**
+     * @ORM\Column(type="float", scale=4, precision=7, nullable=true)
+     */
+    private $lng;
 
     /**
      * @ORM\PreUpdate
@@ -495,6 +506,19 @@ class User implements UserInterface
         return $this;
     }
 
+    public function getLat(): ?float
+    {
+        return $this->lat;
+    }
+
+    public function setLat(?float $lat): self
+    {
+        $this->lat = $lat;
+
+        return $this;
+    }
+
+
     /**
      * @return Collection|Sport[]
      */
@@ -519,6 +543,16 @@ class User implements UserInterface
             $this->sports->removeElement($sport);
             $sport->removeSearch($this);
         }
+    }
+
+    public function getLng(): ?float
+    {
+        return $this->lng;
+    }
+
+    public function setLng(?float $lng): self
+    {
+        $this->lng = $lng;
 
         return $this;
     }
