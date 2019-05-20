@@ -327,24 +327,32 @@ footer{
 .reseaux i{
     padding-top:20px;
     padding-right: 30px;
+    float:left;
 }
 
 #colones{
     margin-left:-2%;
     text-align: center;
+   
+    
 }
 
 .colone{
     float:left;
     width:31.3333333333333%;
     margin-left: 2%;
-    background-color: tomato;
-    vertical-align: middle;
-
+      
 }
-
+.reseaux{
+    margin-top:8%;
+    margin-left:30px;
+}
+.propos-colone{
+    margin-top: 8%;
+}
 .logo-bas{
     padding-right: 15px;
+    float:right;
 }
 
 /*bottom bar*/
