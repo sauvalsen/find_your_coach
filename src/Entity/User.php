@@ -119,7 +119,7 @@ class User implements UserInterface
     private $modified_at;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $status;
 
@@ -127,6 +127,11 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity="App\Entity\Calendrier", mappedBy="sportif")
      */
     private $calendriers;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $sport;
 
     /**
      * @ORM\PreUpdate
@@ -468,6 +473,18 @@ class User implements UserInterface
                 $calendrier->setSportif(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSport(): ?int
+    {
+        return $this->sport;
+    }
+
+    public function setSport(?int $sport): self
+    {
+        $this->sport = $sport;
 
         return $this;
     }

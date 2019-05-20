@@ -15,15 +15,14 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends AbstractController
 {
     /**
-     * @Route("/", name="app_homepage", methods={"GET"})
+     * @Route("/", name="app_homepage", methods={"GET","POST"})
      */
     public function index(){
 
         $search = new Search();
         $form = $this->createForm(SearchSportType::class, $search);
         return $this->render('default/index.html.twig',[
-
-//        'sports' => $searchRepository->findAll(),
+            //'sports' => $searchRepository->findAll(),
         'form' => $form->createView(),
         ]);
 

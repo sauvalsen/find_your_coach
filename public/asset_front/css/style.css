@@ -64,115 +64,192 @@ table {
 /***************** Style CSS ***********************/
 
 .wrap {
-    width:100%;
     max-width: 1200px;
+    width:100%;
     margin: 0 auto;
-  
 }
 
-/*header*/
-
-header.page-header {
-    height: 100px;
-    -webkit-transition: all .3s ease-out;
-   transition: all .3s cubic-bezier(1, 0.18, 0, 1.27);
-   
-}
-.header-logo{ 
-    float:left; 
-}
-.header-logo img{
-height:80px;
-padding-top:10px;
-}
-
-/*menu classique*/
- ul#menu {
-    float:right;
-    padding-top: 40px;
-}
-#menu li{
-    display: inline-block;  
-}
-#menu li a{
-    float:left;
-    color:black;
-    border: solid 1px darkgrey ;
-    border-radius: 15px;
-    margin-left: 10px;
-    padding: 5px;
-}
-
-/*slicknav*/
-.slicknav_menu {
-    display:none;
-    
-}
-
-/*sticky navbar*/
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
-  .sticky + .content {
-    padding-top: 60px;
-  } 
-
-  .backwhite {
-      background-color: coral;
-  }
-
-/*Inscription - connexion*/
-
-.fond-inscription {
-    background: url("../img/coureur.jpg");
-    background-position: top;
-}
-.fond-connexion {
-    background: url("../img/salle_fitness.jpg");
-    background-position: bottom;
-}
 .fond{
     background-repeat: no-repeat;
     background-size: cover;
     height: 800px;
 }
-.wrap {
-    max-width: 1200px;
+
+/*header*/
+
+header {
+    background-color: var(--Couleur-principale);
+    opacity: 0.96;
+    height:100px;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
 }
-.formulaire {
-    margin: 200px 5%;
+
+#logo{
+    float:left;
+    margin-top:10px;
+}
+
+#logo img{
+    height:80px;
+}
+
+/*menu classique*/
+
+#logo, nav, li {
+    display: inline-block;
+    line-height: 48px;
+    vertical-align: top;
+}
+
+nav {
+    margin-right: 30px;
+}
+
+.ul-nav li a, .button {
+    text-decoration: none;
+    color:black;
+    border: solid 1px black ;
+    border-radius: 15px;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+#hamburger, #hamburger-content {
+    display: inline;
+}
+
+#hamburger-content{
+    float:right;
+    margin-top:27px;
+}
+
+#hamburger-button {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 30px;
+    line-height: 47px;
     float: right;
-    width: 40%;
+    margin-right: 32px;
+    margin-top:19px;
+}
+
+#hamburger-overlay {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+#hamburger-sidebar {
+    display: none;
+    position: fixed;
+    width: 84%;
+    z-index: 20;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #FFF;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform .5s ease-in;
+}
+
+#hamburger-sidebar li {
+    display: block;
+}
+#hamburger-sidebar-header {
+    background-size: cover;
+    height: 100px;
+    text-align:center;
+    background-color: white;
+}
+#hamburger-sidebar-header img{
+    height:100%;
+}
+
+#hamburger-sidebar-body {
+    padding: 16px 8px;
+    background-color: rgba(122, 117, 117, 0.2);
+    text-align: center;
+}
+
+#hamburger-sidebar-body li a{
+    border:0px;
+}
+
+/*Inscription - connexion - contact*/
+
+.formulaire {
+    float: left;
+    margin: 250px 10%;
+    width: 80%;
     padding: 0 35px;
     background-color: ghostwhite;
     border-radius:5px;
     box-shadow: -5px 5px 10px 2px rgba(0,0,0,0.75);
+    font-weight: bold;
 }
+
+.fond-inscription {
+    background: url("../img/coureur.jpg");
+    background-position: top;
+}
+
+.fond-connexion {
+    background: url("../img/salle_fitness.jpg");
+    background-position: bottom;
+}
+
+.fond-contact{
+    background: url("../img/marche.jpg");
+    background-size: cover;
+    background-position: top;
+}
+
 .formulaire-inscription{
     opacity: 0.95;
 }
+
 .formulaire-connexion{
-    font-weight: bold;
-    opacity: 0.80;
+    opacity: 0.85;
 }
-.titre-inscription{
-    font-weight: bold;
+
+.formulaire-contact{
+    opacity: 0.85;
+}
+
+.titre-formulaire{
     padding: 20px 0 10px 20px;
 }
+
 #inputEmail {
     margin-bottom: 25px;
 }
+
 #inputPassword {
     margin-bottom: 40px;
 }
-#registration_form_submit, .bouton-connexion {
+
+.form-check{
+    font-weight: normal;
+}
+
+#registration_form_Envoyer, .bouton-connexion {
     background-color: var(--Couleur-principale);
+    color: white;
+    font-weight: bold;
     border: none;
     width: 100%;
 }
-.mdp-oublié{
+.mdp-oublie{
     float: right;
     margin-bottom: 30px;
 }
@@ -184,20 +261,17 @@ padding-top:10px;
 /************ Mentions legales *******************/
 
 .fond-mentions-legales{
-    background: no-repeat url("../img/fitness_large.jpg");
+    background: url("../img/fitness_large.jpg");
     background-position: center;
-    background-size: cover;
     background-attachment: fixed;
 }
 
 .mentions-legales {
     background-color: whitesmoke;
     max-width: 1000px;
-    margin: auto;
     padding: 100px;
     border-radius:20px;
     opacity: 0.75;
-    text-justify: auto;
 }
 
 .mentions-legales h1 {
@@ -249,28 +323,28 @@ padding-top:10px;
 footer{
     background-color: var(--Couleur-principale);
 }
-.reseaux{
-    padding-left: 8%;
-}
+
 .reseaux i{
     padding-top:20px;
     padding-right: 30px;
 }
-.colones{
+
+#colones{
     margin-left:-2%;
-    height:auto;
+    text-align: center;
 }
+
 .colone{
     float:left;
     width:31.3333333333333%;
     margin-left: 2%;
+    background-color: tomato;
+    vertical-align: middle;
+
 }
+
 .logo-bas{
-    float:right;
     padding-right: 15px;
-}
-.liens-footer li a{
-    color:black;   
 }
 
 /*bottom bar*/
@@ -279,34 +353,61 @@ footer{
     background-color: beige;
     text-align: center;
 }
+
 .bottom-bar p{
-    padding-top: 5px;
+    padding-top: 10px;
 }
 
 .bottom-bar p span{
     color:red;
 }
 
-ul.nav-footer{
-    padding-top: 5px;
+ul .nav-footer{
+    border:0;
 }
+
 .nav-footer li {
     display: inline-block;
 }
+
 .nav-footer li a {
-    color:black;
+    border:0px;
 }
+
+
 /*responsive*/
 
 @media screen and (max-width: 860px) {
-	/* #menu is the original menu */
-	 #menu {
-		display:none;
-	}
-	 .slicknav_menu {
-		display:block;
+    /* #menu est le menu général */
+    #menu {
+        display:none;
     }
     .header-logo{
-        width:80%;
+        padding-left: 35%;
+    }
+    .colone{
+        width:100%;
+    }
+    #hamburger-content {
+        display: none;
+    }
+    #hamburger-button, #hamburger-sidebar,
+    .hamburger-activated #hamburger-overlay {
+        display: block;
+    }
+    .hamburger-activated #hamburger-sidebar {
+        transform: translateX(0);
+    }
+    .colone{
+        text-align: center;
+
+    }
+}
+
+@media screen and (min-width: 860px){
+    .formulaire {
+        float: right;
+        margin: 250px 5%;
+        width: 40%;
     }
 }
