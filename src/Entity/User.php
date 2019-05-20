@@ -108,6 +108,7 @@ class User implements UserInterface
     public function __construct(){
         $this->created_at = new \DateTime;
         $this->calendriers = new ArrayCollection();
+        $this->sports = new ArrayCollection();
     }
 
     /**
@@ -119,6 +120,27 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity="App\Entity\Calendrier", mappedBy="sportif")
      */
     private $calendriers;
+
+    /**
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $sport;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Sport", mappedBy="search")
+     */
+    private $sports;
+
+    /**
+     * @ORM\Column(type="float", scale=4, precision=6, nullable=true)
+     */
+    private $lat;
+
+    /**
+     * @ORM\Column(type="float", scale=4, precision=7, nullable=true)
+     */
+    private $lng;
 
     /**
      * @ORM\PreUpdate
@@ -434,6 +456,69 @@ class User implements UserInterface
                 $calendrier->setSportif(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSport(): ?int
+    {
+        return $this->sport;
+    }
+
+    public function setSport(?int $sport): self
+    {
+        $this->sport = $sport;
+
+        return $this;
+    }
+
+    public function getLat(): ?float
+    {
+        return $this->lat;
+    }
+
+    public function setLat(?float $lat): self
+    {
+        $this->lat = $lat;
+
+        return $this;
+    }
+
+
+    /**
+     * @return Collection|Sport[]
+     */
+    public function getSports(): Collection
+    {
+        return $this->sports;
+    }
+
+    public function addSport(Sport $sport): self
+    {
+        if (!$this->sports->contains($sport)) {
+            $this->sports[] = $sport;
+            $sport->addSearch($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSport(Sport $sport): self
+    {
+        if ($this->sports->contains($sport)) {
+            $this->sports->removeElement($sport);
+            $sport->removeSearch($this);
+        }
+    }
+
+    public function getLng(): ?float
+    {
+        return $this->lng;
+    }
+
+    public function setLng(?float $lng): self
+    {
+        $this->lng = $lng;
 
         return $this;
     }
