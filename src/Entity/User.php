@@ -129,6 +129,16 @@ class User implements UserInterface
     private $calendriers;
 
     /**
+     * @ORM\Column(type="float", scale=4, precision=6, nullable=true)
+     */
+    private $lat;
+
+    /**
+     * @ORM\Column(type="float", scale=4, precision=7, nullable=true)
+     */
+    private $lng;
+
+    /**
      * @ORM\PreUpdate
      */
     public function preUpdate()
@@ -468,6 +478,30 @@ class User implements UserInterface
                 $calendrier->setSportif(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLat(): ?float
+    {
+        return $this->lat;
+    }
+
+    public function setLat(?float $lat): self
+    {
+        $this->lat = $lat;
+
+        return $this;
+    }
+
+    public function getLng(): ?float
+    {
+        return $this->lng;
+    }
+
+    public function setLng(?float $lng): self
+    {
+        $this->lng = $lng;
 
         return $this;
     }

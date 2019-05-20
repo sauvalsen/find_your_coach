@@ -26,10 +26,8 @@
                         <th>Modified_at</th>
                     </tr>
                 </thead>
-
                 <tbody>
                     {% for user in users %}
-
                         <tr>
                             <td><a href="{{ path('user_edit', {'id': user.id}) }}"><i class="zmdi zmdi-settings"></i></a> </td>
                             <td><a href="{{ path('user_show', {'id': user.id}) }}">{{ user.id }}</a></td>
@@ -64,4 +62,5 @@
 
     <a href="{{ path('user_new') }}">Créer un utilisateur</a>
 {% endblock %}
+
 {% block javascripts %}{% endblock %}

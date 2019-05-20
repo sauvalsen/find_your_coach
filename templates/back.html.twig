@@ -1,165 +1,167 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
+    <head>
+        <!-- Required meta tags-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="au theme template">
+        <meta name="author" content="Hau Nguyen">
 
-    <!-- Title Page-->
-    <title>Dashboard</title>
+        <!-- Title Page-->
+        <title>{% block title %}{% endblock %}</title>
 
-    <link href="{{ asset('asset_back/css/font-face.css') }}" type="text/css" rel="all">
-    <link href="{{ asset('vendor/font-awesome-4.7/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
-    <link href="{{ asset('vendor/font-awesome-5/css/fontawesome-all.min.css') }}" rel="stylesheet" media="all">
-    <link href="{{ asset('vendor/mdi-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet" media="all">
+        <link href="{{ asset('asset_back/css/font-face.css') }}" type="text/css" rel="all">
+        <link href="{{ asset('vendor/font-awesome-4.7/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
+        <link href="{{ asset('vendor/font-awesome-5/css/fontawesome-all.min.css') }}" rel="stylesheet" media="all">
+        <link href="{{ asset('vendor/mdi-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet" media="all">
 
-    <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- Bootstrap CSS-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+        <!-- Vendor CSS-->
+        <link href="{{ asset('vendor/animsition/animsition.min.css') }}" rel="stylesheet" media="all">
+        <link href="{{ asset('vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet" media="all">
+        <link href="{{ asset('vendor/wow/animate.css') }}" rel="stylesheet" media="all">
+        <link href="{{ asset('vendor/css-hamburgers/hamburgers.min.css') }}" rel="stylesheet" media="all">
+        <link href="{{ asset('vendor/slick/slick.css') }}" rel="stylesheet" media="all">
+        <link href="{{ asset('vendor/select2/select2.min.css') }}" rel="stylesheet" media="all">
+        <link href="{{ asset('vendor/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet" media="all">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 
-    <!-- Vendor CSS-->
-    <link href="{{ asset('vendor/animsition/animsition.min.css') }}" rel="stylesheet" media="all">
-    <link href="{{ asset('vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet" media="all">
-    <link href="{{ asset('vendor/wow/animate.css') }}" rel="stylesheet" media="all">
-    <link href="{{ asset('vendor/css-hamburgers/hamburgers.min.css') }}" rel="stylesheet" media="all">
-    <link href="{{ asset('vendor/slick/slick.css') }}" rel="stylesheet" media="all">
-    <link href="{{ asset('vendor/select2/select2.min.css') }}" rel="stylesheet" media="all">
-    <link href="{{ asset('vendor/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet" media="all">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
-    <!-- Main CSS-->
-    <link href="{{ asset('asset_back/css/theme.css') }}" rel="stylesheet"/>
+        <!-- Main CSS-->
+        <link href="{{ asset('asset_back/css/theme.css') }}" rel="stylesheet"/>
 
-</head>
+        {% block stylesheets %}{% endblock %}
 
-<body class="animsition">
-    <div class="page-wrapper">
-        <!-- HEADER MOBILE-->
-        <header class="header-mobile d-block d-lg-none">
-            <div class="header-mobile__bar">
-                <div class="container-fluid">
-                    <div class="header-mobile-inner">
-                        <a class="logo" href="{{ path('app_admin') }}">
-                            <img src="{{ asset('asset_back/img/logo_long.png') }}" alt="Find Your Coach"" />
-                        </a>
-                        <button class="hamburger hamburger--slider" type="button">
-                            <span class="hamburger-box">
-                                <span class="hamburger-inner"></span>
-                            </span>
-                        </button>
+    </head>
+
+    <body class="animsition">
+        <div class="page-wrapper">
+            <!-- HEADER MOBILE-->
+            <header class="header-mobile d-block d-lg-none">
+                <div class="header-mobile__bar">
+                    <div class="container-fluid">
+                        <div class="header-mobile-inner">
+                            <a class="logo" href="{{ path('app_admin') }}">
+                                <img src="{{ asset('asset_back/img/logo_long.png') }}" alt="Find Your Coach" />
+                            </a>
+                            <button class="hamburger hamburger--slider" type="button">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <nav class="navbar-mobile">
-                <div class="container-fluid">
-                    <ul class="navbar-mobile__list list-unstyled">
-                        <li>
-                            <a href="{{ path('app_admin') }}">
-                                Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('user_index') }}">
-                                Utilisateurs</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('calendrier_index') }}">
-                                Calendrier</a>
-                        </li>
-                        <li>
-                            <a id="retour" href="{{ path('app_homepage') }}">
-                                Retour au site</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <!-- END HEADER MOBILE-->
-
-        <!-- MENU SIDEBAR-->
-        <aside class="menu-sidebar d-none d-lg-block">
-            <div class="logo">
-                <a href="{{ path('app_admin') }}">
-                    <img src="{{ asset('asset_back/img/logo_long.png') }}" alt="Find Your Coach" />
-                </a>
-            </div>
-            <div class="menu-sidebar__content js-scrollbar1">
-                <nav class="navbar-sidebar">
-                    <ul class="list-unstyled navbar__list">
-                        <li>
-                            <a href="{{ path('app_admin') }}">
-                                Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('user_index') }}">
-                                Utilisateurs</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('calendrier_index') }}">
-                                Calendrier</a>
-                        </li>
-                        <li>
-                            <a id="retour" href="{{ path('app_homepage') }}">
-                                Retour au site</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </aside>
-        <!-- END MENU SIDEBAR-->
-
-        <!-- PAGE CONTAINER-->
-        <div class="page-container">
-            <!-- HEADER DESKTOP-->
-            <header class="header-desktop">
-                <div class="section__content section__content--p30">
+                <nav class="navbar-mobile">
                     <div class="container-fluid">
-                        <div class="header-wrap">
+                        <ul class="navbar-mobile__list list-unstyled">
+                            <li>
+                                <a href="{{ path('app_admin') }}">
+                                    Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('user_index') }}">
+                                    Utilisateurs</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('calendrier_index') }}">
+                                    Calendrier</a>
+                            </li>
+                            <li>
+                                <a id="retour" href="{{ path('app_homepage') }}">
+                                    Retour au site</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <!-- END HEADER MOBILE-->
 
-                            <div class="header-button">
+            <!-- MENU SIDEBAR-->
+            <aside class="menu-sidebar d-none d-lg-block">
+                <div class="logo">
+                    <a href="{{ path('app_admin') }}">
+                        <img src="{{ asset('asset_back/img/logo_long.png') }}" alt="Find Your Coach" />
+                    </a>
+                </div>
+                <div class="menu-sidebar__content js-scrollbar1">
+                    <nav class="navbar-sidebar">
+                        <ul class="list-unstyled navbar__list">
+                            <li>
+                                <a href="{{ path('app_admin') }}">
+                                    Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('user_index') }}">
+                                    Utilisateurs</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('calendrier_index') }}">
+                                    Calendrier</a>
+                            </li>
+                            <li>
+                                <a id="retour" href="{{ path('app_homepage') }}">
+                                    Retour au site</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+            <!-- END MENU SIDEBAR-->
 
-                                <div class="account-wrap">
-                                    <div class="account-item clearfix js-item-menu">
+            <!-- PAGE CONTAINER-->
+            <div class="page-container">
+                <!-- HEADER DESKTOP-->
+                <header class="header-desktop">
+                    <div class="section__content section__content--p30">
+                        <div class="container-fluid">
+                            <div class="header-wrap">
 
-                                        <div class="image">
-                                            <img src="{{ asset('uploads/avatars/' ~ app.user.avatar) }}" alt="Avatar de {{ app.user.nom }}" />
-                                        </div>
-                                        <div class="content">
-                                            {{ app.user.nom }}
-                                        </div>
-                                        <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                                <div class="image">
-                                                    <a href="{{ path('user_show', {'id': app.user.id}) }}">
-                                                        <img src="{{ asset('uploads/avatars/' ~ app.user.avatar) }}" alt="Avatar de {{ app.user.nom }}" />
-                                                    </a>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="{{ path('user_show', {'id': app.user.id}) }}">{{ app.user.nom }}</a>
-                                                    </h5>
-                                                    <span class="email">{{ app.user.email }}</span>
-                                                </div>
+                                <div class="header-button">
+
+                                    <div class="account-wrap">
+                                        <div class="account-item clearfix js-item-menu">
+
+                                            <div class="image">
+                                                <img src="{{ asset('uploads/avatars/' ~ app.user.avatar) }}" alt="Avatar de {{ app.user.nom }}" />
                                             </div>
-                                            <div class="account-dropdown__body">
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-account">f</i>Compte</a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Paramètres</a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-money-box"></i>Achats</a>
-                                                </div>
+                                            <div class="content">
+                                                {{ app.user.nom }}
                                             </div>
-                                            <div class="account-dropdown__footer">
-                                                <a href="{{ path('app_logout') }}">
-                                                    <i class="zmdi zmdi-power"></i>Déconnexion</a>
+                                            <div class="account-dropdown js-dropdown">
+                                                <div class="info clearfix">
+                                                    <div class="image">
+                                                        <a href="{{ path('user_show', {'id': app.user.id}) }}">
+                                                            <img src="{{ asset('uploads/avatars/' ~ app.user.avatar) }}" alt="Avatar de {{ app.user.nom }}" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="content">
+                                                        <h5 class="name">
+                                                            <a href="{{ path('user_show', {'id': app.user.id}) }}">{{ app.user.nom }}</a>
+                                                        </h5>
+                                                        <span class="email">{{ app.user.email }}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="account-dropdown__body">
+                                                    <div class="account-dropdown__item">
+                                                        <a href="#">
+                                                            <i class="zmdi zmdi-account">f</i>Compte</a>
+                                                    </div>
+                                                    <div class="account-dropdown__item">
+                                                        <a href="#">
+                                                            <i class="zmdi zmdi-settings"></i>Paramètres</a>
+                                                    </div>
+                                                    <div class="account-dropdown__item">
+                                                        <a href="#">
+                                                            <i class="zmdi zmdi-money-box"></i>Achats</a>
+                                                    </div>
+                                                </div>
+                                                <div class="account-dropdown__footer">
+                                                    <a href="{{ path('app_logout') }}">
+                                                        <i class="zmdi zmdi-power"></i>Déconnexion</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -167,63 +169,67 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </header>
-            <!-- HEADER DESKTOP-->
+                </header>
+                <!-- HEADER DESKTOP-->
 
-            <!-- MAIN CONTENT-->
-            <div class="main-content">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        {% block body %}{% endblock %}
-                        <div class="row">
+                <!-- MAIN CONTENT-->
+                <div class="main-content">
+                    <div class="section__content section__content--p30">
+                        <div class="container-fluid">
+                            {% block body %}{% endblock %}
+                            <div class="row">
 
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="copyright">
-                                    <p>Copyright © 2019 FindYourCoach. All rights reserved.</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="copyright">
+                                        <p>Copyright © 2019 FindYourCoach. All rights reserved.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- END MAIN CONTENT-->
+                <!-- END PAGE CONTAINER-->
             </div>
-            <!-- END MAIN CONTENT-->
-            <!-- END PAGE CONTAINER-->
+
         </div>
 
-    </div>
+        <!-- Jquery JS-->
 
-    <!-- Jquery JS-->
-    <script src="{{ asset('vendor/jquery-3.2.1.min.js') }}"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="{{ asset('vendor/bootstrap-4.1/popper.min.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap-4.1/bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="{{ asset('vendor/slick/slick.min.js') }}">
-    </script>
-    <script src="{{ asset('vendor/wow/wow.min.js') }}"></script>
-    <script src="{{ asset('vendor/animsition/animsition.min.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap-progressbar/bootstrap-progressbar.min.js') }}">
-    </script>
-    <script src="{{ asset('vendor/counter-up/jquery.waypoints.min.js') }}"></script>
-    <script src="{{ asset('vendor/counter-up/jquery.counterup.min.js') }}">
-    </script>
-    <script src="{{ asset('vendor/circle-progress/circle-progress.min.js') }}"></script>
-    <script src="{{ asset('vendor/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
-    <script src="{{ asset('vendor/chartjs/Chart.bundle.min.js') }}"></script>
-    <script src="{{ asset('vendor/select2/select2.min.js') }}">
-    </script>
+        <script src="{{ asset('vendor/jquery-3.2.1.min.js') }}"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <!-- Main JS-->
-    <script src="{{ asset('asset_back/js/main.js') }}"></script>
-    {% block javascripts %}{% endblock %}
+        <!-- Bootstrap JS-->
 
-</body>
+        <script src="{{ asset('vendor/bootstrap-4.1/popper.min.js') }}"></script>
+        <script src="{{ asset('vendor/bootstrap-4.1/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+
+        <!-- Vendor JS       -->
+
+        <script src="{{ asset('vendor/slick/slick.min.js') }}"></script>
+        <script src="{{ asset('vendor/wow/wow.min.js') }}"></script>
+        <script src="{{ asset('vendor/animsition/animsition.min.js') }}"></script>
+        <script src="{{ asset('vendor/bootstrap-progressbar/bootstrap-progressbar.min.js') }}"></script>
+        <script src="{{ asset('vendor/counter-up/jquery.waypoints.min.js') }}"></script>
+        <script src="{{ asset('vendor/counter-up/jquery.counterup.min.js') }}"></script>
+        <script src="{{ asset('vendor/circle-progress/circle-progress.min.js') }}"></script>
+        <script src="{{ asset('vendor/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+        <script src="{{ asset('vendor/chartjs/Chart.bundle.min.js') }}"></script>
+        <script src="{{ asset('vendor/select2/select2.min.js') }}"></script>
+
+        <!-- Autocomplétion adresse -->
+
+        <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.4"></script>
+
+        <!-- Main JS-->
+        <script src="{{ asset('asset_back/js/main.js') }}"></script>
+
+        {% block javascripts %}{% endblock %}
+    </body>
 
 </html>
 <!-- end document-->

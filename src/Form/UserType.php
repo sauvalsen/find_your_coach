@@ -40,6 +40,8 @@ class UserType extends AbstractType
             ->add('adresse', TextType::class, ['required'   => false])
             ->add('code_postal', IntegerType::class, ['required'   => false])
             ->add('ville', TextType::class, ['required'   => false])
+            ->add('lat', HiddenType::class)
+            ->add('lng', HiddenType::class)
             ->add('tel', TelType::class, ['required'   => false])
             ->add('diplome', TextType::class, ['required'   => false])
             ->add('description', TextareaType::class, ['required'   => false])
