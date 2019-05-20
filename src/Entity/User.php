@@ -354,9 +354,9 @@ class User implements UserInterface
 
     public function setAvatar(?string $avatar): self
     {
-        if(!$this->avatar = $avatar;
+        // if(!$this->avatar = $avatar;
 
-        return $this;
+        // return $this;
     }
 
     public function getSexe(): ?string
