@@ -16,17 +16,27 @@
 {#                <input type="text" class="inputsport" placeholder="Sport">#}
 {#                <input type="text" class="inputville" placeholder="Ville">#}
 {#                <input type="submit" class="btrecherche" value="Rechercher">#}
+
+
             </div>
 
         </div>
     </div>
 
 
-{#    <div id="bloc1">#}
-{#        <h2>Trouvez le coach parfait ! :)</h2>#}
-{#        <p>Avec Find Your Coach tu peux trouver le coatch sportif qui te correspond le mieux !</p>#}
-{#        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis quam imperdiet, aliquet sem vitae, fermentum dui. Nam sagittis iaculis faucibus. Donec ornare quam est, facilisis pellentesque quam maximus vitae. Fusce tincidunt eleifend mi, et congue orci elementum vitae. Nunc sed lorem finibus, eleifend magna sed, fringilla leo. Donec sapien dui, eleifend nec vehicula ac, mattis et felis. Suspendisse aliquam odio egestas auctor tempor. Maecenas euismod placerat nunc mollis feugiat. Ut vel felis vel orci gravida bibendum a ac libero. Etiam commodo massa libero, vel egestas ligula molestie sit amet. Quisque ac mollis mauris. Sed ultricies nec magna sit amet sodales. Curabitur mi lorem, dignissim non iaculis eu, pulvinar quis nisi.</p>#}
-{#   </div>#}
+    <div id="bloc1">
+        <h2>Trouvez le coach parfait ! :)</h2>
+        {% for user in users %}
+            <div>
+                {{ user.email }}
+                {{ user.nom }}
+                {{ user.prenom }}
+                <img src="{{ asset('uploads/avatars/' ~ user.avatar) }}" alt="Avatar de {{ user.nom }}" />
+            </div>
+        {% else %}
+            Aucune donnée disponible.
+        {% endfor %}
+    </div>
 
 {#    <div id="bloc2"><h1 class="po">Maitre coach</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis quam imperdiet, aliquet sem vitae, fermentum dui. Nam sagittis iaculis faucibus. Donec ornare quam est, facilisis pellentesque quam maximus vitae. Fusce tincidunt eleifend mi, et congue orci elementum vitae. Nunc sed lorem finibus, eleifend magna sed, fringilla leo. Donec sapien dui, eleifend nec vehicula ac, mattis et felis. Suspendisse aliquam odio egestas auctor tempor. Maecenas euismod placerat nunc mollis feugiat. Ut vel felis vel orci gravida bibendum a ac libero. Etiam commodo massa libero, vel egestas ligula molestie sit amet. Quisque ac mollis mauris. Sed ultricies nec magna sit amet sodales. Curabitur mi lorem, dignissim non iaculis eu, pulvinar quis nisi.#}
 

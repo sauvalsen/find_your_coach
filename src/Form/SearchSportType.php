@@ -27,6 +27,7 @@ class SearchSportType extends AbstractType
                'class' => Sport::class,
                // uses the User.username property as the visible option string
                 'choice_label' => 'sport',
+                'attr' => ['class' => 'inputsport'],
                 'translation_domain' => 'Default',
                 'required' => false,
                 'multiple' => false,
@@ -36,12 +37,14 @@ class SearchSportType extends AbstractType
                'class' => User::class,
                // uses the User.username property as the visible option string
                'choice_label' => 'ville',
+               'attr' => ['class' => 'inputville'],
                'translation_domain' => 'Default',
                'required' => false,
                'multiple' => false,
            ])
 
-           ->add('Envoyer', SubmitType::class)
+           ->add('Envoyer', SubmitType::class, [
+               'attr' => ['class' => 'btrecherche'],])
         ;
     }
 //
