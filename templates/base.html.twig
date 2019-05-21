@@ -29,7 +29,7 @@
                                         <li class="resa"><a href="#">Gérer les réservation</a></li>
                                     {% endif %}
                                     {% if is_granted('ROLE_USER') %}
-                                        <li class="mon_compte"><a href="#">Mon compte</a></li>
+                                        <li class="mon_compte"><a href="{{ path('compte_show') }}">Mon compte</a></li>
                                         <li><a href="{{ path('app_logout') }}">Deconnexion</a></li>
                                     {% endif %}
                                 {% else %}
