@@ -226,6 +226,59 @@ class UserFixtures extends Fixture
         $manager->persist($coach5);
         $this->addReference("coach5",$coach5);
 
+ 
+        $coach6= new User();
+        $coach6->setEmail('coach6@mail.fr');
+        $coach6->setRoles(array('ROLE_COACH','ROLE_USER'));
+        $coach6->setPassword($this->passwordEncoder->encodePassword($coach6, 'password'));
+        $coach6->setNom('Leblond');
+        $coach6->setPrenom('Stéphanie');
+        $coach6->setAdresse('322 rue des chemins');
+        $coach6->setVille('Nantes');
+        $coach6->setTel('07 36 43 90 17');
+        $coach6->setDiplome('BPJEPS');
+        $coach6->setDescription('Coucou, je suis Stéphanie Leblond coach à domicile ! :)');
+        $coach6->setAvatar('img');
+        $coach6->setSexe('femme');
+        $coach6->setStatus(1);
+        $manager->persist($coach6);
+        $this->addReference("coach6",$coach6);
+
+        $coach7= new User();
+        $coach7->setEmail('coach7@mail.fr');
+        $coach7->setRoles(array('ROLE_COACH','ROLE_USER'));
+        $coach7->setPassword($this->passwordEncoder->encodePassword($coach7, 'password'));
+        $coach7->setNom('Laurans');
+        $coach7->setPrenom('Oliviers');
+        $coach7->setAdresse('17 route de la mer');
+        $coach7->setVille('Nice');
+        $coach7->setTel('06 45 25 69 85');
+        $coach7->setDiplome('BPJEPS'); 
+        $coach7->setDescription('Coucou, je suis Olivier Laurans coach à domicile ! :)');
+        $coach7->setAvatar('img');
+        $coach7->setSexe('homme');
+        $coach7->setStatus(1);
+        $manager->persist($coach7);
+        $this->addReference("coach7",$coach7);
+
+        $coach8= new User();
+        $coach8->setEmail('coach8@mail.fr');
+        $coach8->setRoles(array('ROLE_COACH','ROLE_USER'));
+        $coach8->setPassword($this->passwordEncoder->encodePassword($coach8, 'password'));
+        $coach8->setNom('Lenoir');
+        $coach8->setPrenom('Christine');
+        $coach8->setAdresse('5 impasse des lauriers');
+        $coach8->setVille('Grenoble');
+        $coach8->setTel('07 58 96 32');
+        $coach8->setDiplome('BPJEPS'); 
+        $coach8->setDescription('Coucou, je suis Christien Lenoir coach à domicile ! :)');
+        $coach8->setAvatar('img');
+        $coach8->setSexe('homme');
+        $coach8->setStatus(1);
+        $manager->persist($coach8);
+        $this->addReference("coach8",$coach8);
+
+
         $manager->flush();
     }
 

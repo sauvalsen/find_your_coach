@@ -27,12 +27,12 @@
     <div id="bloc1">
         <h2>Trouvez le coach parfait ! :)</h2>
         {% for user in users %}
-            <div>
-                {{ user.email }}
+            <div class="identite">
                 {{ user.nom }}
                 {{ user.prenom }}
+            </div>    
                 <img src="{{ asset('uploads/avatars/' ~ user.avatar) }}" alt="Avatar de {{ user.nom }}" />
-            </div>
+            
         {% else %}
             Aucune donnée disponible.
         {% endfor %}

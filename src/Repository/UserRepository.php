@@ -28,8 +28,8 @@ class UserRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('u')
             ->andWhere('u.roles LIKE :val')
             ->setParameter('val', '%"'.$value.'"%')
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(5)
+            ->orderBy('u.id', 'DESC')
+            ->setMaxResults(4)
             ->getQuery()
             ->getResult()
         ;
