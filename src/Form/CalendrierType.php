@@ -50,6 +50,7 @@ class CalendrierType extends AbstractType
                           ->andWhere('u.roles LIKE :roles')
                           ->setParameter('roles', '%' .$roles. '%');
                    },
+                'expanded' => false,
                 'choice_label' =>'nom',
                 "required" =>false,
                 "placeholder" => 'Choississez un Coach'
@@ -57,7 +58,7 @@ class CalendrierType extends AbstractType
 
 
 
-             ////SELECT POUR LA CATEGORIE COACH NON-OBLIGATOIRE
+             ////SELECT POUR LA CATEGORIE Sportif NON-OBLIGATOIRE
             ->add('sportif', EntityType::class, [
 
                 'class' => User::class,

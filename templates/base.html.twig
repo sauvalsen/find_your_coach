@@ -15,7 +15,7 @@
         <header> 
             <div class="wrap">     
                 <a href="{{ path('app_homepage') }}"id="logo"><img src="{{ asset('asset_front/img/logo_long.png') }}"></a>         
-                <div id="hamburger">
+                {# <div id="hamburger"> #}
                         <!--menu classique-->
                     <div id="hamburger-content">
                         <nav>
@@ -29,7 +29,7 @@
                                         <li class="resa"><a href="#">Gérer les réservation</a></li>
                                     {% endif %}
                                     {% if is_granted('ROLE_USER') %}
-                                        <li class="mon_compte"><a href="#">Mon compte</a></li>
+                                        <li class="mon_compte"><a href="{{ path('compte_show') }}">Mon compte</a></li>
                                         <li><a href="{{ path('app_logout') }}">Deconnexion</a></li>
                                     {% endif %}
                                 {% else %}
@@ -66,8 +66,10 @@
                         </div>
                     </div>
                     <div class="colone">
-                        <h3 class="propos-colone">A propos de nous</h3>
-                        <p> de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique</p>  
+                         <div class="propos-colone">
+                            <h3>A propos de nous</h3>
+                            <p> de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique</p> 
+                         </div>    
                     </div>
                     <div class="colone">
                         <div class="logo-bas"><img src="{{ asset('asset_front/img/logo_court.png') }}"></div>
@@ -84,13 +86,17 @@
             </div>
         </footer>
             
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
-        <script src="{{ asset('vendor/SlickNav/dist/jquery.slicknav.min.js') }}"></script>
-        <script src="{{ asset('asset_front/js/script.js') }}"></script>
-
-        {% block javascripts %}{% endblock %}
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+         
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />           
+            <script src="{{ asset('vendor/SlickNav/dist/jquery.slicknav.min.js') }}"></script> 
+            <script src="{{ asset('asset_front/js/script.js') }}"></script> 
+           
+            {% block javascripts %}{% endblock %}
     </body>
 </html>
