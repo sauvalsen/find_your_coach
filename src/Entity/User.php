@@ -90,6 +90,8 @@ class User implements UserInterface
      */
     private $avatar;
 
+    private $avatar2;
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -105,7 +107,8 @@ class User implements UserInterface
      */
     private $created_at;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->created_at = new \DateTime;
         $this->calendriers = new ArrayCollection();
         $this->sports = new ArrayCollection();
@@ -115,6 +118,11 @@ class User implements UserInterface
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $modified_at;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $status;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Calendrier", mappedBy="sportif")
@@ -145,7 +153,8 @@ class User implements UserInterface
     /**
      * @ORM\PreUpdate
      */
-    public function preUpdate(){
+    public function preUpdate()
+    {
         $this->modified_at = new \DateTime;
     }
 
@@ -173,7 +182,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string)$this->email;
     }
 
     /**
@@ -200,7 +209,7 @@ class User implements UserInterface
      */
     public function getPassword(): string
     {
-        return (string) $this->password;
+        return (string)$this->password;
     }
 
     public function setPassword(string $password): self
@@ -376,9 +385,21 @@ class User implements UserInterface
 
     public function setAvatar(?string $avatar): self
     {
-        // if(!$this->avatar = $avatar;
+        $this->avatar = $avatar;
 
-        // return $this;
+        return $this;
+    }
+
+    public function getAvatar2(): ?string
+    {
+        return $this->avatar2;
+    }
+
+    public function setAvatar2(?string $avatar2): self
+    {
+        $this->avatar2 = $avatar2;
+
+        return $this;
     }
 
     public function getSexe(): ?string
@@ -425,6 +446,19 @@ class User implements UserInterface
     public function setModifiedAt(?\DateTimeInterface $modified_at): self
     {
         $this->modified_at = $modified_at;
+
+        return $this;
+    }
+
+
+    public function getStatus(): ?bool
+    {
+        return $this->status;
+    }
+
+    public function setStatus(bool $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }
