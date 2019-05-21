@@ -20,7 +20,7 @@
                     <div id="hamburger-content">
                         <nav>
                             <ul class="ul-nav">
-                                <li class="accueil"><a href="{{ path('app_homepage') }}">Page d'accueil</a></li>
+                                <li class="accueil"><a href="{{ path('recherche') }}">Recherche</a></li>
                                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                     {% if is_granted('ROLE_SUPER_ADMIN') %}
                                         <li class="back"><a href="{{ path('app_admin') }}">Back-office</a></li>
