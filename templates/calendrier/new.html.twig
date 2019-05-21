@@ -11,6 +11,11 @@
   
 
 
+
+
+
+
+
     {{ include('calendrier/_form.html.twig') }}
 
   {# <a href="{{ path('calendrier_index') }}">back to list</a> #}
@@ -19,6 +24,18 @@
     {% block javascripts %}
     {# lancer le datepicker date de commencement avec les icônes qui vont avec  #}
     <script type="text/javascript">
+function toggleForm(){
+    // on réccupère l'élément form.
+    var formulaire = document.getElementById('calendrier_sportif');
+ 
+    // Condition pour afficher/cacher le formulaire en fonction de son état
+    if(formulaire.style.display == 'block'){
+        formulaire.style.display = 'none';
+    }else{
+        formulaire.style.display = 'block';
+    }
+}
+
             $(function () {
                 $('#datetimepicker1').datetimepicker({
                     icons: {
@@ -40,13 +57,15 @@
         <script type="text/javascript">
 
 
-  $(document).ready(function() {
-        // you may need to change this code if you are not using Bootstrap Datepicker
-        $(function () {
-                $('#datetimepicker1').datetimepicker();
+            $(document).ready(function() 
+            {
+                  // you may need to change this code if you are not using Bootstrap Datepicker
+                  $(function () 
+                  {
+                          $('#datetimepicker1').datetimepicker();
+                  });
             });
-      });
-</script>
+        </script>
 
 
   {# lancer le datepicker date de fin avec les icônes qui vont avec  #}
@@ -67,21 +86,20 @@
         </script>
 
 
-        <script type="text/javascript">
+    <script type="text/javascript">
 
 
-  $(document).ready(function() {
-        // you may need to change this code if you are not using Bootstrap Datepicker
-        $(function () {
-                $('#datetimepicker2').datetimepicker();
-               
-});
-
-       
-</script>
+              $(document).ready(function() {
+                    // you may need to change this code if you are not using Bootstrap Datepicker
+                    $(function () {
+                            $('#datetimepicker2').datetimepicker();
+                          
+            });
+             });
+    </script> 
 
             
    
 
    
-        {% endblock %}
+{% endblock %}
