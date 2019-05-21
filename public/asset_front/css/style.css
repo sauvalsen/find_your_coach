@@ -421,3 +421,36 @@ ul .nav-footer{
 label.calendrier_sportif{
     display:none;
 }
+/************ Profil *******************/
+
+
+#contenue{
+margin-top:10%;
+width:33.333333333333333333%;
+float:left;
+padding:10px;
+}
+
+.wrap{
+	margin:0 auto;
+	max-width: 1200px;
+	width:100%;
+}
+
+#profil{margin-left:-2%;}
+
+.profil{width:31.333333333333%; height:100px; margin-left:2%;float:left;position: relative;}
+
+@media screen and (max-width:900px) {
+	.profil{width:48%;}
+
+}
+
+@media screen and (max-width:500px) {
+	.profil{width:96%; }
+	#profil {margin-left:0}
+
+}
+div.profil.test{
+    background-color:coral;
+}
