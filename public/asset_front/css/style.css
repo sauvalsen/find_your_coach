@@ -327,24 +327,32 @@ footer{
 .reseaux i{
     padding-top:20px;
     padding-right: 30px;
+    float:left;
 }
 
 #colones{
     margin-left:-2%;
     text-align: center;
+   
+    
 }
 
 .colone{
     float:left;
     width:31.3333333333333%;
     margin-left: 2%;
-    background-color: tomato;
-    vertical-align: middle;
-
+      
 }
-
+.reseaux{
+    margin-top:8%;
+    margin-left:30px;
+}
+.propos-colone{
+    margin-top: 8%;
+}
 .logo-bas{
     padding-right: 15px;
+    float:right;
 }
 
 /*bottom bar*/
@@ -375,6 +383,7 @@ ul .nav-footer{
 }
 
 
+
 /*responsive*/
 
 @media screen and (max-width: 860px) {
@@ -384,9 +393,6 @@ ul .nav-footer{
     }
     .header-logo{
         padding-left: 35%;
-    }
-    .colone{
-        width:100%;
     }
     #hamburger-content {
         display: none;
@@ -400,11 +406,12 @@ ul .nav-footer{
     }
     .colone{
         text-align: center;
-
-    }
+        width:100%;
+    } 
+    
 }
 
-@media screen and (min-width: 860px){
+@media screen and (min-width: 859px){
     .formulaire {
         float: right;
         margin: 250px 5%;

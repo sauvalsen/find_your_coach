@@ -138,7 +138,7 @@ class UserFixtures extends Fixture
 
         $coach= new User();
         $coach->setEmail('coach@mail.fr');
-        $coach->setRoles(array('ROLE_ADMIN','ROLE_USER'));
+        $coach->setRoles(array('ROLE_COACH','ROLE_USER'));
         $coach->setPassword($this->passwordEncoder->encodePassword($coach, 'password'));
         $coach->setNom('Legrand');
         $coach->setPrenom('Pierre');
@@ -157,7 +157,7 @@ class UserFixtures extends Fixture
 
         $coach2= new User();
         $coach2->setEmail('coach2@mail.fr');
-        $coach2->setRoles(array('ROLE_ADMIN','ROLE_USER'));
+        $coach2->setRoles(array('ROLE_COACH','ROLE_USER'));
         $coach2->setPassword($this->passwordEncoder->encodePassword($coach2, 'password'));
         $coach2->setNom('Gras');
         $coach2->setPrenom('Louis');
@@ -175,7 +175,7 @@ class UserFixtures extends Fixture
 
         $coach3= new User();
         $coach3->setEmail('coach3@mail.fr');
-        $coach3->setRoles(array('ROLE_ADMIN','ROLE_USER'));
+        $coach3->setRoles(array('ROLE_COACH','ROLE_USER'));
         $coach3->setPassword($this->passwordEncoder->encodePassword($coach3, 'password'));
         $coach3->setNom('Martin');
         $coach3->setPrenom('Claire');
@@ -193,7 +193,7 @@ class UserFixtures extends Fixture
 
         $coach4= new User();
         $coach4->setEmail('coach4@mail.fr');
-        $coach4->setRoles(array('ROLE_ADMIN','ROLE_USER'));
+        $coach4->setRoles(array('ROLE_COACH','ROLE_USER'));
         $coach4->setPassword($this->passwordEncoder->encodePassword($coach4, 'password'));
         $coach4->setNom('Quidel');
         $coach4->setPrenom('Antoine');
@@ -211,7 +211,7 @@ class UserFixtures extends Fixture
 
         $coach5= new User();
         $coach5->setEmail('coach5@mail.fr');
-        $coach5->setRoles(array('ROLE_ADMIN','ROLE_USER'));
+        $coach5->setRoles(array('ROLE_COACH','ROLE_USER'));
         $coach5->setPassword($this->passwordEncoder->encodePassword($coach5, 'password'));
         $coach5->setNom('Grandjacques');
         $coach5->setPrenom('Elise');
