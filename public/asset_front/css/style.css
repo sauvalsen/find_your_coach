@@ -383,6 +383,7 @@ ul .nav-footer{
 }
 
 
+
 /*responsive*/
 
 @media screen and (max-width: 860px) {
@@ -392,9 +393,6 @@ ul .nav-footer{
     }
     .header-logo{
         padding-left: 35%;
-    }
-    .colone{
-        width:100%;
     }
     #hamburger-content {
         display: none;
@@ -408,11 +406,12 @@ ul .nav-footer{
     }
     .colone{
         text-align: center;
-
+        width:100%;
     }
+    
 }
 
-@media screen and (min-width: 860px){
+@media screen and (min-width: 859px){
     .formulaire {
         float: right;
         margin: 250px 5%;
