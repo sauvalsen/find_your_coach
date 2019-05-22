@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Search;
 use App\Entity\User;
+use App\Entity\Sport;
 use App\Form\SearchSportType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,13 +20,18 @@ class DefaultController extends AbstractController
     /**
      * @Route("/", name="app_homepage", methods={"GET","POST"})
      */
-    public function index(UserRepository $userRepository){
+    public function index(Request $request, UserRepository $userRepository){
+
 
         $search = new Search();
         $repo = $this->getDoctrine()->getRepository(User::class);
         $user = $repo->findAcoach('ROLE_COACH');
 //        $user = $userRepository->findAll();
         $form = $this->createForm(SearchSportType::class, $search);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            return $this->redirectToRoute('recherche');
+        }
         return $this->render('default/index.html.twig',[
             //'sports' => $searchRepository->findAll(),
             'form' => $form->createView(),
@@ -34,8 +40,9 @@ class DefaultController extends AbstractController
 
     }
 
+
 //    /**
-//     * @Route("/serarch", name="app_search", methods={"GET"})
+//     * @Route("/search", name="app_search", methods={"GET"})
 //     */
 //    public function search(SearchRepository $searchRepository)
 //    {

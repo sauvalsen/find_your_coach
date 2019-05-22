@@ -30,9 +30,14 @@
             <div class="identite">
                 {{ user.nom }}
                 {{ user.prenom }}
+<<<<<<< HEAD
             </div>    
                 <img src="{{ asset('uploads/avatars/' ~ user.avatar) }}" alt="Avatar de {{ user.nom }}" />
             
+=======
+                <img src="{{ asset('/uploads/avatars/' ~ user.avatar) | imagine_filter('my_thumb')  }}" alt="Avatar de {{ user.nom }}" />
+            </div>
+>>>>>>> 4247101917efefeb06ce187ef760c9ff1d731526
         {% else %}
             Aucune donnée disponible.
         {% endfor %}
