@@ -35,6 +35,18 @@ class SearchRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findAcoach($value)
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.roles LIKE :val')
+            ->setParameter('val', '%"'.$value.'"%')
+            ->orderBy('u.id', 'ASC')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 
     /*
     public function findOneBySomeField($value): ?Search

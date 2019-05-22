@@ -30,17 +30,34 @@ class SearchSportType extends AbstractType
                 'attr' => ['class' => 'inputsport'],
                 'translation_domain' => 'Default',
                 'required' => false,
+                "placeholder" => 'Choisissez votre sport',
                 'multiple' => false,
             ])
+//           ->add('ville', EntityType::class, [
+//               // looks for choices from this entity
+//               'class' => User::class,
+//
+//               // que les coach
+//                    // distinct
+//               // uses the User.username property as the visible option string
+//               'choice_label' => 'ville',
+//               'attr' => ['class' => 'inputville'],
+//               'translation_domain' => 'Default',
+//               'required' => false,
+//               'multiple' => false,
+//           ])
            ->add('ville', EntityType::class, [
-               // looks for choices from this entity
                'class' => User::class,
-               // uses the User.username property as the visible option string
-               'choice_label' => 'ville',
-               'attr' => ['class' => 'inputville'],
-               'translation_domain' => 'Default',
-               'required' => false,
-               'multiple' => false,
+               ////PERMET DE SELECTIONNER QUE LES COACH
+               'query_builder' => function(EntityRepository $er) {
+                   $role = "ROLE_COACH";
+                   return $er->createQueryBuilder('u')
+                       ->andWhere('u.roles LIKE :roles')
+                       ->setParameter('roles', '%' .$role. '%');
+               },
+               'choice_label' =>'ville',
+               "required" =>false,
+               "placeholder" => 'Choisissez votre ville'
            ])
 
            ->add('Envoyer', SubmitType::class, [

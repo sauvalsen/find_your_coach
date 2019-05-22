@@ -27,7 +27,9 @@ class DefaultController extends AbstractController
         $repo = $this->getDoctrine()->getRepository(User::class);
         $user = $repo->findAcoach('ROLE_COACH');
 //        $user = $userRepository->findAll();
-        $form = $this->createForm(SearchSportType::class, $search);
+        $form = $this->createForm(SearchSportType::class, $search, [
+            'action' => $this->generateUrl('recherche')
+        ]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             return $this->redirectToRoute('recherche');

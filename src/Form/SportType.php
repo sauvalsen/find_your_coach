@@ -14,9 +14,6 @@ class SportType extends AbstractType
     {
         $builder
             ->add('sport')
-            ->add('created_at')
-            ->add('modified_at')
-            ->add('search')
         ;
     }
 
