@@ -44,14 +44,7 @@ class SportFixtures extends Fixture
         $sport8->setSport('Karaté2');
         $manager->persist($sport8);
 
-        $relation = new Search();
-        $relation->setSport('Karaté2');
-        $relation->persist($relation);
-
-        $relation1 = new Search();
-        $relation1->setSport('Karaté2');
-        $manager->persist($relation1);
-
+    
         $manager->flush();
     }
 }
