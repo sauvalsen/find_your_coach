@@ -66,7 +66,6 @@ table {
 .wrap {
     max-width: 1200px;
     width:100%;
-    margin: 0 auto;
 }
 
 .fond{
@@ -210,7 +209,6 @@ nav {
 
 .fond-contact{
     background: url("../img/marche.jpg");
-    background-size: cover;
     background-position: top;
 }
 
@@ -261,12 +259,12 @@ nav {
 /************ Mentions legales *******************/
 
 .fond-mentions-legales{
-    background: url("../img/fitness_large.jpg");
-    background-position: center;
-    background-attachment: fixed;
+    background:fixed center url("../img/fitness_large.jpg");
+    padding-top: 100px;
 }
 
 .mentions-legales {
+    margin: auto;
     background-color: whitesmoke;
     max-width: 1000px;
     padding: 100px;
