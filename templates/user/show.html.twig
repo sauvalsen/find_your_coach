@@ -7,8 +7,7 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Utilisateur</h1>
-
+    <span class="title-show-user">{{ user.prenom }} {{ user.nom }}</span>
     <table class="table">
         <tbody>
             <tr>
@@ -18,14 +17,9 @@
             <tr>
                 <th>Email</th>
                 <td>{{ user.email }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ user.nom }}</td>
-            </tr>
-            <tr>
-                <th>Prenom</th>
-                <td>{{ user.prenom }}</td>
+
+                <th>Tel</th>
+                <td>{{ user.tel }}</td>
             </tr>
             <tr>
                 <th>Adresse</th>
@@ -34,18 +28,16 @@
             <tr>
                 <th>Code_postal</th>
                 <td>{{ user.codePostal }}</td>
-            </tr>
-            <tr>
+
                 <th>Ville</th>
                 <td>{{ user.ville }}</td>
             </tr>
             <tr>
-                <th>Tel</th>
-                <td>{{ user.tel }}</td>
-            </tr>
-            <tr>
                 <th>Diplome</th>
                 <td>{{ user.diplome }}</td>
+
+                <th>Niveau</th>
+                <td>{{ user.niveau }}</td>
             </tr>
             <tr>
                 <th>Description</th>
@@ -56,18 +48,9 @@
                 <td><img src="{{ asset('uploads/avatars/' ~ user.avatar) | imagine_filter('my_thumb') }}"></td>
             </tr>
             <tr>
-                <th>Sexe</th>
-                <td>{{ user.sexe }}</td>
-            </tr>
-            <tr>
-                <th>Niveau</th>
-                <td>{{ user.niveau }}</td>
-            </tr>
-            <tr>
                 <th>Created_at</th>
                 <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
+
                 <th>Modified_at</th>
                 <td>{{ user.modifiedAt ? user.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>

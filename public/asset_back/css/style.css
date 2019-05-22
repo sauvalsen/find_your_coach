@@ -54,6 +54,35 @@ table {
          box-sizing: border-box; /* Opera/IE 8+ */
 }
 
-h1 {
-    color:red
+/************* USER **********************/
+
+/*************  Show User *********************/
+
+.title-show-user {
+    margin-left: 20px;
+    font-size: 50px;
+    font-weight: bold;
+    color: orangered;
+}
+
+/*************  edit User *********************/
+
+.title_edit_user {
+    margin-left: 20px;
+    font-size: 50px;
+    font-weight: bold;
+    color: orangered;
+}
+
+#edit_user .form-group {
+    display: inline-block;
+    width: 50%;
+}
+
+#edit_user input {
+    border-radius: 10px;
+}
+
+#edit_user_adresse {
+    width: 100%;
 }

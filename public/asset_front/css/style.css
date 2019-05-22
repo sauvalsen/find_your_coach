@@ -312,6 +312,7 @@ nav {
 .mdp-oublie{
     float: right;
     margin-bottom: 30px;
+    font-size: 15px;
 }
 .alert-danger{
     margin-top: 30px;

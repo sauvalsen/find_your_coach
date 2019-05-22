@@ -3,7 +3,7 @@
 {% block title %}Edit User{% endblock %}
 
 {% block body %}
-    <h1>Editer l'utilisateur</h1>
+    <span class="title-show-user">{{ user.prenom }} {{ user.nom }}</span>
 
     {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
 

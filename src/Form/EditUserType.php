@@ -25,8 +25,25 @@ class EditUserType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class)
+            ->add('tel', TelType::class, ['required'   => false])
+            ->add('nom', TextType::class, ['required'   => false])
+            ->add('prenom', TextType::class, ['required'   => false])
+            ->add('adresse', TextType::class, ['required'   => false])
+            ->add('code_postal', IntegerType::class, ['required'   => false])
+            ->add('ville', TextType::class, ['required'   => false])
+            ->add('diplome', TextType::class, ['required'   => false])
+            ->add('niveau', ChoiceType::class, [
+                'choices'  => [
+                    'Débutant' => 'debutant',
+                    'Intermédiaire' => 'intermediaire',
+                    'Confirmé' => 'confirme',
+                ],
+                'expanded' => false,
+                'multiple' => false,
+            ])
+            ->add('description', TextareaType::class, ['required'   => false])
             ->add('roles', ChoiceType::class, [
-                'label' => 'Vous êtes:',
+                'label' => 'Role:',
                 'choices'  => [
                     'admin' => 'ROLE_ADMIN',
                     'coach' => 'ROLE_COACH',
@@ -36,14 +53,6 @@ class EditUserType extends AbstractType
                 'multiple' => true,
             ])
             ->add('token', HiddenType::class)
-            ->add('nom', TextType::class, ['required'   => false])
-            ->add('prenom', TextType::class, ['required'   => false])
-            ->add('adresse', TextType::class, ['required'   => false])
-            ->add('code_postal', IntegerType::class, ['required'   => false])
-            ->add('ville', TextType::class, ['required'   => false])
-            ->add('tel', TelType::class, ['required'   => false])
-            ->add('diplome', TextType::class, ['required'   => false])
-            ->add('description', TextareaType::class, ['required'   => false])
             ->add('avatar2', FileType::class, [
                 'label' => 'Avatar (PNG,JPG)',
                 'data_class' => null,
@@ -57,15 +66,6 @@ class EditUserType extends AbstractType
                 'expanded' => true,
                 'multiple' => false,
                 'required'   => false
-            ])
-            ->add('niveau', ChoiceType::class, [
-                'choices'  => [
-                    'Débutant' => 'debutant',
-                    'Intermédiaire' => 'intermediaire',
-                    'Confirmé' => 'confirme',
-                ],
-                'expanded' => false,
-                'multiple' => false,
             ])
             ->add('sports', EntityType::class, [
                 // looks for choices from this entity
