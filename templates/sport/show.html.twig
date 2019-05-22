@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sport{% endblock %}
+
+{% block body %}
+    <h1>Sport</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sport.id }}</td>
+            </tr>
+            <tr>
+                <th>Sport</th>
+                <td>{{ sport.sport }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ sport.createdAt ? sport.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Modified_at</th>
+                <td>{{ sport.modifiedAt ? sport.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('sport_index') }}">back to list</a>
+
+    <a href="{{ path('sport_edit', {'id': sport.id}) }}">edit</a>
+
+    {{ include('sport/_delete_form.html.twig') }}
+{% endblock %}

@@ -28,6 +28,7 @@
                 </thead>
                 <tbody>
                     {% for user in users %}
+
                         <tr>
                             <td><a href="{{ path('user_edit', {'id': user.id}) }}"><i class="zmdi zmdi-settings"></i></a> </td>
                             <td><a href="{{ path('user_show', {'id': user.id}) }}">{{ user.id }}</a></td>
@@ -57,7 +58,11 @@
 
     <div class="pagination">
         {{ knp_pagination_render(users) }}
+<<<<<<< HEAD
+   </div>
+=======
     </div>
+>>>>>>> 4247101917efefeb06ce187ef760c9ff1d731526
 
 
     <a href="{{ path('user_new') }}">Créer un utilisateur</a>

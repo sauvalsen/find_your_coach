@@ -111,6 +111,7 @@ class User implements UserInterface
     {
         $this->created_at = new \DateTime;
         $this->calendriers = new ArrayCollection();
+        $this->sports = new ArrayCollection();
     }
 
     /**
@@ -127,6 +128,17 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity="App\Entity\Calendrier", mappedBy="sportif")
      */
     private $calendriers;
+
+    /**
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $sport;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Sport", mappedBy="search")
+     */
+    private $sports;
 
     /**
      * @ORM\Column(type="float", scale=4, precision=6, nullable=true)
@@ -482,6 +494,18 @@ class User implements UserInterface
         return $this;
     }
 
+    public function getSport(): ?int
+    {
+        return $this->sport;
+    }
+
+    public function setSport(?int $sport): self
+    {
+        $this->sport = $sport;
+
+        return $this;
+    }
+
     public function getLat(): ?float
     {
         return $this->lat;
@@ -492,6 +516,33 @@ class User implements UserInterface
         $this->lat = $lat;
 
         return $this;
+    }
+
+
+    /**
+     * @return Collection|Sport[]
+     */
+    public function getSports(): Collection
+    {
+        return $this->sports;
+    }
+
+    public function addSport(Sport $sport): self
+    {
+        if (!$this->sports->contains($sport)) {
+            $this->sports[] = $sport;
+            $sport->addSearch($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSport(Sport $sport): self
+    {
+        if ($this->sports->contains($sport)) {
+            $this->sports->removeElement($sport);
+            $sport->removeSearch($this);
+        }
     }
 
     public function getLng(): ?float
