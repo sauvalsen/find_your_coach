@@ -446,7 +446,7 @@ padding:10px;
 
 #profil{margin-left:-2%;}
 
-.profil{width:31.333333333333%; height:100px; margin-left:2%;float:left;position: relative;}
+.profil{width:31.333333333333%; height:100px; margin-left:2%;float:left;position: relative;color:rgb(37, 26, 26);}
 
 @media screen and (max-width:900px) {
 	.profil{width:48%;}
@@ -461,3 +461,46 @@ padding:10px;
 div.profil.test{
     background-color:coral;
 }
+
+.nom{font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+color:rgb(37, 26, 26);
+}
+
+.profil {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .nom {
+    color: grey;
+    font-size: 18px;
+  }
+.description{
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+
+}
+  .prenom {
+    color: grey;
+    font-size: 18px;
+  }
+
+  
+  a {
+      list-style: none !important;
+    text-decoration: none !important;
+    font-size: 22px;
+    color: black;
+  }
+ a:hover {
+    opacity: 0.7;
+  }
+
+  #edit_front_user_submit:hover{ opacity: 0.3;
+  
+
+  }

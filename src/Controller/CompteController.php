@@ -3,7 +3,7 @@
 namespace App\Controller;
 use App\Entity\Calendrier;
 use App\Entity\User;
-use App\Form\EditUserType;
+use App\Form\EditFrontUserType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Knp\Component\Pager\PaginatorInterface;
@@ -27,12 +27,12 @@ class CompteController extends AbstractController
     }
 
     /**
-     * @Route("/edit", name="compte_edit", methods={"GET","POST"})
+     * @Route("/editmoncompte", name="compte_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, UserRepository $user): Response
     {
         $user=$this->getUser();
-        $form = $this->createForm(EditUserType::class, $user);
+        $form = $this->createForm(EditFrontUserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
