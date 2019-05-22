@@ -147,7 +147,7 @@ class UserFixtures extends Fixture
         $coach->setTel('06 58 98 32 14');
         $coach->setDiplome('BPJEPS');
         $coach->setDescription('Coucou, je suis pierre legrand coach à domicile ! :)');
-        $coach->setAvatar('img');
+        $coach->setAvatar('f204052990b60c6852ca17a3e5fb4d0c.png');
         $coach->setSexe('Homme');
         $coach->setStatus(1);
         $manager->persist($coach);
@@ -166,7 +166,7 @@ class UserFixtures extends Fixture
         $coach2->setTel('06 58 98 32 14');
         $coach2->setDiplome('BPJEPS');
         $coach2->setDescription('Coucou, je suis Louis Gras coach à domicile ! :)');
-        $coach2->setAvatar('img');
+        $coach2->setAvatar('bb542c7afea335223deb8fcdc6f3c994.png');
         $coach2->setSexe('Homme');
         $coach2->setStatus(1);
         $manager->persist($coach2);
@@ -184,7 +184,7 @@ class UserFixtures extends Fixture
         $coach3->setTel('06 89 98 90 12');
         $coach3->setDiplome('BPJEPS');
         $coach3->setDescription('Coucou, je suis Claire Martin coach à domicile ! :)');
-        $coach3->setAvatar('img');
+        $coach3->setAvatar('592f7e83379a118a56b99e550fe6684f.png');
         $coach3->setSexe('femme');
         $coach3->setStatus(1);
         $manager->persist($coach3);
@@ -202,7 +202,7 @@ class UserFixtures extends Fixture
         $coach4->setTel('07 89 98 00 56');
         $coach4->setDiplome('BPJEPS');
         $coach4->setDescription('Coucou, je suis Antoine Quidel coach à domicile ! :)');
-        $coach4->setAvatar('img');
+        $coach4->setAvatar('09f89d2665f10d0306d28a86d5a097e4.png');
         $coach4->setSexe('homme');
         $coach4->setStatus(1);
         $manager->persist($coach4);
@@ -220,7 +220,7 @@ class UserFixtures extends Fixture
         $coach5->setTel('06 76 43 90 17');
         $coach5->setDiplome('BPJEPS');
         $coach5->setDescription('Coucou, je suis Elise Grandjacques coach à domicile ! :)');
-        $coach5->setAvatar('img');
+        $coach5->setAvatar('1cd0904ac8836e863ae5eb50f9e3947f.png');
         $coach5->setSexe('femme');
         $coach5->setStatus(1);
         $manager->persist($coach5);
@@ -238,7 +238,7 @@ class UserFixtures extends Fixture
         $coach6->setTel('07 36 43 90 17');
         $coach6->setDiplome('BPJEPS');
         $coach6->setDescription('Coucou, je suis Stéphanie Leblond coach à domicile ! :)');
-        $coach6->setAvatar('img');
+        $coach6->setAvatar('760946b17d51251edd86554dc95816af.png');
         $coach6->setSexe('femme');
         $coach6->setStatus(1);
         $manager->persist($coach6);
@@ -255,7 +255,7 @@ class UserFixtures extends Fixture
         $coach7->setTel('06 45 25 69 85');
         $coach7->setDiplome('BPJEPS'); 
         $coach7->setDescription('Coucou, je suis Olivier Laurans coach à domicile ! :)');
-        $coach7->setAvatar('img');
+        $coach7->setAvatar('56a88a3e415e1a2d492005d916e153ee.png');
         $coach7->setSexe('homme');
         $coach7->setStatus(1);
         $manager->persist($coach7);
@@ -272,7 +272,7 @@ class UserFixtures extends Fixture
         $coach8->setTel('07 58 96 32');
         $coach8->setDiplome('BPJEPS'); 
         $coach8->setDescription('Coucou, je suis Christien Lenoir coach à domicile ! :)');
-        $coach8->setAvatar('img');
+        $coach8->setAvatar('15c57a5cf20637b2f36437bd2356f877.png');
         $coach8->setSexe('homme');
         $coach8->setStatus(1);
         $manager->persist($coach8);

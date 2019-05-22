@@ -81,7 +81,7 @@ header {
     background-color: var(--Couleur-principale);
     opacity: 0.96;
     height:100px;
-    position: fixed;
+    position:fixed;
     width: 100%;
     z-index: 100;
 }
