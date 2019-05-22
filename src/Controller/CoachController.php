@@ -20,6 +20,19 @@ class CoachController extends AbstractController
      */
     public function index(Request $request, UserRepository $userRepository)
     {
+
+        $coach1 = $request->request->get('search_sport')['sport'];
+        $coach2 = $request->request->get('search_sport')['ville'];
+
+//        dd($coach1,$coach2);
+
+//            $content = $request->getContent();
+//            return new Response($content);
+
+
+        $request = Request::createFromGlobals();
+//       dd($coach);
+
         $search = new Search();
         $repo = $this->getDoctrine()->getRepository(User::class);
         $user = $repo->findAcoach('ROLE_COACH');

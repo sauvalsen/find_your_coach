@@ -5,35 +5,36 @@
 {% block body %}
     <h1>Sport index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Sport</th>
-                <th>Created_at</th>
-                <th>Modified_at</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for sport in sports %}
-            <tr>
-                <td>{{ sport.id }}</td>
-                <td>{{ sport.sport }}</td>
-                <td>{{ sport.createdAt ? sport.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ sport.modifiedAt ? sport.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('sport_show', {'id': sport.id}) }}">show</a>
-                    <a href="{{ path('sport_edit', {'id': sport.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<div class="col-lg-12">
+    <div class="table-responsive table--no-card m-b-40">
+        <table class="table table-borderless table-striped table-earning">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Id</th>
+                    <th>Sport</th>
+                    <th>Created_at</th>
+                    <th>Modified_at</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for sport in sports %}
+                <tr>
+                    <td><a href="{{ path('sport_edit', {'id': sport.id}) }}"><i class="zmdi zmdi-settings"></i></a> </td>
+                    <td><a href="{{ path('sport_show', {'id': sport.id}) }}">{{ sport.id }}</a></td>
+                    <td>{{ sport.sport }}</td>
+                    <td>{{ sport.createdAt ? sport.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ sport.modifiedAt ? sport.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 
     <a href="{{ path('sport_new') }}">Create new</a>
 {% endblock %}

@@ -2,29 +2,17 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
-
-
-/**
- * @ORM\Entity(repositoryClass="App\Repository\SearchRepository")
- * @ORM\HasLifecycleCallbacks
- */
 
 class Search
 {
 
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
 
     private $sport;
 
     private $ville;
+
+    private $coach;
+
 
 
     public function getSport(): ?string
@@ -56,4 +44,15 @@ class Search
         return $this->id;
     }
 
+    public function getCoach(): ?User
+    {
+        return $this->coach;
+    }
+
+    public function setCoach(?User $coach): self
+    {
+        $this->coach = $coach;
+
+        return $this;
+    }
 }

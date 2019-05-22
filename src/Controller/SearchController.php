@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Search;
 use App\Form\SearchType;
 use App\Repository\SearchRepository;

@@ -31,7 +31,8 @@ class Sport
 
     public function __construct(){
         $this->created_at = new \DateTime;
-        $this->search = new ArrayCollection();
+        $this->users = new ArrayCollection();
+
     }
 
     /**
@@ -40,9 +41,11 @@ class Sport
     private $modified_at;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="sports")
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="sports")
      */
-    private $search;
+    private $users;
+
+
 
     /**
      * @ORM\PreUpdate
@@ -95,26 +98,30 @@ class Sport
     /**
      * @return Collection|User[]
      */
-    public function getSearch(): Collection
+    public function getUsers(): Collection
     {
-        return $this->search;
+        return $this->users;
     }
 
-    public function addSearch(User $search): self
+    public function addUser(User $user): self
     {
-        if (!$this->search->contains($search)) {
-            $this->search[] = $search;
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addSport($this);
         }
 
         return $this;
     }
 
-    public function removeSearch(User $search): self
+    public function removeUser(User $user): self
     {
-        if ($this->search->contains($search)) {
-            $this->search->removeElement($search);
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+            $user->removeSport($this);
         }
 
         return $this;
     }
+
+
 }

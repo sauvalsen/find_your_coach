@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Sport;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
@@ -16,6 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class EditUserType extends AbstractType
 {
@@ -64,6 +66,16 @@ class EditUserType extends AbstractType
                 ],
                 'expanded' => false,
                 'multiple' => false,
+            ])
+            ->add('sports', EntityType::class, [
+                // looks for choices from this entity
+                'class' => Sport::class,
+                // uses the User.username property as the visible option string
+                'choice_label' => 'sport',
+                //'attr' => ['class' => 'inputsport'],
+               // 'translation_domain' => 'Default',
+                'expanded' => true,
+                'multiple' => true,
             ])
             ->add('submit', SubmitType::class)
         ;
