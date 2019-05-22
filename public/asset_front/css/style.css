@@ -58,7 +58,7 @@ table {
 /***************** Variable ************************/
 
 :root {
-    --Couleur-principale: coral;
+    --Couleur-principale: #00B37E;
 }
 
 /***************** Style CSS ***********************/
@@ -66,7 +66,6 @@ table {
 .wrap {
     max-width: 1200px;
     width:100%;
-    margin: 0 auto;
 }
 
 .fond{
@@ -81,7 +80,7 @@ header {
     background-color: var(--Couleur-principale);
     opacity: 0.96;
     height:100px;
-    position: fixed;
+    position:fixed;
     width: 100%;
     z-index: 100;
 }
@@ -109,8 +108,8 @@ nav {
 
 .ul-nav li a, .button {
     text-decoration: none;
-    color:black;
-    border: solid 1px black ;
+    color:white;
+    border: solid 1px white;
     border-radius: 15px;
     margin-left: 10px;
     padding: 5px;
@@ -185,6 +184,66 @@ nav {
     border:0px;
 }
 
+
+
+/*container accueil*/
+
+.content-accueil{
+    background-image: url(../img/fitness.jpg);
+}
+.intro-form{
+    padding-top:150px;
+
+}
+#search_sport_sport{
+    width:100%;
+}
+#search_sport_ville{
+    width:100%;
+}
+#recherche{
+    width: 40%;
+    margin:auto;
+    padding:35px;
+    border-radius:5px;
+    box-shadow: -5px 5px 10px 2px rgba(0,0,0,0.75);
+    font-weight: bold;
+    opacity: 0.85;
+}
+.inputsport{
+    
+    display: inline-block;
+    border-color: transparent;
+    height: 40px;
+    margin-right:-3px;
+}
+.inputville{
+    display: inline-block;
+    border-color: transparent;
+    height: 40px;
+
+}
+.btrecherche{
+    border-radius: 3px;
+    border-color: transparent;
+    width:100%;
+    height: 40px;
+    background-color:var(--Couleur-principale);
+}
+.po{
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    color:white;
+}
+#sma{
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
 /*Inscription - connexion - contact*/
 
 .formulaire {
@@ -198,6 +257,7 @@ nav {
     font-weight: bold;
 }
 
+
 .fond-inscription {
     background: url("../img/coureur.jpg");
     background-position: top;
@@ -209,7 +269,7 @@ nav {
 }
 
 .fond-contact{
-    background: url("../img/marche.jpg");
+    background: url("../img/marche.png");
     background-size: cover;
     background-position: top;
 }
@@ -261,12 +321,12 @@ nav {
 /************ Mentions legales *******************/
 
 .fond-mentions-legales{
-    background: url("../img/fitness_large.jpg");
-    background-position: center;
-    background-attachment: fixed;
+    background:fixed center url("../img/fitness_large.jpg");
+    padding-top: 100px;
 }
 
 .mentions-legales {
+    margin: auto;
     background-color: whitesmoke;
     max-width: 1000px;
     padding: 100px;
@@ -346,9 +406,11 @@ footer{
 .reseaux{
     margin-top:8%;
     margin-left:30px;
+    color:white;
 }
 .propos-colone{
     margin-top: 8%;
+    color:white;
 }
 .logo-bas{
     padding-right: 15px;
@@ -358,12 +420,13 @@ footer{
 /*bottom bar*/
 .bottom-bar {
     width:100%;
-    background-color: beige;
+    background-color: white;
     text-align: center;
 }
 
 .bottom-bar p{
     padding-top: 10px;
+   color:black;
 }
 
 .bottom-bar p span{
@@ -372,19 +435,21 @@ footer{
 
 ul .nav-footer{
     border:0;
+    
 }
 
 .nav-footer li {
     display: inline-block;
+   
 }
 
 .nav-footer li a {
-    border:0px;
+    border:0px;color:black;
 }
 
 
 
-/*responsive*/
+/*responsive menu*/
 
 @media screen and (max-width: 860px) {
     /* #menu est le menu général */

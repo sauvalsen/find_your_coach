@@ -44,7 +44,6 @@ class SportFixtures extends Fixture
         $sport8->setSport('Karaté2');
         $manager->persist($sport8);
 
-
         $manager->flush();
     }
 }

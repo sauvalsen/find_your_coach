@@ -2,32 +2,20 @@
     padding:0;
     margin:0;
 }
-.intro-form {
-    background-color: #00AFCF;
-
-    padding: 320px 0 80px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    height:1000px;
+.intro-form { 
     color: #fff;
 }
-#bloc1{
-    height: 400px;
-    background-color:white;
+
+#recherche{
+   
+    margin:  10%;
+    width: 80%;
+    padding: 0 35px;
+    border-radius:5px;
+    box-shadow: -5px 5px 10px 2px rgba(0,0,0,0.75);
+    font-weight: bold;
 }
-#bloc2{
-    height: 400px;
-    background-color:grey;
-}
-#bloc3{
-    height: 400px;
-    background-color:black;
-}
-#bloc4{
-    height: 400px;
-    background-color:gray;
-}
+
 .po{
     text-align: center;
     font-weight: bold;
@@ -44,10 +32,9 @@
 
 /*Recherche*/
 
-#recherche{
-    width: 90%;
-    margin: auto;
-}
+
+   
+
 .inputsport{
     /*border-radius: 4px 0 0 4px;*/
     display: inline-block;
@@ -70,8 +57,9 @@
     background-color: slategray;
 }
 
-.container{
-    padding: 320px 300px 0;
+.container-accueil{
+    padding: 150px 300px ;
+    background-image: url(../img/fitness.jpg);
 }
 
 
