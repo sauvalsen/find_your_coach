@@ -56,33 +56,72 @@ table {
 
 /************* USER **********************/
 
+.bouton-perso-user {
+    margin: 10px 0 0 10px;
+    background-color: #007bff;
+    color: white;
+    padding: 11px;
+    border-radius: 5px;
+    float: left;
+}
+
+/*************  Index User *********************/
+
+.title-index-user {
+    margin-left: 50px;
+    font-size: 50px;
+    font-weight: bold;
+    color: orangered;
+}
+
+.index-user {
+    margin-bottom: 0;
+}
+
+.bouton-inex-user{
+    margin: 10px 0 20px 10px;
+    background-color: #007bff;
+    color: white;
+    padding: 11px;
+    border-radius: 5px;
+}
+
+.pagination {
+    margin-left: 5px;
+}
+
 /*************  Show User *********************/
 
 .title-show-user {
-    margin-left: 20px;
+    margin-left: 40px;
     font-size: 50px;
     font-weight: bold;
     color: orangered;
 }
 
-/*************  edit User *********************/
+
 
 .title_edit_user {
-    margin-left: 20px;
+    margin-left:50px;
     font-size: 50px;
     font-weight: bold;
     color: orangered;
 }
 
-#edit_user .form-group {
-    display: inline-block;
-    width: 50%;
+.label-edit div label, .label-edit fieldset legend {
+    font-weight: bold;
 }
 
-#edit_user input {
-    border-radius: 10px;
+/*************  Edit User *********************/
+
+.btn-edit-user {
+    margin: 10px 0 0 10px;
+    border-radius: 5px;
 }
 
-#edit_user_adresse {
-    width: 100%;
+/*************  Delete User *********************/
+
+.btn-suppr {
+    margin: 10px 0 0 10px;
+    border-radius: 5px;
 }

@@ -95,11 +95,6 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $sexe;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
     private $niveau;
 
     /**
@@ -399,18 +394,6 @@ class User implements UserInterface
     public function setAvatar2(?string $avatar2): self
     {
         $this->avatar2 = $avatar2;
-
-        return $this;
-    }
-
-    public function getSexe(): ?string
-    {
-        return $this->sexe;
-    }
-
-    public function setSexe(?string $sexe): self
-    {
-        $this->sexe = $sexe;
 
         return $this;
     }

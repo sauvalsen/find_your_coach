@@ -45,15 +45,6 @@ class EditFrontUserType extends AbstractType
                 'data_class' => null,
                 'required' => false
             ])
-            ->add('sexe', ChoiceType::class, [
-                'choices'  => [
-                    'Femme' => 'femme',
-                    'Homme' => 'homme',
-                ],
-                'expanded' => true,
-                'multiple' => false,
-                'required'   => false
-            ])
             ->add('niveau', ChoiceType::class, [
                 'choices'  => [
                     'Débutant' => 'debutant',

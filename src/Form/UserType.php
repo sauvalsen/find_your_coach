@@ -49,15 +49,6 @@ class UserType extends AbstractType
                 'label' => 'Avatar (PNG,JPG)',
                 'required' => false,
             ])
-            ->add('sexe', ChoiceType::class, [
-                'choices'  => [
-                    'Femme' => 'femme',
-                    'Homme' => 'homme',
-                ],
-                'expanded' => true,
-                'multiple' => false,
-                'required'   => false
-            ])
             ->add('niveau', ChoiceType::class, [
                 'choices'  => [
                     'Débutant' => 'debutant',

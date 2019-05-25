@@ -5,7 +5,6 @@ namespace App\Form;
 use App\Entity\Sport;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -24,24 +23,49 @@ class EditUserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', EmailType::class)
-            ->add('tel', TelType::class, ['required'   => false])
-            ->add('nom', TextType::class, ['required'   => false])
-            ->add('prenom', TextType::class, ['required'   => false])
-            ->add('adresse', TextType::class, ['required'   => false])
-            ->add('code_postal', IntegerType::class, ['required'   => false])
-            ->add('ville', TextType::class, ['required'   => false])
-            ->add('diplome', TextType::class, ['required'   => false])
+            ->add('email', EmailType::class, [
+                'label' => 'Email'
+            ])
+            ->add('tel', TelType::class, [
+                'label' => 'Téléphone',
+                'required'   => false
+            ])
+            ->add('nom', TextType::class, [
+                'label' => 'Nom',
+                'required'   => false
+            ])
+            ->add('prenom', TextType::class, [
+                'label' => 'Prénom',
+                'required'   => false])
+            ->add('adresse', TextType::class, [
+                'label' => 'Adresse',
+                'required'   => false
+            ])
+            ->add('code_postal', IntegerType::class, [
+                'label' => 'Code Postal',
+                'required'   => false
+            ])
+            ->add('ville', TextType::class, [
+                'label' => 'Ville',
+                'required'   => false])
+            ->add('diplome', TextType::class, [
+                'label' => 'Diplôme',
+                'required'   => false
+            ])
             ->add('niveau', ChoiceType::class, [
                 'choices'  => [
                     'Débutant' => 'debutant',
                     'Intermédiaire' => 'intermediaire',
                     'Confirmé' => 'confirme',
                 ],
+                'label' => 'Niveau',
                 'expanded' => false,
                 'multiple' => false,
             ])
-            ->add('description', TextareaType::class, ['required'   => false])
+            ->add('description', TextareaType::class, [
+                'label' => 'Description',
+                'required'   => false
+            ])
             ->add('roles', ChoiceType::class, [
                 'label' => 'Role:',
                 'choices'  => [
@@ -58,15 +82,6 @@ class EditUserType extends AbstractType
                 'data_class' => null,
                 'required' => false
             ])
-            ->add('sexe', ChoiceType::class, [
-                'choices'  => [
-                    'Femme' => 'femme',
-                    'Homme' => 'homme',
-                ],
-                'expanded' => true,
-                'multiple' => false,
-                'required'   => false
-            ])
             ->add('sports', EntityType::class, [
                 // looks for choices from this entity
                 'class' => Sport::class,
@@ -77,7 +92,6 @@ class EditUserType extends AbstractType
                 'expanded' => true,
                 'multiple' => true,
             ])
-            ->add('submit', SubmitType::class)
         ;
     }
 
