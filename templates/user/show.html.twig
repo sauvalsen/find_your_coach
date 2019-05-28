@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block body %}
-    <span class="title-show-user">{{ user.prenom }} {{ user.nom }}</span>
+    <h1 class="title-user">{{ user.prenom }} {{ user.nom }}</h1>
     <table class="table">
         <tbody>
             <tr>
@@ -57,7 +57,7 @@
         </tbody>
     </table>
 
-    <div id="mymap" style="width: 100%; height: 400px;" data-lat="{{ user.lat }}" data-lng="{{ user.lng }}"></div>
+    <div id="mymap" data-lat="{{ user.lat }}" data-lng="{{ user.lng }}"></div>
 
     <a class="bouton-perso-user" href="{{ path('user_index') }}">Retour a la liste</a>
 

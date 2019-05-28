@@ -56,6 +56,13 @@ table {
 
 /************* USER **********************/
 
+.title-user {
+    margin:0 0 40px 45px;
+    font-size: 50px;
+    font-weight: bold;
+    color: orangered;
+}
+
 .bouton-perso-user {
     margin: 10px 0 0 10px;
     background-color: #007bff;
@@ -65,63 +72,41 @@ table {
     float: left;
 }
 
-/*************  Index User *********************/
-
-.title-index-user {
-    margin-left: 50px;
-    font-size: 50px;
-    font-weight: bold;
-    color: orangered;
+.form-user{
+    margin-top: 40px;
 }
+
+/*************  Index User *********************/
 
 .index-user {
     margin-bottom: 0;
 }
 
-.bouton-inex-user{
-    margin: 10px 0 20px 10px;
+.pagination {
+    margin: 10px 0 5px 10px;
+}
+
+.bouton-inex-user {
+    margin: 10px 0 0 20px;
     background-color: #007bff;
     color: white;
     padding: 11px;
     border-radius: 5px;
 }
-
-.pagination {
-    margin-left: 5px;
-}
-
 /*************  Show User *********************/
-
-.title-show-user {
-    margin-left: 40px;
-    font-size: 50px;
-    font-weight: bold;
-    color: orangered;
-}
-
-
-
-.title_edit_user {
-    margin-left:50px;
-    font-size: 50px;
-    font-weight: bold;
-    color: orangered;
-}
 
 .label-edit div label, .label-edit fieldset legend {
     font-weight: bold;
 }
 
+#mymap{
+    width: 100%;
+    height: 400px;
+    margin-bottom: 10px;
+}
 /*************  Edit User *********************/
 
-.btn-edit-user {
-    margin: 10px 0 0 10px;
-    border-radius: 5px;
-}
-
-/*************  Delete User *********************/
-
-.btn-suppr {
+.btn-edit-user, .btn-suppr{
     margin: 10px 0 0 10px;
     border-radius: 5px;
 }

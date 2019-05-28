@@ -184,8 +184,6 @@ nav {
     border:0px;
 }
 
-
-
 /*container accueil*/
 
 .content-accueil{
@@ -283,7 +281,7 @@ nav {
 }
 
 .formulaire-contact{
-    opacity: 0.85;
+    opacity: 0.90;
 }
 
 .titre-formulaire{

@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Sport;
 use App\Entity\User;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -58,7 +60,16 @@ class UserType extends AbstractType
                 'expanded' => false,
                 'multiple' => false,
             ])
-            ->add('Envoyer', SubmitType::class)
+            ->add('sports', EntityType::class, [
+                // looks for choices from this entity
+                'class' => Sport::class,
+                // uses the User.username property as the visible option string
+                'choice_label' => 'sport',
+                //'attr' => ['class' => 'inputsport'],
+                // 'translation_domain' => 'Default',
+                'expanded' => true,
+                'multiple' => true,
+            ])
         ;
     }
 
