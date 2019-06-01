@@ -1,13 +1,13 @@
-{% extends 'back.html.twig' %}
+{% extends '@AdminBundle/base.html.twig' %}
 
 {% block title %}Nouvel utilisateur{% endblock %}
 
-{% block body %}
+{% block content %}
     <h1 class="title-user">Créer un utilisateur</h1>
 
     {{ include('user/_form_new.html.twig') }}
 
-    <a href="{{ path('user_index') }}">Retour a la liste</a>
+    <a href="{{ path('admin_user_index') }}">Retour a la liste</a>
 {% endblock %}
 
 {% block javascripts %}

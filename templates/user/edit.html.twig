@@ -1,9 +1,12 @@
-{% extends 'back.html.twig' %}
+{% extends '@AdminBundle/base.html.twig' %}
 
 {% block title %}Edit User{% endblock %}
 
-{% block body %}
-    <h1 class="title-user">{{ user.prenom }} {{ user.nom }}</h1>
+{% block stylesheets %}{{ parent() }}{% endblock %}
+
+{% block page_title %}{{ user.prenom }} {{ user.nom }}{% endblock %}
+
+{% block content %}
 
     {{ include('user/_form_edit.html.twig', {'button_label': 'Update'}) }}
 
@@ -11,5 +14,6 @@
 {% endblock %}
 
 {% block javascripts %}
+    {{ parent() }}
     <script src="{{ asset('asset_back/js/autocompletion_adresse.js') }}"></script>
 {% endblock %}

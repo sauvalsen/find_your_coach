@@ -1,12 +1,15 @@
-{% extends 'back.html.twig' %}
+{% extends '@AdminBundle/base.html.twig' %}
 
 {% block title %}Utilisateur{% endblock %}
 
 {% block stylesheets %}
+    {{ parent() }}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
 {% endblock %}
 
-{% block body %}
+{% block page_title %}Profil utilisateur{% endblock %}
+
+{% block content %}
     <h1 class="title-user">{{ user.prenom }} {{ user.nom }}</h1>
     <table class="table">
         <tbody>
@@ -59,14 +62,15 @@
 
     <div id="mymap" data-lat="{{ user.lat }}" data-lng="{{ user.lng }}"></div>
 
-    <a class="bouton-perso-user" href="{{ path('user_index') }}">Retour a la liste</a>
+    <a class="bouton-perso-user" href="{{ path('admin_user_index') }}">Retour a la liste</a>
 
-    <a class="bouton-perso-user" href="{{ path('user_edit', {'id': user.id}) }}">Editer</a>
+    <a class="bouton-perso-user" href="{{ path('admin_user_edit', {'id': user.id}) }}">Editer</a>
 
     {{ include('user/_delete_form.html.twig') }}
 {% endblock %}
 
 {% block javascripts %}
+    {{ parent() }}
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
     <script src="{{ asset('asset_back/js/map.js') }}"></script>
 {% endblock %}

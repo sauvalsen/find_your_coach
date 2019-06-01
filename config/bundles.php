@@ -18,4 +18,5 @@ return [
     Liip\ImagineBundle\LiipImagineBundle::class => ['all' => true],
     Knp\Bundle\PaginatorBundle\KnpPaginatorBundle::class => ['all' => true],
     Algolia\SearchBundle\AlgoliaSearchBundle::class => ['all' => true],
+    App\Bundles\AdminBundle\AdminBundle::class => ['all' => true],
 ];
