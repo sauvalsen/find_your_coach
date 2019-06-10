@@ -14,7 +14,7 @@
       <link href="{{ asset('bundles/admin/css/minified/core.min.css') }}" rel="stylesheet" type="text/css">
       <link href="{{ asset('bundles/admin/css/minified/components.min.css') }}" rel="stylesheet" type="text/css">
       <link href="{{ asset('bundles/admin/css/minified/colors.min.css') }}" rel="stylesheet" type="text/css">
-      {# <link href="{{ asset('medias/css/mediasPicker.css') }}" rel="stylesheet" type="text/css"> #}
+      <link href="{{ asset('asset_back/css/style.css') }}" rel="stylesheet" type="text/css">
   {% endblock %}
   <!-- /global stylesheets -->
 <!-- Core JS files -->
@@ -46,7 +46,7 @@
       <!-- /main sidebar -->
       <!-- Second sidebar -->
         {#{ include("App\Bundles\AdminBundle:Menu:second_sideBar.html.twig") }#}
-        <div class="sidebar sidebar-secondary sidebar-default"> 
+        <div class="sidebar sidebar-secondary sidebar-default">
           <div class="sidebar-content">
             {% block secondSideBar %}
 
@@ -77,7 +77,7 @@
 
           <div class="breadcrumb-line">
             <ul class="breadcrumb">
-              <li><a href="admin_homepage"><i class="icon-home2 position-left"></i> Home</a></li>
+              <li><a href="{{ path('admin_homepage') }}"><i class="icon-home2 position-left"></i>Home</a></li>
               <li><a href="#">Sidebars</a></li>
               <li class="active">nom de page</li>
             </ul>

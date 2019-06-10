@@ -44,7 +44,7 @@
                 <div class="header-mobile__bar">
                     <div class="container-fluid">
                         <div class="header-mobile-inner">
-                            <a class="logo" href="{{ path('app_admin') }}">
+                            <a class="logo" href="{{ path('admin_homepage') }}">
                                 <img src="{{ asset('asset_back/img/logo_long.png') }}" alt="Find Your Coach" />
                             </a>
                             <button class="hamburger hamburger--slider" type="button">
@@ -59,15 +59,15 @@
                     <div class="container-fluid">
                         <ul class="navbar-mobile__list list-unstyled">
                             <li>
-                                <a href="{{ path('app_admin') }}">
+                                <a href="{{ path('admin_homepage') }}">
                                     Dashboard</a>
                             </li>
                             <li>
-                                <a href="{{ path('user_index') }}">
+                                <a href="{{ path('admin_homepage') }}">
                                     Utilisateurs</a>
                             </li>
                             <li>
-                                <a href="{{ path('calendrier_index') }}">
+                                <a href="{{ path('admin_calendrier_index') }}">
                                     Calendrier</a>
                             </li>
                             <li>
@@ -83,7 +83,7 @@
             <!-- MENU SIDEBAR-->
             <aside class="menu-sidebar d-none d-lg-block">
                 <div class="logo">
-                    <a href="{{ path('app_admin') }}">
+                    <a href="{{ path('admin_homepage') }}">
                         <img src="{{ asset('asset_back/img/logo_long.png') }}" alt="Find Your Coach" />
                     </a>
                 </div>
@@ -91,15 +91,15 @@
                     <nav class="navbar-sidebar">
                         <ul class="list-unstyled navbar__list">
                             <li>
-                                <a href="{{ path('app_admin') }}">
+                                <a href="{{ path('admin_homepage') }}">
                                     Dashboard</a>
                             </li>
                             <li>
-                                <a href="{{ path('user_index') }}">
+                                <a href="{{ path('admin_user_index') }}">
                                     Utilisateurs</a>
                             </li>
                             <li>
-                                <a href="{{ path('calendrier_index') }}">
+                                <a href="{{ path('admin_calendrier_index') }}">
                                     Calendrier</a>
                             </li>
                             <li>
@@ -138,13 +138,13 @@
                                             <div class="account-dropdown js-dropdown">
                                                 <div class="info clearfix">
                                                     <div class="image">
-                                                        <a href="{{ path('user_show', {'id': app.user.id}) }}">
+                                                        <a href="{{ path('admin_user_show', {'id': app.user.id}) }}">
                                                             <img src="{{ asset('uploads/avatars/' ~ app.user.avatar) }}" alt="Avatar de {{ app.user.nom }}" />
                                                         </a>
                                                     </div>
                                                     <div class="content">
                                                         <h5 class="name">
-                                                            <a href="{{ path('user_show', {'id': app.user.id}) }}">{{ app.user.nom }}</a>
+                                                            <a href="{{ path('admin_user_show', {'id': app.user.id}) }}">{{ app.user.nom }}</a>
                                                         </h5>
                                                         <span class="email">{{ app.user.email }}</span>
                                                     </div>

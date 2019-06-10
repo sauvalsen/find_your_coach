@@ -1,10 +1,14 @@
-{% extends 'back.html.twig' %}
+{% extends '@AdminBundle/base.html.twig' %}
 
 {% block title %}Accueil back{% endblock %}
 
-{% block body %}
+{% block stylesheets %}{{ parent() }}{% endblock %}
+
+{% block content %}
     <h1>Accueil back</h1>
 {% endblock %}
+
 {% block javascript %}
+    {{ parent() }}
     <script src="{{ asset('asset_back/js/main.js') }}"></script>
 {% endblock %}

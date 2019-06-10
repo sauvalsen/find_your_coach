@@ -9,7 +9,7 @@
           <div class="media-body">
             <span class="media-heading text-semibold">{{ app.user.username }}</span>
             <div class="text-size-mini text-muted">
-              <i class="icon-pin text-size-small"></i> &nbsp;Santa Ana, CA
+              <i class="icon-pin text-size-small"></i> &nbsp;{{ app.user.ville }}
             </div>
           </div>
 
@@ -35,20 +35,21 @@
           <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
           <li><a href="{{ path('admin_homepage') }}"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
             
-          <li><a><i class="icon-users4"></i> Users </span></a>
+          <li><a><i class="icon-users4"></i> Utilisateurs </a>
             <ul class="nav child_menu">
-              <li><a href="{{ path('admin_user_index') }}"><i class="icon-menu3"></i>liste</a></li>
-              <li><a href="{{ path('admin_user_new') }}"><i class="icon-user-plus"></i>Add new User</a></li>
+              <li><a href="{{ path('admin_user_index') }}"><i class="icon-menu3"></i>Liste Utilisateurs</a></li>
+              <li><a href="{{ path('admin_user_new') }}"><i class="icon-user-plus"></i>Ajouter Nouvel Utilisateur</a></li>
             </ul>
           </li>
 
-          {# <li><a><i class="icon-package"></i> Publication </span></a>
+          <li><a><i class="icon-calendar "></i> Calendrier </a>
             <ul class="nav child_menu">
-              <li><a href="{{ path('admin_publications_index') }}"><i class="icon-menu3"></i>List Publication</a></li>
-              <li><a href="{{ path('admin_publications_new') }}"><i class="icon-user-plus"></i>Add new Publication</a></li>
+              <li><a href="{{ path('admin_calendrier_index') }}"><i class="icon-menu3"></i>Liste Calendrier</a></li>
+              <li><a href="{{ path('admin_calendrier_new') }}"><i class="icon-user-plus"></i>Add new Publication</a></li>
             </ul>
           </li>
-          <li><a><i class="icon-users"></i> Clients </span></a>
+
+          {# <li><a><i class="icon-users"></i> Clients </span></a>
             <ul class="nav child_menu">
               <li><a href="{{ path('admin_clients_index') }}"><i class="icon-menu3"></i>List Clients</a></li>
               <li><a href="{{ path('admin_clients_new') }}"><i class="icon-user-plus"></i>Add new Client</a></li>

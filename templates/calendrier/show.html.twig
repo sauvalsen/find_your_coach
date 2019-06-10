@@ -1,8 +1,12 @@
-{% extends 'back.html.twig' %}
+{% extends '@AdminBundle/base.html.twig' %}
 
 {% block title %}Calendrier{% endblock %}
 
-{% block body %}
+{% block stylesheets %}{{ parent() }}{% endblock %}
+
+{% block page_title %}Gestion des utilisateurs{% endblock %}
+
+{% block content %}
     <h1>Calendrier</h1>
 
     <table class="table">
@@ -48,3 +52,5 @@
 
     {{ include('calendrier/_delete_form.html.twig') }}
 {% endblock %}
+
+{% block javascripts %}{{ parent() }}{% endblock %}

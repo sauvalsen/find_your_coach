@@ -1,8 +1,12 @@
-{% extends 'back.html.twig' %}
+{% extends '@AdminBundle/base.html.twig' %}
 
 {% block title %}New Calendrier{% endblock %}
 
-{% block body %}
+{% block stylesheets %}{{ parent() }}{% endblock %}
+
+{% block page_title %}Gestion des utilisateurs{% endblock %}
+
+{% block content %}
     <h1>Create new Calendrier</h1>
 
 
@@ -22,6 +26,7 @@
 {% endblock %}
 
     {% block javascripts %}
+        parent()
     {# lancer le datepicker date de commencement avec les icônes qui vont avec  #}
     <script type="text/javascript">
 function toggleForm(){

@@ -68,13 +68,6 @@ table {
     width:100%;
 }
 
-.fond{
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 800px;
-}
-
-
 /*header*/
 
 header {
@@ -246,7 +239,6 @@ nav {
 /*Inscription - connexion - contact*/
 
 .formulaire {
-    float: left;
     margin: 250px 10%;
     width: 80%;
     padding: 0 35px;
@@ -256,21 +248,25 @@ nav {
     font-weight: bold;
 }
 
-
 .fond-inscription {
-    background: url("../img/coureur.jpg");
+    background:no-repeat url("../img/coureur.jpg");
+    background-size: cover;
     background-position: top;
+    height: 800px;
 }
 
 .fond-connexion {
-    background: url("../img/salle_fitness.jpg");
+    background:no-repeat url("../img/salle_fitness.jpg");
+    background-size: cover;
     background-position: bottom;
+    height: 800px;
 }
 
 .fond-contact{
-    background: url("../img/marche.png");
+    background:no-repeat url("../img/marche.png");
     background-size: cover;
     background-position: top;
+    height: 800px;
 }
 
 .formulaire-inscription{
@@ -318,11 +314,12 @@ nav {
     margin-bottom: 0;
 }
 
-/************ Mentions legales *******************/
+/************ Mentions légales *******************/
 
 .fond-mentions-legales{
+    overflow: hidden;
     background:fixed center url("../img/fitness_large.jpg");
-    padding-top: 100px;
+    padding: 200px 0;
 }
 
 .mentions-legales {

@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CalendrierController extends AbstractController
 {
     /**
-     * @Route("/", name="calendrier_index", methods={"GET"})
+     * @Route("/", name="admin_calendrier_index", methods={"GET"})
      */
     public function index(CalendrierRepository $calendrierRepository): Response
     {
@@ -26,7 +26,7 @@ class CalendrierController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="calendrier_new", methods={"GET","POST"})
+     * @Route("/new", name="admin_calendrier_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {  
@@ -55,7 +55,7 @@ class CalendrierController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="calendrier_show", methods={"GET"})
+     * @Route("/{id}", name="admin_calendrier_show", methods={"GET"})
      */
     public function show(Calendrier $calendrier): Response
     {
@@ -65,7 +65,7 @@ class CalendrierController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="calendrier_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="admin_calendrier_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Calendrier $calendrier): Response
     {
@@ -87,7 +87,7 @@ class CalendrierController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="calendrier_delete", methods={"DELETE"})
+     * @Route("/{id}", name="admin_calendrier_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Calendrier $calendrier): Response
     {

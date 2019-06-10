@@ -1,19 +1,12 @@
-{% extends 'back.html.twig' %}
-{% block javascripts %}
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
-    <script>
-       $(document).ready(function() {
-        // you may need to change this code if you are not using Bootstrap Datepicker
-        $('.js-datepicker').datepicker({
-            format: 'yyyy-mm-dd'
-        });
-    });
-    </script>
-{% endblock %}
+{% extends '@AdminBundle/base.html.twig' %}
 
 {% block title %}Calendrier index{% endblock %}
 
-{% block body %}
+{% block stylesheets %}{{ parent() }}{% endblock %}
+
+{% block page_title %}Gestion des utilisateurs{% endblock %}
+
+{% block content %}
     <h1>Calendrier index</h1>
 
 <div class="col-lg-12">
@@ -35,8 +28,8 @@
             <tbody>
             {% for calendrier in calendriers %}
                 <tr>
-                    <td><a href="{{ path('calendrier_edit', {'id': calendrier.id}) }}"><i class="zmdi zmdi-settings"></i></a> </td>
-                    <td><a href="{{ path('calendrier_show', {'id': calendrier.id}) }}">{{ calendrier.id }}</a></td>
+                    <td><a href="{{ path('admin_calendrier_edit', {'id': calendrier.id}) }}"><i class="zmdi zmdi-settings"></i></a> </td>
+                    <td><a href="{{ path('admin_calendrier_show', {'id': calendrier.id}) }}">{{ calendrier.id }}</a></td>
                     <td>{{ calendrier.id }}</td>
                     <td>{{ calendrier.startDate ? calendrier.startDate|date('d-m-Y H:i:s') : '' }}</td>
                     <td>{{ calendrier.endDate ? calendrier.endDate|date('d-m-Y H:i:s') : '' }}</td>
@@ -66,5 +59,17 @@
     </div>
 </div>
 
-    <a href="{{ path('calendrier_new') }}">Create new</a>
+    <a href="{{ path('admin_calendrier_new') }}">Create new</a>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // you may need to change this code if you are not using Bootstrap Datepicker
+            $('.js-datepicker').datepicker({
+                format: 'yyyy-mm-dd'
+            });
+        });
+    </script>
 {% endblock %}
