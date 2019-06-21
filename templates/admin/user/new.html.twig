@@ -1,0 +1,20 @@
+{% extends '@AdminBundle/base.html.twig' %}
+
+{% block title %}Nouvel utilisateur{% endblock %}
+
+{% block page_title %}<h1 class="title-user">Créer un utilisateur</h1>{% endblock %}
+
+{% block titre_menu %}<li><a href="{{ path('admin_user_index') }}">Utilisateur</a></li>{% endblock %}
+
+{% block nom_de_page %}Créer un utilisateur{% endblock %}
+
+{% block content %}
+    {{ include('admin/user/_form_new.html.twig') }}
+
+    <a href="{{ path('admin_user_index') }}">Retour a la liste</a>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('asset_back/js/autocompletion_adresse.js') }}"></script>
+{% endblock %}

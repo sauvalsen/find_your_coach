@@ -54,16 +54,29 @@ table {
          box-sizing: border-box; /* Opera/IE 8+ */
 }
 
-/************* USER **********************/
+/************* NAVBAR **********************/
 
-.title-user {
+.logo img{
+    margin: 0 auto;
+    width: 50%;
+    height: auto;
+}
+
+.navbar-header{
+    width: 260px;
+    height: 60px;
+}
+
+/************* Général **********************/
+
+.title-user, .title-calendrier {
     margin:0 0 40px 45px;
     font-size: 50px;
     font-weight: bold;
-    color: orangered;
+    color: #ff7043;
 }
 
-.bouton-perso-user {
+.bouton-perso {
     margin: 10px 0 0 10px;
     background-color: #007bff;
     color: white;
@@ -76,27 +89,31 @@ table {
     margin-top: 40px;
 }
 
-/*************  Index User *********************/
-
-.index-user {
-    margin-bottom: 0;
-}
+/*************  INDEX *********************/
 
 .pagination {
+    display: block;
     margin: 10px 0 5px 10px;
 }
 
-.bouton-inex-user {
-    margin: 10px 0 0 20px;
+.bouton-index-back {
+    display: inline-block;
+    margin: 0 0 10px 20px;
     background-color: #007bff;
-    color: white;
     padding: 11px;
-    border-radius: 5px;
+    border-radius: 3px;
 }
-/*************  Show User *********************/
 
-.label-edit div label, .label-edit fieldset legend {
+.bouton-index-back a{
+    color: white;
+}
+/*************  SHOW *********************/
+
+.title-content, .title-content {
+    text-align: center;
     font-weight: bold;
+    font-size: 30px;
+    padding-bottom: 20px;
 }
 
 #mymap{
@@ -104,9 +121,41 @@ table {
     height: 400px;
     margin-bottom: 10px;
 }
-/*************  Edit User *********************/
+/*************  EDIT *********************/
 
-.btn-edit-user, .btn-suppr{
+.name-edit{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.btn-edit, .bouton-supprimer{
     margin: 10px 0 0 10px;
     border-radius: 5px;
+}
+/*************  Responsive *********************/
+
+@media screen and (max-width:768px) {
+    .navbar-header{
+        margin: auto;
+        height: 100px;
+    }
+
+    .logo{
+        display: inline-block;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .logo img{
+        margin: 0 auto;
+        width: 100%!important;
+        height: auto;
+    }
+
+    .burger{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
 }

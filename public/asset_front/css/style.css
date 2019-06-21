@@ -238,17 +238,8 @@ nav {
 
 /*Inscription - connexion - contact*/
 
-.formulaire {
-    margin: 250px 10%;
-    width: 80%;
-    padding: 0 35px;
-    background-color: ghostwhite;
-    border-radius:5px;
-    box-shadow: -5px 5px 10px 2px rgba(0,0,0,0.75);
-    font-weight: bold;
-}
-
 .fond-inscription {
+    overflow: hidden;
     background:no-repeat url("../img/coureur.jpg");
     background-size: cover;
     background-position: top;
@@ -256,6 +247,7 @@ nav {
 }
 
 .fond-connexion {
+    overflow: hidden;
     background:no-repeat url("../img/salle_fitness.jpg");
     background-size: cover;
     background-position: bottom;
@@ -263,10 +255,21 @@ nav {
 }
 
 .fond-contact{
+    overflow: hidden;
     background:no-repeat url("../img/marche.png");
     background-size: cover;
     background-position: top;
     height: 800px;
+}
+
+.formulaire {
+    margin: 250px 10%;
+    width: 80%;
+    padding: 20px 35px;
+    background-color: ghostwhite;
+    border-radius:5px;
+    box-shadow: -5px 5px 10px 2px rgba(0,0,0,0.75);
+    font-weight: bold;
 }
 
 .formulaire-inscription{
@@ -351,14 +354,14 @@ nav {
     margin-bottom:10px;
 }
 
-.mentions-legales #article ul{
+.mentions-legales ul{
     margin:0 0 30px 50px;
 }
 
-.mentions-legales #article ul li{
+.mentions-legales ul li{
     line-height: 2;
     list-style-position: outside;
-    list-style: square;
+    list-style-type: square;
 }
 
 .mentions-legales strong{
@@ -444,44 +447,7 @@ ul .nav-footer{
     border:0px;color:black;
 }
 
-
-
-/*responsive menu*/
-
-@media screen and (max-width: 860px) {
-    /* #menu est le menu général */
-    #menu {
-        display:none;
-    }
-    .header-logo{
-        padding-left: 35%;
-    }
-    #hamburger-content {
-        display: none;
-    }
-    #hamburger-button, #hamburger-sidebar,
-    .hamburger-activated #hamburger-overlay {
-        display: block;
-    }
-    .hamburger-activated #hamburger-sidebar {
-        transform: translateX(0);
-    }
-    .colone{
-        text-align: center;
-        width:100%;
-    } 
-    
-}
-
-@media screen and (min-width: 859px){
-    .formulaire {
-        float: right;
-        margin: 250px 5%;
-        width: 40%;
-    }
-}
-
-/********** Calendrier*\\\\\\\*/
+/********** Calendrier*******************/
 #calendrier_sportif{
     visibility: hidden;
     display:inline;
@@ -510,16 +476,7 @@ padding:10px;
 
 .profil{width:31.333333333333%; height:100px; margin-left:2%;float:left;position: relative;color:rgb(37, 26, 26);}
 
-@media screen and (max-width:900px) {
-	.profil{width:48%;}
 
-}
-
-@media screen and (max-width:500px) {
-	.profil{width:96%; }
-	#profil {margin-left:0}
-
-}
 div.profil.test{
     background-color:coral;
 }
@@ -530,39 +487,88 @@ color:rgb(37, 26, 26);
 }
 
 .profil {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    margin: auto;
-    text-align: center;
-  }
-  
-  .nom {
-    color: grey;
-    font-size: 18px;
-  }
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+max-width: 300px;
+margin: auto;
+text-align: center;
+}
+
+.nom {
+color: grey;
+font-size: 18px;
+}
+
 .description{
-    max-width: 300px;
-    margin: auto;
-    text-align: center;
+max-width: 300px;
+margin: auto;
+text-align: center;
 
 }
-  .prenom {
-    color: grey;
-    font-size: 18px;
-  }
 
-  
-  a {
-      list-style: none !important;
-    text-decoration: none !important;
-    font-size: 22px;
-    color: black;
-  }
- a:hover {
-    opacity: 0.7;
-  }
+.prenom {
+color: grey;
+font-size: 18px;
+}
 
-  #edit_front_user_submit:hover{ opacity: 0.3;
-  
 
-  }
+a {
+  list-style: none !important;
+text-decoration: none !important;
+font-size: 22px;
+color: black;
+}
+
+a:hover {
+opacity: 0.7;
+}
+
+#edit_front_user_submit:hover{ opacity: 0.3;
+
+
+}
+
+/*responsive menu*/
+
+@media screen and (max-width: 860px) {
+    /* #menu est le menu général */
+    #menu {
+        display:none;
+    }
+    .header-logo{
+        padding-left: 35%;
+    }
+    #hamburger-content {
+        display: none;
+    }
+    #hamburger-button, #hamburger-sidebar,
+    .hamburger-activated #hamburger-overlay {
+        display: block;
+    }
+    .hamburger-activated #hamburger-sidebar {
+        transform: translateX(0);
+    }
+    .colone{
+        text-align: center;
+        width:100%;
+    }
+
+}
+
+@media screen and (max-width:500px) {
+    .profil{width:96%; }
+    #profil {margin-left:0}
+
+}
+
+@media screen and (max-width:900px) {
+    .profil{width:48%;}
+
+}
+
+@media screen and (min-width: 1050px){
+    .formulaire {
+        float: right;
+        margin: 250px 5%;
+        width: 40%;
+    }
+}

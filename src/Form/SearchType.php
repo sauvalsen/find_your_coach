@@ -1,6 +1,6 @@
 <?php
-
 namespace App\Form;
+
 use App\Entity\Sport;
 use App\Entity\User;
 use App\Entity\Search;

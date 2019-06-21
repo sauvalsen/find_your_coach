@@ -1,0 +1,64 @@
+{{ form_start(editUserForm) }}
+    <div class="form-user row">
+        <div class="label-edit col-sm-12 col-md-6">
+            {{ form_row(editUserForm.email) }}
+        </div>
+        <div class="label-edit col-sm-12 col-md-6">
+            {{ form_row(editUserForm.tel) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="label-edit col-sm-12">
+        {{ form_row(editUserForm.roles) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="label-edit col-sm-12 col-md-6">
+        {{ form_row(editUserForm.prenom) }}
+        </div>
+        <div class="label-edit col-sm-12 col-md-6">
+        {{ form_row(editUserForm.nom) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="label-edit col-sm-12">
+        {{ form_row(editUserForm.adresse) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="label-edit  col-sm-12 col-md-6">
+        {{ form_row(editUserForm.code_postal) }}
+        </div>
+        <div class="label-edit  col-sm-12 col-md-6">
+        {{ form_row(editUserForm.ville) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="label-edit  col-sm-12 col-md-6">
+            {{ form_row(editUserForm.niveau) }}
+        </div>
+        <div class="label-edit  col-sm-12 col-md-6">
+            {{ form_row(editUserForm.diplome) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="label-edit col-sm-12">
+            {{ form_row(editUserForm.description) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="label-edit col-sm-12">
+            {{ form_row(editUserForm.avatar2) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="label-edit col-sm-12">
+            {{ form_row(editUserForm.sports) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn-edit btn btn-primary" type="submit">
+            Envoyer
+        </button>
+    </div>
+{{ form_end(editUserForm) }}

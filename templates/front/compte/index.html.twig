@@ -1,0 +1,76 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}Utilisateur{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('asset_front/css/style.css')}}">{% endblock %}
+
+{% block body %}
+    <h1>Utilisateur</h1>
+
+    <table class="table">
+      
+    <div id="contenue" class="wrap">
+             <div id="profil">
+                <div class="profil test">Avatar
+                <img src="{{ asset('uploads/avatars/' ~ app.user.avatar) | imagine_filter('my_thumb') }}">
+                </div>
+         
+                <div class="profil nom">Nom
+               {{ app.user.nom }}
+               </div>
+           
+                <div class="profil prenom">Prenom
+                {{ app.user.prenom }}
+                </div>
+
+                <div class="profil adresse">
+               Adresse
+                {{ app.user.adresse }}
+                </div>
+
+                <div class="profil cp">
+                Code_postal
+               {{ app.user.codePostal }}
+                </div>
+           
+                <div class="profil ville">
+                Ville
+                {{ app.user.ville }}
+                </div>
+
+              <div class="profil email">
+               Email
+                {{ app.user.email }}
+                </div>
+
+                <div class="profil tel">
+                Tel
+                {{ app.user.tel }}
+                </div>
+
+                <div class="profil diplome">
+               Diplome
+                {{ app.user.diplome }}
+                </div>
+
+                <div class="profil sexe">
+                Description
+                {{ app.user.sexe }}
+                </div>
+           
+           <div class="description">
+                Description
+                {{ app.user.description }}
+                </div>
+  
+           <div class=" niveau">
+              Niveau
+                {{ app.user.niveau }}
+            </div>
+    </div>   
+    </table>
+
+<a href="{{ path('compte_edit')}}">edit</a>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

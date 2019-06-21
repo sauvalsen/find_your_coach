@@ -51,10 +51,7 @@ class UserFixtures extends Fixture
         $userweb->setNom('antoine');
         $userweb->setPrenom('quidel');
         $userweb->setRoles(array('ROLE_ADMIN','ROLE_USER'));
-        $userweb->setPassword($this->passwordEncoder->encodePassword(
-            $userweb,
-            'michel'
-        ));
+        $userweb->setPassword($this->passwordEncoder->encodePassword($userweb, 'michel'));
         $manager->persist($userweb);
 
 
