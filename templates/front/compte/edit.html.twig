@@ -1,0 +1,16 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}
+    <h1>Editer l'utilisateur</h1>
+
+    {{ include('front/user/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('compte_show') }}">Retour a mon profil</a>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('asset_back/js/autocompletion_adresse.js') }}"></script>
+{% endblock %}

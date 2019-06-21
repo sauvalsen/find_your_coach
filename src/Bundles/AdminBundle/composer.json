@@ -1,0 +1,38 @@
+{
+    "name": "ksta/admin-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony Simple Admin",
+    "version": "0.1",
+    "keywords": ["Administration"],
+    "homepage": "http://coucou",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Castanares kevin"
+        }
+    ],
+    "require": {
+        
+    },
+    "require-dev": {
+        
+    },
+    "autoload": {
+        "psr-4": {
+            "Ksta\\AdminBundle\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ksta\\AdminBundle\\Tests\\": "/Tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "dev"
+        }
+    }
+}

@@ -1,0 +1,76 @@
+{% extends '@AdminBundle/base.html.twig' %}
+
+{% block title %}Index utilisateurs{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('vendor/mdi-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet" media="all">
+{% endblock %}
+
+{% block page_title %}<h1 class="title-user">Gestion des utilisateurs</h1>{% endblock %}
+
+{% block titre_menu %}<li>Utilisateur</li>{% endblock %}
+
+{% block nom_de_page %}Gestion des utilisateurs{% endblock %}
+
+{% block content %}
+    <div class="index-user table-responsive table--no-card m-b-40">
+        <table class="table table-borderless table-striped table-earning">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Id</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Adresse</th>
+                    <th>Code postal</th>
+                    <th>Ville</th>
+                    <th>Téléphone</th>
+                    <th>Diplôme</th>
+                    <th>Niveau</th>
+                    <th>Date de création</th>
+                    <th>Date de modification</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td><a href="{{ path('admin_user_edit', {'id': user.id}) }}"><i class="zmdi zmdi-settings"></i></a> </td>
+                        <td><a href="{{ path('admin_user_show', {'id': user.id}) }}">{{ user.id }}</a></td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            {% for role in user.roles %}
+                                {{ role }}
+                            {% endfor %}
+                        </td>
+                        <td>{{ user.nom }}</td>
+                        <td>{{ user.prenom }}</td>
+                        <td>{{ user.adresse }}</td>
+                        <td>{{ user.codePostal }}</td>
+                        <td>{{ user.ville }}</td>
+                        <td>{{ user.tel }}</td>
+                        <td>{{ user.diplome }}</td>
+                        <td>{{ user.niveau }}</td>
+                        <td>{{ user.createdAt ? user.createdAt|date('d-m-Y / H:i') : '' }}</td>
+                        <td>{{ user.modifiedAt ? user.modifiedAt|date('d-m-Y / H:i') : '' }}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="18">Aucune donnée disponible.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="pagination">
+        {{ knp_pagination_render(users) }}
+    </div>
+
+    <div class="bouton-index-back"><a href="{{ path('admin_user_new') }}">Créer un utilisateur</a></div>
+
+{% endblock %}
+
+{% block javascripts %}{{ parent() }}{% endblock %}

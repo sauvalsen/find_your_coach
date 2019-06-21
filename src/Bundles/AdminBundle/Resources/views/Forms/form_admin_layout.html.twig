@@ -1,0 +1,470 @@
+{% use "form_div_layout.html.twig" %}
+
+{# Widgets #}
+{% block file_widget %}
+    {% spaceless %}
+
+    <div class="media no-margin-top">
+        <div class="media-left">
+            <a href="#">
+                {% if media_path is defined and media_path is not null %}
+                    <img src="{{ asset(media_path) }}"/>
+                {% else %}
+                    <img src="{{ asset('bundles/admin/images/john-doe-homme.jpg') }}" style="width: 58px; height: 58px; border-radius: 2px;"/>
+                {% endif %}
+            </a>
+        </div>
+
+        <div class="media-body">
+            <div class="uploader bg-warning">
+                <input class="file-styled" type="{{ type }}" {{ block('widget_attributes') }} 
+                    {% if value is not empty %}
+                        value="{{ value }}" 
+                    {% endif %}
+                >
+                <span id="subfile_{{id}}" class="filename" style="-moz-user-select: none;">    
+                    {% if media_path is defined and media_path is not null %}
+                        {{ media_name }}
+                    {% else %}
+                        No file selected
+                    {% endif %}
+            
+                </span>
+                <span onclick="$('{{id}}').click();" class="action btn" style="-moz-user-select: none;"><i class="icon-googleplus5"></i></span>
+            </div>
+            <span class="help-block">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
+        </div>
+    </div>  
+
+        <script type="text/javascript">
+            $("#{{id}}").change(function(){
+                 $('#subfile_{{id}}').text($(this).val());
+            });
+        </script>
+
+    {% endspaceless %}
+{% endblock %}
+
+
+{% block medias_picker_back_widget %}
+    {% spaceless %}
+
+    <div class="media no-margin-top">
+        <div class="media-left">
+            <a href="#">
+                {% if media_path is defined and media_path is not null %}
+                    <img src="{{ asset(media_path) }}"/>
+                {% else %}
+                    <img src="{{ asset('bundles/medias/images/placeholder.jpg') }}" style="width: 58px; height: 58px; border-radius: 2px;"/>
+                {% endif %}
+            </a>
+        </div>
+
+        <div class="media-body">
+            <div class="uploader bg-warning">
+                {%- set attr = attr|merge({class: (attr.class|default('') ~ ' hidden')|trim}) -%}
+                <input data-action="{{ path('admin_medias_browser') }}"  type="text" {{ block('widget_attributes') }} 
+                    {% if value is not empty %}
+                        value="{{ value }}" 
+                    {% endif %}
+                >
+                <span id="subfile_{{id}}" class="filename" style="-moz-user-select: none;">    
+                    {% if media_path is defined and media_path is not null %}
+                        {{ media_name }}
+                    {% else %}
+                        No file selected
+                    {% endif %}
+            
+                </span>
+                <span class="action mp-open" style="-moz-user-select: none;"><i class="icon-googleplus5"></i></span>
+            </div>
+            <span class="help-block">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
+        </div>
+    </div>
+    {% endspaceless %}
+{% endblock %}
+
+{% block datePicker_widget %}
+    {% spaceless %}
+        <input type="text" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+        {%  set attr = attr|merge({'class': ((attr.class|default('') ~ ' acmeDatePicker')|trim)}) %}
+        {% set  id = id ~ "_datepicker" %}
+        {% set  full_name = "datepicker_" ~ full_name  %}
+        <input type="text" {{ block('widget_attributes') }}/>
+    {% endspaceless %}
+{% endblock datePicker_widget %}
+
+
+{% block medias_picker_widget %}
+    {% spaceless %}
+    <div class="form-group{% if not valid %} has-error{% endif %}">
+        <div class="input-group">
+            {%- set attr = attr|merge({class: (attr.class|default('') ~ ' form-control')|trim}) -%}
+            <input data-action="{{ path('admin_medias_browser') }}"  type="text" {{ block('widget_attributes') }} 
+                {% if value is not empty %}
+                    value="{{ value }}" 
+                {% endif %}
+            >
+            <span class="input-group-btn">
+                <button class="btn btn-infos mp-open" type="button"><i class="icon-googleplus5"></i></button>
+            </span>
+        </div>
+    </div>
+    {% endspaceless %}
+{% endblock %}
+
+{% block address_picker_widget %}
+<div {{ block('widget_container_attributes') }}>
+    
+    {% block address_picker_html %}
+        <div class="col-md-6">
+            {% block address_picker_fields %}
+                {% for child in form %}
+                    {{ form_row(child) }}
+                {% endfor %}
+            {% endblock %}
+        </div>
+        
+        <div class="col-md-6">
+            <div id="{{ id }}_container">
+                <input type="text" id="{{ id }}_search_input" />
+                <button id="{{ id }}_search_button" class="btn">{{ "Search"|trans }}</button>
+                <p>
+                    <a href="#" id="{{ id }}_current_position">{{ "Goto current location"|trans }}</a>
+                </p>
+                <div id="{{ id }}_map_canvas" class="gmap" style="width: {{ map_width }}; height: {{ map_height }}"></div>
+                <div id="{{ id }}_error"></div>
+            </div>
+        </div>
+    {% endblock %}`
+    
+    {% block address_picker_javascripts %}
+        <script type="text/javascript" src="{{ asset('assets/js/location-picker.min.js') }}"></script>
+    {% endblock %}
+    {% block address_picker_javascript %}
+        <script type="text/javascript">
+
+            $(function() {
+                $('#{{ id }}_map_canvas').kstaLocationPicker({
+                    'search_input_el'    : $('#{{ id }}_search_input'),
+                    'search_action_el'    : $('#{{ id }}_search_button'),
+                    'current_position_el' : $('#{{ id }}_current_position'),
+                    mapOptions           : {
+                        default_lat      : {% if value is defined and value and value.latitude is not null %}{{ value.latitude }}{% else %}{{ start_lat }}{% endif %},
+                        default_lng      : {% if value is defined and value and value.longitude is not null %}{{ value.longitude }}{% else %}{{ start_lat }}{% endif %},
+                        default_zoom     : {% if value is defined and value and value.latitude and value.longitude %}15{% else %}5{% endif %}
+                    },
+                    addressOptions       : {
+                        address         : "#{{ form.address.vars.id }}",
+                        city            : "#{{ form.city.vars.id }}",
+                        postalCode      : "#{{ form.postalCode.vars.id }}",
+                        district        : "#{{ form.district.vars.id }}"
+                    },
+                    geoOptions       : {
+                        latitude   : "#{{ form.latitude.vars.id }}",
+                        longitude  : "#{{ form.longitude.vars.id }}",
+                    },
+                }); 
+            });
+
+        </script>
+    {% endblock %}
+</div>
+{% endblock %}
+
+{% block form_widget_simple -%}
+    {% if type is not defined or type not in ['file', 'hidden'] %}
+        {%- set attr = attr|merge({class: (attr.class|default('') ~ ' form-control')|trim}) -%}
+    {% endif %}
+    {{- parent() -}}
+{%- endblock form_widget_simple %}
+
+{% block textarea_widget -%}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' form-control')|trim}) %}
+    {{- parent() -}}
+{%- endblock textarea_widget %}
+
+{% block button_widget -%}
+    {% set attr = attr|merge({class: (attr.class|default('btn-default') ~ ' btn')|trim}) %}
+    {{- parent() -}}
+{%- endblock %}
+
+{% block money_widget -%}
+    <div class="input-group">
+        {% set prepend = '{{' == money_pattern[0:2] %}
+        {% if not prepend %}
+            <span class="input-group-addon">{{ money_pattern|replace({ '{{ widget }}':''}) }}</span>
+        {% endif %}
+        {{- block('form_widget_simple') -}}
+        {% if prepend %}
+            <span class="input-group-addon">{{ money_pattern|replace({ '{{ widget }}':''}) }}</span>
+        {% endif %}
+    </div>
+{%- endblock money_widget %}
+
+{% block percent_widget -%}
+    <div class="input-group">
+        {{- block('form_widget_simple') -}}
+        <span class="input-group-addon">%</span>
+    </div>
+{%- endblock percent_widget %}
+
+{% block datetime_widget -%}
+    {% if widget == 'single_text' %}
+        {{- block('form_widget_simple') -}}
+    {% else -%}
+        {% set attr = attr|merge({class: (attr.class|default('') ~ ' form-inline')|trim}) -%}
+        <div {{ block('widget_container_attributes') }}>
+            {{- form_errors(form.date) -}}
+            {{- form_errors(form.time) -}}
+            {{- form_widget(form.date, { datetime: true } ) -}}
+            {{- form_widget(form.time, { datetime: true } ) -}}
+        </div>
+    {%- endif %}
+{%- endblock datetime_widget %}
+
+{% block date_widget -%}
+    {% if widget == 'single_text' %}
+        <div class="input-group">
+            <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+            {{- block('form_widget_simple') -}}
+        </div>
+    {% else -%}
+        {% set attr = attr|merge({class: (attr.class|default('') ~ ' form-inline')|trim}) -%}
+        {% if datetime is not defined or not datetime -%}
+            <div {{ block('widget_container_attributes') -}}>
+        {%- endif %}
+            {{- date_pattern|replace({
+                '{{ year }}': form_widget(form.year),
+                '{{ month }}': form_widget(form.month),
+                '{{ day }}': form_widget(form.day),
+            })|raw -}}
+        {% if datetime is not defined or not datetime -%}
+            </div>
+        {%- endif -%}
+    {% endif %}
+{%- endblock date_widget %}
+
+{% block time_widget -%}
+    {% if widget == 'single_text' %}
+        {{- block('form_widget_simple') -}}
+    {% else -%}
+        {% set attr = attr|merge({class: (attr.class|default('') ~ ' form-inline')|trim}) -%}
+        {% if datetime is not defined or false == datetime -%}
+            <div {{ block('widget_container_attributes') -}}>
+        {%- endif -%}
+        {{- form_widget(form.hour) }}{% if with_minutes %}:{{ form_widget(form.minute) }}{% endif %}{% if with_seconds %}:{{ form_widget(form.second) }}{% endif %}
+        {% if datetime is not defined or false == datetime -%}
+            </div>
+        {%- endif -%}
+    {% endif %}
+{%- endblock time_widget %}
+
+{% block choice_widget_collapsed -%}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' form-control')|trim}) %}
+    {{- parent() -}}
+{%- endblock %}
+
+{% block choice_widget_expanded -%}
+    {% if '-inline' in label_attr.class|default('') -%}
+        <div class="control-group">
+            {%- for child in form %}
+                {{- form_widget(child, {
+                    parent_label_class: label_attr.class|default(''),
+                    translation_domain: choice_translation_domain,
+                }) -}}
+            {% endfor -%}
+        </div>
+    {%- else -%}
+        <div {{ block('widget_container_attributes') }}>
+            {%- for child in form %}
+                {{- form_widget(child, {
+                    parent_label_class: label_attr.class|default(''),
+                    translation_domain: choice_translation_domain,
+                }) -}}
+            {% endfor -%}
+        </div>
+    {%- endif %}
+{%- endblock choice_widget_expanded %}
+
+{% block checkbox_widget -%}
+    {%- set parent_label_class = parent_label_class|default(label_attr.class|default('')) -%}
+    {% if 'checkbox-inline' in parent_label_class %}
+        {{- form_label(form, null, { widget: parent() }) -}}
+    {% else -%}
+        <div class="checkbox checkbox-right checkbox-switchery">
+            {{- form_label(form, null, { widget: parent() }) -}}
+        </div>
+    {%- endif %}
+{%- endblock checkbox_widget %}
+
+{% block radio_widget -%}
+    {%- set parent_label_class = parent_label_class|default(label_attr.class|default('')) -%}
+    {% if 'radio-inline' in parent_label_class %}
+        {{- form_label(form, null, { widget: parent() }) -}}
+    {% else -%}
+        <div class="radio">
+            {{- form_label(form, null, { widget: parent() }) -}}
+        </div>
+    {%- endif %}
+{%- endblock radio_widget %}
+
+{# Labels #}
+
+{% block form_label -%}
+    {%- set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' control-label')|trim}) -%}
+    {{- parent() -}}
+{%- endblock form_label %}
+
+{% block choice_label -%}
+    {# remove the checkbox-inline and radio-inline class, it's only useful for embed labels #}
+    {%- set label_attr = label_attr|merge({class: label_attr.class|default('')|replace({'checkbox-inline': '', 'radio-inline': ''})|trim}) -%}
+    {{- block('form_label') -}}
+{% endblock %}
+
+{% block checkbox_label -%}
+    {{- block('checkbox_radio_label') -}}
+{%- endblock checkbox_label %}
+
+{% block radio_label -%}
+    {{- block('checkbox_radio_label') -}}
+{%- endblock radio_label %}
+
+{% block checkbox_radio_label %}
+    {# Do not display the label if widget is not defined in order to prevent double label rendering #}
+    {% if widget is defined %}
+        {% if required %}
+            {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' required')|trim}) %}
+        {% endif %}
+        {% if parent_label_class is defined %}
+            {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' ' ~ parent_label_class)|trim}) %}
+        {% endif %}
+        {% if label is not same as(false) and label is empty %}
+            {%- if label_format is not empty -%}
+                {% set label = label_format|replace({
+                    '%name%': name,
+                    '%id%': id,
+                }) %}
+            {%- else -%}
+                {% set label = name|humanize %}
+            {%- endif -%}
+        {% endif %}
+        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+            {{- widget|raw }} {{ label is not same as(false) ? (translation_domain is same as(false) ? label : label|trans({}, translation_domain)) -}}
+        </label>
+    {% endif %}
+{% endblock checkbox_radio_label %}
+
+{# Rows #}
+
+{% block form_row -%}
+    <div class="form-group{% if (not compound or force_error|default(false)) and not valid %} has-error{% endif %}">
+        {{- form_label(form) -}}
+        {{- form_widget(form) -}}
+        {{- form_errors(form) -}}
+    </div>
+{%- endblock form_row %}
+
+{% block button_row -%}
+    <div class="form-group">
+        {{- form_widget(form) -}}
+    </div>
+{%- endblock button_row %}
+
+{% block choice_row -%}
+    {% set force_error = true %}
+    {{- block('form_row') }}
+{%- endblock choice_row %}
+
+{% block date_row -%}
+    {% set force_error = true %}
+    {{- block('form_row') }}
+{%- endblock date_row %}
+
+{% block time_row -%}
+    {% set force_error = true %}
+    {{- block('form_row') }}
+{%- endblock time_row %}
+
+{% block datetime_row -%}
+    {% set force_error = true %}
+    {{- block('form_row') }}
+{%- endblock datetime_row %}
+
+{% block checkbox_row -%}
+    <div class="form-group{% if not valid %} has-error{% endif %}">
+        {{- form_widget(form) -}}
+        {{- form_errors(form) -}}
+    </div>
+{%- endblock checkbox_row %}
+
+{% block radio_row -%}
+    <div class="form-group{% if not valid %} has-error{% endif %}">
+        {{- form_widget(form) -}}
+        {{- form_errors(form) -}}
+    </div>
+{%- endblock radio_row %}
+
+{# Errors #}
+
+{% block form_errors -%}
+    {% if errors|length > 0 -%}
+    {% if form.parent %}<span class="help-block">{% else %}<div class="alert alert-danger">{% endif %}
+    <ul class="list-unstyled">
+        {%- for error in errors -%}
+            <li><span class="glyphicon glyphicon-exclamation-sign"></span> {{ error.message }}</li>
+        {%- endfor -%}
+    </ul>
+    {% if form.parent %}</span>{% else %}</div>{% endif %}
+    {%- endif %}
+{%- endblock form_errors %}
+
+{% block collection_widget %}
+    {% spaceless %}
+        {% if prototype is defined %}
+            {% set attr = attr|merge({'data-prototype': form_row(prototype) }) %}
+        {% endif %}
+        {{ block('form_widget') }}
+    {% endspaceless %}
+{% endblock collection_widget %}
+
+{% block bootstrap_collection_widget %}
+    {% spaceless %}
+        {% if prototype is defined %}
+            {% set prototype_vars = {} %}
+            {% if style is defined %}
+                {% set prototype_vars = prototype_vars|merge({'style': style}) %}
+            {% endif %}
+            {% set prototype_html = '<div class="col-xs-' ~ form.vars.sub_widget_col ~ '">' ~ form_widget(prototype, prototype_vars) ~ '</div>' %}
+            {% if form.vars.allow_delete %}
+                {% set prototype_html = prototype_html ~ '<div class="col-xs-' ~ form.vars.button_col ~ '"><a href="#" class="btn btn-danger btn-sm" data-removefield="collection" data-field="__id__">' ~ form.vars.delete_button_text|trans({}, translation_domain)|raw ~ '</a></div>' %}
+            {% endif %}
+            {% set prototype_html = '<div class="row">' ~ prototype_html ~ '</div>' %}
+
+            {% set attr = attr|merge({'data-prototype': prototype_html }) %}
+            {% set attr = attr|merge({'data-prototype-name': prototype_name }) %}
+        {% endif %}
+        <div {{ block('widget_container_attributes') }}>
+            <ul class="bc-collection list-unstyled">
+                {% for field in form %}
+                    <li>
+                        <div class="row">
+                            <div class="col-xs-{{ form.vars.sub_widget_col }}">
+                                {{ form_widget(field) }}
+                                {{ form_errors(field) }}
+                            </div>
+                            {% if form.vars.allow_delete %}
+                                <div class="col-xs-{{ form.vars.button_col }}">
+                                    <a href="#" class="btn btn-danger btn-sm" data-removefield="collection" data-field="{{ field.vars.id }}">{{ form.vars.delete_button_text|trans({}, translation_domain)|raw }}</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% if form.vars.allow_add %}
+                <a href="#" class="btn btn-primary btn-sm" data-addfield="collection" data-collection="{{ form.vars.id }}" data-prototype-name="{{ prototype_name }}">{{ form.vars.add_button_text|trans({}, translation_domain)|raw }}</a>
+            {% endif %}
+        </div>
+    {% endspaceless %}
+{% endblock bootstrap_collection_widget %}

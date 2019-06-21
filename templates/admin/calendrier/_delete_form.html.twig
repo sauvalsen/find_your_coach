@@ -1,0 +1,7 @@
+<form method="post" action="{{ path('admin_calendrier_delete', {'id': calendrier.id}) }}" onsubmit="return confirm('Confirmer la suppression du cours.');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ calendrier.id) }}">
+    <button class="bouton-supprimer btn btn-danger" type="submit">
+        Supprimer
+    </button>
+</form>

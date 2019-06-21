@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Administration{% endblock %}</title>
+
+  <!-- Global stylesheets -->
+  {% block stylesheets %}
+      <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+      <link href="{{ asset('bundles/admin/fonts/icomoon/styles.css') }}" rel="stylesheet" type="text/css">
+      <link href="{{ asset('bundles/admin/css/minified/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+      <link href="{{ asset('bundles/admin/css/minified/core.min.css') }}" rel="stylesheet" type="text/css">
+      <link href="{{ asset('bundles/admin/css/minified/components.min.css') }}" rel="stylesheet" type="text/css">
+      <link href="{{ asset('bundles/admin/css/minified/colors.min.css') }}" rel="stylesheet" type="text/css">
+      <link href="{{ asset('asset_back/css/style.css') }}" rel="stylesheet" type="text/css">
+  {% endblock %}
+  <!-- /global stylesheets -->
+<!-- Core JS files -->
+  <script type="text/javascript" src="{{ asset('bundles/admin/js/core/libraries/jquery.min.js') }}"></script>
+</head>
+
+{% block body %}
+<body class="{% block body_class %}sidebar-secondary-hidden{% endblock %}">
+   
+  <!-- Main navbar -->
+    {{ include(
+        '@AdminBundle/Menu/main_navBar.html.twig'
+    ) }}
+    {# {{ include("@AdminBundle/Menu/main_navBar.html.twig") }} #}
+  <!-- /main navbar -->
+
+  {% block page_container %}
+  <!-- Page container -->
+  <div class="page-container">
+    {% block page_content %}
+    <!-- Page content -->
+    <div class="page-content">
+
+      <!-- Main sidebar -->
+       {{ include(
+          '@AdminBundle/Menu/main_sideBar.html.twig'
+        ) }}
+        {# {{ include("@AdminBundle/Menu/main_sideBar.html.twig") }} #}
+      <!-- /main sidebar -->
+      <!-- Second sidebar -->
+        {#{ include("App\Bundles\AdminBundle:Menu:second_sideBar.html.twig") }#}
+        <div class="sidebar sidebar-secondary sidebar-default">
+          <div class="sidebar-content">
+            {% block secondSideBar %}
+
+            {% endblock %}
+          </div>
+        </div>
+      <!-- /Second sidebar -->
+
+      
+      <!-- Main content -->
+      <div class="content-wrapper">
+
+        <!-- Page header -->
+        <div class="page-header page-header-xs">
+          <div class="page-header-content">
+            <div class="page-title">
+              <h1><span class="text-semibold">{% block page_title %}{% endblock %}</span></h1>
+            </div>
+
+{#            <div class="heading-elements">#}
+{#              <div class="heading-btn-group">#}
+{#                <a href="#" class="btn btn-link btn-float has-text"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>#}
+{#                   <a href="#" class="btn btn-link btn-float has-text"><i class="icon-calculator text-primary"></i> <span>Invoices</span></a>#}
+{#                  <a href="{{ path('admin_publications_schedule') }}" class="btn btn-link btn-float has-text"><i class="icon-calendar5 text-primary"></i> <span>Schedule</span></a>#}
+{#              </div>#}
+{#            </div>#}
+          </div>
+
+          <div class="breadcrumb-line">
+            <ul class="breadcrumb">
+              <li><a href="{{ path('admin_homepage') }}"><i class="icon-home2 position-left"></i>Home</a></li>
+              {% block titre_menu %}{% endblock %}
+              <li class="active">{% block nom_de_page %}{% endblock %}</li>
+            </ul>
+
+{#            <ul class="breadcrumb-elements">#}
+{#              <li><a href="#"><i class="icon-comment-discussion position-left"></i> Support</a></li>#}
+{#              <li class="dropdown">#}
+{#                <a href="#" class="dropdown-toggle" data-toggle="dropdown">#}
+{#                  <i class="icon-gear position-left"></i>#}
+{#                  Settings#}
+{#                  <span class="caret"></span>#}
+{#                </a>#}
+{#                <ul class="dropdown-menu dropdown-menu-right">#}
+{#                  <li><a href="#"><i class="icon-user-lock"></i> Account security</a></li>#}
+{#                  <li><a href="#"><i class="icon-statistics"></i> Analytics</a></li>#}
+{#                  <li><a href="#"><i class="icon-accessibility"></i> Accessibility</a></li>#}
+{#                  <li class="divider"></li>#}
+{#                  <li><a href="#"><i class="icon-gear"></i> All settings</a></li>#}
+{#                </ul>#}
+{#              </li>#}
+{#            </ul>#}
+          </div>
+        </div>
+        <!-- /page header -->     
+
+        <!-- Content area -->
+        <div class="content">
+
+          <!-- Info alert 
+          <div class="alert alert-info alert-styled-left alert-arrow-left alert-component">
+            <button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+            <h6 class="alert-heading text-semibold">Double sidebar. Fix default sidebar width</h6>
+            When the opposite sidebar is shown, main sidebar width stays the same. This works for mini sidebar type as well.
+            </div>
+            /info alert -->
+          
+          {% block content %}
+
+          {% endblock %}
+         
+          <!-- Footer -->
+          <div class="footer text-muted">
+            ©2019 FindYourCoach.fr &nbsp;Réalisé par <span>La Frite Team</span></p>
+          </div>
+          <!-- /footer -->
+
+        </div>
+        <!-- /content area -->
+
+      </div>
+      <!-- /main content -->
+
+
+      <!-- Opposite sidebar -->
+        {{ include(
+          '@AdminBundle/Menu/oposite_sideBar.html.twig'
+        ) }}
+        {# {{ include("@AdminBundle/Menu/oposite_sideBar.html.twig") }} #}
+      <!-- /opposite sidebar -->
+
+    </div>
+    <!-- /page content -->
+    {% endblock %}
+  </div>
+  <!-- /page container -->
+  {% endblock %}
+
+   <!-- block modal -->
+  {% block modal %}
+    
+  {% endblock %}
+   <!-- /block modal -->
+
+   <!-- block js -->
+  {% block javascripts %}
+    <!-- Core JS files -->
+    <script type="text/javascript" src="{{ asset('bundles/admin/js/core/libraries/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/admin/js/core/libraries/pickers/anytime.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/admin/js/core/libraries/switchery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/admin/js/core/app.js') }}"></script>
+    <!-- /core JS files -->
+
+  <!-- Bundle JS files -->
+    <script type="text/javascript" src="{{ asset('bundles/admin/js/bootstrapCollection.js') }}"></script>
+    
+  <!-- /Bundle JS files -->
+  {% endblock %}
+
+</body>
+{% endblock %}
+</html>
