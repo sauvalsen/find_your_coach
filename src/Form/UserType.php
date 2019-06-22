@@ -45,9 +45,13 @@ class UserType extends AbstractType
             ->add('tel', TelType::class, ['required'   => false])
             ->add('diplome', TextType::class, ['required'   => false])
             ->add('description', TextareaType::class, ['required'   => false])
-            ->add('avatar2', FileType::class, [
-                'label' => 'Avatar (PNG,JPG)',
-                'required' => false,
+            ->add('avatar', HiddenType::class, [
+                "required" => false
+            ])
+            ->add('file', FileType::class, [
+                "file_path" => "picture",
+                "directory" => (isset($options['upload_directory']))? $options['upload_directory'] : "",
+                "required" => false
             ])
             ->add('niveau', ChoiceType::class, [
                 'choices'  => [

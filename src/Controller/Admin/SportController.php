@@ -5,6 +5,7 @@ use App\Entity\User;
 use App\Entity\Sport;
 use App\Form\SportType;
 use App\Repository\SportRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,17 +17,22 @@ use Symfony\Component\Routing\Annotation\Route;
 class SportController extends AbstractController
 {
     /**
-     * @Route("/", name="sport_index", methods={"GET"})
+     * @Route("/", name="admin_sport_index", methods={"GET"})
      */
-    public function index(SportRepository $sportRepository): Response
+    public function index(SportRepository $sportRepository, Request $request, PaginatorInterface $paginator): Response
     {
+        $sports = $paginator->paginate(
+            $sportRepository->findAll(),
+            $request->query->getInt('page', 1),
+            10
+        );
         return $this->render('admin/sport/index.html.twig', [
-            'sports' => $sportRepository->findAll(),
+            'sports' => $sports,
         ]);
     }
 
     /**
-     * @Route("/new", name="sport_new", methods={"GET","POST"})
+     * @Route("/new", name="admin_sport_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -49,7 +55,7 @@ class SportController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="sport_show", methods={"GET"})
+     * @Route("/{id}", name="admin_sport_show", methods={"GET"})
      */
     public function show(Sport $sport): Response
     {
@@ -59,7 +65,7 @@ class SportController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="sport_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="admin_sport_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Sport $sport): Response
     {
@@ -81,7 +87,7 @@ class SportController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="sport_delete", methods={"DELETE"})
+     * @Route("/{id}", name="admin_sport_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Sport $sport): Response
     {

@@ -20,6 +20,7 @@ security:
             logout:
                 path:   app_logout
                 target: /
+            user_checker: App\Security\UserChecker
 
             # activate different ways to authenticate
 

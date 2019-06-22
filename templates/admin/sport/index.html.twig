@@ -1,40 +1,55 @@
-{% extends 'back.html.twig' %}
+{% extends '@AdminBundle/base.html.twig' %}
 
-{% block title %}Sport index{% endblock %}
+{% block title %}Sport{% endblock %}
 
-{% block body %}
-    <h1>Sport index</h1>
-
-<div class="col-lg-12">
-    <div class="table-responsive table--no-card m-b-40">
-        <table class="table table-borderless table-striped table-earning">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Id</th>
-                    <th>Sport</th>
-                    <th>Created_at</th>
-                    <th>Modified_at</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for sport in sports %}
-                <tr>
-                    <td><a href="{{ path('sport_edit', {'id': sport.id}) }}"><i class="zmdi zmdi-settings"></i></a> </td>
-                    <td><a href="{{ path('sport_show', {'id': sport.id}) }}">{{ sport.id }}</a></td>
-                    <td>{{ sport.sport }}</td>
-                    <td>{{ sport.createdAt ? sport.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                    <td>{{ sport.modifiedAt ? sport.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="5">no records found</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</div>
-
-    <a href="{{ path('sport_new') }}">Create new</a>
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('vendor/mdi-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet" media="all">
 {% endblock %}
+
+{% block page_title %}<h1 class="title-user">Liste des sports</h1>{% endblock %}
+
+{% block titre_menu %}<li>Sports</li>{% endblock %}
+
+{% block nom_de_page %}liste des sports{% endblock %}
+
+{% block content %}
+    <div class="col-lg-12">
+        <div class="table-responsive table--no-card m-b-40">
+            <table class="table table-borderless table-striped table-earning">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Id</th>
+                        <th>Sport</th>
+                        <th>Created_at</th>
+                        <th>Modified_at</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for sport in sports %}
+                    <tr>
+                        <td><a href="{{ path('admin_sport_edit', {'id': sport.id}) }}"><i class="zmdi zmdi-settings"></i></a> </td>
+                        <td><a href="{{ path('admin_sport_show', {'id': sport.id}) }}">{{ sport.id }}</a></td>
+                        <td>{{ sport.sport }}</td>
+                        <td>{{ sport.createdAt ? sport.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                        <td>{{ sport.modifiedAt ? sport.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="pagination">
+        {{ knp_pagination_render(sports) }}
+    </div>
+
+    <div class="bouton-index-back"><a href="{{ path('admin_sport_new') }}">Ajouter une activité</a></div>
+{% endblock %}
+
+{% block javascripts %}{{ parent() }}{% endblock %}

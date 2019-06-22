@@ -8,9 +8,9 @@
 
 {% block page_title %}<h1 class="title-calendrier">Calendrier</h1>{% endblock %}
 
-{% block titre_menu %}<li>Calendrier</li>{% endblock %}
+{% block titre_menu %}<li><a href="{{ path('admin_calendrier_index') }}">Calendriers</a></li>{% endblock %}
 
-{% block nom_de_page %}Calendrier{% endblock %}
+{% block nom_de_page %}Calendrier de {{ calendrier.coach.prenom }} {{ calendrier.coach.nom }}{% endblock %}
 
 {% block content %}
     <h2 class="title-content">Calendrier de {{ calendrier.coach.prenom }} {{ calendrier.coach.nom }}</h2>

@@ -1,11 +1,21 @@
-{% extends 'back.html.twig' %}
+{% extends '@AdminBundle/base.html.twig' %}
 
-{% block title %}New Sport{% endblock %}
+{% block title %}Nouveau sport{% endblock %}
 
-{% block body %}
-    <h1>Create new Sport</h1>
-
-    {{ include('sport/_form.html.twig') }}
-
-    <a href="{{ path('sport_index') }}">back to list</a>
+{% block stylesheets %}
+    {{ parent() }}
 {% endblock %}
+
+{% block page_title %}<h1 class="title-user">Nouveau sport</h1>{% endblock %}
+
+{% block titre_menu %}<li><a href="{{ path('admin_sport_index') }}">Sports</a></li>{% endblock %}
+
+{% block nom_de_page %}Nouveau sport{% endblock %}
+
+{% block content %}
+    {{ include('admin/sport/_form.html.twig') }}
+
+    <a href="{{ path('admin_sport_index') }}">Retour à la liste</a>
+{% endblock %}
+
+{% block javascripts %}{{ parent() }}{% endblock %}

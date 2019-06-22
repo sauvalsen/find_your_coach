@@ -1,0 +1,64 @@
+{# Widgets #}
+{% block custom_file_widget %}
+    {% spaceless %}
+
+        {% if file_url is not null %}
+            {%- set url = asset(upload_directory) ~ file_name -%}
+        {% else %}
+            {%- set url = asset('asset_back/img/defaut.jpg') -%}
+        {% endif %}
+        <div class="input-wrapper">
+            <div class=" avatar">
+                <div class="photo" style="background:url({{ url }}) center center no-repeat;"></div>
+                <input class="file-styled" type="{{ type }}" {{ block('widget_attributes') }} />
+
+                <label onclick="remove('{{property_for_remove}}');" id="{{id ~ '_remove'}}" class="remove {{ (file_url is null) ? 'hidden' : '' }}">-</label>
+                <label for="{{id}}" id="{{id ~ '_add'}}" class="add {{ (file_url is not null) ? 'hidden' : '' }}">+</label>
+            </div>
+        </div>
+        <script>
+
+            var default_value = "{{asset('assets/front/images/John-Doe-homme.jpg')}}";
+
+            function toogleAction(){
+                var $add    = $("#{{id ~ '_add'}}");
+                var $remove = $("#{{id ~ '_remove'}}");
+
+                if($remove.val() == "" || $remove.val() === undefined){
+                    $remove.addClass('hidden');
+                    $add.removeClass('hidden');
+                }else{
+                    $add.addClass('hidden');
+                    $remove.removeClass('hidden');
+                }
+            }
+            function remove(name){
+                document.getElementsByName(name)[0].value = "";
+                $('#{{id}}').parent().find(".photo").attr('style', "background:url("+ default_value + ") center center no-repeat");
+                toogleAction();
+            }
+
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#{{id}}').parent().find(".photo").attr('style', "background:url("+ e.target.result + ") center center no-repeat");
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $("#{{id}}").change(function(){
+                var val = $(this).val();
+                console.log($(this).val())
+                document.getElementsByTagName("{{ property_for_remove }}").val = val;
+                //$('input[name="{#{ property_for_remove }#}"]').val(val);
+                readURL(this);
+                toogleAction();
+            });
+
+        </script>
+    {% endspaceless %}
+{% endblock %}

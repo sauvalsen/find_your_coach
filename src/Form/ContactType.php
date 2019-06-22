@@ -22,6 +22,7 @@ class ContactType extends AbstractType
                 'label' => 'Nom',
             ])
             ->add('phone', TextType::class, [
+                'required' => false,
                 'label' => 'Téléphone',
             ])
             ->add('email', EmailType::class, [

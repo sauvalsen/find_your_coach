@@ -8,6 +8,7 @@ use App\Repository\UserRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -47,12 +48,12 @@ class UserController extends AbstractController
 
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
 
-            $files2 = $form['avatar2']->getData();
+            $files = $form['avatar']->getData();
             $entityManager = $this->getDoctrine()->getManager();
 
-            if (!empty($files2))
+            if (!empty($files))
             {
-                $file = $form->get('avatar2')->getData();
+                //$file = $form->get('avatar2')->getData();
                 $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
                 try {
                     $file->move(
@@ -105,19 +106,23 @@ class UserController extends AbstractController
      */
     public function edit(Request $request, User $user): Response
     {
-        $form = $this->createForm(EditUserType::class, $user);
+
+
+        $form = $this->createForm(EditUserType::class, $user, [
+            'upload_directory' => 'uploads/avatars/'
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
         {
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
 
-            $files2 = $form['avatar2']->getData();
+            $files = $form['file']->getData();
 
-            if (!empty($files2))
+            if (!empty($files))
             {
                 //$file = $user->getAvatar2();
-                $file = $form->get('avatar2')->getData();
+                $file = $form->get('file')->getData();
                 $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
                 try {
                     $file->move(
@@ -127,17 +132,26 @@ class UserController extends AbstractController
                 } catch (FileException $e) {
                     // ... handle exception if something happens during file upload
                 }
-
                 $user->setAvatar($fileName);
             } else {
 
                 $user->setAvatar($user->getAvatar());
             }
 
-
-            $this->getDoctrine()->getManager()->flush();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
 
             return $this->redirectToRoute('admin_user_index');
+        }else{
+            $fileName = $user->getAvatar();
+
+            if (null !== $fileName && "" !== $fileName) {
+                $file = $this->getParameter('avatars_directory').'/'.$fileName;
+                if (file_exists($file)) {
+                    $user->setFile(new File($file));
+                }
+            }
         }
 
         return $this->render('admin/user/edit.html.twig', [
