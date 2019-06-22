@@ -19,8 +19,6 @@ class ContactController extends AbstractController
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
-
-
         if ($form->isSubmitted() && $form->isValid()){
 
             $this->renderer = $renderer;

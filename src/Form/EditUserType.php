@@ -16,6 +16,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Form\Type\FileType as CustomFileType;
 
 class EditUserType extends AbstractType
 {
@@ -51,6 +52,8 @@ class EditUserType extends AbstractType
                 'label' => 'Diplôme',
                 'required'   => false
             ])
+            ->add('lat', HiddenType::class)
+            ->add('lng', HiddenType::class)
             ->add('niveau', ChoiceType::class, [
                 'choices'  => [
                     'Débutant' => 'debutant',
@@ -76,10 +79,13 @@ class EditUserType extends AbstractType
                 'multiple' => true,
             ])
             ->add('token', HiddenType::class)
-            ->add('avatar2', FileType::class, [
-                'label' => 'Avatar (PNG,JPG)',
-                'data_class' => null,
-                'required' => false
+            ->add('avatar', HiddenType::class, [
+                "required" => false
+            ])
+            ->add('file', CustomFileType::class, [
+                "file_path" => "avatar",
+                "directory" => (isset($options['upload_directory']))? $options['upload_directory'] : "",
+                "required" => false
             ])
             ->add('sports', EntityType::class, [
                 // looks for choices from this entity
@@ -98,6 +104,7 @@ class EditUserType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'upload_directory' => ""
         ]);
     }
 }

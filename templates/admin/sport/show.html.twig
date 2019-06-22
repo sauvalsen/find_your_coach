@@ -1,10 +1,18 @@
-{% extends 'back.html.twig' %}
+{% extends '@AdminBundle/base.html.twig' %}
 
 {% block title %}Sport{% endblock %}
 
-{% block body %}
-    <h1>Sport</h1>
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
 
+{% block page_title %}<h1 class="title-user">Sport</h1>{% endblock %}
+
+{% block titre_menu %}<li><a href="{{ path('admin_sport_index') }}">Sports</a></li>{% endblock %}
+
+{% block nom_de_page %}{{ sport.sport }}{% endblock %}
+
+{% block content %}
     <table class="table">
         <tbody>
             <tr>
@@ -26,9 +34,13 @@
         </tbody>
     </table>
 
-    <a href="{{ path('sport_index') }}">back to list</a>
+    <a class="bouton-perso" href="{{ path('admin_sport_index') }}">Retour a la liste</a>
 
-    <a href="{{ path('sport_edit', {'id': sport.id}) }}">edit</a>
+    <a class="bouton-perso" href="{{ path('admin_sport_edit', {'id': sport.id}) }}">Editer</a>
 
-    {{ include('sport/_delete_form.html.twig') }}
+    {{ include('admin/sport/_delete_form.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
 {% endblock %}

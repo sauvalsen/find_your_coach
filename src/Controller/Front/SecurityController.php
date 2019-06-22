@@ -55,11 +55,11 @@ class SecurityController extends AbstractController
 
             $token = $tokenGenerator->generateToken();
             $user->setToken($token);
+            $entityManager->persist($user);
             $entityManager->flush();
 
             $url = $this->generateUrl('app_resetpassword',array(
-                'token' => $token,
-                'email' => $email
+                'token' => $token
             ),
                 UrlGeneratorInterface::ABSOLUTE_URL
             );
@@ -81,21 +81,16 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/resetpassword/{token}/{email}", name="app_resetpassword", methods={"GET", "POST"})
+     * @Route("/resetpassword/{token}", name="app_resetpassword", methods={"GET", "POST"})
      */
-    public function reset_password(Request $request,$token,$email, UserPasswordEncoderInterface $passwordEncoder)
+    public function reset_password(Request $request,$token, UserPasswordEncoderInterface $passwordEncoder)
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $user = $entityManager->getRepository(User::class)->findOneByEmail($email);
+        $user = $entityManager->getRepository(User::class)->findOneBy(array('token'=>$token));
 
         if($user === null){
-            $this->addFlash('danger','Email incorrecte');
+            $this->addFlash('danger','Lien incorrecte');
             return $this->redirectToRoute('app_resetpassword');
-        }
-
-        if($user->getToken() != $token){
-            $this->addFlash('danger','Error');
-            return $this->redirectToRoute('app_homepage');
         }
 
         if($request->isMethod('POST')){
@@ -107,6 +102,7 @@ class SecurityController extends AbstractController
                 if($password == $password2){
                     $user->setPassword($passwordEncoder->encodePassword($user,$password));
                     $user->setToken('');
+                    $entityManager->persist($user);
                     $entityManager->flush();
 
                     return $this->redirectToRoute('app_login');

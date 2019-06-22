@@ -7,9 +7,9 @@
         <div class="media">
           <a href="#" class="media-left"><img src="{{ asset('bundles/admin/images/placeholder.jpg') }}" class="img-circle img-sm" alt=""></a>
           <div class="media-body">
-            <span class="media-heading text-semibold">{{ app.user.username }}</span>
+            <span class="media-heading text-semibold">{{ app.user.prenom }}</span>
             <div class="text-size-mini text-muted">
-              <i class="icon-pin text-size-small"></i> &nbsp;{{ app.user.ville }}
+              <i class="icon-mention text-size-small"></i> &nbsp;{{ app.user.email }}
             </div>
           </div>
 
@@ -37,15 +37,22 @@
             
           <li><a><i class="icon-users4"></i>Utilisateurs</a>
             <ul class="nav child_menu">
-              <li><a href="{{ path('admin_user_index') }}"><i class="icon-menu3"></i>Liste utilisateurs</a></li>
+              <li><a href="{{ path('admin_user_index') }}"><i class="icon-menu3"></i>Liste des utilisateurs</a></li>
               <li><a href="{{ path('admin_user_new') }}"><i class="icon-user-plus"></i>Ajouter un utilisateur</a></li>
             </ul>
           </li>
 
           <li><a><i class="icon-calendar "></i>Calendriers</a>
             <ul class="nav child_menu">
-              <li><a href="{{ path('admin_calendrier_index') }}"><i class="icon-menu3"></i>Liste calendriers</a></li>
-              <li><a href="{{ path('admin_calendrier_new') }}"><i class="icon-user-plus"></i>Ajouter une date</a></li>
+              <li><a href="{{ path('admin_calendrier_index') }}"><i class="icon-menu3"></i>Liste des calendriers</a></li>
+              <li><a href="{{ path('admin_calendrier_new') }}"><i class="icon-plus-circle2"></i>Ajouter une date</a></li>
+            </ul>
+          </li>
+
+          <li><a><i class="icon-dribbble "></i>Sports</a>
+            <ul class="nav child_menu">
+              <li><a href="{{ path('admin_sport_index') }}"><i class="icon-menu3"></i>Liste des sports</a></li>
+              <li><a href="{{ path('admin_sport_new') }}"><i class="icon-plus-circle2"></i>Ajouter un sport</a></li>
             </ul>
           </li>
 

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -7,13 +6,15 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ORM\HasLifecycleCallbacks
- * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @UniqueEntity(fields={"email"}, message="Cette adresse email existe déjà!")
  */
-class User implements UserInterface
+class User implements UserInterface, \Serializable
 {
     /**
      * @ORM\Id()
@@ -23,7 +24,9 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=180, unique=true)
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Email
      */
     private $email;
 
@@ -35,8 +38,16 @@ class User implements UserInterface
     private $roles2;
 
     /**
-     * @var string The hashed password
-     * @ORM\Column(type="string")
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    private $isActive = false;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
 
@@ -90,7 +101,10 @@ class User implements UserInterface
      */
     private $avatar;
 
-    private $avatar2;
+    /**
+     * @Assert\File(maxSize="6000000")
+     */
+    private $file;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -101,33 +115,6 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $niveau;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $created_at;
-
-    public function __construct()
-    {
-        $this->created_at = new \DateTime;
-        $this->calendriers = new ArrayCollection();
-        $this->sports = new ArrayCollection();
-    }
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $modified_at;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
-    private $status;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Calendrier", mappedBy="sportif")
-     */
-    private $calendriers;
 
     /**
      *
@@ -147,9 +134,25 @@ class User implements UserInterface
     private $lng;
 
     /**
+     * @ORM\Column(type="datetime")
+     */
+    private $created_at;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $modified_at;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Calendrier", mappedBy="sportif")
+     */
+    private $calendriers;
+
+    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Sport", inversedBy="users")
      */
     private $sports;
+
 
     /**
      * @ORM\PreUpdate
@@ -157,6 +160,13 @@ class User implements UserInterface
     public function preUpdate()
     {
         $this->modified_at = new \DateTime;
+    }
+
+    public function __construct()
+    {
+        $this->created_at = new \DateTime;
+        $this->calendriers = new ArrayCollection();
+        $this->sports = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -203,6 +213,42 @@ class User implements UserInterface
         $this->roles = $roles;
 
         return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param boolean $isActive
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+    }
+
+    public function isAccountNonExpired()
+    {
+        return true;
+    }
+
+    public function isAccountNonLocked()
+    {
+        return true;
+    }
+
+    public function isCredentialsNonExpired()
+    {
+        return true;
+    }
+
+    public function isEnabled()
+    {
+        return $this->isActive;
     }
 
     /**
@@ -391,14 +437,14 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getAvatar2(): ?string
+    public function getFile()
     {
-        return $this->avatar2;
+        return $this->file;
     }
 
-    public function setAvatar2(?string $avatar2): self
+    public function setFile($file = null)
     {
-        $this->avatar2 = $avatar2;
+        $this->file = $file;
 
         return $this;
     }
@@ -427,6 +473,42 @@ class User implements UserInterface
         return $this;
     }
 
+    public function getSport(): ?int
+    {
+        return $this->sport;
+    }
+
+    public function setSport(?int $sport): self
+    {
+        $this->sport = $sport;
+
+        return $this;
+    }
+
+    public function getLat(): ?float
+    {
+        return $this->lat;
+    }
+
+    public function setLat(?float $lat): self
+    {
+        $this->lat = $lat;
+
+        return $this;
+    }
+
+    public function getLng(): ?float
+    {
+        return $this->lng;
+    }
+
+    public function setLng(?float $lng): self
+    {
+        $this->lng = $lng;
+
+        return $this;
+    }
+
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->created_at;
@@ -447,19 +529,6 @@ class User implements UserInterface
     public function setModifiedAt(?\DateTimeInterface $modified_at): self
     {
         $this->modified_at = $modified_at;
-
-        return $this;
-    }
-
-
-    public function getStatus(): ?bool
-    {
-        return $this->status;
-    }
-
-    public function setStatus(bool $status): self
-    {
-        $this->status = $status;
 
         return $this;
     }
@@ -491,45 +560,6 @@ class User implements UserInterface
                 $calendrier->setSportif(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getSport(): ?int
-    {
-        return $this->sport;
-    }
-
-    public function setSport(?int $sport): self
-    {
-        $this->sport = $sport;
-
-        return $this;
-    }
-
-    public function getLat(): ?float
-    {
-        return $this->lat;
-    }
-
-    public function setLat(?float $lat): self
-    {
-        $this->lat = $lat;
-
-        return $this;
-    }
-
-
-
-
-    public function getLng(): ?float
-    {
-        return $this->lng;
-    }
-
-    public function setLng(?float $lng): self
-    {
-        $this->lng = $lng;
 
         return $this;
     }

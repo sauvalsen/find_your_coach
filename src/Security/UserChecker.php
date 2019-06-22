@@ -1,6 +1,7 @@
 <?php
 namespace App\Security;
 
+use App\Security\Exceptions\ActiveException;
 use App\Security\User as AppUser;
 use Symfony\Component\Security\Core\Exception\AccountExpiredException;
 use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
@@ -11,25 +12,17 @@ class UserChecker implements UserCheckerInterface
 {
     public function checkPreAuth(UserInterface $user)
     {
-        if (!$user instanceof AppUser) {
+        if (!$user instanceof UserInterface) {
             return;
         }
 
-        // user is deleted, show a generic Account Not Found message.
-        if ($user->isDeleted()) {
-            throw new AccountDeletedException();
+        if (!$user->getIsActive()) {
+            throw new ActiveException();
         }
     }
 
     public function checkPostAuth(UserInterface $user)
     {
-        if (!$user instanceof AppUser) {
-            return;
-        }
 
-        // user account is expired, the user may be notified
-        if ($user->isExpired()) {
-            throw new AccountExpiredException('...');
-        }
     }
 }
