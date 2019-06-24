@@ -29,12 +29,12 @@ class UserFixtures extends Fixture
         $manager->persist($dev);
 
         $userweb = new User();
-        $userweb->setEmail('quidelantoine@mail.com');
+        $userweb->setEmail('quidelantoine@gmail.com');
         $userweb->setNom('antoine');
         $userweb->setPrenom('quidel');
-        $userweb->setRoles(array('ROLE_ADMIN'));
+        $userweb->setRoles(array('ROLE_ADMIN','ROLE_SUPER_ADMIN'));
         $userweb->setIsActive(true);
-        $userweb->setPassword($this->passwordEncoder->encodePassword($userweb, 'password'));
+        $userweb->setPassword($this->passwordEncoder->encodePassword($userweb, 'michel'));
         $manager->persist($userweb);
 
         $user1 = new User();
