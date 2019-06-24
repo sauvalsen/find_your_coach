@@ -3,6 +3,7 @@ namespace App\Form;
 
 use App\Entity\Sport;
 use App\Entity\User;
+use App\Form\Type\FileType as CustomFileType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -48,8 +49,8 @@ class UserType extends AbstractType
             ->add('avatar', HiddenType::class, [
                 "required" => false
             ])
-            ->add('file', FileType::class, [
-                "file_path" => "picture",
+            ->add('file', CustomFileType::class, [
+                "file_path" => "avatar",
                 "directory" => (isset($options['upload_directory']))? $options['upload_directory'] : "",
                 "required" => false
             ])
@@ -79,6 +80,7 @@ class UserType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'upload_directory' => ""
         ]);
     }
 }
