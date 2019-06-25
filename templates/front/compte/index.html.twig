@@ -11,8 +11,8 @@
       
     <div id="contenue" class="wrap">
              <div id="profil">
-                <div class="profil test">Avatar
-                <img src="{{ asset('uploads/avatars/' ~ app.user.avatar) | imagine_filter('my_thumb') }}">
+                <div class="profil test">
+                <img src="{{ asset('media/cache/my_thumb/uploads/avatars/' ~ app.user.avatar) }}" alt="Avatar de {{ app.user.nom }}">
                 </div>
          
                 <div class="profil nom">Nom
@@ -54,16 +54,16 @@
                 </div>
 
                 <div class="profil sexe">
-                Description
+                Sexe
                 {{ app.user.sexe }}
                 </div>
            
-           <div class="description">
+           <div class="profil description">
                 Description
                 {{ app.user.description }}
                 </div>
   
-           <div class=" niveau">
+           <div class="profil niveau">
               Niveau
                 {{ app.user.niveau }}
             </div>

@@ -461,7 +461,7 @@ label.calendrier_sportif{
 
 #contenue{
 margin-top:10%;
-width:33.333333333333333333%;
+
 float:left;
 padding:10px;
 }
@@ -472,17 +472,14 @@ padding:10px;
 	width:100%;
 }
 
-#profil{margin-left:-2%;}
+/* #profil{margin-left:-2%;} */
 
-.profil{width:31.333333333333%; height:100px; margin-left:2%;float:left;position: relative;color:rgb(37, 26, 26);}
+.profil{width:31.333333333333%; height:100px; margin-left:10%;float:left;position: relative;color:rgb(37, 26, 26);}
 
 
-div.profil.test{
-    background-color:coral;
-}
+
 
 .nom{font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
 color:rgb(37, 26, 26);
 }
 
@@ -494,18 +491,26 @@ text-align: center;
 }
 
 .nom {
+ 
 color: grey;
 font-size: 18px;
 }
 
 .description{
-max-width: 300px;
-margin: auto;
+
+width:100%;
+text-align: center;
+
+}
+
+.email{
+    margin: auto;
 text-align: center;
 
 }
 
 .prenom {
+    width:100%;
 color: grey;
 font-size: 18px;
 }
@@ -520,6 +525,12 @@ color: black;
 
 a:hover {
 opacity: 0.7;
+}
+
+div.profil.test{
+     
+    background-color:white;
+    width:100%;
 }
 
 #edit_front_user_submit:hover{ opacity: 0.3;

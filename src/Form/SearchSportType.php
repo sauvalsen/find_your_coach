@@ -63,11 +63,11 @@ class SearchSportType extends AbstractType
                'attr' => ['class' => 'btrecherche'],])
         ;
     }
-//
-//    public function configureOptions(OptionsResolver $resolver)
-//    {
-//        $resolver->setDefaults([
-//            'data_class' => Search::class,
-//        ]);
 
+   public function configureOptions(OptionsResolver $resolver)
+   {
+       $resolver->setDefaults([
+         'data_class' => Search::class,
+       ]);
+       }
 }
