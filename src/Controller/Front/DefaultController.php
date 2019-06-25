@@ -42,18 +42,18 @@ class DefaultController extends AbstractController
     }
 
 
-//    /**
-//     * @Route("/search", name="app_search", methods={"GET"})
-//     */
-//    public function search(SearchRepository $searchRepository)
-//    {
-//        $search = new Search();
-//        $form = $this->createForm(SearchSportType::class, $search);
+   /**
+    * @Route("/search", name="app_search", methods={"GET"})
+    */
+   public function search(SearchRepository $searchRepository)
+   {
+       $search = new Search();
+       $form = $this->createForm(SearchSportType::class, $search);
+
+       return $this->render('default/_form.html.twig', [
 //
-//        return $this->render('default/_form.html.twig', [
-////
-////            'sports' => $searchRepository->findAll(),
-//            'form' => $form->createView(),
-//        ]);
-//    }
+//            'sports' => $searchRepository->findAll(),
+           'form' => $form->createView(),
+       ]);
+   }
 }
