@@ -235,7 +235,7 @@ nav {
     margin-top:10px;
     margin-bottom:10px;
 }
-/*accueil bloc coach*/
+/**************accueil bloc coach*******************/
 
  #big-bloc{
     width:80%;
@@ -420,25 +420,19 @@ li.identite {
 footer{
     background-color: var(--Couleur-principale);
 }
-
 .reseaux i{
     padding-top:20px;
     padding-right: 30px;
     float:left;
 }
-
 #colones{
     margin-left:-2%;
-    text-align: center;
-   
-    
+    text-align: center; 
 }
-
 .colone{
     float:left;
-    width:31.3333333333333%;
-    margin-left: 2%;
-      
+    width:48%;
+    margin-left: 2%;    
 }
 .reseaux{
     margin-top:8%;
@@ -535,7 +529,6 @@ font-size: 18px;
 max-width: 300px;
 margin: auto;
 text-align: center;
-
 }
 
 .prenom {
@@ -543,9 +536,8 @@ color: grey;
 font-size: 18px;
 }
 
-
 a {
-  list-style: none !important;
+list-style: none !important;
 text-decoration: none !important;
 font-size: 22px;
 color: black;
@@ -557,18 +549,46 @@ opacity: 0.7;
 
 #edit_front_user_submit:hover{ opacity: 0.3;
 }
-.colone a{
+
+ .colone a{
     font-size:15px;
     color:rgba(255, 72, 19, 1);
-
+}
+.colone a:hover{
+    color:black;
+}
+ /*************************bloc texte**********************/
+#bloc-texte{
+    border: solid 1px black;
+    border-radius:20px;
+    width:60%;
+    text-align:center;
+    padding: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+#bloc-texte h2{
+    text-align:center;
+    font-weight:bold;
+    font-size:2em;
+margin-bottom: 1em;
+}
+#bloc-texte p{
+    font-size:2em;
 
 }
-
+#bloc-texte a{
+    font-size:1em ;
+    color:rgba(255, 72, 19, 1);
+}
+#bloc-texte a:hover{
+    color:black;
+}
 /*responsive menu*/
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 960px){
     /* #menu est le menu général */
-    #menu {
+    #menu{
         display:none;
     }
     .header-logo{
