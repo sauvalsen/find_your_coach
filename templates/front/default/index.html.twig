@@ -16,9 +16,13 @@
             </div>
         </div>
         <div id="coach-parfait" class="wrap">
-        <h2>Trouvez le coach parfait ! :)</h2>
-        <img src="{{ asset('asset_front/img/rousse-cercle.png') }}">
+            <h2>Trouvez le coach parfait ! :)</h2>
+            <img src="{{ asset('asset_front/img/rousse-cercle.png') }}" id="rousse">
         </div>
+        <div id ="texte-parfait">
+        <p>Avec Find your Coach trouvez le coach sportif qui vous correspond le mieux. Choisissez selon votre sport bien sûr (plus de 100 sports sont disponibles !), mais également selon votre budget et votre situation géographique. Reservez facilement un cours de sport à domicile ou dans un lieu proposé par le coach. Alors, prêt à t’entrainer ?</p>
+        </div>
+
         <div id="big-bloc" class="wrap">
                 <ul class="bloc-coach">
                 {% for user in users %}
