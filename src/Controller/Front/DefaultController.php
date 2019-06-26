@@ -23,16 +23,25 @@ class DefaultController extends AbstractController
 
 
         $search = new Search();
+
         $repo = $this->getDoctrine()->getRepository(User::class);
         $user = $repo->findAcoach('ROLE_COACH');
 //        $user = $userRepository->findAll();
         $form = $this->createForm(SearchSportType::class, $search, [
             'action' => $this->generateUrl('recherche')
         ]);
+
         $form->handleRequest($request);
+
+
+//        $request->request->get('search_sport')['sport'];
+
         if ($form->isSubmitted() && $form->isValid()) {
+
+
             return $this->redirectToRoute('recherche');
         }
+
         return $this->render('front/default/index.html.twig',[
             //'sports' => $searchRepository->findAll(),
             'form' => $form->createView(),
@@ -42,18 +51,18 @@ class DefaultController extends AbstractController
     }
 
 
-   /**
-    * @Route("/search", name="app_search", methods={"GET"})
-    */
-   public function search(SearchRepository $searchRepository)
-   {
-       $search = new Search();
-       $form = $this->createForm(SearchSportType::class, $search);
-
-       return $this->render('default/_form.html.twig', [
+//   /**
+//    * @Route("/search", name="app_search", methods={"GET"})
+//    */
+//   public function search(SearchRepository $searchRepository)
+//   {
+//       $search = new Search();
+//       $form = $this->createForm(SearchSportType::class, $search);
 //
-//            'sports' => $searchRepository->findAll(),
-           'form' => $form->createView(),
-       ]);
-   }
+//       return $this->render('default/_form.html.twig', [
+////
+////            'sports' => $searchRepository->findAll(),
+//           'form' => $form->createView(),
+//       ]);
+//   }
 }

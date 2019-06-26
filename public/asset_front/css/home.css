@@ -7,7 +7,7 @@
 }
 
 #recherche{
-   
+
     margin:  10%;
     width: 80%;
     padding: 0 35px;
@@ -33,7 +33,7 @@
 /*Recherche*/
 
 
-   
+
 
 .inputsport{
     /*border-radius: 4px 0 0 4px;*/
@@ -45,13 +45,13 @@
 .inputville{
     display: inline-block;
     /*border-radius: 0 4px 4px 0;*/
-    border-color: transparent;
+    /*border-color: transparent;*/
     height: 40px;
 
 }
 .btrecherche{
     border-radius: 3px;
-    border-color: transparent;
+    /*border-color: transparent;*/
     width:100%;
     height: 40px;
     background-color: slategray;

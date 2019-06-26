@@ -36,6 +36,39 @@ class UserRepository extends ServiceEntityRepository
     }
 
 
+    public function getcoachWithVille($ville)
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.ville = :val')
+            ->andWhere('u.roles LIKE :val2')
+
+            ->setParameter('val', $ville)
+            ->setParameter('val2', '%ROLE_COACH%')
+            ->orderBy('u.id', 'DESC')
+            //->setMaxResults(4)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findAcoachSportVille($role,$sportid,$ville )
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.ville = :val')
+            ->andWhere('u.roles LIKE :val2')
+            ->leftJoin('u.sports','s')
+            ->andWhere('s.id = :dede')
+            ->setParameter("dede", $sportid)
+            ->setParameter('val', $ville)
+            ->setParameter('val2', '%"'.$role.'"%')
+            ->orderBy('u.id', 'DESC')
+            //->setMaxResults(4)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+
     /*
     public function findOneBySomeField($value): ?User
     {

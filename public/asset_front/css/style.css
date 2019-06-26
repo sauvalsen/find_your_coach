@@ -203,21 +203,24 @@ nav {
     opacity: 0.85;
 }
 .inputsport{
-    
+
     display: inline-block;
-    border-color: transparent;
+    /*border-color: transparent;*/
     height: 40px;
     margin-right:-3px;
 }
 .inputville{
     display: inline-block;
-    border-color: transparent;
+    /*border-color: transparent;*/
     height: 40px;
 
 }
+.inputsportr,inputviller{
+width:50%;
+}
 .btrecherche{
     border-radius: 3px;
-    border-color: transparent;
+    /*border-color: transparent;*/
     width:100%;
     height: 40px;
     background-color:var(--Couleur-principale);
