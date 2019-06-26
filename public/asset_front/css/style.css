@@ -60,6 +60,7 @@ table {
 
 :root {
     --Couleur-principale: #00B37E;
+    --Couleur-orange: rgba(255, 72, 19, 1);
 }
 
 /***************** Style CSS ***********************/
@@ -111,7 +112,7 @@ nav {
 }
 .ul-nav li a:hover{
     color:rgba(255, 72, 19, 1);
-    color:var(--orange);
+    color:var(--Couleur-orange);
 }
 
 #hamburger, #hamburger-content {
@@ -288,46 +289,57 @@ nav {
     padding-top:5%;
     padding-bottom:3%;
 }
+
  #big-bloc{
     width:80%;
-    
-    
-} 
+}
+
 .identite{
     overflow:hidden;
 }
+
 .identite img{
     width:100%;
     border-radius:0 0 5px 5px; 
 }
+
 .identite img:hover{
     -ms-transform: scale(1.2); /* IE 9 */
     -webkit-transform: scale(1.2); /* Safari 3-8 */
     transform: scale(1.2); 
     transition: transform 1s ease;
-    border-radius:0 0 5px 5px;  z-index: 100;
+    border-radius:0 0 5px 5px;
 }
+
 li.identite {
 	float:left;
 	width:23%;
 	margin-left:2%;	
 	height:auto;
 }
+
 .bloc-coach{
 	margin-left: -2%;
 		
 }
-.nom-prenom{ 
+
+.identite-nom{
     background-color:var(--Couleur-principale);
     border-radius: 10px 10px 0 0;
     margin-top: -3px;
 	text-align: center;
     padding-top: 5px;
-    
+    color: white;
 }
-.nom-prenom a{
+
+.identite-nom a{
 	color:white;
 	font-weight: bold;
+}
+
+.identite-avatar{
+    overflow: hidden;
+    border-radius:0 0 5px 5px;
 }
 /*Inscription - connexion - contact*/
 
@@ -503,6 +515,7 @@ footer{
 .logo-bas{
     padding-right: 15px;
     float:right;
+    color: white;
 }
 
 /*bottom bar*/
@@ -512,23 +525,22 @@ footer{
     text-align: center;
 }
 
-.bottom-bar p{
-    padding-top: 10px;
-   color:black;
+.copyright{
+    display: inline;
 }
 
-ul .nav-footer{
-    border:0;
-    
+.lien-mentions-legales-footer{
+    padding-left: 5%;
 }
 
-.nav-footer li {
-    display: inline-block;
-   
+.lien-mentions-legales-footer a,
+.lien-nous-contacter-footer a{
+    font-size: 16px;
 }
 
-.nav-footer li a {
-    border:0px;color:black;
+.lien-mentions-legales-footer a:hover,
+.lien-nous-contacter-footer a:hover{
+    color: var(--Couleur-orange);
 }
 
 /********** Calendrier*******************/
@@ -640,6 +652,14 @@ opacity: 0.7;
 }
 #bloc-texte a:hover{
     color:black;
+}
+
+.logo-reseau{
+    color: white;
+}
+
+.logo-reseau:hover{
+    color: var(--Couleur-orange);
 }
 /*responsive menu*/
 

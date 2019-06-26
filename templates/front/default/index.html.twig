@@ -31,13 +31,14 @@
                     <ul class="bloc-coach">
                     {% for user in users %}
                         <li class="identite">
-                            <div class="nom-prenom"><a href="#" title="">
-                                <p>{{ user.prenom }}</p>
-                                {# <p>{{ sport.sport }}</p> #}
-                                </a>
-                            </div>
-                    <a href="#" title=""><img src="{{ asset('/uploads/avatars/' ~ user.avatar) | imagine_filter('my_thumb')  }}" alt="Avatar de {{ user.nom }}"></a>
-                        
+                            <a href="#" title="">
+                                <div class="identite-nom">
+                                    <p>{{ user.prenom }}</p>
+                                </div>
+                                <div class="identite-avatar">
+                                    <img src="{{ asset('/uploads/avatars/' ~ user.avatar) | imagine_filter('my_thumb')  }}" alt="Avatar de {{ user.nom }}">
+                                </div>
+                            </a>
                             {% else %}
                                 Aucune donnée disponible.
                             {% endfor %}

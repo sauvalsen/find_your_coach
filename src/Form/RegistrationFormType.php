@@ -40,7 +40,7 @@ class RegistrationFormType extends AbstractType
             ->add('roles2', ChoiceType::class, [
                 'label' => 'Vous êtes:',
                 'choices'  => [
-                    'coach' => 'ROLE_ADMIN',
+                    'coach' => 'ROLE_COACH',
                     'sportif' => 'ROLE_USER',
                 ],
                 'expanded' => true,
