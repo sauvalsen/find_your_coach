@@ -19,29 +19,48 @@ class CoachController extends AbstractController
      */
     public function index(Request $request, UserRepository $userRepository)
     {
-
-        $coach1 = $request->request->get('search_sport')['sport'];
-        $coach2 = $request->request->get('search_sport')['ville'];
-
-//        dd($coach1,$coach2);
-
-//            $content = $request->getContent();
-//            return new Response($content);
-
-
-        $request = Request::createFromGlobals();
-//       dd($coach);
-
         $search = new Search();
-        $repo = $this->getDoctrine()->getRepository(User::class);
-        $user = $repo->findAcoach('ROLE_COACH');
+
+        $sportid = $request->request->get('search_sport')['sport'];
+        $villeid = $request->request->get('search_sport')['ville'];
+
+
+
+        $repo = $this->getDoctrine()->getRepository(Sport::class);
+
+        if(!empty($sportid) && !empty($villeid)) {
+            // request special qui va chercher les coach de ce sport et de cette ville
+            $userbis = $userRepository->find($villeid);
+            $ville = $userbis->getVille();
+
+           $coach = $userRepository->findAcoachSportVille('ROLE_COACH',$sportid,$ville );
+        }
+        elseif(!empty($sportid)) {
+            $sport = $repo->find($sportid);
+            $coach = $sport->getUsers();
+
+        }
+        elseif(!empty($villeid)) {
+            $userbis = $userRepository->find($villeid);
+            $ville = $userbis->getVille();
+            if(!empty($ville)) {
+                $coach = $userRepository->getcoachWithVille($ville);
+            }
+        }
+        else{
+            $repo = $this->getDoctrine()->getRepository(User::class);
+            $coach = $repo->findAcoach('ROLE_COACH');
+        }
+
 //        $user = $userRepository->findAll();
         $form = $this->createForm(SearchSportType::class, $search);
-        $form->handleRequest($request);
+//        $form->handleRequest($request);
+
         return $this->render('front/coach/index.html.twig',[
-            //'sports' => $searchRepository->findAll(),
             'form' => $form->createView(),
-            'users' => $user
+            'users' => $coach,
+//            'sport' => $sport,
+
         ]);
     }
 }

@@ -22,15 +22,15 @@ class EditFrontUserType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class)
-            ->add('roles', ChoiceType::class, [
-                'label' => 'Vous êtes:',
-                'choices'  => [
-                    'coach' => 'ROLE_COACH',
-                    'sportif' => 'ROLE_USER',
-                ],
-                'expanded' => true,
-                'multiple' => true,
-            ])
+            // ->add('roles', ChoiceType::class, [
+            //     'label' => 'Vous êtes:',
+            //     'choices'  => [
+            //         'coach' => 'ROLE_COACH',
+            //         'sportif' => 'ROLE_USER',
+            //     ],
+            //     'expanded' => true,
+            //     'multiple' => true,
+            // ])
             ->add('nom', TextType::class, ['required'   => false])
             ->add('prenom', TextType::class, ['required'   => false])
             ->add('adresse', TextType::class, ['required'   => false])
@@ -39,7 +39,7 @@ class EditFrontUserType extends AbstractType
             ->add('tel', TelType::class, ['required'   => false])
             ->add('diplome', TextType::class, ['required'   => false])
             ->add('description', TextareaType::class, ['required'   => false])
-            ->add('avatar2', FileType::class, [
+            ->add('avatar', FileType::class, [
                 'label' => 'Avatar (PNG,JPG)',
                 'data_class' => null,
                 'required' => false

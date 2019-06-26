@@ -39,12 +39,12 @@ class CompteController extends AbstractController
         {
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
 
-            $files2 = $form['avatar2']->getData();
+            $files2 = $form['avatar']->getData();
 
             if (!empty($files2))
             {
                 //$file = $user->getAvatar2();
-                $file = $form->get('avatar2')->getData();
+                $file = $form->get('avatar')->getData();
                 $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
                 try {
                     $file->move(
