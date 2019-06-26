@@ -15,18 +15,18 @@
                 <img id='pict-coach'  src="{{ asset('/uploads/avatars/' ~ app.user.avatar) | imagine_filter('my_thumb')  }}" alt="Avatar de {{ app.user.nom }}">
             </div>
 
-            <p><span id="coachPrenomProfil">{{ app.user.prenom }}</span>{{ app.user.nom }}</p>
-            <p> Ville : {{ app.user.ville }}</p>
+            <p><span id="coachPrenomProfil">{{ app.user.prenom }}</span></p>
+                <p> <img id='localization'  src="{{ asset('asset_front/img/localization.png' ) }}" alt="localization">  Ville : {{ app.user.ville }}</p> 
         </div>
 
 
         <div id='formation'>
-        <p>Formation</p>
+        <p> <img id='localization'  src="{{ asset('asset_front/img/logo-formation.png' ) }}" alt="Formation"> Formation</p>
            {{ app.user.diplome }}
         </div>
 
         <div id='experience'>
-           <p> Niveau</p>
+           <p><img id='niveau'  src="{{ asset('asset_front/img/niveau.png' ) }}" alt="Niveau"> Niveau</p>
           {{ app.user.niveau }}
         </div>
     </div>
@@ -60,7 +60,9 @@ Plusieurs variations de Lorem Ipsum peuvent être trouvées ici ou là, mais la 
 
 </div>
 
+
 <a href="{{ path('compte_edit')}}">Editer mon profil</a>
+
 {% endblock %}
 
 {% block javascripts %}{% endblock %}

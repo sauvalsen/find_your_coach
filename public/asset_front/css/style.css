@@ -498,7 +498,9 @@ label.calendrier_sportif{
     display:none;
 }
 /************ Profil *******************/
-
+img#localization{
+    width:50px;
+}
 
 #contenue{
 margin-top:10%;
@@ -552,6 +554,7 @@ h3{
     font-weight: bold;
     text-decoration: underline;
     color: white;
+    padding:100px;
 }
 
 #id-coach p img.etoiles{
@@ -602,7 +605,11 @@ h3{
     width: 100%;
    padding-top:10px;
     margin: 0 0 10px 0;
-    font-size: 18px;
+    font-size: 20px;
+}
+
+#localization{
+    width:50px;
 }
 
 #commande a {
@@ -615,25 +622,28 @@ h3{
     color: white;
 }
 
+
 #experience p:nth-of-type(2), #formation p:nth-of-type(2) {
-    font-size: 22px;
+    
     font-weight: bold;
     margin-bottom: 38px;
 }
 
 #experience p:nth-of-type(1) img, #formation p:nth-of-type(1) img {
+    font-size: 22px;
     position: relative;
-    width: 90px;
+    width: 30px;
     top: 9px;
 }
 
 #mot-coach {
+
     width: 70%;
     margin: 40px auto;
     color: white;
-    padding: 20px 0 77px;
+    padding: 50px 50px 77px;
     background-color: #373837;
-    border: 30px solid rgb(240, 240, 240);
+    border: 30px solid rgb(0, 179, 126);
 }
 
 #contentRegistered #mot-coach {
@@ -780,29 +790,7 @@ h2 img {
         width:100%;
     }
     
-    li.identite {
-		width:45%;
-		padding-bottom:15px;
-	}
-
-}
-
-@media screen and (max-width:500px) {
-    .profil {width:96%; 
-    }
-    #profil {margin-left:0
-    }
-    li.identite {
-		width:96%;
-		padding-bottom:15px;
-	}
-    
-}
-
-@media screen and (max-width:900px) {
-    .profil {width:48%;
-    }
-}
+  
 
 @media screen and (min-width: 1050px){
     .formulaire {
