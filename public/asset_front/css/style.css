@@ -188,11 +188,9 @@ nav {
 
 .content-accueil{
     background-image: url(../img/fitness.jpg);
-    height:550px;
 }
 .intro-form{
-    padding-top:150px;
-
+    padding: 150px 0 50px 0;
 }
 #search_sport_sport{
     width:100%;
@@ -210,7 +208,6 @@ nav {
     opacity: 0.85;
 }
 .inputsport{
-    
     display: inline-block;
     border-color: transparent;
     height: 40px;
@@ -411,6 +408,10 @@ li.identite {
     font-weight: bold;
     border: none;
     width: 100%;
+}
+
+#registration_form_Envoyer:hover, .bouton-connexion:hover {
+    color: var(--Couleur-orange);
 }
 
 .mdp-oublie{
@@ -716,6 +717,9 @@ opacity: 0.7;
 
 @media screen and (max-width:900px) {
     .profil {width:48%;
+    }
+    #recherche{
+        width: 80%;
     }
 }
 
