@@ -3,14 +3,26 @@
 {% block title %}Edit User{% endblock %}
 
 {% block body %}
-    <h1>Editer l'utilisateur</h1>
 
-    {{ include('front/user/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('compte_show') }}">Retour a mon profil</a>
+    {% block content %}<div id="test">
+        {{ include('front/coach/_form.html.twig', {'button_label': 'Update'}) }}
+        </div>
+        <a href="{{ path('compte_show') }}">Retour a mon profil</a>
+    {% endblock %}
+
+
 
 {% endblock %}
 
 {% block javascripts %}
     <script src="{{ asset('asset_back/js/autocompletion_adresse.js') }}"></script>
 {% endblock %}
+
+{% block stylesheets %}
+    <style> #test{
+        padding-top:110px;
+    }
+    </style>
+
+    {% endblock %}

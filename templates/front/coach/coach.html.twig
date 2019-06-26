@@ -1,0 +1,9 @@
+{% for user in users %}
+    <div>
+        {{ user.prenom }}
+        {{ user.sport }}
+        <img src="{{ asset('/uploads/avatars/' ~ user.avatar) }}" alt="Avatar de {{ user.nom }}" />
+    </div>
+{% else %}
+    Aucun coach disponible.
+{% endfor %}
