@@ -60,7 +60,6 @@ table {
 
 :root {
     --Couleur-principale: #00B37E;
-    --Couleur-orange: rgba(255, 72, 19, 1);
 }
 
 /***************** Style CSS ***********************/
@@ -210,24 +209,21 @@ nav {
     opacity: 0.85;
 }
 .inputsport{
-
+    
     display: inline-block;
-    /*border-color: transparent;*/
+    border-color: transparent;
     height: 40px;
     margin-right:-3px;
 }
 .inputville{
     display: inline-block;
-    /*border-color: transparent;*/
+    border-color: transparent;
     height: 40px;
 
 }
-.inputsportr,inputviller{
-width:50%;
-}
 .btrecherche{
     border-radius: 3px;
-    /*border-color: transparent;*/
+    border-color: transparent;
     width:100%;
     height: 40px;
     background-color:var(--Couleur-principale);
@@ -258,15 +254,18 @@ width:50%;
 #coach-parfait h2{
     text-align:center;
     font-size:30px;
-    padding:50px 0 50px 0;
+    padding:50px 0 15px 0;
     margin-top:50px;
     font-weight: bold;
 }
 .parfait {
-margin-left:-2%;
-width:48%;
-float:left;
-margin-bottom:30px;
+    margin-left:-2%;
+    width:48%;
+    float:left;
+    margin-bottom:64px;
+}
+.parfait-texte{
+    margin-top: 20px;
 }
 .parfait p{
     margin:20px 0 50px 0;
@@ -287,61 +286,49 @@ margin-bottom:30px;
 .fond-gris{
     background-color:grey;
     padding-top:5%;
+    padding-bottom:3%;
 }
  #big-bloc{
     width:80%;
+    
+    
 } 
 .identite{
     overflow:hidden;
 }
-
-.bloc-coach{
-    margin-left: -2%;
-    margin-top: 40px;
-}
-
-li.identite {
-    float:left;
-    width:23%;
-    margin-left:2%;
-    height:auto;
-}
-.bloc-coach{
-	margin-left: -2%;
-}		
-
-.etiquette-box{
-    overflow:hidden;
-    border-radius:5px;
-}
-
-.etiquette-nom{
-    background-color:var(--Couleur-principale);
-    color: white;
-    border-radius: 10px 10px 0 0;
-    margin-top: -3px;
-    text-align: center;
-    padding-top: 5px;
-    font-weight: bold;
-}
-
-.etiquette-avatar{
-    overflow: hidden;
-}
-
-.etiquette-avatar img{
+.identite img{
     width:100%;
-    border-radius:0 0 5px 5px;
+    border-radius:0 0 5px 5px; 
 }
-
-.etiquette-avatar img:hover{
+.identite img:hover{
     -ms-transform: scale(1.2); /* IE 9 */
     -webkit-transform: scale(1.2); /* Safari 3-8 */
     transform: scale(1.2); 
     transition: transform 1s ease;
-    border-radius:0 0 5px 5px;
+    border-radius:0 0 5px 5px;  z-index: 100;
 }
-
+li.identite {
+	float:left;
+	width:23%;
+	margin-left:2%;	
+	height:auto;
+}
+.bloc-coach{
+	margin-left: -2%;
+		
+}
+.nom-prenom{ 
+    background-color:var(--Couleur-principale);
+    border-radius: 10px 10px 0 0;
+    margin-top: -3px;
+	text-align: center;
+    padding-top: 5px;
+    
+}
+.nom-prenom a{
+	color:white;
+	font-weight: bold;
+}
 /*Inscription - connexion - contact*/
 
 .fond-inscription {
@@ -497,7 +484,7 @@ footer{
 }
 #colones{
     margin-left:-2%;
-    text-align: center;
+    text-align: center; 
 }
 .colone{
     float:left;
@@ -514,7 +501,7 @@ footer{
     color:white;
 }
 .logo-bas{
-    padding-right: 5%;
+    padding-right: 15px;
     float:right;
 }
 
@@ -526,23 +513,22 @@ footer{
 }
 
 .bottom-bar p{
-    display: inline;
-    color:black;
+    padding-top: 10px;
+   color:black;
 }
 
-.lien-mentions-legales-footer{
-    padding-left: 2%;
+ul .nav-footer{
+    border:0;
+    
 }
 
-.lien-mentions-legales-footer a, .lien-nous-contacter-footer a {
-    font-size: 16px!important;
-    border: 0;
-    color:black;
+.nav-footer li {
+    display: inline-block;
+   
 }
 
-.lien-mentions-legales-footer a:hover,
-.lien-nous-contacter-footer a:hover{
-    color: red;
+.nav-footer li a {
+    border:0px;color:black;
 }
 
 /********** Calendrier*******************/
@@ -559,232 +545,75 @@ label.calendrier_sportif{
 
 #contenue{
 margin-top:10%;
-
+width:33.333333333333333333%;
 float:left;
 padding:10px;
 }
 
-
-
-/* #profil{margin-left:-2%;} */
-
-
-
-/********************************************************************************************************************************************/
-#id-coach, #formation, #experience {
-    width: 33%;
-    vertical-align: top;
-    display: inline-block;
+.wrap{
+	margin:0 auto;
+	max-width: 1200px;
+	width:100%;
 }
 
-#wrap{
-    padding-top: 100px;
+#profil{margin-left:-2%;}
+
+.profil{width:31.333333333333%; height:100px; margin-left:2%;float:left;position: relative;color:rgb(37, 26, 26);}
+
+
+div.profil.test{
+    background-color:coral;
 }
 
-#contentRegistered #id-coach, #contentRegistered #formation, #contentRegistered #experience {
-    width: 32.5%;
+.nom{font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+color:rgb(37, 26, 26);
 }
 
-.comp span{
-    padding: 2px 17px 4px;
-    border: 2px solid #f096cc;
-    margin: 9px 3px;
-    color: #f096cc;
-    font-weight: bold;
-    border-radius: 19px;
-    display: inline-block;
+.profil {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+max-width: 300px;
+margin: auto;
+text-align: center;
 }
 
-.comp span a{
-    color: #f096cc;
+.nom {
+color: grey;
+font-size: 18px;
 }
 
-h3{
-    margin: 15px 0 5px !important;
+.description{
+max-width: 300px;
+margin: auto;
+text-align: center;
 }
 
-
-
-#mot-coach a {
-    font-weight: bold;
-    text-decoration: underline;
-    color: white;
+.prenom {
+color: grey;
+font-size: 18px;
 }
 
-#id-coach p img.etoiles{
-    width: 125px;
-    margin-top: 5px;
+a {
+list-style: none !important;
+text-decoration: none !important;
+font-size: 22px;
+color: black;
 }
 
+/* a:hover {
+opacity: 0.7;
+} */
 
-
-
-#pict-coach, .pict-coach {
-    border-radius: 50%;
-    width: 140px;
-    margin: 0 auto 10px;
-    display: block;
+#edit_front_user_submit:hover{ opacity: 0.3;
 }
 
-
-
-#top-coach {
-    padding: 50px 0 40px 0;
-    max-width: 1003px;
-    margin: auto;
+ .colone a{
+    font-size:15px;
+    color:rgba(255, 72, 19, 1);
 }
-
-#id-coach p, .coachBDP p {
-    width: 100%;
-    margin: auto;
-    text-align: center;
+.colone a:hover{
+    color:black;
 }
-
-#id-coach p img, .coachBDP p img {
-    position: relative;
-    width: 14px;
-    top: 3px;
-}
-
-#id-coach p:nth-of-type(1), .coachBDP p:nth-of-type(1) {
-    font-size: 22px;
-    font-weight: bold;
-}
-
-#id-coach p:nth-of-type(3), .coachBDP p:nth-of-type(3) {
-    margin-top: 5px;
-}
-
-#experience p, #formation p {
-    width: 100%;
-   padding-top:10px;
-    margin: 0 0 10px 0;
-    font-size: 18px;
-}
-
-#commande a {
-    display: inline-block;
-    font-family: normal;
-    margin-top: 15px;
-    background-color: rgba(236, 133, 195, 0.86);
-    padding: 7px 14px;
-    border-radius: 2px;
-    color: white;
-}
-
-#experience p:nth-of-type(2), #formation p:nth-of-type(2) {
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 38px;
-}
-
-#experience p:nth-of-type(1) img, #formation p:nth-of-type(1) img {
-    position: relative;
-    width: 90px;
-    top: 9px;
-}
-
-#mot-coach {
-    width: 70%;
-    margin: 40px auto;
-    color: white;
-    padding: 20px 0 77px;
-    background-color: #373837;
-    border: 30px solid rgb(240, 240, 240);
-}
-
-#contentRegistered #mot-coach {
-    width: 80%;
-    margin-bottom: 3em;
-}
-
-section {
-    margin-bottom: 0;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 75px;
-}
-
-h2 img {
-    position: relative;
-    width: 40px;
-    top: 19px;
-    left: -7px;
-}
-
-#mot-coach p {
-    width: 80%;
-    margin: auto;
-}
-
-#decouvrir {
-    text-align: center;
-}
-
-#decouvrir, #pagination {
-    width: 49.5%;
-    display: inline-block;
-    vertical-align: top;
-    padding: 45px 0 55px;
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-#decouvrir img {
-    display: block;
-    width: 180px;
-    height: auto;
-    margin: 0 auto 29px;
-}
-
-#decouvrir a {
-    background-color: rgba(236, 133, 195, 0.86);
-    padding: 7px 25px;
-    border-radius: 2px;
-    color: white;
-}
-
-#ville{
-    text-align: center;
-    margin: 2em 0 3em 0;
-}
-
-#ville a {
-    background-color: rgba(236, 133, 195, 0.86);
-    padding: 7px 25px;
-    border-radius: 2px;
-    color: white;
-}
-
-.coach_profil_msg a {
-    text-decoration: underline;
-}
-
-#pagination {
-    margin: 0;
-    padding-top: 15px
-}
-
-#pagination p {
-    margin: auto;
-    text-align: center;
-}
-
-#pagination p a {
-    display: inline-block;
-    background-color: #F8F9FA;
-    padding: 4px 14px;
-    margin: 22px 42px;
-}
-
-.coach_profil_msg {
-    text-align: center;
-    font-family: normal;
-    margin-bottom: 2em;
-}
-
  /*************************bloc texte**********************/
 #bloc-texte{
     border: solid 1px black;
@@ -807,7 +636,7 @@ h2 img {
 }
 #bloc-texte a{
     font-size:1em ;
-    color: var(--Couleur-orange);
+    color:rgba(255, 72, 19, 1);
 }
 #bloc-texte a:hover{
     color:black;
