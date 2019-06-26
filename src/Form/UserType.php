@@ -52,7 +52,8 @@ class UserType extends AbstractType
             ->add('file', CustomFileType::class, [
                 "file_path" => "avatar",
                 "directory" => (isset($options['upload_directory']))? $options['upload_directory'] : "",
-                "required" => false
+                "required" => false,
+                'label' => false,
             ])
             ->add('niveau', ChoiceType::class, [
                 'choices'  => [

@@ -182,6 +182,7 @@ nav {
 
 .content-accueil{
     background-image: url(../img/fitness.jpg);
+    height:550px;
 }
 .intro-form{
     padding-top:150px;
@@ -224,6 +225,7 @@ width:50%;
     width:100%;
     height: 40px;
     background-color:var(--Couleur-principale);
+    color:white;
 }
 .po{
     text-align: center;
@@ -238,7 +240,56 @@ width:50%;
     margin-top:10px;
     margin-bottom:10px;
 }
+/***************coach parfait***************/
 
+#coach-parfait h2{
+    text-align:center;
+    font-size:30px;
+    padding:50px 0 50px 0;
+    margin-top:50px;
+    font-weight: bold;
+}
+/**************accueil bloc coach*******************/
+
+ #big-bloc{
+    width:80%;
+} 
+.identite{
+    overflow:hidden;
+}
+.identite img{
+    width:100%;
+    border-radius:0 0 5px 5px; 
+}
+.identite img:hover{
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari 3-8 */
+    transform: scale(1.2); 
+    transition: transform 1s ease;
+    border-radius:0 0 5px 5px;  z-index: 100;
+}
+li.identite {
+	float:left;
+	width:23%;
+	margin-left:2%;	
+	height:auto;
+}
+.bloc-coach{
+	margin-left: -2%;
+	margin-top: 40px;	
+}
+.nom-prenom{ 
+    background-color:var(--Couleur-principale);
+    border-radius: 10px 10px 0 0;
+    margin-top: -3px;
+	text-align: center;
+    padding-top: 5px;
+    
+}
+.nom-prenom a{
+	color:white;
+	font-weight: bold;
+}
 /*Inscription - connexion - contact*/
 
 .fond-inscription {
@@ -386,25 +437,19 @@ width:50%;
 footer{
     background-color: var(--Couleur-principale);
 }
-
 .reseaux i{
     padding-top:20px;
     padding-right: 30px;
     float:left;
 }
-
 #colones{
     margin-left:-2%;
-    text-align: center;
-   
-    
+    text-align: center; 
 }
-
 .colone{
     float:left;
-    width:31.3333333333333%;
-    margin-left: 2%;
-      
+    width:48%;
+    margin-left: 2%;    
 }
 .reseaux{
     margin-top:8%;
@@ -430,10 +475,6 @@ footer{
 .bottom-bar p{
     padding-top: 10px;
    color:black;
-}
-
-.bottom-bar p span{
-    color:red;
 }
 
 ul .nav-footer{
@@ -464,77 +505,264 @@ label.calendrier_sportif{
 
 #contenue{
 margin-top:10%;
-width:33.333333333333333333%;
+
 float:left;
 padding:10px;
 }
 
-.wrap{
-	margin:0 auto;
-	max-width: 1200px;
-	width:100%;
+
+
+/* #profil{margin-left:-2%;} */
+
+
+
+/********************************************************************************************************************************************/
+#id-coach, #formation, #experience {
+    width: 33%;
+    vertical-align: top;
+    display: inline-block;
 }
 
-#profil{margin-left:-2%;}
-
-.profil{width:31.333333333333%; height:100px; margin-left:2%;float:left;position: relative;color:rgb(37, 26, 26);}
-
-
-div.profil.test{
-    background-color:coral;
+#wrap{
+    padding-top: 100px;
 }
 
-.nom{font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
-color:rgb(37, 26, 26);
+#contentRegistered #id-coach, #contentRegistered #formation, #contentRegistered #experience {
+    width: 32.5%;
 }
 
-.profil {
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-max-width: 300px;
-margin: auto;
-text-align: center;
+.comp span{
+    padding: 2px 17px 4px;
+    border: 2px solid #f096cc;
+    margin: 9px 3px;
+    color: #f096cc;
+    font-weight: bold;
+    border-radius: 19px;
+    display: inline-block;
 }
 
-.nom {
-color: grey;
-font-size: 18px;
+.comp span a{
+    color: #f096cc;
 }
 
-.description{
-max-width: 300px;
-margin: auto;
-text-align: center;
-
-}
-
-.prenom {
-color: grey;
-font-size: 18px;
+h3{
+    margin: 15px 0 5px !important;
 }
 
 
-a {
-  list-style: none !important;
-text-decoration: none !important;
-font-size: 22px;
-color: black;
+
+#mot-coach a {
+    font-weight: bold;
+    text-decoration: underline;
+    color: white;
 }
 
-a:hover {
-opacity: 0.7;
+#id-coach p img.etoiles{
+    width: 125px;
+    margin-top: 5px;
 }
 
-#edit_front_user_submit:hover{ opacity: 0.3;
 
 
+
+#pict-coach, .pict-coach {
+    border-radius: 50%;
+    width: 140px;
+    margin: 0 auto 10px;
+    display: block;
 }
 
+
+
+#top-coach {
+    padding: 50px 0 40px 0;
+    max-width: 1003px;
+    margin: auto;
+}
+
+#id-coach p, .coachBDP p {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+#id-coach p img, .coachBDP p img {
+    position: relative;
+    width: 14px;
+    top: 3px;
+}
+
+#id-coach p:nth-of-type(1), .coachBDP p:nth-of-type(1) {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#id-coach p:nth-of-type(3), .coachBDP p:nth-of-type(3) {
+    margin-top: 5px;
+}
+
+#experience p, #formation p {
+    width: 100%;
+   padding-top:10px;
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+#commande a {
+    display: inline-block;
+    font-family: normal;
+    margin-top: 15px;
+    background-color: rgba(236, 133, 195, 0.86);
+    padding: 7px 14px;
+    border-radius: 2px;
+    color: white;
+}
+
+#experience p:nth-of-type(2), #formation p:nth-of-type(2) {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 38px;
+}
+
+#experience p:nth-of-type(1) img, #formation p:nth-of-type(1) img {
+    position: relative;
+    width: 90px;
+    top: 9px;
+}
+
+#mot-coach {
+    width: 70%;
+    margin: 40px auto;
+    color: white;
+    padding: 20px 0 77px;
+    background-color: #373837;
+    border: 30px solid rgb(240, 240, 240);
+}
+
+#contentRegistered #mot-coach {
+    width: 80%;
+    margin-bottom: 3em;
+}
+
+section {
+    margin-bottom: 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 75px;
+}
+
+h2 img {
+    position: relative;
+    width: 40px;
+    top: 19px;
+    left: -7px;
+}
+
+#mot-coach p {
+    width: 80%;
+    margin: auto;
+}
+
+#decouvrir {
+    text-align: center;
+}
+
+#decouvrir, #pagination {
+    width: 49.5%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 45px 0 55px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#decouvrir img {
+    display: block;
+    width: 180px;
+    height: auto;
+    margin: 0 auto 29px;
+}
+
+#decouvrir a {
+    background-color: rgba(236, 133, 195, 0.86);
+    padding: 7px 25px;
+    border-radius: 2px;
+    color: white;
+}
+
+#ville{
+    text-align: center;
+    margin: 2em 0 3em 0;
+}
+
+#ville a {
+    background-color: rgba(236, 133, 195, 0.86);
+    padding: 7px 25px;
+    border-radius: 2px;
+    color: white;
+}
+
+.coach_profil_msg a {
+    text-decoration: underline;
+}
+
+#pagination {
+    margin: 0;
+    padding-top: 15px
+}
+
+#pagination p {
+    margin: auto;
+    text-align: center;
+}
+
+#pagination p a {
+    display: inline-block;
+    background-color: #F8F9FA;
+    padding: 4px 14px;
+    margin: 22px 42px;
+}
+
+.coach_profil_msg {
+    text-align: center;
+    font-family: normal;
+    margin-bottom: 2em;
+}
+
+ /*************************bloc texte**********************/
+#bloc-texte{
+    border: solid 1px black;
+    border-radius:20px;
+    width:60%;
+    text-align:center;
+    padding: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+#bloc-texte h2{
+    text-align:center;
+    font-weight:bold;
+    font-size:2em;
+    margin-bottom: 1em;
+}
+#bloc-texte p{
+    font-size:2em;
+
+}
+#bloc-texte a{
+    font-size:1em ;
+    color:rgba(255, 72, 19, 1);
+}
+#bloc-texte a:hover{
+    color:black;
+}
 /*responsive menu*/
 
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 960px){
     /* #menu est le menu général */
-    #menu {
+    #menu{
         display:none;
     }
     .header-logo{
@@ -554,18 +782,29 @@ opacity: 0.7;
         text-align: center;
         width:100%;
     }
+    
+    li.identite {
+		width:45%;
+		padding-bottom:15px;
+	}
 
 }
 
 @media screen and (max-width:500px) {
-    .profil{width:96%; }
-    #profil {margin-left:0}
-
+    .profil {width:96%; 
+    }
+    #profil {margin-left:0
+    }
+    li.identite {
+		width:96%;
+		padding-bottom:15px;
+	}
+    
 }
 
 @media screen and (max-width:900px) {
-    .profil{width:48%;}
-
+    .profil {width:48%;
+    }
 }
 
 @media screen and (min-width: 1050px){
@@ -574,4 +813,5 @@ opacity: 0.7;
         margin: 250px 5%;
         width: 40%;
     }
+    
 }

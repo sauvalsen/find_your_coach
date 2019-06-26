@@ -26,6 +26,11 @@ class DefaultController extends AbstractController
 
         $repo = $this->getDoctrine()->getRepository(User::class);
         $user = $repo->findAcoach('ROLE_COACH');
+
+     //   $repo2 = $this->getDoctrine()->getRepository(Sport::class);
+    //    $sport = $repo2->findById(1);
+
+      
 //        $user = $userRepository->findAll();
         $form = $this->createForm(SearchSportType::class, $search, [
             'action' => $this->generateUrl('recherche')
@@ -43,7 +48,7 @@ class DefaultController extends AbstractController
         }
 
         return $this->render('front/default/index.html.twig',[
-            //'sports' => $searchRepository->findAll(),
+        //    'sport' => $sport,
             'form' => $form->createView(),
             'users' => $user
         ]);
