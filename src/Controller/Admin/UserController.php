@@ -44,16 +44,12 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $file = $form['file']->getData();
 
-            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-
-            $files = $form['avatar']->getData();
-            $entityManager = $this->getDoctrine()->getManager();
-
-            if (!empty($files))
+            if (!empty($file))
             {
-                //$file = $form->get('avatar2')->getData();
                 $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
                 try {
                     $file->move(
@@ -63,16 +59,16 @@ class UserController extends AbstractController
                 } catch (FileException $e) {
                     // ... handle exception if something happens during file upload
                 }
-
                 $user->setAvatar($fileName);
             } else {
 
-                $user->setAvatar('default-avatar.png');
+                $user->setAvatar($user->getAvatar());
             }
 
             $password = $request->request->get('password');
             $user->setPassword($passwordEncoder->encodePassword($user,$password));
             $user->setRoles(array($form->get('roles2')->getData()));
+            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
 
@@ -115,14 +111,10 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid())
         {
-            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $file = $form['file']->getData();
 
-            $files = $form['file']->getData();
-
-            if (!empty($files))
+            if (!empty($file))
             {
-                //$file = $user->getAvatar2();
-                $file = $form->get('file')->getData();
                 $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
                 try {
                     $file->move(
