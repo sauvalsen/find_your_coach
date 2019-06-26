@@ -22,10 +22,10 @@
                         <ul class="ul-nav">
                             <li class="accueil"><a href="{{ path('recherche') }}">Recherche</a></li>
                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                {% if is_granted('ROLE_ADMIN') %}
                                     <li class="back"><a href="{{ path('admin_homepage') }}">Back-office</a></li>
                                 {% endif %}
-                                {% if is_granted('ROLE_ADMIN') %}
+                                {% if is_granted('ROLE_COACH') %}
                                     <li class="resa"><a href="#">Gérer les réservation</a></li>
                                 {% endif %}
                                 {% if is_granted('ROLE_USER') %}
