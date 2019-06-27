@@ -1,6 +1,6 @@
 <?php
 namespace App\Form;
-
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
@@ -15,6 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use App\Form\Type\FileType as CustomFileType;
 
 class EditFrontUserType extends AbstractType
 {
@@ -39,10 +40,14 @@ class EditFrontUserType extends AbstractType
             ->add('tel', TelType::class, ['required'   => false])
             ->add('diplome', TextType::class, ['required'   => false])
             ->add('description', TextareaType::class, ['required'   => false])
-            ->add('avatar', FileType::class, [
-                'label' => 'Avatar (PNG,JPG)',
-                'data_class' => null,
-                'required' => false
+            ->add('avatar', HiddenType::class, [
+                "required" => false
+            ])
+            ->add('file', CustomFileType::class, [
+                "file_path" => 'avatar',
+                "directory" => (isset($options['upload_directory']))? $options['upload_directory'] : "",
+                "required" => false,
+                'label' => false,
             ])
             ->add('niveau', ChoiceType::class, [
                 'choices'  => [
@@ -61,6 +66,7 @@ class EditFrontUserType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'upload_directory' => ""
         ]);
     }
 }
