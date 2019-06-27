@@ -2,17 +2,22 @@
 namespace App\Controller\Front;
 
 use App\Entity\Calendrier;
+use App\Form\EditUserType;
 use App\Entity\User;
 use App\Form\EditFrontUserType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use App\Form\Type\FileType as CustomFileType;
 
 class CompteController extends AbstractController
 {
@@ -27,53 +32,61 @@ class CompteController extends AbstractController
     }
 
     /**
-     * @Route("/editmoncompte", name="compte_edit", methods={"GET","POST"})
+     * @Route("/compte/editmoncompte", name="compte_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, UserRepository $user): Response
+    public function edit(Request $request): Response
+    { 
+        $user = $this->getUser();
+    $form = $this->createForm(EditFrontUserType::class, $user, [
+        'upload_directory' => 'uploads/avatars/'
+    ]);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid())
     {
-        $user=$this->getUser();
-        $form = $this->createForm(EditFrontUserType::class, $user);
-        $form->handleRequest($request);
+        $file = $form['file']->getData();
 
-        if ($form->isSubmitted() && $form->isValid())
+        if (!empty($file))
         {
-            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-
-            $files2 = $form['avatar']->getData();
-
-            if (!empty($files2))
-            {
-                //$file = $user->getAvatar2();
-                $file = $form->get('avatar')->getData();
-                $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
-                try {
-                    $file->move(
-                        $this->getParameter('avatars_directory'),
-                        $fileName
-                    );
-                } catch (FileException $e) {
-                    // ... handle exception if something happens during file upload
-                }
-
-                $user->setAvatar($fileName);
-            } else {
-
-                $user->setAvatar($user->getAvatar());
+            $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+            try {
+                $file->move(
+                    $this->getParameter('avatars_directory'),
+                    $fileName
+                );
+            } catch (FileException $e) {
+                // ... handle exception if something happens during file upload
             }
+            $user->setAvatar($fileName);
+        } else {
 
-
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('compte_show', [
-                'id' => $user->getId(),
-            ]);
+            $user->setAvatar($user->getAvatar());
         }
 
-        return $this->render('front/compte/edit.html.twig', [
-            'user' => $user,
-            'form' => $form->createView(),
-        ]);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($user);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('compte_show');
+    }else{
+        $fileName = $user->getAvatar();
+
+        if (null !== $fileName && "" !== $fileName) {
+            $file = $this->getParameter('avatars_directory').'/'.$fileName;
+            if (file_exists($file)) {
+                $user->setFile(new File($file));
+            }
+        }
     }
+
+    return $this->render('front/compte/edit.html.twig', [
+        'user' => $user,
+        'form' => $form->createView(),
+    
+        ]);
+   
+}
+        
 
     private function generateUniqueFileName()
     {

@@ -45,7 +45,7 @@ class SportController extends AbstractController
             $entityManager->persist($sport);
             $entityManager->flush();
 
-            return $this->redirectToRoute('sport_index');
+            return $this->redirectToRoute('admin_sport_index');
         }
 
         return $this->render('admin/sport/new.html.twig', [
