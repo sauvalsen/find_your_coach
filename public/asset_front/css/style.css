@@ -284,14 +284,12 @@ nav {
 }
 /************** accueil bloc coach *******************/
 .fond-gris{
-    background-color:grey;
+    background-color:rgba(194, 187, 187, 0.452);
     padding-top:5%;
     padding-bottom:3%;
 }
  #big-bloc{
-    width:80%;
-    
-    
+    width:80%; 
 } 
 .identite{
     overflow:hidden;
@@ -621,8 +619,8 @@ opacity: 0.7;
     width:60%;
     text-align:center;
     padding: 2em;
-    margin-top: 2em;
-    margin-bottom: 2em;
+    margin-top:4em; 
+    margin-bottom:4em;
 }
 #bloc-texte h2{
     text-align:center;
