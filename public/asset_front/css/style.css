@@ -296,7 +296,8 @@ li.identite {
 	float:left;
 	width:23%;
 	margin-left:2%;	
-	height:auto;
+	height: 14.2em;
+    border-radius:0 0 5px 5px;
 }
 .bloc-coach{
 	margin-left: -2%;
@@ -863,6 +864,9 @@ h2 img {
     }
     #recherche{
         width: 80%;
+    }
+    .mentions-legales {
+        padding: 30px;
     }
 }
 
