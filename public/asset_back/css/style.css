@@ -212,3 +212,11 @@ table {
         right: 0;
     }
 }
+
+.ap-dropdown-menu{
+    overflow: hidden;
+}
+
+.ap-suggestion{
+    overflow: hidden;
+}
