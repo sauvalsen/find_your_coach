@@ -30,6 +30,16 @@ class CompteController extends AbstractController
     
         ]);
     }
+   /**
+     * @Route("/{id}", name="profil_show", methods={"GET"})
+     */
+    public function show(User $user): Response
+    {
+        
+        return $this->render('front/compte/profil.html.twig', [
+            'user'=>$user,
+        ]);
+    }
 
     /**
      * @Route("/compte/editmoncompte", name="compte_edit", methods={"GET","POST"})
@@ -87,6 +97,20 @@ class CompteController extends AbstractController
    
 }
         
+/**
+     * @Route("/effacercompte/", name="compte_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, User $user): Response
+    { 
+        $user = $this->getUser();
+        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($user);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('app_homepage');
+    }
 
     private function generateUniqueFileName()
     {

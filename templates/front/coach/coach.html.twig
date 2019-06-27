@@ -1,8 +1,7 @@
 {% for user in users %}
     <div>
         {{ user.prenom }}
-        {{ user.sport }}
-        <img src="{{ asset('/uploads/avatars/' ~ user.avatar) }}" alt="Avatar de {{ user.nom }}" />
+         <a href="{{ path('profil_show', {'id': user.id})}}"> <img src="{{ asset('/uploads/avatars/' ~ user.avatar) }}" alt="Avatar de {{ user.nom }}" /></a>
     </div>
 {% else %}
     Aucun coach disponible.

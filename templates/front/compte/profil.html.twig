@@ -15,39 +15,38 @@
         
         <div id="id-coach">
             <div>
-                <img id='pict-coach'  src="{{ asset('/uploads/avatars/' ~ app.user.avatar) | imagine_filter('my_thumb')  }}" alt="Avatar de {{ app.user.nom }}">
+                <img id='pict-coach'  src="{{ asset('/uploads/avatars/' ~ user.avatar) | imagine_filter('my_thumb')  }}" alt="Avatar de {{ user.nom }}">
             </div>
 
-            <p><span id="coachPrenomProfil">{{ app.user.prenom }} {{ app.user.nom }}</span></p>
-               <p> <img id='localization'  src="{{ asset('asset_front/img/localization.png' ) }}" alt="localization"> {{ app.user.ville }}</p> 
-        </div
+            <p><span id="coachPrenomProfil">{{ user.prenom }} {{ user.nom }}</span></p>
+               <p> <img id='localization'  src="{{ asset('asset_front/img/localization.png' ) }}" alt="localization"> {{user.ville }}</p> 
+        </div>
 
 
         <div id='formation'>
          <p><img id='localization'  src="{{ asset('asset_front/img/logo-formation.png' ) }}" alt="Formation"></p> 
             <p>Formation</p>
-            <p>{{ app.user.diplome }}</p>
+            <p>{{ user.diplome }}</p>
         </div>
 
         <div id='experience'>
            <p><img id='niveau'  src="{{ asset('asset_front/img/niveau.png' ) }}" alt="Niveau"></p>
             <p>Niveau</p>
-          <p>{{ app.user.niveau }}</p>
+          <p>{{user.niveau }}</p>
         </div>
     </div>
 
 
     <div id='mot-coach'>
-    {{ app.user.description }}
+    {{ user.description }}
 
     </div>
 
 
-<div id="mymap" data-lat="{{ app.user.lat }}" data-lng="{{app.user.lng }}"></div>
+<div id="mymap" data-lat="{{ user.lat }}" data-lng="{{user.lng }}"></div>
 </div>
 
-    
-<a href="{{ path('compte_edit')}}">Editer mon profil</a>
+
 
 
 {% endblock %}
