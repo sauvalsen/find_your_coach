@@ -312,7 +312,8 @@ li.identite {
 	float:left;
 	width:23%;
 	margin-left:2%;	
-	height:auto;
+	height: 14.2em;
+    border-radius:0 0 5px 5px;
 }
 
 .bloc-coach{
@@ -720,6 +721,9 @@ opacity: 0.7;
     }
     #recherche{
         width: 80%;
+    }
+    .mentions-legales {
+        padding: 30px;
     }
 }
 
