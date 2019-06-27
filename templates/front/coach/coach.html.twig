@@ -1,8 +1,16 @@
 {% for user in users %}
-    <div>
-        {{ user.prenom }}
-        {{ user.sport }}
-        <img src="{{ asset('/uploads/avatars/' ~ user.avatar) }}" alt="Avatar de {{ user.nom }}" />
+    <div id="etiquette">
+        <li class="identite">
+            <div class="nom-prenom"><a href="#" title="">
+                    <p>{{ user.prenom }}</p>
+                        {{ user.sport }}
+                </a>
+            </div>
+            <a href="#" title=""><img src="{{ asset('/uploads/avatars/' ~ user.avatar) | imagine_filter('my_thumb')  }}" alt="Avatar de {{ user.prenom }}"></a>
+        </li>
+
+
+
     </div>
 {% else %}
     Aucun coach disponible.
