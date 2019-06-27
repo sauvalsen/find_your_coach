@@ -15,8 +15,10 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class CalendrierFrontController extends AbstractController
 {
-     /**
-     * @Route("/new", name="front_calendrier_index", methods={"GET","POST"})
+  
+
+    /**
+     * @Route("/new", name="calendrier_index", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {  
@@ -32,6 +34,8 @@ class CalendrierFrontController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($calendrier);
             $entityManager->flush();
+            
+            return $this->redirectToRoute('calendrier_index');
         }
  
 
@@ -39,6 +43,16 @@ class CalendrierFrontController extends AbstractController
         return $this->render('front/calendrier_front/index.html.twig', [
             'calendrier' => $calendrier,
             'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="admin_calendrier_show", methods={"GET"})
+     */
+    public function show(Calendrier $calendrier): Response
+    {
+        return $this->render('admin/calendrier/show.html.twig', [
+            'calendrier' => $calendrier,
         ]);
     }
 }    

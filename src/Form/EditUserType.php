@@ -98,6 +98,7 @@ class EditUserType extends AbstractType
                 'expanded' => true,
                 'multiple' => true,
             ])
+            
         ;
     }
 
