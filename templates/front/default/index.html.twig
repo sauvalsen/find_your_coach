@@ -11,46 +11,48 @@
         <div class="intro-form" >
             <div id="recherche">
                 <p class="po">RÉSERVE TON COACH SPORTIF</p>
-                <p id="sma">Plus de x sports et x coachs dans toute la France</p>
+                <p id="sma">Plus de 80 sports et 250 coachs dans toute la France</p>
                 {{ include('front/default/_form.html.twig') }}
             </div>
         </div>
-        <div id="coach-parfait" class="wrap">
-            <h2>Trouvez le coach parfait ! :)</h2>
-            <div class="parfait parfait-rousse">
-                <img src="{{ asset('asset_front/img/rousse-cercle.png') }}">
-            </div>
+    </div>
+    <div id="coach-parfait" class="wrap">
+        <h2>Trouvez le coach parfait ! :)</h2>
+        <div class="parfait parfait-rousse">
+            <img src="{{ asset('asset_front/img/rousse-cercle.png') }}">
         </div>
-        <div class="parfait parfait-texte">
-        <p>Avec Find your Coach trouvez le coach sportif qui vous correspond le mieux. Choisissez selon votre sport bien sûr (plus de 100 sports sont disponibles !), mais également selon votre budget et votre situation géographique. Reservez facilement un cours de sport à domicile ou dans un lieu proposé par le coach.<br>Alors, prêt pour l'entrainement ?</p>
-        <a href="{{ path('app_register') }}">S'incrire</a>
-        </div>
-        <div class="clear"></div>
-        <div class="fond-gris">
-            <div id="big-bloc" class="wrap">
-                    <ul class="bloc-coach">
-                    {% for user in users %}
-                        <li class="identite">
-                            <div class="nom-prenom"><a href="#" title="">
+    </div>
+    <div class="parfait parfait-texte">
+    <p>Avec Find your Coach trouvez le coach sportif qui vous correspond le mieux. Choisissez selon votre sport bien sûr (plus de 100 sports sont disponibles !), mais également selon votre budget et votre situation géographique. Reservez facilement un cours de sport à domicile ou dans un lieu proposé par le coach.<br>Alors, prêt pour l'entrainement ?</p>
+    <a href="{{ path('app_register') }}">S'incrire</a>
+    </div>
+    <div class="clear"></div>
+    <div class="fond-gris">
+        <div id="big-bloc" class="wrap">
+                <ul class="bloc-coach">
+                {% for user in users %}
+                    <li class="identite">
+                        <a href="#" title="">
+                            <div class="identite-nom">
                                 <p>{{ user.prenom }}</p>
-                                {# <p>{{ sport.sport }}</p> #}
-                                </a>
                             </div>
-                    <a href="#" title=""><img src="{{ asset('/uploads/avatars/' ~ user.avatar) | imagine_filter('my_thumb')  }}" alt="Avatar de {{ user.nom }}"></a>
-                        
-                            {% else %}
-                                Aucune donnée disponible.
-                            {% endfor %}
-                        </li>
-                    </ul>
-                <div class="clear"></div>
-            </div>
+                            <div class="identite-avatar">
+                                <img src="{{ asset('/uploads/avatars/' ~ user.avatar) | imagine_filter('my_thumb')  }}" alt="Avatar de {{ user.nom }}">
+                            </div>
+                        </a>
+                        {% else %}
+                            Aucune donnée disponible.
+                        {% endfor %}
+                    </li>
+                </ul>
+            <div class="clear"></div>
         </div>
-        
+    </div>
 
-        <div id="bloc-texte" class="wrap">
-            <h2>Pourquoi choisir Find Your Coach ?</h2>
-             <p> Find your Coach est la plus grande plateforme de mise en relation de coach avec des particuliers<br>Vous êtes coach, <a href="...">inscrivez vous</a> et mettez vos compétences et disponibilités en ligne,<br>Vous êtes sportifs, <a href="">inscrivez-vous</a> et choisissez votre sport et votre ville, laissez-vous guider !</p></a> 
-        </div>
+
+    <div id="bloc-texte" class="wrap">
+        <h2>Pourquoi choisir Find Your Coach ?</h2>
+         <p> Find your Coach est la plus grande plateforme de mise en relation de coach avec des particuliers<br>Vous êtes coach, <a href="...">inscrivez vous</a> et mettez vos compétences et disponibilités en ligne,<br>Vous êtes sportifs, <a href="">inscrivez-vous</a> et choisissez votre sport et votre ville, laissez-vous guider !</p></a>
+    </div>
 
 {% endblock %}

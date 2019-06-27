@@ -43,6 +43,6 @@ security:
         - { path: ^/public, roles: ROLE_USER }
 
     role_hierarchy:
-        ROLE_COACH:       ROLE_USER
-        ROLE_ADMIN:       ROLE_COACH
-        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_COACH:    ROLE_USER
+        ROLE_ADMIN:    ROLE_COACH
+        ROLE_SUPER_ADMIN:    [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
