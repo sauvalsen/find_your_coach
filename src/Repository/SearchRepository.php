@@ -35,17 +35,28 @@ class SearchRepository extends ServiceEntityRepository
         ;
     }
     */
-    public function findAcoach($value)
-    {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.roles LIKE :val')
-            ->setParameter('val', '%"'.$value.'"%')
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(5)
-            ->getQuery()
-            ->getResult()
-            ;
-    }
+//    public function findAcoach($value)
+//    {
+//        return $this->createQueryBuilder('u')
+//            ->andWhere('u.roles LIKE :val')
+//            ->setParameter('val', '%"'.$value.'"%')
+//            ->orderBy('u.id', 'ASC')
+//            ->setMaxResults(5)
+//            ->getQuery()
+//            ->getResult()
+//            ;
+//    }
+//    public function findAcoachSportVille($value,$value2,$value3)
+//    {
+//        return $this->createQueryBuilder('u')
+//            ->andWhere('u.roles LIKE :val')
+//            ->setParameter('val', '%"'.$value.$value2.$value3.'"%')
+//            ->orderBy('u.id', 'ASC')
+//            ->setMaxResults(5)
+//            ->getQuery()
+//            ->getResult()
+//            ;
+//    }
 
 
     /*

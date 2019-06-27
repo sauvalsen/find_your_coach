@@ -58,6 +58,16 @@ class SearchSportType extends AbstractType
                "required" =>false,
                "placeholder" => 'Choisissez votre ville'
            ])
+//           ->add('ville', EntityType::class, [
+//               'class' => User::class,
+//               // uses the User.username property as the visible option string
+//               'choice_label' => 'ville',
+//               'attr' => ['class' => 'inputville'],
+//               'translation_domain' => 'Default',
+//               'required' => false,
+//               "placeholder" => 'Choisissez votre ville',
+//               'multiple' => false,
+//           ])
 
            ->add('Envoyer', SubmitType::class, [
                'attr' => ['class' => 'btrecherche'],])

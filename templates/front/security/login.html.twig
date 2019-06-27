@@ -13,6 +13,11 @@
                                 {{ error.messageKey|trans(error.messageData, 'security') }}
                             </div>
                         {% endif %}
+                        {% for message in app.flashes('success') %}
+                            <div class="flash-notice">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
 
                         <h1 class="titre-formulaire h3 mb-3 font-weight-bold">Connexion</h1>
 
