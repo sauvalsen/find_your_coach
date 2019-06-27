@@ -2,6 +2,7 @@
 
 {% block title %}Editer mon compte{% endblock %}
 {% block stylesheets %}
+ <link rel="stylesheet" href="{{ asset('asset_front/css/style2.css')}}">
     <style> #test{ padding-top:110px; }</style>
 {{ parent() }}{% endblock %}
 
@@ -12,7 +13,7 @@
     {% block content %}<div id="test">
         {{ include('front/coach/_form.html.twig', {'button_label': 'Update'}) }}
         </div>
-        <a href="{{ path('compte_show') }}">Retour a mon profil</a>
+        <div id="retourprofil"><a href="{{ path('compte_show') }}">Retour a mon profil</a></div>
     {% endblock %}
 
 

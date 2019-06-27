@@ -19,8 +19,8 @@
             </div>
 
             <p><span id="coachPrenomProfil">{{ app.user.prenom }} {{ app.user.nom }}</span></p>
-               <p> <img id='localization'  src="{{ asset('asset_front/img/localization.png' ) }}" alt="localization"> {{ app.user.ville }}</p> 
-        </div
+               <p> <img id='localization'  src="{{ asset('asset_front/img/localization.png' ) }}" alt="localization"> {{app.user.ville }}</p> 
+        </div>
 
 
         <div id='formation'>
@@ -32,7 +32,7 @@
         <div id='experience'>
            <p><img id='niveau'  src="{{ asset('asset_front/img/niveau.png' ) }}" alt="Niveau"></p>
             <p>Niveau</p>
-          <p>{{ app.user.niveau }}</p>
+          <p>{{app.user.niveau }}</p>
         </div>
     </div>
 
@@ -46,8 +46,7 @@
 <div id="mymap" data-lat="{{ app.user.lat }}" data-lng="{{app.user.lng }}"></div>
 </div>
 
-    
-<a href="{{ path('compte_edit')}}">Editer mon profil</a>
+<div id="lienedit"><a href="{{ path('compte_edit') }}">Éditer mon compte</a></div>
 
 
 {% endblock %}

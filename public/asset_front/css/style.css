@@ -25,6 +25,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
     line-height: 1;
+    font-size:16px;
 }
 ol, ul {
     list-style: none;
@@ -59,6 +60,7 @@ table {
 
 :root {
     --Couleur-principale: #00B37E;
+    --Couleur-orange: rgba(255, 72, 19, 1);
 }
 
 /***************** Style CSS ***********************/
@@ -103,10 +105,14 @@ nav {
 .ul-nav li a, .button {
     text-decoration: none;
     color:white;
-    border: solid 1px white;
+    
     border-radius: 15px;
     margin-left: 10px;
     padding: 5px;
+}
+.ul-nav li a:hover{
+    color:rgba(255, 72, 19, 1);
+    color:var(--Couleur-orange);
 }
 
 #hamburger, #hamburger-content {
@@ -221,6 +227,10 @@ nav {
     background-color:var(--Couleur-principale);
     color:white;
 }
+.btrecherche:hover{
+    color:rgba(255, 72, 19, 1);
+    color:var(--Couleur-orange);
+}
 .po{
     text-align: center;
     font-weight: bold;
@@ -234,24 +244,31 @@ nav {
     margin-top:10px;
     margin-bottom:10px;
 }
-/***************coach parfait***************/
-
-#coach-parfait h2{
-    text-align:center;
+/*************** coach parfait ***************/
+#coach-parfait{
+    
+    width:80%;
+}
+.parfait h2{
     font-size:30px;
-    padding:50px 0 50px 0;
-    margin-top:50px;
     font-weight: bold;
 }
-/**************accueil bloc coach*******************/
 .parfait {
-    margin-left:-2%;
-    width:48%;
-    float:left;
-    margin-bottom:64px;
+    width:100%;
+    padding:50px 0;
+}
+.parfait-rousse{
+    overflow: hidden;
+   width: 30%;
+   float: left;
 }
 .parfait-texte{
-    margin-top: 20px;
+    width: 70%;
+    padding-left: 4%;
+    overflow: hidden;
+}
+.parfait-rousse img{
+    width: 100%;
 }
 .parfait p{
     margin:20px 0 50px 0;
@@ -277,43 +294,54 @@ nav {
 
  #big-bloc{
     width:80%;
-} 
+}
+
 .identite{
     overflow:hidden;
 }
+
 .identite img{
     width:100%;
     border-radius:0 0 5px 5px; 
 }
+
 .identite img:hover{
     -ms-transform: scale(1.2); /* IE 9 */
     -webkit-transform: scale(1.2); /* Safari 3-8 */
     transform: scale(1.2); 
     transition: transform 1s ease;
-    border-radius:0 0 5px 5px;  z-index: 100;
+    border-radius:0 0 5px 5px;
 }
+
 li.identite {
 	float:left;
 	width:23%;
 	margin-left:2%;	
-	height: 14.2em;
-    border-radius:0 0 5px 5px;
+	height:auto;
 }
+
 .bloc-coach{
 	margin-left: -2%;
-	margin-top: 40px;	
+		
 }
-.nom-prenom{ 
+
+.identite-nom{
     background-color:var(--Couleur-principale);
     border-radius: 10px 10px 0 0;
     margin-top: -3px;
 	text-align: center;
     padding-top: 5px;
-    
+    color: white;
 }
-.nom-prenom a{
+
+.identite-nom a{
 	color:white;
 	font-weight: bold;
+}
+
+.identite-avatar{
+    overflow: hidden;
+    border-radius:0 0 5px 5px;
 }
 /*Inscription - connexion - contact*/
 
@@ -467,33 +495,30 @@ li.identite {
 footer{
     background-color: var(--Couleur-principale);
 }
-.reseaux i{
-    padding-top:20px;
-    padding-right: 30px;
-    float:left;
-}
-#colones{
-    margin-left:-2%;
-    text-align: center; 
-}
+
+
 .colone{
+    padding-top:40px;
+    width:50%;  
     float:left;
-    width:48%;
-    margin-left: 2%;    
+    text-align:center;
 }
-.reseaux{
-    margin-top:8%;
-    margin-left:30px;
-    color:white;
+
+.colone2{
+    width:50%;
+    float:left;
+    text-align:center;
 }
-.propos-colone{
-    margin-top: 8%;
-    color:white;
+
+.logo-reseau{
+    font-size: 3em;
+    color: white;
+    margin:0 0.5em 0 0.5em;
 }
-.logo-bas{
-    padding-right: 15px;
-    float:right;
+.logo-reseau:hover{
+    color: var(--Couleur-orange);
 }
+
 
 /*bottom bar*/
 .bottom-bar {
@@ -502,23 +527,22 @@ footer{
     text-align: center;
 }
 
-.bottom-bar p{
-    padding-top: 10px;
-   color:black;
+.copyright{
+    display: inline;
 }
 
-ul .nav-footer{
-    border:0;
-    
+.lien-mentions-legales-footer{
+    padding-left: 5%;
 }
 
-.nav-footer li {
-    display: inline-block;
-   
+.lien-mentions-legales-footer a,
+.lien-nous-contacter-footer a{
+    font-size: 16px;
 }
 
-.nav-footer li a {
-    border:0px;color:black;
+.lien-mentions-legales-footer a:hover,
+.lien-nous-contacter-footer a:hover{
+    color: var(--Couleur-orange);
 }
 
 /********** Calendrier*******************/
@@ -539,6 +563,70 @@ label.calendrier_sportif{
 
 
 }
+/************ Profil *******************/
+
+
+#contenue{
+margin-top:10%;
+width:33.333333333333333333%;
+float:left;
+padding:10px;
+}
+
+.wrap{
+	margin:0 auto;
+	max-width: 1200px;
+	width:100%;
+}
+
+#profil{margin-left:-2%;}
+
+.profil{width:31.333333333333%; height:100px; margin-left:2%;float:left;position: relative;color:rgb(37, 26, 26);}
+
+
+div.profil.test{
+    background-color:coral;
+}
+
+.nom{font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+color:rgb(37, 26, 26);
+}
+
+.profil {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+max-width: 300px;
+margin: auto;
+text-align: center;
+}
+
+.nom {
+color: grey;
+font-size: 18px;
+}
+
+.description{
+max-width: 300px;
+margin: auto;
+text-align: center;
+}
+
+.prenom {
+color: grey;
+font-size: 18px;
+}
+
+a {
+list-style: none !important;
+text-decoration: none !important;
+font-size: 22px;
+color: black;
+}
+
+
+#edit_front_user_submit:hover{ opacity: 0.3;
+}
+
 
  /*************************bloc texte**********************/
 #bloc-texte{
@@ -567,6 +655,8 @@ label.calendrier_sportif{
 #bloc-texte a:hover{
     color:black;
 }
+
+
 /*responsive menu*/
 
 @media screen and (max-width: 960px){
@@ -591,8 +681,11 @@ label.calendrier_sportif{
         text-align: center;
         width:100%;
     }
-    
-  
+    .colone2{
+        width:100%;
+        padding:3em 0 3em 0;
+          
+    }
     li.identite {
 		width:45%;
 		padding-bottom:15px;
@@ -602,11 +695,6 @@ label.calendrier_sportif{
         padding-left:10%;
         text-align:center;
     }
-    .parfait-texte{
-        margin-left:4%;
-    }
-    
-
 }
 
 @media screen and (max-width:500px) {
@@ -617,8 +705,7 @@ label.calendrier_sportif{
     li.identite {
 		width:96%;
 		padding-bottom:15px;
-	}
-    
+    }  
 }
 
 @media screen and (max-width:900px) {
@@ -627,8 +714,17 @@ label.calendrier_sportif{
     #recherche{
         width: 80%;
     }
-    .mentions-legales {
-        padding: 30px;
-    }
 }
 
+@media screen and (min-width: 1050px){
+    .formulaire {
+        float: right;
+        margin: 250px 5%;
+        width: 40%;
+    }
+    
+}
+.bas{
+    height:300px;
+    background-color: white;
+}
