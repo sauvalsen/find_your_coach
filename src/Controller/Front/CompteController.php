@@ -33,13 +33,13 @@ class CompteController extends AbstractController
    /**
      * @Route("/{id}", name="profil_show", methods={"GET"})
      */
-    public function show(User $user): Response
-    {
-        
+     public function show(User $user): Response
+     {
+        $user = $this->getUser();
         return $this->render('front/compte/profil.html.twig', [
-            'user'=>$user,
-        ]);
-    }
+            'user'=>$user
+         ]);
+     }
 
     /**
      * @Route("/compte/editmoncompte", name="compte_edit", methods={"GET","POST"})
