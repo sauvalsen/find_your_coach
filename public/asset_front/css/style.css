@@ -25,6 +25,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
     line-height: 1;
+    font-size:16px;
 }
 ol, ul {
     list-style: none;
@@ -59,6 +60,7 @@ table {
 
 :root {
     --Couleur-principale: #00B37E;
+    --Couleur-orange: rgba(255, 72, 19, 1);
 }
 
 /***************** Style CSS ***********************/
@@ -103,10 +105,14 @@ nav {
 .ul-nav li a, .button {
     text-decoration: none;
     color:white;
-    border: solid 1px white;
+    
     border-radius: 15px;
     margin-left: 10px;
     padding: 5px;
+}
+.ul-nav li a:hover{
+    color:rgba(255, 72, 19, 1);
+    color:var(--Couleur-orange);
 }
 
 #hamburger, #hamburger-content {
@@ -228,6 +234,10 @@ nav {
     background-color:var(--Couleur-principale);
     color:white;
 }
+.btrecherche:hover{
+    color:rgba(255, 72, 19, 1);
+    color:var(--Couleur-orange);
+}
 .po{
     text-align: center;
     font-weight: bold;
@@ -248,20 +258,32 @@ nav {
 
 #coach-parfait h2{
     text-align:center;
+/*************** coach parfait ***************/
+#coach-parfait{
+    
+    width:80%;
+}
+.parfait h2{
+>>>>>>> 2e3bc9a57e7af9657fad6eb2ec76bdc5f47ea24b
     font-size:30px;
-    padding:50px 0 50px 0;
-    margin-top:50px;
     font-weight: bold;
 }
-/**************accueil bloc coach*******************/
 .parfait {
-    margin-left:-2%;
-    width:48%;
-    float:left;
-    margin-bottom:64px;
+    width:100%;
+    padding:50px 0;
+}
+.parfait-rousse{
+    overflow: hidden;
+   width: 30%;
+   float: left;
 }
 .parfait-texte{
-    margin-top: 20px;
+    width: 70%;
+    padding-left: 4%;
+    overflow: hidden;
+}
+.parfait-rousse img{
+    width: 100%;
 }
 .parfait p{
     margin:20px 0 50px 0;
@@ -287,21 +309,25 @@ nav {
 
  #big-bloc{
     width:80%;
-} 
+}
+
 .identite{
     overflow:hidden;
 }
+
 .identite img{
     width:100%;
     border-radius:0 0 5px 5px;
 }
+
 .identite img:hover{
     -ms-transform: scale(1.2); /* IE 9 */
     -webkit-transform: scale(1.2); /* Safari 3-8 */
     transform: scale(1.2);
     transition: transform 1s ease;
-    border-radius:0 0 5px 5px;  z-index: 100;
+    border-radius:0 0 5px 5px;
 }
+
 li.identite {
 	float:left;
 	width:23%;
@@ -310,21 +336,29 @@ li.identite {
 	height: 14.2em;
     border-radius:0 0 5px 5px;
 }
+
 .bloc-coach{
 	margin-left: -2%;
 	margin-top: 40px;
 }
-.nom-prenom{ 
+
+.identite-nom{
     background-color:var(--Couleur-principale);
     border-radius: 10px 10px 0 0;
     margin-top: -3px;
 	text-align: center;
     padding-top: 5px;
-    
+    color: white;
 }
-.nom-prenom a{
+
+.identite-nom a{
 	color:white;
 	font-weight: bold;
+}
+
+.identite-avatar{
+    overflow: hidden;
+    border-radius:0 0 5px 5px;
 }
 /*Inscription - connexion - contact*/
 
@@ -478,33 +512,30 @@ li.identite {
 footer{
     background-color: var(--Couleur-principale);
 }
-.reseaux i{
-    padding-top:20px;
-    padding-right: 30px;
-    float:left;
-}
-#colones{
-    margin-left:-2%;
-    text-align: center; 
-}
+
+
 .colone{
+    padding-top:40px;
+    width:50%;  
     float:left;
-    width:48%;
-    margin-left: 2%;    
+    text-align:center;
 }
-.reseaux{
-    margin-top:8%;
-    margin-left:30px;
-    color:white;
+
+.colone2{
+    width:50%;
+    float:left;
+    text-align:center;
 }
-.propos-colone{
-    margin-top: 8%;
-    color:white;
+
+.logo-reseau{
+    font-size: 3em;
+    color: white;
+    margin:0 0.5em 0 0.5em;
 }
-.logo-bas{
-    padding-right: 15px;
-    float:right;
+.logo-reseau:hover{
+    color: var(--Couleur-orange);
 }
+
 
 /*bottom bar*/
 .bottom-bar {
@@ -513,23 +544,22 @@ footer{
     text-align: center;
 }
 
-.bottom-bar p{
-    padding-top: 10px;
-   color:black;
+.copyright{
+    display: inline;
 }
 
-ul .nav-footer{
-    border:0;
-    
+.lien-mentions-legales-footer{
+    padding-left: 5%;
 }
 
-.nav-footer li {
-    display: inline-block;
-   
+.lien-mentions-legales-footer a,
+.lien-nous-contacter-footer a{
+    font-size: 16px;
 }
 
-.nav-footer li a {
-    border:0px;color:black;
+.lien-mentions-legales-footer a:hover,
+.lien-nous-contacter-footer a:hover{
+    color: var(--Couleur-orange);
 }
 
 /********** Calendrier*******************/
@@ -542,212 +572,67 @@ label.calendrier_sportif{
     display:none;
 }
 /************ Profil *******************/
-#localization{
-    width:50px;
-}
 
-#niveau{
-    width: 60px;
-}
 
 #contenue{
 margin-top:10%;
-
+width:33.333333333333333333%;
 float:left;
 padding:10px;
 }
 
-
-
-/* #profil{margin-left:-2%;} */
-
-
-
-/********************************************************************************************************************************************/
-#id-coach, #formation, #experience {
-    width: 33%;
-    vertical-align: top;
-    display: inline-block;
+.wrap{
+	margin:0 auto;
+	max-width: 1200px;
+	width:100%;
 }
 
-#wrap{
-    padding-top: 100px;
+#profil{margin-left:-2%;}
+
+.profil{width:31.333333333333%; height:100px; margin-left:2%;float:left;position: relative;color:rgb(37, 26, 26);}
+
+
+div.profil.test{
+    background-color:coral;
 }
 
-#contentRegistered #id-coach, #contentRegistered #formation, #contentRegistered #experience {
-    width: 33%;
+.nom{font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+color:rgb(37, 26, 26);
 }
 
-.comp span{
-    padding: 2px 17px 4px;
-    border: 2px solid #f096cc;
-    margin: 9px 3px;
-    color: #f096cc;
-    font-weight: bold;
-    border-radius: 19px;
-    display: inline-block;
+.profil {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+max-width: 300px;
+margin: auto;
+text-align: center;
 }
 
-.comp span a{
-    color: #f096cc;
+.nom {
+color: grey;
+font-size: 18px;
 }
 
-h3{
-    margin: 15px 0 5px !important;
+.description{
+max-width: 300px;
+margin: auto;
+text-align: center;
 }
 
-
-
-#mot-coach a {
-    border-radius :10px 10px 0 0;
-    font-weight: bold;
-    text-decoration: underline;
-    color: white;
-    padding:100px;
+.prenom {
+color: grey;
+font-size: 18px;
 }
 
-#id-coach p img.etoiles{
-    width: 125px;
-    margin-top: 5px;
+a {
+list-style: none !important;
+text-decoration: none !important;
+font-size: 22px;
+color: black;
 }
 
 
-
-
-#pict-coach, .pict-coach {
-    border-radius: 50%;
-    width: 140px;
-    height:140px;
-    margin: 0 auto 10px;
-    display: block;
-}
-
-
-
-#top-coach {
-    padding: 50px 0 40px 0;
-    max-width: 1003px;
-    margin: auto;
-}
-
-#id-coach p, .coachBDP p {
-    width: 100%;
-    margin: auto;
-    text-align: center;
-}
-
-#id-coach p img, .coachBDP p img {
-    position: relative;
-    width: 14px;
-    top: 3px;
-}
-
-#id-coach p:nth-of-type(1), .coachBDP p:nth-of-type(1) {
-    font-size: 22px;
-    font-weight: bold;
-}
-
-#id-coach p:nth-of-type(3), .coachBDP p:nth-of-type(3) {
-    margin-top: 5px;
-}
-
-#experience p, #formation p {
-    width: 100%;
-   padding-top:10px;
-    margin: 0 5px 20px 70px;
-    font-size: 20px;
-}
-
-#localization{
-    width:50px;
-}
-
-#commande a {
-    display: inline-block;
-    font-family: normal;
-    margin-top: 15px;
-    background-color: rgba(236, 133, 195, 0.86);
-    padding: 7px 14px;
-    border-radius: 2px;
-    color: white;
-}
-
-
-#experience p:nth-of-type(2), #formation p:nth-of-type(2) {
-    
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-#experience p:nth-of-type(1) img, #formation p:nth-of-type(1) img {
-    font-size: 22px;
-    position: relative;
-    width: 30px;
-    top: 9px;
-}
-
-#mot-coach {
-  border-radius:10px 10px 0 0;
-
-    width: 70%;
-    margin: 40px auto;
-    color: white;
-    padding: 50px 50px 77px;
-    background-color: #373837;
-    border: 30px solid rgb(0, 179, 126);
-}
-
-#contentRegistered #mot-coach {
-    width: 80%;
-    margin-bottom: 3em;
-}
-
-section {
-    margin-bottom: 0;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 75px;
-}
-
-h2 img {
-    position: relative;
-    width: 40px;
-    top: 19px;
-    left: -7px;
-}
-
-#mot-coach p {
-    width: 80%;
-    margin: auto;
-}
-
-#decouvrir {
-    text-align: center;
-}
-
-#decouvrir, #pagination {
-    width: 49.5%;
-    display: inline-block;
-    vertical-align: top;
-    padding: 45px 0 55px;
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-#decouvrir img {
-    display: block;
-    width: 180px;
-    height: auto;
-    margin: 0 auto 29px;
-}
-
-#decouvrir a {
-    background-color: rgba(236, 133, 195, 0.86);
-    padding: 7px 25px;
-    border-radius: 2px;
-    color: white;
+#edit_front_user_submit:hover{ opacity: 0.3;
 }
 
 #ville{
@@ -830,6 +715,8 @@ h2 img {
 }
 #wrap-recherche{
 }
+
+
 /*responsive menu*/
 
 @media screen and (max-width: 960px){
@@ -854,8 +741,11 @@ h2 img {
         text-align: center;
         width:100%;
     }
-    
-  
+    .colone2{
+        width:100%;
+        padding:3em 0 3em 0;
+          
+    }
     li.identite {
 		width:45%;
 		padding-bottom:15px;
@@ -869,7 +759,6 @@ h2 img {
     .parfait-texte{
         margin-left:4%;
     }
-
 }
 
 @media screen and (max-width:500px) {
@@ -880,8 +769,7 @@ h2 img {
     li.identite {
 		width:96%;
 		padding-bottom:15px;
-	}
-    
+    }  
 }
 
 @media screen and (max-width:900px) {
@@ -889,9 +777,6 @@ h2 img {
     }
     #recherche{
         width: 80%;
-    }
-    .mentions-legales {
-        padding: 30px;
     }
 }
 
@@ -901,118 +786,9 @@ h2 img {
         margin: 250px 5%;
         width: 40%;
     }
-
-    @media screen
-and (max-width: 1024px) {
-
-
-
-
-  
-    #experience p:nth-of-type(2), #formation p:nth-of-type(2) {
-        margin-bottom: 15px;
-    }
-
-    #experience p, #formation p {
-        margin: 80px 0 5px 500px;
-    }
-
- 
-
-    #top-coach {
-        padding: 0px 0 70px 100px;
-    }
-
-
-    #formation, #contentRegistered #formation, #experience, #contentRegistered #experience {
-        width: 100%;
-    }
-
-    #mot-coach {
-        padding: 24px 0 50px;
-    }
-
-    #mot-coach p {
-        width: 80%;
-    }
-
-
-}
-
-
-@media screen
-and (max-width: 768px) {
-
-
- 
-
-
-    #mot-coach {
-        padding: 3px 0 30px;
-        border: none;
-    }
-
-    #mot-coach, #contentRegistered #mot-coach {
-        width: 90%;
-    }
-}
-
-
-@media screen
-and (max-width: 568px) {
-    #id-coach
-    {
-        width:100%
-    }
-
- 
-
-    .wrapper{
-        width: 360px;
-        height: 202.5px;
-    }
-
-   
-
-    #formation, #experience, #contentRegistered #formation, #contentRegistered #experience {
-        width: 50%;
-        margin-top: 23px;
-    }
-
-    #experience, #contentRegistered #experience {
-        margin-left:100px;
-        margin-top: 66px;
-        width: 50%;
-    }
-
- 
-
-    #mot-coach p {
-        width: 88%;
-        font-size: 0.9em;
-    }
-
-
-
-
-}
-
-@media screen
-and (max-width: 413px) {
-    #id-coach
-    {
-        width:100%
-    }
-    .wrapper{
-        width: 300px;
-        height: 168.75px;
-    }
-
-
-    #mot-coach{
-        width: 99%;
-    }
-
-
     
+}
+.bas{
+    height:300px;
+    background-color: white;
 }

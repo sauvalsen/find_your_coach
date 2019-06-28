@@ -1,11 +1,14 @@
 {% for user in users %}
     <div id="etiquette">
         <li class="identite">
-            <div class="nom-prenom"><a href="#" title="">
+            <div class="nom-prenom">
+                <a href="#" title="">
                     <p>{{ user.prenom }}</p>
                 </a>
             </div>
-            <a href="#" title=""><img src="{{ asset('/uploads/avatars/' ~ user.avatar) | imagine_filter('my_thumb')  }}" alt="Avatar de {{ user.prenom }}"></a>
+            <a>
+                <img src="{{ asset('/uploads/avatars/' ~ user.avatar) | imagine_filter('my_thumb')  }}" alt="Avatar de {{ user.prenom }}">
+            </a>
         </li>
 
 

@@ -2,7 +2,8 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}{% endblock %}</title>
+        <title>{% block title %}{% endblock %} Coaching sportif</title>
+        <meta name="description" content="Find your Coach est le site idéal pour mettre en relation les sportifs et les coachs dans tous les sports,inscription gratuite et immédiate">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -57,30 +58,22 @@
                     <div class="clear"> </div>
         <footer class="page-footer">
             <div class="wrap">
-                <div id="colones">
-                    <div class="colone">
-                        <div class="reseaux">
-                            <a href="https://www.instagram.com/findyourcoachs/?hl=fr" target="_blank"><i class="logo-reseau fab fa-instagram fa-3x"></i></a>
-                            <a href="https://www.facebook.com/Find-Your-Coach-470953867013088/" target="_blank"><i class="logo-reseau fab fa-facebook-square fa-3x"></i></a>
-                        </div>
-                    </div>
-                    {# <div class="colone">
-                         <div class="propos-colone">
-                            <h3>A propos de nous</h3>
-                            <p> Find your Coach est la plus grande plateforme de mise en relation de coach avec des particuliers<br>Vous êtes coach, <a href="...">inscrivez vous</a> et mettez vos compétences et disponibilités en ligne,<br>Vous êtes sportifs, <a href="">inscrivez-vous</a>et choisissez votre sport et votre ville, laissez-vous guider !</p></a> 
-                         </div> 
-                    </div> #}
-                    <div class="colone">
-                        <a href="{{ path('app_homepage') }}"><div class="logo-bas"><img src="{{ asset('asset_front/img/logo_court_orange_blanc.png') }}"></div></a>
-                    </div>
-                    <div class="clear"> </div>
+                <div class="colone">
+                    <a href="https://www.instagram.com/findyourcoachs/?hl=fr" target="_blank"><i class="logo-reseau fab fa-instagram fa-3x"></i></a>
+                    <a href="https://www.facebook.com/Find-Your-Coach-470953867013088/" target="_blank"><i class="logo-reseau fab fa-facebook-square fa-3x"></i></a> 
                 </div>
+                <div class="colone2">
+                    <a href="{{ path('app_homepage') }}"><div class="logo-bas"><img src="{{ asset('asset_front/img/logo_court_orange_blanc.png') }}"></div></a>
+                </div>    
            </div>
+           <div class="clear"> </div>
             <div class="bottom-bar">
                 <p class="copyright">©2019 FindYourCoach.fr</p>
                 <span class="lien-mentions-legales-footer"><a href="{{ path('mentions_legales') }}">Mentions légales&nbsp;</a>|</span>
                 <span class="lien-nous-contacter-footer"><a href="{{ path('contact') }}">Nous contacter</a></span>
-            </div> 
+            </div>
+            <div class="bas">
+            </div>
         </footer>
             
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
