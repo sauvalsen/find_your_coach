@@ -6,14 +6,8 @@
                     <p>{{ user.prenom }}</p>
                 </a>
             </div>
-            <a>
-                <img src="{{ asset('/uploads/avatars/' ~ user.avatar) | imagine_filter('my_thumb')  }}" alt="Avatar de {{ user.prenom }}">
-            </a>
+            <a href="{{ path('profil_show', {'id': user.id}) }}"><img src="{{ asset('/uploads/avatars/' ~ user.avatar) }}" alt="Avatar de {{ user.prenom }}" /></a>
         </li>
-
-
-
-    </div>
 {% else %}
     Aucun coach disponible.
 {% endfor %}

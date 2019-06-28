@@ -1,0 +1,412 @@
+#id-coach, #formation, #experience {
+    width: 33%;
+    vertical-align: top;
+    display: inline-block;
+}
+#lienedit  a:hover{
+    color:rgba(255, 72, 19, 1);
+    color:var(--Couleur-orange);
+}
+
+#retourprofil  a:hover{
+    color:rgba(255, 72, 19, 1);
+    color:var(--Couleur-orange);
+}
+
+#wrap{
+    padding-top: 30px;
+}
+
+#contentRegistered #id-coach, #contentRegistered #formation, #contentRegistered #experience {
+    width: 32.5%;
+}
+
+.comp span{
+    padding: 2px 17px 4px;
+    border: 2px solid #f096cc;
+    margin: 9px 3px;
+    color: #f096cc;
+    font-weight: bold;
+    border-radius: 19px;
+    display: inline-block;
+}
+
+.comp span a{
+    color: #f096cc;
+}
+
+h3{
+    margin: 15px 0 5px !important;
+}
+
+
+
+#mot-coach a {
+    font-weight: bold;
+    text-decoration: underline;
+    color: white;
+}
+
+#id-coach p img.etoiles{
+    width: 125px;
+    margin-top: 5px;
+}
+
+.h2villes{
+    font-size:38px;
+    text-align: center;
+    margin: 10% 0 25px 0;
+}
+
+
+.titleH2 {
+    font-size: 2.4em;
+    text-align: center;
+    margin: 3em 0 1em 0;
+    font-weight: 100;
+}
+
+#pict-coach, .pict-coach {
+    border-radius: 50%;
+    width: 140px;
+    height:140px;
+    margin: 0 auto 10px;
+    display: block;
+}
+
+#breadcrumbs {
+    font-size: 0.9em;
+    margin: 0;
+    text-align: center;
+    color: #7a7b7a;
+}
+
+#breadcrumbs a {
+    color: #7a7b7a;
+}
+
+#top-coach {
+    padding: 100px 0 40px 0;
+    max-width: 1003px;
+    margin: auto;
+}
+
+#id-coach p, .coachBDP p {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+#id-coach p img, .coachBDP p img {
+    position: relative;
+    width: 14px;
+    top: 3px;
+}
+
+#id-coach p:nth-of-type(1), .coachBDP p:nth-of-type(1) {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#id-coach p:nth-of-type(3), .coachBDP p:nth-of-type(3) {
+    margin-top: 5px;
+}
+
+#experience p, #formation p {
+    width: 100%;
+    text-align: center;
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+#commande a {
+    display: inline-block;
+    font-family: normal;
+    margin-top: 15px;
+    background-color: rgba(236, 133, 195, 0.86);
+    padding: 7px 14px;
+    border-radius: 2px;
+    color: white;
+}
+
+#experience p:nth-of-type(2), #formation p:nth-of-type(2) {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 38px;
+}
+
+#experience p:nth-of-type(1) img, #formation p:nth-of-type(1) img {
+    position: relative;
+    width: 90px;
+    top: 9px;
+}
+
+#mot-coach {
+    width: 70%;
+    margin: 40px auto;
+    color: white;
+    padding: 20px 0 77px;
+    background-color: #373837;
+    border: 30px solid #00B37E;
+    border-radius: 5px;
+}
+
+#contentRegistered #mot-coach {
+    width: 80%;
+    margin-bottom: 3em;
+}
+
+section {
+    margin-bottom: 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 75px;
+}
+
+h2 img {
+    position: relative;
+    width: 40px;
+    top: 19px;
+    left: -7px;
+}
+
+#mot-coach p {
+    width: 80%;
+    margin: auto;
+}
+
+#decouvrir {
+    text-align: center;
+}
+
+#decouvrir, #pagination {
+    width: 49.5%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 45px 0 55px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#decouvrir img {
+    display: block;
+    width: 180px;
+    height: auto;
+    margin: 0 auto 29px;
+}
+
+#decouvrir a {
+    background-color: rgba(236, 133, 195, 0.86);
+    padding: 7px 25px;
+    border-radius: 2px;
+    color: white;
+}
+
+#ville{
+    text-align: center;
+    margin: 2em 0 3em 0;
+}
+
+#ville a {
+    background-color: rgba(236, 133, 195, 0.86);
+    padding: 7px 25px;
+    border-radius: 2px;
+    color: white;
+}
+
+@media screen
+and (max-width: 1024px) {
+    #contact_form_coach div {
+        width: 90%;
+        padding: 0px 5%;
+    }
+
+    #contact_form_coach div input {
+        width: 96%;
+    }
+
+    #contact_form_coach textarea {
+        width: 98.5%;
+    }
+
+    .coachBDP {
+        width: 45%;
+        padding: 2% 2% 10% 2%;
+    }
+
+    #experience p:nth-of-type(2), #formation p:nth-of-type(2) {
+        margin-bottom: 15px;
+    }
+
+    #experience p, #formation p {
+        margin: 0 0 5px 0;
+    }
+
+    #breadcrumbs {
+        margin-top: -21px;
+        text-align: center;
+    }
+
+    #top-coach {
+        padding: 100px 0 70px 0;
+    }
+
+    #id-coach, #contentRegistered #id-coach {
+        width: 100%;
+        margin-bottom: 50px;
+        padding-top: 34px;
+    }
+
+    #formation, #contentRegistered #formation, #experience, #contentRegistered #experience {
+        width: 49.5%;
+    }
+
+    #mot-coach {
+        padding: 24px 0 50px;
+    }
+
+    #mot-coach p {
+        width: 80%;
+    }
+
+    #pagination {
+        font-size: 1em;
+    }
+
+    #pagination p a {
+        margin: 22px 12px;
+    }
+
+    h2{
+        font-size: 24px;
+    }
+
+}
+
+@media screen
+and (max-width: 768px) {
+    #formCc {
+        margin-top: 20%;
+        font-size: 2em;
+    }
+
+    #pagination {
+        margin: 35px 0;
+    }
+
+    #decouvrir, #contentRegistered #decouvrir, #pagination {
+        width: 100%;
+    }
+
+    #decouvrir, #contentRegistered #decouvrir {
+        padding: 85px 0;
+    }
+
+    #mot-coach {
+        padding: 3px 0 30px;
+        border: none;
+    }
+
+    #mot-coach, #contentRegistered #mot-coach {
+        width: 90%;
+    }
+}
+
+
+@media screen
+and (max-width: 568px) {
+    #formCc{
+        font-size: 20px;
+    }
+
+    #contact_form_coach {
+        padding: 0% 4% 12%;
+    }
+
+    #contact_form_coach div {
+        width: 98%;
+        padding: 0px 1%;
+    }
+
+    #contact_form_coach div input {
+        width: 95%;
+    }
+
+    #contact_form_coach textarea {
+        width: 98%;
+    }
+
+    .titleH2, .titleH{
+        font-size:20px;
+    }
+
+    .h2villes {
+        font-size: 20px ;
+    }
+
+    .wrapper{
+        width: 360px;
+        height: 202.5px;
+    }
+
+    .coachBDP {
+        width: 90%;
+    }
+
+    h2 img {
+        width: 30px;
+        top: 12px;
+    }
+
+    #formation, #experience, #contentRegistered #formation, #contentRegistered #experience {
+        width: 100%;
+        margin-top: 23px;
+    }
+
+    #experience, #contentRegistered #experience {
+        margin-top: 66px;
+    }
+
+    #decouvrir, #contentRegistered #decouvrir, #pagination {
+        width: 100%;
+    }
+
+    #decouvrir, #contentRegistered #decouvrir {
+        padding: 85px 0;
+    }
+
+    h2 {
+        margin: 0 0 30px;
+    }
+
+    #mot-coach p {
+        width: 88%;
+        font-size: 0.9em;
+    }
+
+    #mot-coach h2 {
+        font-size: 22px;
+    }
+
+    #contact_form_coach div label {
+        font-size: 19px;
+    }
+
+}
+
+@media screen
+and (max-width: 413px) {
+
+    .wrapper{
+        width: 300px;
+        height: 168.75px;
+    }
+
+
+    #mot-coach{
+        width: 99%;
+    }
+
+}
