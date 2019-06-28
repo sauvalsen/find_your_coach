@@ -242,7 +242,7 @@ nav {
     margin-bottom:10px;
 }
 #resultrecherche{
-    padding:2%;
+    padding:1%;
 }
 /***************coach parfait***************/
 
@@ -822,8 +822,13 @@ h2 img {
     color:black;
 }
 #titrerecherche{
-    font-size: 20px;
-    margin:20px;
+    font-size: 30px;
+    margin-bottom:20px;
+}
+#esprecherche{
+    height:120px;
+}
+#wrap-recherche{
 }
 /*responsive menu*/
 

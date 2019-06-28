@@ -53,8 +53,8 @@ class SearchSportType extends AbstractType
                    $role = "ROLE_COACH";
                    return $er->createQueryBuilder('u')
                        ->andWhere('u.roles LIKE :roles')
-                       ->setParameter('roles', '%' .$role. '%')
-                       ->distinct();
+                       ->setParameter('roles', '%' .$role. '%');
+//                       ->distinct();
                },
                'choice_label' =>'ville',
                'attr' => ['id' => 'inputviller'],
