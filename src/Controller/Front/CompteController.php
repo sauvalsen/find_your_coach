@@ -31,11 +31,10 @@ class CompteController extends AbstractController
         ]);
     }
    /**
-     * @Route("/{id}", name="profil_show", methods={"GET"})
+     * @Route("/profil={id}", name="profil_show", methods={"GET"})
      */
      public function show(User $user): Response
      {
-        $user = $this->getUser();
         return $this->render('front/compte/profil.html.twig', [
             'user'=>$user
          ]);
