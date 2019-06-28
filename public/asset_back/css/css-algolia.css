@@ -1,0 +1,28 @@
+.navbar.navbar-inverse{
+    margin-bottom: 0!important;
+}
+
+.page-header{
+    border-bottom: none;
+}
+
+.breadcrumb-line{
+    background-color: white;
+}
+
+.breadcrumb {
+    margin: 0;
+    color: black;
+    padding: 10px 0 10px 15px;
+    border-top: solid #ddd 1px;
+    border-bottom: solid #ddd 1px;
+}
+
+.breadcrumb li a i, .breadcrumb li a{
+    color: black;
+}
+
+.icon-home2{
+    font-size: 12px;
+    margin-right: 10px;
+}

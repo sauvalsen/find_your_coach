@@ -2,13 +2,16 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}{% endblock %} Coaching sportif</title>
+        <title>{% block title %}FindYourCoach{% endblock %} </title>
         <meta name="description" content="Find your Coach est le site idéal pour mettre en relation les sportifs et les coachs dans tous les sports,inscription gratuite et immédiate">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         <link rel="stylesheet" href="{{ asset('vendor/SlickNav/dist/slicknav.css') }}"/>
+        <link rel="icon" href="{{ asset('public/asset_front/img/favicon.ico') }}"/>
+        {# <link rel="shortcut icon" type="image/png" href="{{ asset('public/asset_front/img/logo.png') }}"/> #}
         <link href="{{ asset('asset_front/css/style.css') }}" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
@@ -72,8 +75,7 @@
                 <span class="lien-mentions-legales-footer"><a href="{{ path('mentions_legales') }}">Mentions légales&nbsp;</a>|</span>
                 <span class="lien-nous-contacter-footer"><a href="{{ path('contact') }}">Nous contacter</a></span>
             </div>
-            <div class="bas">
-            </div>
+            
         </footer>
             
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
