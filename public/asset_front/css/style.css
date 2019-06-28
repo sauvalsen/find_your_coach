@@ -199,6 +199,14 @@ nav {
 #search_sport_ville{
     width:100%;
 }
+#search_sport_sportre{
+    width: 50%;
+    float: right;
+}
+#search_sport_villere{
+    width: 50%;
+    float: right;
+}
 #recherche{
     width: 40%;
     margin:auto;
@@ -218,7 +226,6 @@ nav {
     display: inline-block;
     border-color: transparent;
     height: 40px;
-
 }
 .btrecherche{
     border-radius: 3px;
@@ -244,6 +251,14 @@ nav {
     font-size: 15px;
     margin-top:10px;
     margin-bottom:10px;
+}
+#resultrecherche{
+    padding:1%;
+}
+/***************coach parfait***************/
+
+#coach-parfait h2{
+    text-align:center;
 }
 /*************** coach parfait ***************/
 #coach-parfait{
@@ -311,13 +326,13 @@ nav {
 
 .identite img{
     width:100%;
-    border-radius:0 0 5px 5px; 
+    border-radius:0 0 5px 5px;
 }
 
 .identite img:hover{
     -ms-transform: scale(1.2); /* IE 9 */
     -webkit-transform: scale(1.2); /* Safari 3-8 */
-    transform: scale(1.2); 
+    transform: scale(1.2);
     transition: transform 1s ease;
     border-radius:0 0 5px 5px;
 }
@@ -325,13 +340,15 @@ nav {
 li.identite {
 	float:left;
 	width:23%;
-	margin-left:2%;	
+	margin:1%;
 	height:auto;
+	height: 14.2em;
+    border-radius:0 0 5px 5px;
 }
 
 .bloc-coach{
 	margin-left: -2%;
-		
+	margin-top: 40px;
 }
 
 .identite-nom{
@@ -563,6 +580,15 @@ footer{
 label.calendrier_sportif{
     display:none;
 }
+
+
+
+
+/* #profil{margin-left:-2%;} */
+
+
+
+
 /************ Profil *******************/
 
 
@@ -627,6 +653,49 @@ color: black;
 #edit_front_user_submit:hover{ opacity: 0.3;
 }
 
+#ville{
+    text-align: center;
+    margin: 2em 0 3em 0;
+}
+
+#ville a {
+    background-color: rgba(236, 133, 195, 0.86);
+    padding: 7px 25px;
+    border-radius: 2px;
+    color: white;
+}
+
+#containerecherche{
+    width: 70%;
+    margin: auto;
+}
+
+.coach_profil_msg a {
+    text-decoration: underline;
+}
+
+#pagination {
+    margin: 0;
+    padding-top: 15px
+}
+
+#pagination p {
+    margin: auto;
+    text-align: center;
+}
+
+#pagination p a {
+    display: inline-block;
+    background-color: #F8F9FA;
+    padding: 4px 14px;
+    margin: 22px 42px;
+}
+
+.coach_profil_msg {
+    text-align: center;
+    font-family: normal;
+    margin-bottom: 2em;
+}
 
  /*************************bloc texte**********************/
 #bloc-texte{
@@ -654,6 +723,15 @@ color: black;
 }
 #bloc-texte a:hover{
     color:black;
+}
+#titrerecherche{
+    font-size: 30px;
+    margin-bottom:20px;
+}
+#esprecherche{
+    height:120px;
+}
+#wrap-recherche{
 }
 
 
@@ -689,11 +767,15 @@ color: black;
     li.identite {
 		width:45%;
 		padding-bottom:15px;
-    }
+        margin:1%;
+	}
     .parfait{
         width:90%;
         padding-left:10%;
         text-align:center;
+    }
+    .parfait-texte{
+        margin-left:4%;
     }
 }
 

@@ -58,7 +58,7 @@ class EditFrontUserType extends AbstractType
                 'expanded' => false,
                 'multiple' => false,
             ])
-            ->add('submit', SubmitType::class)
+            ->add('Valider', SubmitType::class)
         ;
     }
 

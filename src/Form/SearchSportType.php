@@ -27,6 +27,7 @@ class SearchSportType extends AbstractType
                // uses the User.username property as the visible option string
                 'choice_label' => 'sport',
                 'attr' => ['class' => 'inputsport'],
+                'attr' => ['class' => 'inputsportr'],
                 'translation_domain' => 'Default',
                 'required' => false,
                 "placeholder" => 'Choisissez votre sport',
@@ -53,8 +54,10 @@ class SearchSportType extends AbstractType
                    return $er->createQueryBuilder('u')
                        ->andWhere('u.roles LIKE :roles')
                        ->setParameter('roles', '%' .$role. '%');
+//                       ->distinct();
                },
                'choice_label' =>'ville',
+               'attr' => ['id' => 'inputviller'],
                "required" =>false,
                "placeholder" => 'Choisissez votre ville'
            ])

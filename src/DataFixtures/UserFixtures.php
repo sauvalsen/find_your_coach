@@ -2,7 +2,10 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Search;
+use App\Entity\Sport;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use App\DataFixtures\SportFixtures;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\User;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -47,7 +50,7 @@ class UserFixtures extends Fixture
         $user1->setAdresse('11 rue Du General');
         $user1->setCodePostal('76000');
         $user1->setVille('Rouen');
-        $user1->setTel('06-30-45-65-85');
+        $user1->setTel('06 30 45 65 85');
         $user1->setDescription('Bonjour, je suis Pierre Delarue pratiquant de yoga');
         $user1->setAvatar('img');
         $user1->setSexe('Homme');
@@ -86,7 +89,7 @@ class UserFixtures extends Fixture
         $user3->setAdresse('32 avenue des chênes');
         $user3->setCodePostal('75000');
         $user3->setVille('Paris');
-        $user3->setTel('06.58.65.32.14');
+        $user3->setTel('06 58 65 32 14');
         $user3->setDescription('Bonjour, je suis Maxime ! :)');
         $user3->setAvatar('img');
         $user3->setSexe('Homme');
@@ -145,7 +148,7 @@ class UserFixtures extends Fixture
         $coach->setTel('06 58 98 32 14');
         $coach->setDiplome('BPJEPS');
         $coach->setDescription('Coucou, je suis Pierre Legrand coach à domicile ! :)');
-        $coach->setAvatar('f204052990b60c6852ca17a3e5fb4d0c.png');
+        $coach->setAvatar('cacafb7de8522abfd8bfa6db71c7228f.png');
         $coach->setSexe('Homme');
         $manager->persist($coach);
         $this->addReference("coach",$coach);
@@ -165,7 +168,7 @@ class UserFixtures extends Fixture
         $coach2->setTel('06 58 98 32 14');
         $coach2->setDiplome('BPJEPS');
         $coach2->setDescription('Salut, je suis Louis Gras coach de fitness !');
-        $coach2->setAvatar('bb542c7afea335223deb8fcdc6f3c994.png');
+        $coach2->setAvatar('49be4b80250867be24ff28f192b3454a.png');
         $coach2->setSexe('Homme');
         $manager->persist($coach2);
         $this->addReference("coach2",$coach2);
@@ -180,11 +183,11 @@ class UserFixtures extends Fixture
         $coach3->setPrenom('Claire');
         $coach3->setAdresse('32 rue des marins');
         $coach3->setCodePostal('76000');
-        $coach3->setVille('lille');
+        $coach3->setVille('Lille');
         $coach3->setTel('06 89 98 90 12');
         $coach3->setDiplome('BPJEPS');
         $coach3->setDescription('Bonjour, je suis Claire Martin coach de yoga !');
-        $coach3->setAvatar('592f7e83379a118a56b99e550fe6684f.png');
+        $coach3->setAvatar('5107f3fc520c38fd503f26eb9caa0c9b.png');
         $coach3->setSexe('femme');
         $manager->persist($coach3);
         $this->addReference("coach3",$coach3);
@@ -203,7 +206,7 @@ class UserFixtures extends Fixture
         $coach4->setTel('07 89 98 00 56');
         $coach4->setDiplome('BPJEPS');
         $coach4->setDescription('Salut, je suis Henry coach de Judo');
-        $coach4->setAvatar('09f89d2665f10d0306d28a86d5a097e4.png');
+        $coach4->setAvatar('062ebd27375401ffabe9d117a629d7f8.png');
         $coach4->setSexe('homme');
         $manager->persist($coach4);
         $this->addReference("coach4",$coach4);
@@ -222,7 +225,7 @@ class UserFixtures extends Fixture
         $coach5->setTel('06 76 43 90 17');
         $coach5->setDiplome('BPJEPS');
         $coach5->setDescription('Coucou, je suis Elise Grandjacques coach de pilate ! :)');
-        $coach5->setAvatar('1cd0904ac8836e863ae5eb50f9e3947f.png');
+        $coach5->setAvatar('90dae6b3f30e5d581b24137821a0250e.png');
         $coach5->setSexe('femme');
         $manager->persist($coach5);
         $this->addReference("coach5",$coach5);
@@ -240,7 +243,7 @@ class UserFixtures extends Fixture
         $coach6->setTel('07 36 43 90 17');
         $coach6->setDiplome('BPJEPS');
         $coach6->setDescription('Coucou, je suis Stéphanie Leblond coach de fitness ! :)');
-        $coach6->setAvatar('760946b17d51251edd86554dc95816af.png');
+        $coach6->setAvatar('0fa957f223d7201f655968ba67cbe1eb.png');
         $coach6->setSexe('femme');
         $manager->persist($coach6);
         $this->addReference("coach6",$coach6);
@@ -257,7 +260,7 @@ class UserFixtures extends Fixture
         $coach7->setTel('06 45 25 69 85');
         $coach7->setDiplome('BPJEPS'); 
         $coach7->setDescription('Coucou, je suis Olivier Laurans coach en running ! :)');
-        $coach7->setAvatar('56a88a3e415e1a2d492005d916e153ee.png');
+        $coach7->setAvatar('0338570768048878df8865474725eca0.png');
         $coach7->setSexe('homme');
         $manager->persist($coach7);
         $this->addReference("coach7",$coach7);
@@ -269,16 +272,32 @@ class UserFixtures extends Fixture
         $coach8->setNom('Lenoir');
         $coach8->setPrenom('Christine');
         $coach8->setAdresse('5 impasse des lauriers');
-        $coach8->setCodePostal('76000');
+        $coach8->setCodePostal('38000');
         $coach8->setVille('Grenoble');
         $coach8->setTel('07 58 96 32');
         $coach8->setDiplome('BPJEPS'); 
         $coach8->setDescription('Coucou, je suis Christien Lenoir de Streching');
-        $coach8->setAvatar('15c57a5cf20637b2f36437bd2356f877.png');
+        $coach8->setAvatar('9fd91f53a9951a8d47e8f68dc71b6584.png');
         $coach8->setSexe('Femme');
         $manager->persist($coach8);
         $this->addReference("coach8",$coach8);
 
+        $coach9= new User();
+        $coach9->setEmail('coachchrstine@mail.fr');
+        $coach9->setRoles(array('ROLE_COACH','ROLE_USER'));
+        $coach9->setPassword($this->passwordEncoder->encodePassword($coach8, 'password'));
+        $coach9->setNom('Leblanc');
+        $coach9->setPrenom('Hervé');
+        $coach9->setAdresse('5 rue des moulins');
+        $coach9->setCodePostal('38000');
+        $coach9->setVille('Grenoble');
+        $coach9->setTel('07 58 96 38');
+        $coach9->setDiplome('BPJEPS');
+        $coach9->setDescription('Coucou, je suis Christien Lenoir de Streching');
+        $coach9->setAvatar('fd2411d23ad693a581191efe57b94bd1.jpeg');
+        $coach9->setSexe('Femme');
+        $manager->persist($coach9);
+        $this->addReference("coach9",$coach9);
 
         $manager->flush();
     }
